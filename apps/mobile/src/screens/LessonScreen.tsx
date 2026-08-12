@@ -8,25 +8,16 @@ import { ScreenShell } from '../components/ScreenShell';
 import { palette, radius, spacing, subjectColor, type } from '../theme/colors';
 import { subjectById } from '../data/subjects';
 import { Icon } from '../components/illustrations/icons';
-
-const NUMERIC_ANSWER = /^-?\d+(\.\d+)?$/;
+import { isAnswerCorrect as sharedIsAnswerCorrect } from '../utils/answer-matching';
 
 /**
  * Kids type numbers with or without thousands separators (spaces or commas,
- * e.g. "600405" / "600 405" / "600,405"), all should count as correct.
- * Non-numeric answers keep exact (trimmed, case-insensitive) matching so
- * spacing stays meaningful for word answers.
+ * e.g. "600405" / "600 405" / "600,405"), and list answers with or without
+ * spaces after commas ("-8,-3,0,5" / "-8, -3, 0, 5") — all should count as
+ * correct. Word answers keep trimmed, case-insensitive matching.
  */
 function isAnswerCorrect(given: string, expected: string): boolean {
-  const norm = (s: string) => s.trim().toLowerCase();
-  const stripSeparators = (s: string) => s.replace(/[\s,]/g, '');
-
-  const givenDigits = stripSeparators(given);
-  const expectedDigits = stripSeparators(expected);
-  if (NUMERIC_ANSWER.test(givenDigits) && NUMERIC_ANSWER.test(expectedDigits)) {
-    return givenDigits === expectedDigits;
-  }
-  return norm(given) === norm(expected);
+  return sharedIsAnswerCorrect(given, expected);
 }
 
 /**
