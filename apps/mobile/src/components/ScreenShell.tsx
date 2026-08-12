@@ -3,12 +3,15 @@ import { palette } from '../theme/colors';
 import type { ChildProfile } from '../types/curriculum';
 import type { RootScreen } from '../navigation/types';
 import { AppHeader } from './AppHeader';
+import { SlimBar } from './SlimBar';
+import { ResponsiveColumn } from './ResponsiveColumn';
 
 /**
- * Shared screen shell: renders the AppHeader OUTSIDE the ScrollView so the
- * header stays fixed/sticky at the top while the screen content scrolls
- * underneath. Every logged-in screen uses this so navigation + the active
- * child's profile are always one glance away.
+ * Shared screen shell:
+ *   - AppHeader: sticky top bar (logo → home, kid name + Year).
+ *   - SlimBar: non-sticky utility row (Settings / Sign out), rendered at the
+ *     top of the scroll content so it scrolls away with the page.
+ *   - ScrollView: the screen body.
  */
 export function ScreenShell({
   active,
@@ -26,7 +29,8 @@ export function ScreenShell({
   child?: ChildProfile | null;
   isGuest?: boolean;
   onHome: () => void;
-  onProgress: () => void;
+  /** Reserved — kept for API compatibility; navigation is via the logo. */
+  onProgress?: () => void;
   onSetup?: () => void;
   onSignOut?: () => void;
   contentContainerStyle?: StyleProp<ViewStyle>;
@@ -35,20 +39,15 @@ export function ScreenShell({
 }) {
   return (
     <View style={styles.root}>
-      <AppHeader
-        active={active}
-        child={child}
-        isGuest={isGuest}
-        onHome={onHome}
-        onProgress={onProgress}
-        onSetup={onSetup}
-        onSignOut={onSignOut}
-      />
+      <AppHeader child={child} isGuest={isGuest} onHome={onHome} />
       <ScrollView
         contentContainerStyle={[styles.content, contentContainerStyle]}
         style={[styles.scroll, style]}
       >
-        {children}
+        <ResponsiveColumn>
+          <SlimBar onSetup={onSetup} onSignOut={onSignOut} />
+          {children}
+        </ResponsiveColumn>
       </ScrollView>
     </View>
   );

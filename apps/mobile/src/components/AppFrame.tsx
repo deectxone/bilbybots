@@ -1,39 +1,20 @@
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { palette } from '../theme/colors';
 
 /**
- * Constrains the app to a centered phone-width column on large screens.
- *
- * BilbyBots is a mobile-first app. On a wide desktop browser the raw layout
- * stretches edge-to-edge and looks broken; this wrapper centres it in a
- * clean, calm backdrop (like HiBob/IXL/Khan present their app UIs) with a
- * subtle shadow so it reads as a proper product, not a stretched page.
- * On phones/tablets it is effectively full-width, so nothing changes.
+ * Full-width adaptive frame. On any screen (phone → desktop) the app fills
+ * the viewport width — no fixed column. Individual screens wrap their content
+ * in a centered responsive column (see ScreenShell / ResponsiveColumn) so
+ * wide monitors still get a comfortable reading width without a hard cap.
  */
 export function AppFrame({ children }: { children: React.ReactNode }) {
-  return (
-    <View style={styles.backdrop}>
-      <View style={styles.frame}>{children}</View>
-    </View>
-  );
+  return <View style={styles.frame}>{children}</View>;
 }
 
 const styles = StyleSheet.create({
-  backdrop: {
-    flex: 1,
-    backgroundColor: palette.slate + '1f',
-    alignItems: 'center',
-  },
   frame: {
     flex: 1,
     width: '100%',
-    maxWidth: 520,
     backgroundColor: palette.cream,
-    ...Platform.select({
-      web: {
-        boxShadow: '0 0 40px rgba(34, 38, 59, 0.12)',
-      },
-      default: {},
-    }),
   },
 });

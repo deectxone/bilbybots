@@ -1,18 +1,17 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import type { ChildProfile, Topic } from '../types/curriculum';
-import { buildWeekPlan } from '../data/content';
+import { buildPlan, schoolWeekFromDate } from '../planner';
 import { TopicCard } from '../components/TopicCard';
-import { BadgeChip } from '../components/BadgeChip';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
-import { palette, radius, spacing, gradients } from '../theme/colors';
+import { palette, spacing, type } from '../theme/colors';
 import { subjectById } from '../data/subjects';
 
 /**
- * Facade of the weekly plan produced by the adaptive-pacing planner
- * (`docs/specs/adaptive-pacing.md`). A real plan snapshot is an immutable,
- * versioned row served from Postgres.
+ * This week's topics from the adaptive-pacing planner
+ * (`docs/specs/adaptive-pacing.md`). The plan snapshot is versioned and
+ * deterministic; `joinWeek` will come from the child's enrollment once a
+ * parent can set it (defaults to a full-year join = ideal pace).
  */
 export function WeekPlanScreen({
   child,
@@ -31,10 +30,13 @@ export function WeekPlanScreen({
   onSetup: () => void;
   onSignOut?: () => void;
 }) {
-  const allTopics = buildWeekPlan(child.year);
-  const topics = allTopics.filter((t) => child.subjects.includes(t.subject));
+  const plan = buildPlan({ year: child.year, subjects: child.subjects, joinWeek: 1 });
+  const currentWeek = schoolWeekFromDate();
+  const thisWeek = plan.weeks.find((w) => w.week === currentWeek) ?? plan.weeks[plan.weeks.length - 1];
+  const topics = (thisWeek?.entries ?? []).map((e) => e.topic);
   const done = new Set(completedTopicIds);
   const completedThisWeek = topics.filter((t) => done.has(t.id)).length;
+  const compact = plan.compactedSubjects.length > 0;
 
   // Label the plan by what's actually shown this week, not just the first
   // subject the parent happened to toggle, those can disagree once more
@@ -54,21 +56,12 @@ export function WeekPlanScreen({
       onSetup={onSetup}
       onSignOut={onSignOut}
     >
-      <LinearGradient
-        colors={[...gradients.hero]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.hero}
-      >
+      <View style={styles.welcome}>
         <Text style={styles.greeting}>G'day, {child.name}!</Text>
         <Text style={styles.sub}>
-          Year {child.year} · {planLabel} plan · Term 1
+          Year {child.year} · {planLabel} plan · Week {currentWeek}
         </Text>
-        <View style={styles.coverageRow}>
-          <BadgeChip label="Coverage 100% tracked" />
-          <BadgeChip label={`${completedThisWeek}/${topics.length || 0} done this week`} earned={completedThisWeek > 0} />
-        </View>
-      </LinearGradient>
+      </View>
 
       <Text style={styles.section}>This week</Text>
 
@@ -95,16 +88,11 @@ export function WeekPlanScreen({
 const styles = StyleSheet.create({
   scroll: { backgroundColor: palette.cream },
   container: { paddingBottom: spacing.xl, flexGrow: 1 },
-  hero: {
-    marginHorizontal: spacing.xl,
-    borderRadius: radius.lg,
-    padding: spacing.xl,
-  },
-  greeting: { fontSize: 26, fontWeight: '900', color: palette.white },
-  sub: { fontSize: 14, color: palette.white, opacity: 0.9, marginTop: spacing.xs },
-  coverageRow: { flexDirection: 'row', gap: spacing.sm, marginTop: spacing.lg, flexWrap: 'wrap' },
+  welcome: { paddingHorizontal: spacing.xl, marginTop: spacing.lg },
+  greeting: { fontSize: type.display, fontWeight: '900', color: palette.ink },
+  sub: { fontSize: 14, color: palette.slate, marginTop: spacing.xs },
   section: {
-    fontSize: 20,
+    fontSize: type.h3,
     fontWeight: '800',
     color: palette.ink,
     marginTop: spacing.xl,

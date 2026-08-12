@@ -5,6 +5,7 @@ import { BilbyLogo } from '../components/BilbyLogo';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { Icon, type IconName } from '../components/illustrations/icons';
 import { HeroPark } from '../components/HeroPark';
+import { ResponsiveColumn } from '../components/ResponsiveColumn';
 import { isAuthConfigured } from '../utils/supabase';
 import { signInWithGoogle } from '../utils/auth';
 
@@ -68,6 +69,7 @@ export function SignInScreen({
         <BilbyLogo markSize={40} textSize={22} tone="dark" />
       </View>
       <ScrollView contentContainerStyle={styles.root} style={styles.scroll} bounces={false}>
+        <ResponsiveColumn>
         <HeroPark>
           <View style={styles.heroSpacer} />
           <View style={styles.heroText}>
@@ -177,6 +179,7 @@ export function SignInScreen({
         Practice questions are original, NAPLAN-style items, not official NAPLAN
         tests, and no ACARA affiliation.
       </Text>
+        </ResponsiveColumn>
       </ScrollView>
     </View>
   );
