@@ -26,6 +26,8 @@ year's syllabus into the remaining weeks** so 100% of topics are still covered
 - **Account sync** — family, child profile, completed topics, badges and NAPLAN
   results mirrored to Supabase (RLS-scoped, idempotent push/pull)
 - **Weekly plan** track: plan → lesson → topic completion
+- **Adaptive-pacing planner** — deterministic weekly plans with a 100%-coverage
+  validator and depth compaction for late joiners (`src/planner/`, unit-tested)
 - **NAPLAN-style practice** (Years 3/5/7/9): reading, writing, language
   conventions and numeracy runners with original items
 - **Contact form** backed by a Supabase table
