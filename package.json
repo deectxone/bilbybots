@@ -1,0 +1,9 @@
+{
+  "name": "bilbybots-repo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vercel build entrypoint — delegates to the Expo app in apps/mobile.",
+  "scripts": {
+    "build": "cd apps/mobile && npm run build:web"
+  }
+}

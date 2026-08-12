@@ -11,7 +11,8 @@ Vercel serves it with an SPA rewrite so deep links (e.g. the Google auth callbac
 
 | File | Purpose |
 |---|---|
-| `apps/mobile/vercel.json` | Build command, output dir, SPA rewrite for auth deep links |
+| `vercel.json` (repo root) | Build + install command, output dir, SPA rewrite for auth deep links |
+| `package.json` (repo root) | `build` script → runs `expo export --platform web` in `apps/mobile` |
 | `apps/mobile/package.json` | `build:web` script (`expo export --platform web`) |
 | `apps/mobile/scripts/vercel-env.sh` | Copies `.env` values into Vercel env vars |
 | `.vercelignore` (repo root) | Excludes node_modules, `.env*`, native dirs, dist from upload |
@@ -25,20 +26,20 @@ npm i -g vercel
 vercel login
 ```
 
-### 2. Link this directory to a Vercel project
+### 2. Link the repo to a Vercel project
 ```sh
-cd apps/mobile
 vercel link
 ```
-- Project: create a new one (e.g. `bilbybots`).
-- Root directory: **`apps/mobile`** (this is where `package.json` + `vercel.json` live).
+Run this from the **repo root**. Create a new project (e.g. `bilbybots`).
+- **Root directory: leave as `/`** — the root `vercel.json` + `package.json`
+  drive the whole build (no `apps/mobile` root-directory setting needed).
 - (Vercel will detect the framework — leave it as "Other".)
 
 ### 3. Set the build-time env vars
 ```sh
-bash scripts/vercel-env.sh
+bash apps/mobile/scripts/vercel-env.sh
 ```
-This adds the `EXPO_PUBLIC_*` values from `.env` to Vercel for
+This adds the `EXPO_PUBLIC_*` values from `apps/mobile/.env` to Vercel for
 production/preview/development. **Only the Supabase URL + anon key are
 required**; the anon key is client-safe by design (RLS protects the data).
 You can also paste them in the Vercel dashboard under **Project → Settings →

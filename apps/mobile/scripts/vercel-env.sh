@@ -4,8 +4,8 @@
 # Usage:
 #   1. npm i -g vercel  (or npx vercel)
 #   2. vercel login
-#   3. From apps/mobile: vercel link   (first time — points this dir at a project)
-#   4. bash scripts/vercel-env.sh
+#   3. From the repo root: vercel link   (first time — points this dir at a project)
+#   4. bash apps/mobile/scripts/vercel-env.sh
 #
 # This reads every EXPO_PUBLIC_* var from apps/mobile/.env and adds it to
 # Vercel for the production + preview + development scopes. Vercel injects
@@ -13,9 +13,11 @@
 # client-safe — no service_role / secrets are ever passed).
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+# Resolve the repo root (one level up from this script's directory).
+REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+cd "$REPO_ROOT"
 
-ENV_FILE=".env"
+ENV_FILE="$REPO_ROOT/apps/mobile/.env"
 if [ ! -f "$ENV_FILE" ]; then
   echo "error: $ENV_FILE not found. cp .env.example .env and fill it in first." >&2
   exit 1
