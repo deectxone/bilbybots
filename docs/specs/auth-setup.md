@@ -72,16 +72,26 @@ creates the session → the app stores it in SecureStore/AsyncStorage.
 3. Add the iOS and Android client IDs to the same field, **comma-separated,
    web client first** (e.g. `web-id.apps.googleusercontent.com,ios-id,android-id`).
 4. Keep **Skip Nonce Check** **off** (default, more secure).
-5. **Authentication → URL Configuration** → add to the redirect allowlist:
-   - `bilbybots://auth/callback` (native deep link — matches the scheme in
-     `app.json` and `makeRedirectUri()` in `src/utils/auth.ts`)
-   - `http://localhost:8081` + `http://localhost:19006` (web dev)
-   - your production web URL
+5. **Authentication → URL Configuration**:
+   - **Site URL** must be your production origin (e.g. `https://bilbybots.com`),
+     **not** `http://localhost:8081`. If a prod `redirect_to` isn't in the
+     allowlist, GoTrue falls back to the Site URL — a leftover localhost Site URL
+     is what makes prod sign-in bounce to `localhost:8081`.
+   - Add to the redirect allowlist:
+     - `bilbybots://auth/callback` (native deep link — matches the scheme in
+       `app.json` and `makeRedirectUri()` in `src/utils/auth.ts`)
+     - `http://localhost:8081` + `http://localhost:19006` (web dev)
+     - your production web URL (`https://bilbybots.com`) and
+       `https://bilbybots.com/auth/callback`
 
 ## 4. App config
 
 1. `cp apps/mobile/.env.example apps/mobile/.env` and fill in the two
    `EXPO_PUBLIC_SUPABASE_*` values. (`.env` is gitignored.)
+2. **Web prod:** set `EXPO_PUBLIC_SITE_URL` to your production origin
+   (e.g. `https://bilbybots.com`) as a Vercel env var and redeploy. Leave it
+   empty locally so web dev keeps using `http://localhost:8081` — see
+   `makeRedirectUri()` in `src/utils/auth.ts`.
 2. Dev builds (native) — Expo Go cannot host the native auth flow, so install a
    **development build** once:
    ```sh
@@ -109,6 +119,11 @@ creates the session → the app stores it in SecureStore/AsyncStorage.
   PKCE handling mangles bare `bilbybots://`).
 - **Web sign-in shows "this app is blocked"** → the Google web client's
   *Authorized JavaScript origins* must include the exact localhost origin you run.
+- **Prod sign-in redirects to `localhost:8081`** → the Supabase **Site URL** is
+  still `http://localhost:8081` and/or `https://<your-domain>/auth/callback`
+  isn't in the Supabase redirect allowlist. Set the Site URL to your production
+  origin and allowlist the prod URL (see §3). The client code computes the
+  redirect from `EXPO_PUBLIC_SITE_URL` on web — set that on Vercel too.
 - **Session doesn't survive relaunch on native** → SecureStore write failed; check
   the simulator/device keychain permissions. Usually fine once on a real device.
 - **Multiple SHA-1s** — add both debug + release Android fingerprints to Google

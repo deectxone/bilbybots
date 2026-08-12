@@ -45,6 +45,13 @@ required**; the anon key is client-safe by design (RLS protects the data).
 You can also paste them in the Vercel dashboard under **Project → Settings →
 Environment Variables**.
 
+> **`EXPO_PUBLIC_SITE_URL` is not copied by this script** (it's empty in `.env`
+> so local dev falls back to `localhost:8081`). Set it manually in the Vercel
+> dashboard to your production origin (`https://bilbybots.com`) — otherwise web
+> auth targets the runtime origin, which is correct here but explicit is safer.
+> This var makes `makeRedirectUri()` (`apps/mobile/src/utils/auth.ts`) return
+> `https://bilbybots.com/auth/callback` on web in production.
+
 ### 4. Deploy
 ```sh
 vercel --prod
@@ -63,6 +70,10 @@ URLs in its allowlist. Once you have your production URL (e.g.
      (and `http://localhost:8081` stays for local dev).
 2. **Supabase → Authentication → URL Configuration → Redirect URLs:** add
    `https://bilbybots.vercel.app` (and `https://bilbybots.vercel.app/auth/callback`).
+3. **Supabase → Authentication → URL Configuration → Site URL:** set to your
+   production origin (e.g. `https://bilbybots.vercel.app`). If it stays
+   `http://localhost:8081`, prod sign-in redirects to localhost when the
+   prod `redirect_to` isn't allowlisted.
 
 Then re-deploy and test sign-in from the live URL. Local `http://localhost:8081`
 keeps working the whole time.
@@ -70,7 +81,9 @@ keeps working the whole time.
 ## Optional: custom domain
 
 In Vercel → your project → **Domains**, add your domain. Then add it to the
-same two places above (Google JS origins + Supabase redirect allowlist).
+same two places above (Google JS origins + Supabase redirect allowlist), set it
+as the Supabase **Site URL**, and set `EXPO_PUBLIC_SITE_URL` to it as a Vercel
+env var (then re-deploy).
 
 ## Notes
 

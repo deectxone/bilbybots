@@ -19,6 +19,9 @@ import { supabase, isAuthConfigured } from './supabase';
 WebBrowser.maybeCompleteAuthSession();
 
 export function makeRedirectUri(): string {
+  if (Platform.OS === 'web' && process.env.EXPO_PUBLIC_SITE_URL) {
+    return `${process.env.EXPO_PUBLIC_SITE_URL.replace(/\/+$/, '')}/auth/callback`;
+  }
   return AuthSession.makeRedirectUri({ scheme: 'bilbybots', path: 'auth/callback' });
 }
 
