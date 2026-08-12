@@ -1,67 +1,95 @@
 # BilbyBots
 
-Concept study & documentation for a **Year 1–6 Australian primary school learning app**
-aligned to the Australian Curriculum (v9.0) and state syllabuses.
+**A curriculum-aligned learning app for Australian students (Years 1–10):**
+adaptive weekly learning plans, NAPLAN-style practice, and gamified progress —
+built on Expo (React Native) + Supabase.
 
-> **Status:** Research, specification, **Year‑6 content mapping** and an
-> **Expo/React scaffold** (facade). Production content + backend are next.
+> **Status:** Working product scaffold. Google sign-in (Supabase Auth), account
+> sync (families → children → progress), a contact form, weekly-plan and
+> NAPLAN-practice tracks, and a web deployment on Vercel are live. Full authored
+> curriculum content and the AI-video lesson pipeline are the next milestones.
 
-## The idea in one paragraph
+## The idea
 
-A parent signs up (Google Auth), creates a profile for each child with their
-name and school year (1–6), and BilbyBots generates a **curated weekly learning
-plan** per subject. Each week has **learn-first content** (text with worked,
-illustrated examples) followed by **on-device assignments**. Completion earns
-**badges**; finishing the weekly assignment unlocks a **bonus challenge** with
-extra rewards. If a child joins the app partway through the school year, the
-planner **re-packs the full year syllabus into the remaining weeks** so 100% of
-topics are still covered, with fewer questions per assignment to keep it
-achievable. Ships as web + iOS + Android at **Lite** and **Pro** tiers.
+A parent signs up with Google, creates a profile for each child (name, school
+year, state, subjects), and BilbyBots generates a **curated weekly learning
+plan** per subject. Each week pairs **learn-first content** (text with worked,
+illustrated examples) with **on-device assignments**. Completion earns
+**badges**; finishing the weekly assignment unlocks a **bonus challenge**. If a
+child joins partway through the school year, the planner **re-packs the full
+year's syllabus into the remaining weeks** so 100% of topics are still covered
+(adaptive pacing). Ships as web + iOS + Android at **Lite** and **Pro** tiers.
 
-## Key docs
+## What's implemented
 
-| Doc | Purpose |
+- **Google sign-in** via Supabase Auth (web + native deep-link)
+- **Account sync** — family, child profile, completed topics, badges and NAPLAN
+  results mirrored to Supabase (RLS-scoped, idempotent push/pull)
+- **Weekly plan** track: plan → lesson → topic completion
+- **NAPLAN-style practice** (Years 3/5/7/9): reading, writing, language
+  conventions and numeracy runners with original items
+- **Contact form** backed by a Supabase table
+- **Themed vector illustrations** (SVG, palette-only — never emoji)
+
+## Tech stack
+
+| Layer | Choice |
 | --- | --- |
-| [`docs/specs/product-spec.md`](docs/specs/product-spec.md) | Product requirements, UX, user journey, gamification, Lite/Pro |
-| [`docs/specs/curriculum-research.md`](docs/specs/curriculum-research.md) | Feasibility from ACARA / NESA / state authorities + licensing rules |
-| [`docs/specs/adaptive-pacing.md`](docs/specs/adaptive-pacing.md) | Algorithm for late-join 100% syllabus coverage |
-| [`docs/specs/naplan-research.md`](docs/specs/naplan-research.md) | NAPLAN past-paper availability (2008–2016), licensing constraints, structure to replicate |
-| [`docs/specs/naplan-test-spec.md`](docs/specs/naplan-test-spec.md) | Product spec for an original NAPLAN-style practice-test module (Y3/5/7/9) |
-| [`docs/content/year-6/README.md`](docs/content/year-6/README.md) | Year‑6 content authoring + topic indexes (Maths, English, Science, HASS) |
-| [`docs/content/year-6/video-prompts/template.md`](docs/content/year-6/video-prompts/template.md) | Phase‑2 AI‑video prompt markup (Google Flow playbook) |
-| [`docs/architecture.md`](docs/architecture.md) | Stack, data model, offline strategy, open-source DB choice |
-| [`docs/roadmap.md`](docs/roadmap.md) | Phased delivery plan |
-| [`apps/mobile/`](apps/mobile/) | Expo SDK‑57 scaffold — home (weekly-plan + NAPLAN tracks) → plan/lesson + NAPLAN hub/runner facades |
+| Client | Expo SDK 57 (React Native + web via react-native-web) |
+| Auth | Supabase Auth (Google OAuth) |
+| Backend / DB | Supabase (PostgreSQL + Row-Level Security) |
+| Hosting | Vercel (static web export) |
+| Local persistence | AsyncStorage (`src/utils/persistence.ts`) |
 
-## Run the scaffold
+## Getting started
+
+Prereqs: Node 20+, npm, an Expo account (for `expo start`).
 
 ```bash
 cd apps/mobile
-npm start            # Expo dev server (press w / i / a for web / iOS / Android)
-npx tsc --noEmit     # typecheck
+npm install
+cp .env.example .env        # fill in the two EXPO_PUBLIC_SUPABASE_* values
+npm start                   # press w / i / a for web / iOS / Android
+npx tsc --noEmit            # typecheck
 ```
 
-## Headline research findings (details & sources in `docs/specs/curriculum-research.md`)
+### Supabase setup
 
-- The Australian Curriculum v9.0 is published **machine-readable** (RDF/XML,
-  JSON-LD, SPARQL endpoint, plus a full-curriculum Excel download), which makes
-  content ingestion tractable.
-- ACARA curriculum content is **CC BY 4.0** — you may use it commercially with
-  attribution and a non-endorsement disclaimer. NESA (NSW) syllabuses are
-  **not** openly licensed; strategy is to align to ACARA content and map state
-  outcomes instead.
-- NSW K–6 is **stage-based** (Stage 1 = Y1–2, Stage 2 = Y3–4, Stage 3 = Y5–6)
-  and is mid curriculum-reform — most new K–6 syllabuses (HSIE, PDHPE, Creative
-  Arts, Science & Tech) are only implemented from 2027.
-- **DB recommendation:** PostgreSQL (open source) as the system of record with
-  Row-Level Security for multi-tenant family accounts, plus **SQLite** on-device
-  for offline-first mobile. The heavy media (illustrations/video) lives in
-  object storage, not the DB.
-- **NAPLAN practice (Y3/5/7/9):** past papers exist for **2008–2016 only** and
-  are FOI-released — ACARA forbids putting them in an app. Ship **original
-  NAPLAN-style tests** instead (see `naplan-research.md` + `naplan-test-spec.md`).
+1. Create a free project at [supabase.com](https://supabase.com), enable the
+   **Google** provider (see `docs/specs/auth-setup.md`).
+2. Run the migrations in **SQL Editor** (in order):
+   - `apps/mobile/supabase/migrations/20260812000100_contact_messages.sql`
+   - `apps/mobile/supabase/migrations/20260812000200_full_schema.sql`
+3. For web, set `EXPO_PUBLIC_SITE_URL` to your production origin on Vercel
+   (leave it empty locally). Details in `docs/specs/vercel-deploy.md`.
 
-## Working here
+## Docs
 
-Read [`AGENTS.md`](AGENTS.md) first — it contains the licensing, alignment,
-accuracy and child-safety constraints that govern all decisions in this repo.
+| Doc | Purpose |
+| --- | --- |
+| [`docs/specs/product-spec.md`](docs/specs/product-spec.md) | Product requirements, UX, gamification, Lite/Pro |
+| [`docs/specs/adaptive-pacing.md`](docs/specs/adaptive-pacing.md) | Late-join 100% syllabus coverage algorithm |
+| [`docs/specs/naplan-research.md`](docs/specs/naplan-research.md) | NAPLAN licensing wall + real test structure |
+| [`docs/specs/naplan-test-spec.md`](docs/specs/naplan-test-spec.md) | Original NAPLAN-style test module spec |
+| [`docs/specs/curriculum-research.md`](docs/specs/curriculum-research.md) | ACARA/state feasibility + licensing rules |
+| [`docs/content/year-6/`](docs/content/year-6/) | Year-6 topic indexes + AI-video prompt markup |
+| [`docs/architecture.md`](docs/architecture.md) | Stack, data model, offline strategy, RLS |
+| [`docs/roadmap.md`](docs/roadmap.md) | Phased delivery plan |
+| [`AGENTS.md`](AGENTS.md) | Licensing, accuracy and child-safety constraints |
+
+## Licensing & compliance
+
+- **This codebase is proprietary — all rights reserved.** It is published for
+  reference only; no licence to reuse it is granted. (The `MIT` file under
+  `apps/mobile/LICENSE` covers only the Expo scaffold it was generated from.)
+- Curriculum content follows ACARA v9.0 (CC BY 4.0, with attribution +
+  non-endorsement disclaimer). NAPLAN-style practice items are **original** —
+  ACARA forbids reproducing released past papers in an app.
+- The app is designed for parent-managed accounts and follows Australian
+  Privacy Principles / eSafety guidance for services used by children.
+
+## Security
+
+Secrets never live in this repo: `.env` files are git-ignored, and only
+client-safe public keys (Supabase `anon` key) are used at runtime behind
+Row-Level Security. If you spot a leak, rotate the key and contact the owner.
