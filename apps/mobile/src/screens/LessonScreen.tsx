@@ -103,13 +103,36 @@ export function LessonScreen({
           </View>
           <PrimaryButton
             tone="header"
-            label="Ready to practise"
+            label={practiseQuestions.length === 0 ? 'Finish lesson' : 'Ready to practise'}
             onPress={() => setPhase('practise')}
           />
         </View>
       )}
 
-      {phase === 'practise' && (
+      {phase === 'practise' && practiseQuestions.length === 0 && (
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Lesson complete</Text>
+          <Text style={styles.para}>
+            Nice work reading through this lesson. Its practice questions are
+            coming soon — claim your badge to mark it done.
+          </Text>
+          <PrimaryButton
+            tone="header"
+            label={isGuest ? 'Create account to save your star' : 'Claim my badge'}
+            onPress={() => {
+              if (isGuest) {
+                onSignUp?.();
+                return;
+              }
+              setEarned(true);
+              setPhase('reward');
+              onTopicCompleted(topic);
+            }}
+          />
+        </View>
+      )}
+
+      {phase === 'practise' && practiseQuestions.length > 0 && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Your quick check</Text>
           {practiseQuestions.map((q, qi) => {

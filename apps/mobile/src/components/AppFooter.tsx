@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { palette, spacing } from '../theme/colors';
 import { BilbyLogo } from './BilbyLogo';
 import { ResponsiveColumn } from './ResponsiveColumn';
+import { useApp } from '../state/AppContext';
 
 /**
  * Universal footer shown at the bottom of every screen. Bookends the app
@@ -19,6 +20,7 @@ const LINKS: { label: string; href: '/legal/privacy' | '/legal/terms' | '/legal/
 
 export function AppFooter() {
   const router = useRouter();
+  const { child } = useApp();
 
   return (
     <View style={styles.band}>
@@ -32,6 +34,17 @@ export function AppFooter() {
           </View>
 
           <View style={styles.links}>
+            {child && (
+              <Pressable
+                onPress={() => router.push('/progress')}
+                accessibilityRole="link"
+                accessibilityLabel="Parent dashboard"
+                hitSlop={8}
+                style={({ pressed }) => [styles.link, pressed && styles.pressed]}
+              >
+                <Text style={styles.linkText}>Parent dashboard</Text>
+              </Pressable>
+            )}
             {LINKS.map((link) => (
               <Pressable
                 key={link.href}

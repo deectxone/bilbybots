@@ -106,6 +106,18 @@ export function HomeScreen({
         }
         onPress={onOpenNaplan}
       />
+
+      <TrackCard
+        icon="trophy"
+        accent={chrome.primary}
+        title="Parent dashboard"
+        body={
+          child
+            ? `Coverage, badges and practice results for ${child.name}`
+            : 'See syllabus coverage, earned badges and NAPLAN results'
+        }
+        onPress={onProgress}
+      />
     </ScreenShell>
   );
 }

@@ -1,4 +1,4 @@
-export { buildPlan } from './planner';
+export { buildPlan, selectPlanWeek } from './planner';
 export { validatePlan } from './validator';
 export { planInputHash } from './hash';
 export {

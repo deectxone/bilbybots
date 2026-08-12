@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildPlan, planInputHash, validatePlan } from './index';
+import { buildPlan, planInputHash, selectPlanWeek, validatePlan } from './index';
 import type { PlanInput } from './types';
 
 const base: PlanInput = {
@@ -96,5 +96,47 @@ describe('adaptive-pacing planner (acceptance criteria, docs/specs/adaptive-paci
       expect(b.covered).toBe(b.inScope);
       expect(b.pct).toBe(100);
     }
+  });
+
+  it('lifts the weekly cap to the subject count so every selected subject shows each week', () => {
+    const plan = buildPlan({
+      ...base,
+      subjects: ['mathematics', 'english', 'science', 'hass'],
+    });
+    // Effective cap is max(3, 4) = 4, recorded on the snapshot for the validator.
+    expect(plan.config.maxTopicsPerWeek).toBe(4);
+    expect(validatePlan(plan).ok).toBe(true);
+    // Early weeks (while every subject still has topics) are one-topic-per-
+    // subject: 4 distinct subjects, never more than the cap.
+    for (const w of plan.weeks.slice(0, 5)) {
+      expect(w.entries.length).toBe(4);
+      expect(new Set(w.entries.map((e) => e.topic.subject)).size).toBe(4);
+    }
+    // Every subject in scope is represented somewhere in the plan.
+    const plannedSubjects = new Set(
+      plan.weeks.flatMap((w) => w.entries.map((e) => e.topic.subject)),
+    );
+    for (const s of ['mathematics', 'english', 'science', 'hass']) {
+      expect(plannedSubjects.has(s as 'mathematics')).toBe(true);
+    }
+  });
+
+  it('selectPlanWeek picks the live week, then the last un-finished week, then null', () => {
+    const plan = buildPlan({ ...base, joinWeek: 1 });
+    const firstWeek = plan.weeks[0].week;
+    const lastWeek = plan.weeks[plan.weeks.length - 1].week;
+
+    // An exact week exists → returned.
+    expect(selectPlanWeek(plan, firstWeek)?.week).toBe(firstWeek);
+
+    // A week after the plan ends → the last planned week while it still has
+    // un-done topics.
+    const allDone = plan.weeks.flatMap((w) => w.entries.map((e) => e.topic.id));
+    const beyond = lastWeek + 5;
+    expect(selectPlanWeek(plan, beyond)?.week).toBe(lastWeek);
+    expect(selectPlanWeek(plan, beyond, allDone)).toBeNull();
+
+    // A week before the plan starts → the first planned week.
+    expect(selectPlanWeek(plan, firstWeek - 3)?.week).toBe(firstWeek);
   });
 });

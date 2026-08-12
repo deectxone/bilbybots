@@ -7,7 +7,7 @@ import { Icon, type IconName } from '../components/illustrations/icons';
 import { chrome, palette, radius, spacing, subjectColor, type } from '../theme/colors';
 import { subjectById } from '../data/subjects';
 import { fullYearBank } from '../data/content';
-import { buildPlan, schoolTermFromDate, schoolWeekFromDate } from '../planner';
+import { buildPlan, schoolTermFromDate, schoolWeekFromDate, selectPlanWeek } from '../planner';
 import { naplanDomainMeta } from '../data/naplan/tests';
 
 /**
@@ -63,9 +63,13 @@ export function ProgressScreen({
     joinWeek: child.replanned ? currentWeek : child.joinWeek,
     learnedTopicIds: child.replanned ? completedTopicIds : [],
   });
-  const thisWeek = plan.weeks.find((w) => w.week === currentWeek) ?? plan.weeks[0];
+  const thisWeek = selectPlanWeek(plan, currentWeek, completedTopicIds);
   const weekDone = (thisWeek?.entries ?? []).filter((e) => completed.has(e.topic.id)).length;
   const weekTotal = thisWeek?.entries.length ?? 0;
+  const planComplete =
+    thisWeek === null &&
+    plan.weeks.length > 0 &&
+    plan.weeks.every((w) => w.entries.every((e) => completed.has(e.topic.id)));
 
   const recentResults = [...naplanResults]
     .sort((a, b) => b.completedAt.localeCompare(a.completedAt))
@@ -108,17 +112,23 @@ export function ProgressScreen({
           <View>
             <Text style={styles.weekTitle}>Week {currentWeek}</Text>
             <Text style={styles.weekBody}>
-              {weekTotal > 0
-                ? `${weekDone} of ${weekTotal} lessons done this week`
-                : 'Your plan is being prepared'}
+              {planComplete
+                ? 'Every planned lesson is done — the full syllabus is covered.'
+                : weekTotal > 0
+                  ? `${weekDone} of ${weekTotal} lessons done this week`
+                  : 'Your plan is being prepared'}
             </Text>
           </View>
           <View style={styles.weekPctChip}>
-            <Text style={styles.weekPct}>{weekTotal > 0 ? Math.round((weekDone / weekTotal) * 100) : 0}%</Text>
+            <Text style={styles.weekPct}>
+              {planComplete ? 100 : weekTotal > 0 ? Math.round((weekDone / weekTotal) * 100) : 0}%
+            </Text>
           </View>
         </View>
         <View style={styles.track}>
-          <View style={[styles.fill, { width: `${weekTotal > 0 ? (weekDone / weekTotal) * 100 : 0}%` }]} />
+          <View
+            style={[styles.fill, { width: `${planComplete ? 100 : weekTotal > 0 ? (weekDone / weekTotal) * 100 : 0}%` }]}
+          />
         </View>
         <Text style={styles.weekLink}>Open this week's plan ›</Text>
       </Pressable>

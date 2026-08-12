@@ -74,6 +74,9 @@ export interface PlanSnapshot {
     joinWeek: number;
     learnedTopicIds: string[];
   };
+  /** Effective pedagogy knobs used for this snapshot (the weekly cap is lifted
+   *  to at least the number of subjects in scope, see planner.ts). */
+  config: PlannerConfig;
   /** Subjects whose depth was compacted because their topics/week ratio c > 1. */
   compactedSubjects: SubjectId[];
   weeks: PlanWeek[];

@@ -220,29 +220,26 @@ export async function loadSupabaseTopicBank(): Promise<SupabaseContentResult> {
   }
 
   const [curriculumRes, topicRes, lessonRes, questionRes, assignmentRes] = await Promise.all([
-    supabase.from('curriculum').select('code, strand, state_mapping').limit(100000),
-    supabase.from('topic').select('*').limit(100000),
-    supabase.from('lesson').select('*').limit(100000),
-    // PostgREST defaults to a 1000-row cap per request; the question bank is
-    // ~4200 rows, so an un-capped select would silently drop most of them and
-    // leave lessons with empty assignments.
-    supabase.from('question').select('*').limit(100000),
-    supabase.from('assignment').select('*').limit(100000),
+    selectAllRows<CurriculumRow>('curriculum', 'code, strand, state_mapping'),
+    selectAllRows<TopicRow>('topic', '*'),
+    selectAllRows<LessonRow>('lesson', '*'),
+    selectAllRows<QuestionRow>('question', '*'),
+    selectAllRows<AssignmentRow>('assignment', '*'),
   ]);
 
   const failed = [curriculumRes, topicRes, lessonRes, questionRes, assignmentRes].find(
     (r) => r.error
   );
   if (failed) {
-    return { topics: [], error: failed.error?.message ?? 'Failed to load curriculum content.' };
+    return { topics: [], error: failed.error ?? 'Failed to load curriculum content.' };
   }
 
   const topics = mapContentRows({
-    curriculum: (curriculumRes.data ?? []) as CurriculumRow[],
-    topics: (topicRes.data ?? []) as TopicRow[],
-    lessons: (lessonRes.data ?? []) as LessonRow[],
-    questions: (questionRes.data ?? []) as QuestionRow[],
-    assignments: (assignmentRes.data ?? []) as AssignmentRow[],
+    curriculum: curriculumRes.rows,
+    topics: topicRes.rows,
+    lessons: lessonRes.rows,
+    questions: questionRes.rows,
+    assignments: assignmentRes.rows,
   });
 
   const reconciled = reconcileLocalIds(topics);
@@ -250,6 +247,43 @@ export async function loadSupabaseTopicBank(): Promise<SupabaseContentResult> {
   cachedTopics = reconciled;
   setContentSource(reconciled);
   return { topics: reconciled };
+}
+
+/**
+ * Fetch EVERY row of a content table, page by page. PostgREST caps a single
+ * response at its `max-rows` setting (1000 on Supabase by default) regardless
+ * of any larger `.limit()`, so one un-paged select silently drops rows once a
+ * table grows past the cap (the question bank is ~4200 rows — an un-paged
+ * fetch left most lessons with empty assignments). Pages are ordered by `id`
+ * and loop until the exact row count reported by a head query is collected.
+ */
+async function selectAllRows<T>(
+  table: string,
+  columns: string,
+): Promise<{ rows: T[]; error?: string }> {
+  if (!supabase) return { rows: [], error: 'Supabase is not configured.' };
+
+  const { count, error: countError } = await supabase
+    .from(table)
+    .select(columns, { head: true, count: 'exact' });
+  if (countError) return { rows: [], error: countError.message };
+  const total = count ?? 0;
+
+  const PAGE = 1000;
+  const rows: T[] = [];
+  while (rows.length < total) {
+    const from = rows.length;
+    const { data, error } = await supabase
+      .from(table)
+      .select(columns)
+      .order('id')
+      .range(from, from + PAGE - 1);
+    if (error) return { rows: [], error: error.message };
+    const page = (data ?? []) as T[];
+    if (page.length === 0) break;
+    rows.push(...page);
+  }
+  return { rows };
 }
 
 /** Drop the cache and return content consumers to the local banks (e.g. sign-out). */

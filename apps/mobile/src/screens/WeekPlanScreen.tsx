@@ -1,6 +1,6 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import type { ChildProfile, Topic } from '../types/curriculum';
-import { buildPlan, schoolWeekFromDate } from '../planner';
+import { buildPlan, schoolWeekFromDate, selectPlanWeek } from '../planner';
 import { TopicCard } from '../components/TopicCard';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
@@ -38,12 +38,18 @@ export function WeekPlanScreen({
     joinWeek,
     learnedTopicIds: child.replanned ? completedTopicIds : [],
   });
-  const thisWeek = plan.weeks.find((w) => w.week === currentWeek) ?? plan.weeks[plan.weeks.length - 1];
+  const thisWeek = selectPlanWeek(plan, currentWeek, completedTopicIds);
   const entries = thisWeek?.entries ?? [];
   const topics = entries.map((e) => e.topic);
   const done = new Set(completedTopicIds);
   const completedThisWeek = topics.filter((t) => done.has(t.id)).length;
   const compact = plan.compactedSubjects.length > 0 || Boolean(child.replanned);
+  // The plan finished ahead of the school year (every planned topic is done
+  // and nothing is scheduled for this week) — celebrate instead of replaying.
+  const planComplete =
+    thisWeek === null &&
+    plan.weeks.length > 0 &&
+    plan.weeks.every((w) => w.entries.every((e) => done.has(e.topic.id)));
 
   // All topics scheduled before this week — used for the "revise a past
   // lesson" suggestion when the current week has no new lessons.
@@ -91,11 +97,14 @@ export function WeekPlanScreen({
 
       {topics.length === 0 ? (
         <View style={styles.empty}>
-          <Icon name="book" tint={chrome.primary} size={30} />
-          <Text style={styles.emptyTitle}>No new lessons this week</Text>
+          <Icon name={planComplete ? 'trophy' : 'book'} tint={chrome.primary} size={30} />
+          <Text style={styles.emptyTitle}>
+            {planComplete ? 'All planned lessons done!' : 'No new lessons this week'}
+          </Text>
           <Text style={styles.emptyBody}>
-            Your {planLabel} plan is still on track — next lessons are coming
-            up. Pick any subject below to revise a past lesson.
+            {planComplete
+              ? `Amazing work — ${child.name} has finished every lesson in the ${planLabel} plan. Revise any past lesson to keep the streak going.`
+              : `Your ${planLabel} plan is still on track — next lessons are coming up. Pick any subject below to revise a past lesson.`}
           </Text>
           <View style={styles.subjectRow}>
             {child.subjects.map((s) => (

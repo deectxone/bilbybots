@@ -51,6 +51,7 @@ export function LegalScreen({
             <Text style={styles.body}>{s.body}</Text>
           </View>
         ))}
+        {doc.showContactForm && <ContactForm />}
       </View>
     </ScreenShell>
   );

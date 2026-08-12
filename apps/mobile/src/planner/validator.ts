@@ -17,7 +17,11 @@ export function validatePlan(
   snapshot: PlanSnapshot,
   opts?: { maxTopicsPerWeek?: number },
 ): ValidationResult {
-  const maxTopicsPerWeek = opts?.maxTopicsPerWeek ?? DEFAULT_PLANNER_CONFIG.maxTopicsPerWeek;
+  // The planner lifts the weekly cap to at least the number of subjects in
+  // scope and stores the effective value on the snapshot — validate against
+  // that, not the static default.
+  const maxTopicsPerWeek =
+    opts?.maxTopicsPerWeek ?? snapshot.config?.maxTopicsPerWeek ?? DEFAULT_PLANNER_CONFIG.maxTopicsPerWeek;
   const errors: string[] = [];
 
   const counts = new Map<string, number>();

@@ -200,6 +200,7 @@ export function NaplanTestScreen({
 
       if (atSectionEnd && nextSection && nextSection.locked) {
         setGateSection(nextSectionIdx);
+        setPhase('gate');
         return;
       }
     }
@@ -625,13 +626,17 @@ export function NaplanTestScreen({
               label="Continue"
               onPress={() => {
                 setGateSection(null);
+                setPhase('running');
                 advance();
               }}
             />
             <PrimaryButton
               tone="header"
               label="Go back and check"
-              onPress={() => setGateSection(null)}
+              onPress={() => {
+                setGateSection(null);
+                setPhase('running');
+              }}
             />
           </View>
         </View>

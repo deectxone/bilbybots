@@ -37,12 +37,17 @@ export function buildPlan(input: PlanInput): PlanSnapshot {
     }))
     .filter((s) => s.topics.length > 0);
 
+  // Weekly slot count: at least the authored cap, but never fewer than the
+  // number of subjects in scope — a child whose parent picked 4 subjects must
+  // see every subject in their weekly plan, not a rotating 3-of-4 subset.
+  const weeklyCap = Math.max(config.maxTopicsPerWeek, streams.length);
+
   // --- Placement (spec §4 Steps 2–3) ---
   // Ideal pace is ~1 topic/week/subject, but with several subjects that leaves
   // many single-topic weeks (a child who picked 4 subjects sees a "one subject
   // this week" plan). Instead, fill each week with a rotating mix of subjects:
   // walk weeks and, for each, take the next topic from each subject in turn
-  // (up to maxTopicsPerWeek, one per subject) so a multi-subject plan reads as
+  // (up to the weekly cap, one per subject) so a multi-subject plan reads as
   // a proper weekly schedule while preserving per-subject order and coverage.
   const weeks: Topic[][] = Array.from({ length: R }, () => []);
   const pointers = new Map(streams.map(({ subject }) => [subject, 0]));
@@ -51,7 +56,7 @@ export function buildPlan(input: PlanInput): PlanSnapshot {
   for (let w = 0; w < R && placed < totalTopics; w++) {
     // Rotate the starting subject each week so the mix doesn't favor one first.
     const start = w % streams.length;
-    for (let k = 0; k < streams.length && weeks[w].length < config.maxTopicsPerWeek; k++) {
+    for (let k = 0; k < streams.length && weeks[w].length < weeklyCap; k++) {
       const { subject, topics } = streams[(start + k) % streams.length];
       const j = pointers.get(subject)!;
       if (j < topics.length) {
@@ -72,7 +77,7 @@ export function buildPlan(input: PlanInput): PlanSnapshot {
       let w = Math.min(R - 1, weeks.findIndex((wk) => wk.some((t) => t.subject === subject)));
       if (w === -1) w = R - 1;
       while (j < topics.length) {
-        while (w < R - 1 && weeks[w].length >= config.maxTopicsPerWeek) w++;
+        while (w < R - 1 && weeks[w].length >= weeklyCap) w++;
         weeks[w].push(topics[j]);
         pointers.set(subject, ++j);
       }
@@ -144,7 +149,7 @@ export function buildPlan(input: PlanInput): PlanSnapshot {
     learnedTopicIds: [...learned],
     config: {
       totalWeeks: config.totalWeeks,
-      maxTopicsPerWeek: config.maxTopicsPerWeek,
+      maxTopicsPerWeek: weeklyCap,
       minQuestionBudgetPerTopic: config.minQuestionBudgetPerTopic,
       subjectOrder: config.subjectOrder,
       algorithmVersion: config.algorithmVersion,
@@ -155,9 +160,38 @@ export function buildPlan(input: PlanInput): PlanSnapshot {
     algorithmVersion: config.algorithmVersion,
     inputHash: planInputHash(normalized),
     input: { year: input.year, subjects, state, joinWeek, learnedTopicIds: [...learned] },
+    config: normalized.config,
     compactedSubjects,
     weeks: weeksOut,
     coverage: { inScope, covered: inScope, pct: inScope === 0 ? 100 : 100 },
     breakdown,
   };
+}
+
+/**
+ * Pick the week a child should be working on right now:
+ *   - the plan week matching the current school week when there is one;
+ *   - otherwise (the plan ran ahead of / finished before today) the LAST
+ *     planned week, but only while it still has topics the child hasn't
+ *     completed — once everything planned is done there is no "this week"
+ *     (callers show the revise/complete state instead of replaying done work);
+ *   - before the plan starts (a future join week), the first planned week.
+ * Returns null when the plan has no weeks or is fully completed.
+ */
+export function selectPlanWeek(
+  plan: PlanSnapshot,
+  currentWeek: number,
+  completedTopicIds?: string[],
+): PlanWeek | null {
+  if (plan.weeks.length === 0) return null;
+  const exact = plan.weeks.find((w) => w.week === currentWeek);
+  if (exact) return exact;
+
+  const last = plan.weeks[plan.weeks.length - 1];
+  if (currentWeek > last.week) {
+    if (!completedTopicIds) return last;
+    const done = new Set(completedTopicIds);
+    return last.entries.some((e) => !done.has(e.topic.id)) ? last : null;
+  }
+  return plan.weeks[0];
 }

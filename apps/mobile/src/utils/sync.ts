@@ -32,10 +32,34 @@ async function currentUserId(): Promise<string | null> {
   return data.session?.user.id ?? null;
 }
 
+/**
+ * Ensure the signed-in user has a `public.users` row before any family/child
+ * write. Normally the `on_auth_user_created` trigger creates it on sign-up,
+ * but accounts that signed in before that trigger shipped are missing it, and
+ * `families.owner_user_id` foreign-keys to `public.users` — without this the
+ * whole push silently fails. RLS allows inserting your own row
+ * (`users: insert own` policy), so this is safe from the client.
+ */
+async function ensureUserRow(uid: string): Promise<void> {
+  if (!supabase) return;
+  const { data } = await supabase.auth.getSession();
+  const sess = data.session;
+  const meta = sess?.user?.user_metadata ?? {};
+  const displayName = meta?.full_name ?? meta?.name ?? sess?.user?.email?.split('@')[0] ?? null;
+  await supabase
+    .from('users')
+    .upsert(
+      { id: uid, email: sess?.user?.email ?? null, display_name: displayName },
+      { onConflict: 'id', ignoreDuplicates: true },
+    );
+}
+
 async function ensureFamily(): Promise<{ familyId: string } | { error: string }> {
   if (!supabase) return { error: 'Supabase is not configured.' };
   const uid = await currentUserId();
   if (!uid) return { error: 'Not signed in.' };
+
+  await ensureUserRow(uid);
 
   const { data: existing, error: listError } = await supabase
     .from('families')
@@ -164,6 +188,7 @@ export async function pushState(state: PersistedAppState): Promise<PushResult> {
         year: child.year,
         subjects: child.subjects,
         join_week: child.replanned ? schoolWeekFromDate() : child.joinWeek,
+        replanned: Boolean(child.replanned),
       },
       { onConflict: 'id' },
     );
@@ -220,4 +245,41 @@ function isNaplanResult(value: unknown): value is NaplanResult {
     typeof r.answers === 'object' &&
     r.answers !== null
   );
+}
+
+export type DeleteDataResult = { ok: true } | { ok: false; error: string };
+
+/**
+ * Remove the signed-in account's children (and everything that hangs off them:
+ * progress events, plan snapshots/weeks and badges cascade via FKs) from
+ * Supabase. Called from "Reset all data" in Setup so a parent really deletes
+ * the account's saved setup/progress, not just the device's local cache —
+ * otherwise the next pull would resurrect it from the DB.
+ */
+export async function deleteFamilyData(): Promise<DeleteDataResult> {
+  if (!supabase) return { ok: true };
+  const uid = await currentUserId();
+  if (!uid) return { ok: true };
+
+  const { data: families, error: famError } = await supabase
+    .from('families')
+    .select('id')
+    .eq('owner_user_id', uid);
+  if (famError) return { ok: false, error: famError.message };
+
+  for (const fam of families ?? []) {
+    const { data: children, error: childrenError } = await supabase
+      .from('children')
+      .select('id')
+      .eq('family_id', fam.id as string);
+    if (childrenError) return { ok: false, error: childrenError.message };
+    for (const child of children ?? []) {
+      const { error: deleteError } = await supabase
+        .from('children')
+        .delete()
+        .eq('id', child.id as string);
+      if (deleteError) return { ok: false, error: deleteError.message };
+    }
+  }
+  return { ok: true };
 }

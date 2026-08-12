@@ -65,6 +65,9 @@ npx tsc --noEmit            # typecheck
 2. Run the migrations in **SQL Editor** (in order):
    - `apps/mobile/supabase/migrations/20260812000100_contact_messages.sql`
    - `apps/mobile/supabase/migrations/20260812000200_full_schema.sql`
+   - `apps/mobile/supabase/migrations/20260812000300_plan_week_text_topics.sql`
+   - `apps/mobile/supabase/migrations/20260812000301_children_join_week.sql`
+   - `apps/mobile/supabase/migrations/20260812000400_users_self_heal.sql`
 3. For web, set `EXPO_PUBLIC_SITE_URL` to your production origin on Vercel
    (leave it empty locally). Details in `docs/specs/vercel-deploy.md`.
 
