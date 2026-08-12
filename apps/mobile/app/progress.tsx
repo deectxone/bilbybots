@@ -4,7 +4,7 @@ import { useApp } from '../src/state/AppContext';
 
 export default function ProgressRoute() {
   const router = useRouter();
-  const { authed, child, completedTopicIds, earnedBadges, signOutUser } = useApp();
+  const { authed, child, completedTopicIds, earnedBadges, naplanResults, signOutUser } = useApp();
 
   if (!authed) return <Redirect href="/sign-in" />;
   if (!child) return <Redirect href="/" />;
@@ -14,8 +14,10 @@ export default function ProgressRoute() {
       child={child}
       completedTopicIds={completedTopicIds}
       earnedBadges={earnedBadges}
+      naplanResults={naplanResults}
       onHome={() => router.replace('/')}
       onSetup={() => router.push('/setup')}
+      onOpenWeekPlan={() => router.push('/week-plan')}
       onSignOut={async () => {
         await signOutUser();
         router.replace('/sign-in');
