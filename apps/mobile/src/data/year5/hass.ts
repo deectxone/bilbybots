@@ -1,12 +1,12 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 5 HASS — full knowledge-strand topic bank (History, Geography, Civics
+ * Year 5 HASS, full knowledge-strand topic bank (History, Geography, Civics
  * & Citizenship, Economics & Business). Source of truth:
  * docs/content/year-1-5/hass.md (AC v9.0). Skills CDs (AC9HS5S01–S07) are
  * woven into these knowledge units per the source doc, not authored
  * separately.
- * `Y5-HASS-HI02` carries `sensitivity: true` — it touches First Nations
+ * `Y5-HASS-HI02` carries `sensitivity: true`, it touches First Nations
  * Australians' experiences of colonisation and is written to established,
  * general facts only, pending a community-protocol review before release
  * (see AGENTS.md child-safety/accuracy constraints).
@@ -23,7 +23,7 @@ export const YEAR5_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'After 1800, Britain kept starting new colonies in Australia — Van Diemen\'s Land, the Swan River colony, South Australia and more — and there were three big reasons: money, power and people.',
+        'After 1800, Britain kept starting new colonies in Australia, Van Diemen\'s Land, the Swan River colony, South Australia and more, and there were three big reasons: money, power and people.',
         'Colonies could grow wool and crops to trade (economic), they stretched Britain\'s empire and claimed important ports (political), and they gave convicts, free settlers and families a fresh start (social).',
       ],
       illustrations: [
@@ -41,7 +41,7 @@ export const YEAR5_HASS_TOPICS: Topic[] = [
           },
         },
         {
-          brief: 'The three causes — money, power and people — as picture cards',
+          brief: 'The three causes, money, power and people, as picture cards',
           ready: true,
           diagram: {
             kind: 'icon-scene',
@@ -79,7 +79,7 @@ export const YEAR5_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'First Nations Australians had lived on and cared for this land for tens of thousands of years. When the colonies grew, their lives changed in deep and lasting ways — land was taken over and Country was changed — and those impacts are still felt today.',
+        'First Nations Australians had lived on and cared for this land for tens of thousands of years. When the colonies grew, their lives changed in deep and lasting ways, land was taken over and Country was changed, and those impacts are still felt today.',
         'Colonists and convicts also faced a hard, unfamiliar life far from home, and the natural environment changed too: forests were cleared for farms, and animals like rabbits and foxes were brought from overseas.',
       ],
       illustrations: [
@@ -136,7 +136,7 @@ export const YEAR5_HASS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'The colonies were built by all kinds of people. William Barak, a Wurundjeri leader, worked for his people\'s rights and kept culture strong, while Caroline Chisholm helped newly arrived migrant families settle safely.',
-        'Whole groups mattered too — free settlers, convicts, gold miners and migrants from many lands each changed their colony by bringing skills, ideas and hard work.',
+        'Whole groups mattered too, free settlers, convicts, gold miners and migrants from many lands each changed their colony by bringing skills, ideas and hard work.',
       ],
       illustrations: [
         {
@@ -145,8 +145,8 @@ export const YEAR5_HASS_TOPICS: Topic[] = [
           diagram: {
             kind: 'icon-scene',
             items: [
-              { icon: 'book', label: 'William Barak — Wurundjeri leader' },
-              { icon: 'quill', label: 'Caroline Chisholm — helped settlers' },
+              { icon: 'book', label: 'William Barak, Wurundjeri leader' },
+              { icon: 'quill', label: 'Caroline Chisholm, helped settlers' },
               { icon: 'ship', label: 'Migrants arriving' },
               { icon: 'people', label: 'Groups built the colony' },
             ],
@@ -192,12 +192,12 @@ export const YEAR5_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Places are not just landscapes — people shape them. First Nations Australians have managed Country for tens of thousands of years with deep knowledge of seasons, plants, animals and fire.',
-        'Settlers cleared land and built towns and farms, and people from other countries have influenced places through trade, ideas and tourism — so every street and park carries the mark of the people who made it.',
+        'Places are not just landscapes, people shape them. First Nations Australians have managed Country for tens of thousands of years with deep knowledge of seasons, plants, animals and fire.',
+        'Settlers cleared land and built towns and farms, and people from other countries have influenced places through trade, ideas and tourism, so every street and park carries the mark of the people who made it.',
       ],
       illustrations: [
         {
-          brief: 'The mark people leave on a place — Country, communities, towns',
+          brief: 'The mark people leave on a place, Country, communities, towns',
           ready: true,
           diagram: {
             kind: 'icon-scene',
@@ -248,7 +248,7 @@ export const YEAR5_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 11,
       body: [
-        'Australia is beautiful but tough — bushfires, floods, droughts and cyclones are part of living here. That is why we plan: fire danger ratings and fuel-reduction burns help us get ready for bushfire season.',
+        'Australia is beautiful but tough, bushfires, floods, droughts and cyclones are part of living here. That is why we plan: fire danger ratings and fuel-reduction burns help us get ready for bushfire season.',
         'During drought we manage water with restrictions and dams, against floods we build levees and raise homes, and before cyclones we follow warnings and strong building codes.',
       ],
       illustrations: [
@@ -305,7 +305,7 @@ export const YEAR5_HASS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'In a democracy, power belongs to the people. Australian citizens vote in elections to choose their representatives, and the people they choose make decisions and laws on behalf of everyone.',
-        'Our democracy is built on shared values like freedom, fairness and respect for the rule of law — everyone is treated fairly, and the same rules apply to all.',
+        'Our democracy is built on shared values like freedom, fairness and respect for the rule of law, everyone is treated fairly, and the same rules apply to all.',
       ],
       illustrations: [
         {
@@ -360,8 +360,8 @@ export const YEAR5_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'When people share a belief or a value, they can do amazing things together. A civic goal is a goal for the good of the community — like a cleaner park, a fundraising day, or a safer school crossing.',
-        'Citizens work together by planning, volunteering and joining groups, and sometimes by signing a petition — and every small action adds up.',
+        'When people share a belief or a value, they can do amazing things together. A civic goal is a goal for the good of the community, like a cleaner park, a fundraising day, or a safer school crossing.',
+        'Citizens work together by planning, volunteering and joining groups, and sometimes by signing a petition, and every small action adds up.',
       ],
       illustrations: [
         {
@@ -417,8 +417,8 @@ export const YEAR5_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Everything we use starts as a resource. Natural resources come from nature — water, soil, timber and minerals. Human resources are people\'s skills and effort, like a teacher\'s teaching or a baker\'s baking. Capital resources are things people make to help produce goods, like tools, machines and buildings.',
-        'We use these resources to satisfy our NEEDS — food, water, shelter and clothing, the things we must have to live — and our WANTS, the things we would like but could live without.',
+        'Everything we use starts as a resource. Natural resources come from nature, water, soil, timber and minerals. Human resources are people\'s skills and effort, like a teacher\'s teaching or a baker\'s baking. Capital resources are things people make to help produce goods, like tools, machines and buildings.',
+        'We use these resources to satisfy our NEEDS, food, water, shelter and clothing, the things we must have to live, and our WANTS, the things we would like but could live without.',
       ],
       illustrations: [
         {

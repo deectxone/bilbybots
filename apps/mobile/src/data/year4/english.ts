@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 4 English — full topic bank.
+ * Year 4 English, full topic bank.
  * Source of truth for scope: docs/content/year-1-5/english.md (AC v9.0).
  * Every topic carries its AC9E4xxx content-description code and a rendered
  * `diagram` per illustration slot (see src/components/illustrations/diagrams.tsx)
@@ -19,7 +19,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Talking to a friend is different from writing to your principal — that is the magic of formal and informal language!',
+        'Talking to a friend is different from writing to your principal, that is the magic of formal and informal language!',
         'Informal language is relaxed, like "Hey, wanna come over?", while formal language is polite and careful, like "Would you like to visit?"',
         'Great writers pick the right style for the person they are talking to.',
       ],
@@ -33,7 +33,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
               { icon: 'chat-bubble', label: 'Hey mate!' },
               { icon: 'envelope', label: 'Dear Sir,' },
             ],
-            caption: 'Informal vs formal — choose the style for your audience',
+            caption: 'Informal vs formal, choose the style for your audience',
           },
         },
         {
@@ -59,7 +59,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y4-ENG-LA01-q3', type: 'short', prompt: 'Write the informal word for "going to", as in "I am ___ run."', answer: 'gonna', difficulty: 2 },
         { id: 'Y4-ENG-LA01-q4', type: 'mcq', prompt: 'An email to your grandma should mostly use...', options: ['informal slang', 'formal, polite language', 'texting shortcuts'], answer: 'formal, polite language', difficulty: 2 },
         { id: 'Y4-ENG-LA01-q5', type: 'mcq', prompt: 'Which word is the informal one?', options: ['assist', 'help', 'request'], answer: 'help', difficulty: 2 },
-        { id: 'Y4-ENG-LA01-q6', type: 'short', prompt: 'What kind of language do we use with close friends — formal or informal?', answer: 'informal', difficulty: 1 },
+        { id: 'Y4-ENG-LA01-q6', type: 'short', prompt: 'What kind of language do we use with close friends, formal or informal?', answer: 'informal', difficulty: 1 },
       ],
     },
   },
@@ -181,7 +181,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
       body: [
         'Text connectives are the glue that sequences and links your ideas, like first, then and finally.',
         'Conditional words like because, although and unless join ideas in clever ways.',
-        'Topic words also travel in teams — think "kangaroo, joey, pouch"!',
+        'Topic words also travel in teams, think "kangaroo, joey, pouch"!',
       ],
       illustrations: [
         {
@@ -237,7 +237,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Websites have special signposts to help you find your way — just like road signs!',
+        'Websites have special signposts to help you find your way, just like road signs!',
         'Headlines tell you what a page is about, menus list your choices, and links jump you to new pages.',
         'Learning these features makes you a super-savvy explorer of online texts.',
       ],
@@ -402,7 +402,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Adverb groups tell us how, when or where something happens — like "very quietly" or "at sunset".',
+        'Adverb groups tell us how, when or where something happens, like "very quietly" or "at sunset".',
         'Prepositional phrases begin with a little word like under, behind or in: "The ball rolled under the bed."',
         'They sprinkle extra detail into your sentences like glitter!',
       ],
@@ -458,7 +458,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Tense plants your verbs in time: past, present or future.',
-        'Yesterday I walked, today I walk, tomorrow I will walk — see the verb change?',
+        'Yesterday I walked, today I walk, tomorrow I will walk, see the verb change?',
         'Choosing the right tense keeps your writing clear and true.',
       ],
       illustrations: [
@@ -516,7 +516,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
       body: [
         'Photographers and illustrators make choices that change the story a picture tells!',
         'A close-up frames one thing and makes it feel important, and the most eye-catching part is called the salience.',
-        'Where something is placed — centre, corner or far away — also changes what you notice first.',
+        'Where something is placed, centre, corner or far away, also changes what you notice first.',
       ],
       illustrations: [
         {
@@ -570,8 +570,8 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Synonyms are words that mean almost the same thing — big and huge are twins!',
-        'Antonyms are opposites — big and small clash!',
+        'Synonyms are words that mean almost the same thing, big and huge are twins!',
+        'Antonyms are opposites, big and small clash!',
         'Collecting both makes your vocabulary sparkle and your writing sing.',
       ],
       illustrations: [
@@ -628,7 +628,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
       body: [
         'Dialogue punctuation is the road rules for speech: quotation marks hug the spoken words, and a comma or end mark sits inside.',
         'The first spoken word starts with a capital, and the speaker\'s name sits outside the speech marks.',
-        '"Let\'s go," said Tom — see how the comma sits inside the quotes?',
+        '"Let\'s go," said Tom, see how the comma sits inside the quotes?',
       ],
       illustrations: [
         {
@@ -681,7 +681,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Stories from different places and times often share the same bones — the quest, the trickster, the rescue.',
+        'Stories from different places and times often share the same bones, the quest, the trickster, the rescue.',
         'First Nations Australian storytelling and stories from around the world both hold up big ideas like courage, family and looking after Country.',
         'When we notice the same storylines everywhere, we see how connected humans are.',
       ],
@@ -793,7 +793,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'To hook readers, authors build characters you care about, settings you can feel, and a problem that keeps growing.',
-        'Plot tension rises like a wave — the trouble gets bigger until the big moment.',
+        'Plot tension rises like a wave, the trouble gets bigger until the big moment.',
         'Every page should make you want to turn the next one!',
       ],
       illustrations: [
@@ -848,7 +848,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Writers juggle words for fun and meaning: similes compare with "like" or "as", and onomatopoeia makes words sound like the noise — crash, buzz, splash!',
+        'Writers juggle words for fun and meaning: similes compare with "like" or "as", and onomatopoeia makes words sound like the noise, crash, buzz, splash!',
         'Rhyme, puns and exaggeration ("I\'ve told you a million times!") are word play too.',
         'These tricks make writing sparkle and stick in your head.',
       ],
@@ -903,9 +903,9 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Now it is your turn to be the author! Creating a literary text means planning a storyline, characters and a setting — then drafting and polishing.',
+        'Now it is your turn to be the author! Creating a literary text means planning a storyline, characters and a setting, then drafting and polishing.',
         'Give your character a want and a problem, and drop them into a setting full of sensory detail.',
-        'Your first draft can be messy — revision is where the story becomes great.',
+        'Your first draft can be messy, revision is where the story becomes great.',
       ],
       illustrations: [
         {
@@ -959,7 +959,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A diary from 1900 and a blog from today both record days — but they sound and look totally different!',
+        'A diary from 1900 and a blog from today both record days, but they sound and look totally different!',
         'Comparing texts from different times with the same purpose shows us how events, language and technology have changed.',
         'Old recipes, news and letters are time machines on paper.',
       ],
@@ -1013,7 +1013,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Great listeners hunt for the key points — the who, what, when, where and why!',
+        'Great listeners hunt for the key points, the who, what, when, where and why!',
         'You might be listening to follow a task or to join a discussion, so your brain should be on the lookout the whole time.',
         'Acknowledge other people\'s ideas ("Great point!") and build on them ("And also...").',
       ],
@@ -1071,7 +1071,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Each text type carries its own toolkit! Imaginative texts use characters and plot, informative texts use facts and headings, and persuasive texts use opinions and reasons.',
-        'Spot the toolkit and you can name the text type — and build one yourself.',
+        'Spot the toolkit and you can name the text type, and build one yourself.',
         'A recipe and a poster both inform, but they organise their features differently.',
       ],
       illustrations: [
@@ -1110,7 +1110,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y4-ENG-LY03-q2', type: 'mcq', prompt: 'An informative text mostly gives...', options: ['facts', 'fairy tale characters', 'advertising'], answer: 'facts', difficulty: 1 },
         { id: 'Y4-ENG-LY03-q3', type: 'short', prompt: 'Which text type uses characters and a plot?', answer: 'imaginative', difficulty: 2 },
         { id: 'Y4-ENG-LY03-q4', type: 'mcq', prompt: 'Headings and captions are typical of...', options: ['informative texts', 'persuasive adverts', 'nursery rhymes'], answer: 'informative texts', difficulty: 2 },
-        { id: 'Y4-ENG-LY03-q5', type: 'mcq', prompt: 'An advertisement that says "Buy now — you won\'t regret it!" is...', options: ['persuasive', 'a fairy tale', 'an index'], answer: 'persuasive', difficulty: 2 },
+        { id: 'Y4-ENG-LY03-q5', type: 'mcq', prompt: 'An advertisement that says "Buy now, you won\'t regret it!" is...', options: ['persuasive', 'a fairy tale', 'an index'], answer: 'persuasive', difficulty: 2 },
         { id: 'Y4-ENG-LY03-q6', type: 'short', prompt: 'Name the text type of a recipe that lists steps in order.', answer: 'procedure', difficulty: 3 },
       ],
     },
@@ -1125,7 +1125,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Skilled readers carry three tools: sound out words with phonics, use word meaning (semantic clues), and use grammar — like "that word must be a verb."',
+        'Skilled readers carry three tools: sound out words with phonics, use word meaning (semantic clues), and use grammar, like "that word must be a verb."',
         'Different texts ask different things of you: a poem asks you to feel, an instruction asks you to do, an explanation asks you to understand.',
         'When something doesn\'t make sense, great readers re-read and self-correct.',
       ],
@@ -1181,9 +1181,9 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Literal questions hide in the text — you can point to the answer.',
+        'Literal questions hide in the text, you can point to the answer.',
         'Inference is detective work: you use clues to work out what is not written. If she grabs an umbrella, you infer it will rain.',
-        'Evaluating means judging — is this text clear, fair and true? You are the judge now!',
+        'Evaluating means judging, is this text clear, fair and true? You are the judge now!',
       ],
       illustrations: [
         {
@@ -1237,7 +1237,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Publishing is when your writing goes out into the world — so make it shine!',
+        'Publishing is when your writing goes out into the world, so make it shine!',
         'Check your complex sentences, keep one tense throughout, swap tired words for sparkling synonyms, and fix the spelling.',
         'Visual features like headings, pictures and neat layout invite readers in.',
       ],
@@ -1349,7 +1349,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Joined-up writing links letters into flowing words, but only when every letter is clear and the same size.',
-        'Fluency means your hand flows without stopping — and automaticity means you stop thinking about forming letters and think about your ideas instead.',
+        'Fluency means your hand flows without stopping, and automaticity means you stop thinking about forming letters and think about your ideas instead.',
         'Neat, even handwriting shows you care about your reader!',
       ],
       illustrations: [
@@ -1513,7 +1513,7 @@ export const YEAR4_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Homophones sound the same but are spelled differently and mean different things — there, their and they\'re are famous triplets!',
+        'Homophones sound the same but are spelled differently and mean different things, there, their and they\'re are famous triplets!',
         'The sentence gives you the clues: "Put it over there", "That is their hat", "They\'re coming now".',
         'Check the context and you will always pick the right twin.',
       ],

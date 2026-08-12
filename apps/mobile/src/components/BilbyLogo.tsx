@@ -4,7 +4,7 @@ import { palette } from '../theme/colors';
 
 /**
  * BilbyBots logo lockup: a compact bilby-head mark + wordmark. Pure vector,
- * so it renders crisp at any size — a 24px header mark and a 72px onboarding
+ * so it renders crisp at any size, a 24px header mark and a 72px onboarding
  * hero mark are the same component, just scaled.
  */
 export function BilbyLogoMark({ size = 32 }: { size?: number }) {

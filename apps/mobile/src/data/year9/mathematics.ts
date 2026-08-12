@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 9 Mathematics — full topic bank.
+ * Year 9 Mathematics, full topic bank.
  * Source of truth for scope: docs/content/year-7-10/mathematics.md (AC v9.0).
  * Every topic carries its AC9M9xxx content-description code and a rendered
  * `diagram` per illustration slot (see src/components/illustrations/diagrams.tsx)
@@ -20,7 +20,7 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Real numbers cover every value on the number line — rational numbers (fractions) and irrational numbers (like √2 and π). An approximation is a value close to the real number: √2 ≈ 1.414.',
+        'Real numbers cover every value on the number line, rational numbers (fractions) and irrational numbers (like √2 and π). An approximation is a value close to the real number: √2 ≈ 1.414.',
         'In calculations you often round approximations to a sensible accuracy and estimate to check your answer is in the right ballpark.',
       ],
       illustrations: [
@@ -106,7 +106,7 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Simple interest is a fixed percentage of the original amount each year: I = P × r × t. Compound interest earns interest on interest: A = P(1 + r)ⁿ, so money grows faster over time.',
-        'Financial decisions — loans, savings, discounts — are percentage problems in disguise. Modelling them lets you compare options and spot the better deal.',
+        'Financial decisions, loans, savings, discounts, are percentage problems in disguise. Modelling them lets you compare options and spot the better deal.',
       ],
       illustrations: [
         {
@@ -153,7 +153,7 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Applying mathematics to money means modelling real situations: comparing bank offers, working out best buys, budgeting with GST, and interpreting repayment tables for loans.',
-        'The modelling cycle keeps you honest: formulate the money problem, compute, and then interpret the result in context — is that weekly repayment realistic?',
+        'The modelling cycle keeps you honest: formulate the money problem, compute, and then interpret the result in context, is that weekly repayment realistic?',
       ],
       illustrations: [
         {
@@ -381,8 +381,8 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Volume of a prism or cylinder is area of base × height. A cylinder’s base is a circle, so V = πr²h. Surface area is the total area of every face — for a cylinder that is 2πr² + 2πrh.',
-        'Surface area answers "how much wrapping paper?", volume answers "how much does it hold?" — keep the two straight.',
+        'Volume of a prism or cylinder is area of base × height. A cylinder’s base is a circle, so V = πr²h. Surface area is the total area of every face, for a cylinder that is 2πr² + 2πrh.',
+        'Surface area answers "how much wrapping paper?", volume answers "how much does it hold?", keep the two straight.',
       ],
       illustrations: [
         {
@@ -421,7 +421,7 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'When a shape is enlarged by a scale factor k: lengths multiply by k, areas multiply by k², and volumes multiply by k³. Doubling a cube’s edge makes its volume 8 times bigger.',
-        'These scaling rules let you predict size changes without recalculating everything — and spot mistakes in map and model work.',
+        'These scaling rules let you predict size changes without recalculating everything, and spot mistakes in map and model work.',
       ],
       illustrations: [
         {
@@ -455,7 +455,7 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Similar figures share the same shape: matching angles are equal and matching sides are in the same ratio. Similar triangles are the basis of indirect measurement.',
-        'Use similar triangles to measure what you cannot reach — the height of a tree or building — by comparing shadows or using a scale model.',
+        'Use similar triangles to measure what you cannot reach, the height of a tree or building, by comparing shadows or using a scale model.',
       ],
       illustrations: [
         {
@@ -596,7 +596,7 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Congruent shapes are identical in size and shape; similar shapes are the same shape but a different size. Transformations — reflection, rotation, translation — preserve congruence, while enlargement creates similarity.',
+        'Congruent shapes are identical in size and shape; similar shapes are the same shape but a different size. Transformations, reflection, rotation, translation, preserve congruence, while enlargement creates similarity.',
         'A sequence of transformations can map one shape onto another. Describing the sequence (e.g. "reflect then translate") is precise mathematical communication.',
       ],
       illustrations: [
@@ -650,7 +650,7 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Geometry is built on precise definitions: a parallelogram has two pairs of parallel sides, a rhombus has four equal sides, a kite has two pairs of adjacent equal sides.',
-        'Constructions with compasses and straightedge prove geometric relationships — bisecting an angle, drawing a perpendicular — and reveal why the properties hold.',
+        'Constructions with compasses and straightedge prove geometric relationships, bisecting an angle, drawing a perpendicular, and reveal why the properties hold.',
       ],
       illustrations: [
         {
@@ -790,7 +790,7 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The same data can be shown as a column graph, dot plot, stem-and-leaf plot or box plot — each reveals different things. Choosing the best display is part of clear communication.',
+        'The same data can be shown as a column graph, dot plot, stem-and-leaf plot or box plot, each reveals different things. Choosing the best display is part of clear communication.',
         'Analyse the source of data and the way it is presented: misleading scales and cherry-picked graphs are common in the media, so read critically.',
       ],
       illustrations: [
@@ -868,7 +868,7 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Bivariate data has two variables measured together — like study time and test score. Scatterplots show each pair as a point.',
+        'Bivariate data has two variables measured together, like study time and test score. Scatterplots show each pair as a point.',
         'Describe the relationship: positive (both rise together), negative (one rises as the other falls) or no relationship. Strong clustering on a clear trend suggests a stronger association than scattered points.',
       ],
       illustrations: [
@@ -956,7 +956,7 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Multi-step experiments (tossing two coins, drawing then replacing a marble) have sample spaces of combined outcomes. Two coins give {HH, HT, TH, TT} — four equally likely outcomes.',
+        'Multi-step experiments (tossing two coins, drawing then replacing a marble) have sample spaces of combined outcomes. Two coins give {HH, HT, TH, TT}, four equally likely outcomes.',
         'Simulations model the experiment many times, and the relative frequency approaches the theoretical probability as trials increase. Compare the two to check your model.',
       ],
       illustrations: [
@@ -995,7 +995,7 @@ export const YEAR9_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Theoretical probability is calculated from the sample space (favourable ÷ total). Experimental (empirical) probability comes from actually running trials — favourable results ÷ trials.',
+        'Theoretical probability is calculated from the sample space (favourable ÷ total). Experimental (empirical) probability comes from actually running trials, favourable results ÷ trials.',
         'For large numbers of trials the two converge, but for small samples they can differ. The law of large numbers is the bridge between them.',
       ],
       illustrations: [

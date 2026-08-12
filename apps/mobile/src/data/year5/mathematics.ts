@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 5 Mathematics — full topic bank.
+ * Year 5 Mathematics, full topic bank.
  * Source of truth for scope: docs/content/year-5/mathematics.md (AC v9.0).
  * Every topic here carries its AC9M5xxx content-description code and a
  * rendered `diagram` per illustration slot (see
@@ -20,7 +20,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Decimals can go past hundredths all the way to thousandths — three places after the decimal point, like 0.436.',
+        'Decimals can go past hundredths all the way to thousandths, three places after the decimal point, like 0.436.',
         'Look at 0.046: the 4 is in the tenths place, the 6 is in the thousandths place. Every place is ten times smaller than the one before it, so you can read decimals tiny enough to measure a raindrop.',
       ],
       illustrations: [
@@ -90,7 +90,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Fractions are easier to compare when they have the same denominator — the bottom number. Line them up on one number line and the order becomes obvious.',
+        'Fractions are easier to compare when they have the same denominator, the bottom number. Line them up on one number line and the order becomes obvious.',
         'Remember, when numerators are the same, a bigger denominator means a smaller fraction: 2/7 is smaller than 2/3. You have got this!',
       ],
       illustrations: [
@@ -130,7 +130,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Percent means "out of 100", so 25% is the same as 1/4 and 50% is the same as 1/2.',
-        'To find a percentage of a quantity, divide by 100 to get 1%, then multiply. Finding 10% of 150 means 150 ÷ 10 = 15 — watch it pop out in seconds!',
+        'To find a percentage of a quantity, divide by 100 to get 1%, then multiply. Finding 10% of 150 means 150 ÷ 10 = 15, watch it pop out in seconds!',
       ],
       illustrations: [
         {
@@ -164,7 +164,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'To add or subtract fractions, they first need the same denominator — like getting two friends to bring the same sized slices to share.',
+        'To add or subtract fractions, they first need the same denominator, like getting two friends to bring the same sized slices to share.',
         'Once the bottoms match, you only add or subtract the tops: 1/2 + 1/4 becomes 2/4 + 1/4 = 3/4. Splitting a pizza has never felt so powerful!',
       ],
       illustrations: [
@@ -196,7 +196,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Big multiplication is friendlier when you split it up: 13 × 5 is 10 × 5 plus 3 × 5, which is 50 + 15 = 65.',
-        'Whether you use the split trick or the written method, estimation is your safety net — 38 × 6 is about 40 × 6, so around 240. You can multiply numbers bigger than ever before!',
+        'Whether you use the split trick or the written method, estimation is your safety net, 38 × 6 is about 40 × 6, so around 240. You can multiply numbers bigger than ever before!',
       ],
       illustrations: [
         { brief: 'A 5 × 13 dot array showing 13 × 5 = 65', ready: true, diagram: { kind: 'dot-array', rows: 5, cols: 13, label: '13 × 5 = 65' } },
@@ -242,7 +242,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
         { id: 'Y5-MAT-NN07-q2', type: 'short', prompt: 'What is 47 ÷ 5? (write the whole number then the remainder)', answer: '9 r 2', difficulty: 2 },
         { id: 'Y5-MAT-NN07-q3', type: 'short', prompt: 'What is 50 ÷ 7? (write the whole number then the remainder)', answer: '7 r 1', difficulty: 2 },
         { id: 'Y5-MAT-NN07-q4', type: 'mcq', prompt: 'What is 37 ÷ 6?', options: ['6 r 1', '6 r 5', '7 r 5'], answer: '6 r 1', difficulty: 1 },
-        { id: 'Y5-MAT-NN07-q5', type: 'mcq', prompt: '22 cookies shared fairly between 5 kids — how many are left over?', options: ['2', '3', '4'], answer: '2', difficulty: 2 },
+        { id: 'Y5-MAT-NN07-q5', type: 'mcq', prompt: '22 cookies shared fairly between 5 kids, how many are left over?', options: ['2', '3', '4'], answer: '2', difficulty: 2 },
         { id: 'Y5-MAT-NN07-q6', type: 'mcq', prompt: 'After dividing, the remainder is always…', options: ['smaller than the divisor', 'bigger than the divisor', 'zero'], answer: 'smaller than the divisor', difficulty: 3 },
       ],
     },
@@ -257,7 +257,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Before you pay, round the prices and estimate — a toy at $19.60 and a game at $32.10 are roughly $50 all up.',
+        'Before you pay, round the prices and estimate, a toy at $19.60 and a game at $32.10 are roughly $50 all up.',
         'Estimation is your quick-check superpower: if your exact answer is nowhere near your estimate, something went wrong. Money maths is easier when you know roughly what to expect!',
       ],
       illustrations: [
@@ -272,7 +272,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
         { id: 'Y5-MAT-NN08-q1', type: 'mcq', prompt: 'A toy costs $19.60 and a game costs $32.10. Best estimate for the total?', options: ['about $50', 'about $60', 'about $40'], answer: 'about $50', difficulty: 2 },
         { id: 'Y5-MAT-NN08-q2', type: 'short', prompt: 'Round $24.70 to the nearest dollar.', answer: '25', difficulty: 1 },
         { id: 'Y5-MAT-NN08-q3', type: 'mcq', prompt: 'You have $45 and a jacket costs $48.95. Do you have enough?', options: ['Yes', 'No, you are short', 'Exactly'], answer: 'No, you are short', difficulty: 1 },
-        { id: 'Y5-MAT-NN08-q4', type: 'mcq', prompt: 'Three lollies at $9.80 each — best estimate of the total?', options: ['about $30', 'about $27', 'about $20'], answer: 'about $30', difficulty: 2 },
+        { id: 'Y5-MAT-NN08-q4', type: 'mcq', prompt: 'Three lollies at $9.80 each, best estimate of the total?', options: ['about $30', 'about $27', 'about $20'], answer: 'about $30', difficulty: 2 },
         { id: 'Y5-MAT-NN08-q5', type: 'short', prompt: 'You pay $10 for an item costing $4.90. Estimate your change to the nearest dollar.', answer: '5', difficulty: 2 },
         { id: 'Y5-MAT-NN08-q6', type: 'mcq', prompt: 'Estimating first when buying is useful because it…', options: ['helps you check your answer makes sense', 'makes you slower', 'never helps'], answer: 'helps you check your answer makes sense', difficulty: 1 },
       ],
@@ -289,7 +289,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Modelling means turning a real money problem into maths, then solving it and checking it makes sense. "4 packs of stickers at $6 each" becomes 4 × 6.',
-        'Decide whether to add, subtract, multiply or divide, work it out, then look back — does the answer feel right for real life? You are solving problems just like a shopkeeper!',
+        'Decide whether to add, subtract, multiply or divide, work it out, then look back, does the answer feel right for real life? You are solving problems just like a shopkeeper!',
       ],
       illustrations: [
         {
@@ -313,9 +313,9 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
       questions: [
         { id: 'Y5-MAT-NN09-q1', type: 'short', prompt: '4 packets of stickers cost $6 each. How much in total?', answer: '24', difficulty: 2 },
         { id: 'Y5-MAT-NN09-q2', type: 'mcq', prompt: 'You have $12 saved and get $8 more. How much do you have now?', options: ['$20', '$16', '$96'], answer: '$20', difficulty: 1 },
-        { id: 'Y5-MAT-NN09-q3', type: 'mcq', prompt: '"3 packs of 5 marbles" — which operation finds the total?', options: ['Multiplication', 'Addition', 'Subtraction'], answer: 'Multiplication', difficulty: 2 },
+        { id: 'Y5-MAT-NN09-q3', type: 'mcq', prompt: '"3 packs of 5 marbles", which operation finds the total?', options: ['Multiplication', 'Addition', 'Subtraction'], answer: 'Multiplication', difficulty: 2 },
         { id: 'Y5-MAT-NN09-q4', type: 'mcq', prompt: 'You bought 10 pencils and gave away 4. How many are left?', options: ['6', '14', '4'], answer: '6', difficulty: 1 },
-        { id: 'Y5-MAT-NN09-q5', type: 'short', prompt: 'Saving $5 a week for 6 weeks — how much have you saved?', answer: '30', difficulty: 1 },
+        { id: 'Y5-MAT-NN09-q5', type: 'short', prompt: 'Saving $5 a week for 6 weeks, how much have you saved?', answer: '30', difficulty: 1 },
         { id: 'Y5-MAT-NN09-q6', type: 'mcq', prompt: 'The first step when solving a money problem is to…', options: ['work out what you need to find', 'guess the answer', 'start calculating wildly'], answer: 'work out what you need to find', difficulty: 1 },
       ],
     },
@@ -330,7 +330,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Calculators, computers and spreadsheets all follow an algorithm — a clear set of steps, like a recipe for maths.',
+        'Calculators, computers and spreadsheets all follow an algorithm, a clear set of steps, like a recipe for maths.',
         'You still need your brain in the driver seat: estimate first, then use the tool, then check your answer makes sense. You are the boss of the machine!',
       ],
       illustrations: [
@@ -372,7 +372,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Multiplication and division undo each other — they are inverse operations. If 6 × 7 = 42, then 42 ÷ 7 = 6.',
+        'Multiplication and division undo each other, they are inverse operations. If 6 × 7 = 42, then 42 ÷ 7 = 6.',
         'Knowing one fact gives you a whole family of facts for free. Learn to bounce between times tables and division and you will never be stuck!',
       ],
       illustrations: [
@@ -403,7 +403,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'An equation is like a balance scale — the two sides must stay level. When you see □ × 8 = 56, the box is hiding the number you need to find.',
+        'An equation is like a balance scale, the two sides must stay level. When you see □ × 8 = 56, the box is hiding the number you need to find.',
         'Use the inverse to hunt the mystery number: □ × 6 = 42 means □ = 42 ÷ 6 = 7. Every unknown is a little detective puzzle, and you are the detective!',
       ],
       illustrations: [
@@ -435,7 +435,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Metric units are built in tens, so picking the right one matters: a marathon is in kilometres, an apple in grams, and a coin thickness in millimetres.',
-        'Climb the ladder — km, m, cm, mm for length, and kg to g for mass — and you will always choose a unit that fits. Measure like a scientist!',
+        'Climb the ladder, km, m, cm, mm for length, and kg to g for mass, and you will always choose a unit that fits. Measure like a scientist!',
       ],
       illustrations: [
         { brief: 'The metric ladder from km down to mm', ready: true, diagram: { kind: 'metric-ladder', units: ['km', 'm', 'cm', 'mm'], highlight: 2 } },
@@ -465,7 +465,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Perimeter is the distance around the outside — add up every side. Area is the flat space inside, and for a rectangle it is length × width.',
+        'Perimeter is the distance around the outside, add up every side. Area is the flat space inside, and for a rectangle it is length × width.',
         'A 6m by 4m room has perimeter 20m (6+4+6+4) and area 24 m². Know the difference and you can fence a yard or tile a floor like a builder!',
       ],
       illustrations: [
@@ -496,7 +496,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The 24-hour clock skips the am and pm — after midday you just add 12, so 3:00 pm becomes 15:00.',
+        'The 24-hour clock skips the am and pm, after midday you just add 12, so 3:00 pm becomes 15:00.',
         'Going the other way, 20:15 means take away 12 to get 8:15 pm. Timetables and flight schedules use 24-hour time, so now you can read them like a traveller!',
       ],
       illustrations: [
@@ -528,7 +528,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Angles are measured in degrees with a protractor. A right angle is 90°, an acute angle is smaller, and an obtuse angle is between 90° and 180°.',
-        'Angles on a straight line always add up to 180°. If one angle is 130°, the other must be 50° — spot it and the answer jumps out!',
+        'Angles on a straight line always add up to 180°. If one angle is 130°, the other must be 50°, spot it and the answer jumps out!',
       ],
       illustrations: [
         { brief: 'Angles of 130° and 50° sitting on a straight line', ready: true, diagram: { kind: 'angle-diagram', style: 'straight', angles: [130, 50] } },
@@ -558,7 +558,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A net is a 3D shape opened out flat along its edges — like a cardboard box cut apart and laid on the table.',
+        'A net is a 3D shape opened out flat along its edges, like a cardboard box cut apart and laid on the table.',
         'Count the faces to check a net: a cube opens into 6 squares, and a box (rectangular prism) opens into 6 rectangles. Fold it back in your mind and you are thinking like a 3D designer!',
       ],
       illustrations: [
@@ -575,7 +575,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
         { id: 'Y5-MAT-SP01-q3', type: 'mcq', prompt: 'A net of a cube is made of how many squares?', options: ['6', '4', '8'], answer: '6', difficulty: 2 },
         { id: 'Y5-MAT-SP01-q4', type: 'mcq', prompt: 'A net of a rectangular prism (box) includes…', options: ['6 rectangles', '6 triangles', '4 squares'], answer: '6 rectangles', difficulty: 2 },
         { id: 'Y5-MAT-SP01-q5', type: 'mcq', prompt: 'A net of a triangular prism has how many triangles?', options: ['2', '3', '4'], answer: '2', difficulty: 3 },
-        { id: 'Y5-MAT-SP01-q6', type: 'mcq', prompt: 'Cut a cardboard box along its edges and lay it flat — you get its…', options: ['net', 'netball', 'necktie'], answer: 'net', difficulty: 1 },
+        { id: 'Y5-MAT-SP01-q6', type: 'mcq', prompt: 'Cut a cardboard box along its edges and lay it flat, you get its…', options: ['net', 'netball', 'necktie'], answer: 'net', difficulty: 1 },
       ],
     },
   },
@@ -620,10 +620,10 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A shape can be transformed three ways: it can slide (translation), flip like a mirror (reflection), or turn around a point (rotation).',
-        'A shape has a line of symmetry if you can fold it so both halves match exactly — a square has four! Move shapes around without changing their size and you are a shape-master.',
+        'A shape has a line of symmetry if you can fold it so both halves match exactly, a square has four! Move shapes around without changing their size and you are a shape-master.',
       ],
       illustrations: [
-        { brief: 'One shape being reflected, rotated and translated', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'triangle-shape', label: 'shape' }, { icon: 'mirror', label: 'reflect' }, { icon: 'rotate-arrow', label: 'rotate' }, { icon: 'arrow-right', label: 'translate' }], caption: 'Reflect, rotate or slide — the size stays the same' } },
+        { brief: 'One shape being reflected, rotated and translated', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'triangle-shape', label: 'shape' }, { icon: 'mirror', label: 'reflect' }, { icon: 'rotate-arrow', label: 'rotate' }, { icon: 'arrow-right', label: 'translate' }], caption: 'Reflect, rotate or slide, the size stays the same' } },
       ],
     },
     assignment: {
@@ -649,7 +649,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Data is information you collect, and a survey is a great way to gather it — tally up the answers as you go.',
+        'Data is information you collect, and a survey is a great way to gather it, tally up the answers as you go.',
         'The mode is the value that appears most often: in 4, 5, 5, 5, 6, 7 the mode is 5. Spotting the mode tells you what is most popular!',
       ],
       illustrations: [
@@ -680,7 +680,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A line graph is perfect for watching how something changes over time — time goes along the bottom, and the values climb the side.',
+        'A line graph is perfect for watching how something changes over time, time goes along the bottom, and the values climb the side.',
         'A line sloping up means values are rising, a line sloping down means falling, and a flat line means no change. Track the temperature or your plant\'s growth like a weather scientist!',
       ],
       illustrations: [
@@ -739,7 +739,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
         { id: 'Y5-MAT-ST03-q3', type: 'mcq', prompt: 'After collecting data, you organise it with a…', options: ['tally or graph', 'question', 'conclusion'], answer: 'tally or graph', difficulty: 1 },
         { id: 'Y5-MAT-ST03-q4', type: 'mcq', prompt: 'The last step of an investigation is to…', options: ['communicate your findings', 'pose a question', 'collect more data'], answer: 'communicate your findings', difficulty: 1 },
         { id: 'Y5-MAT-ST03-q5', type: 'mcq', prompt: 'Which is a good statistical question?', options: ['What is our class\'s favourite sport?', 'Is 7 a lucky number?', 'What colour is the sky?'], answer: 'What is our class\'s favourite sport?', difficulty: 2 },
-        { id: 'Y5-MAT-ST03-q6', type: 'mcq', prompt: '"How many pets do students in our class own?" — to answer it you need to…', options: ['collect data', 'guess', 'choose a colour'], answer: 'collect data', difficulty: 1 },
+        { id: 'Y5-MAT-ST03-q6', type: 'mcq', prompt: '"How many pets do students in our class own?", to answer it you need to…', options: ['collect data', 'guess', 'choose a colour'], answer: 'collect data', difficulty: 1 },
       ],
     },
   },
@@ -753,7 +753,7 @@ export const YEAR5_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'On a fair die, every number from 1 to 6 has the same chance of landing face up — the outcomes are equally likely.',
+        'On a fair die, every number from 1 to 6 has the same chance of landing face up, the outcomes are equally likely.',
         'A fair coin gives heads and tails equal chances, so each is 1/2. When every outcome has an equal chance, the maths is beautifully fair!',
       ],
       illustrations: [

@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 3 English — full topic bank.
+ * Year 3 English, full topic bank.
  * Scope mirrors the Australian Curriculum v9.0 content descriptions for
  * Year 3 (AC9E3xxx), strands Language / Literature / Literacy. Every topic
  * carries its ACARA code and a rendered `diagram` per illustration slot
@@ -21,9 +21,9 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'When we talk with friends, we take turns — one person speaks, then waits, then the next person speaks. This is a social convention, an unwritten rule that helps conversations work.',
+        'When we talk with friends, we take turns, one person speaks, then waits, then the next person speaks. This is a social convention, an unwritten rule that helps conversations work.',
         'Turn-taking changes with the situation. In a chat with a mate you can jump in quickly, but in a formal discussion you wait for your turn and speak politely.',
-        'Good listeners wait, look and then share — that is how teamwork grows.',
+        'Good listeners wait, look and then share, that is how teamwork grows.',
       ],
       illustrations: [
         { brief: 'The flow of a polite conversation: listen, wait, share, let others have a turn', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Listen carefully' }, { text: 'Wait for your turn' }, { text: 'Share your idea' }, { text: 'Let someone else have a turn' }] } },
@@ -57,7 +57,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
         'Using modal verbs well helps us share opinions politely and say how sure we feel.',
       ],
       illustrations: [
-        { brief: 'Modal verbs on a force scale: must (strong), should (medium), could (gentle)', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'bolt', label: 'must — strong' }, { icon: 'sun', label: 'should — medium' }, { icon: 'wind', label: 'could — gentle' }], caption: 'Modal verbs change how forceful a message sounds.' } },
+        { brief: 'Modal verbs on a force scale: must (strong), should (medium), could (gentle)', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'bolt', label: 'must, strong' }, { icon: 'sun', label: 'should, medium' }, { icon: 'wind', label: 'could, gentle' }], caption: 'Modal verbs change how forceful a message sounds.' } },
       ],
     },
     assignment: {
@@ -69,7 +69,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y3-ENG-LA02-q3', type: 'mcq', prompt: 'Which sentence sounds like a firm rule?', options: ['You could tidy your room.', 'You might tidy your room.', 'You must tidy your room.', 'You may tidy your room.'], answer: 'You must tidy your room.', difficulty: 1 },
         { id: 'Y3-ENG-LA02-q4', type: 'mcq', prompt: '"You should wear a hat." This sentence is best described as...', options: ['a strong order', 'a firm piece of advice', 'a wild guess', 'a question'], answer: 'a firm piece of advice', difficulty: 2 },
         { id: 'Y3-ENG-LA02-q5', type: 'mcq', prompt: 'Which sentence uses a modal verb to make a gentle offer?', options: ['You will come with me.', 'You must come with me.', 'You could come with me if you like.', 'You are coming with me.'], answer: 'You could come with me if you like.', difficulty: 2 },
-        { id: 'Y3-ENG-LA02-q6', type: 'short', prompt: 'Fill the gap with the strong modal verb: "You ___ wear your helmet — it is the law."', answer: 'must', difficulty: 1 },
+        { id: 'Y3-ENG-LA02-q6', type: 'short', prompt: 'Fill the gap with the strong modal verb: "You ___ wear your helmet, it is the law."', answer: 'must', difficulty: 1 },
       ],
     },
   },
@@ -84,11 +84,11 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'Writers pick language features to match their purpose. A report uses headings and facts, a recipe uses numbered steps, and an advertisement uses bold words and exciting questions.',
-        'When you know the purpose — to inform, persuade or entertain — you know which features to look for.',
+        'When you know the purpose, to inform, persuade or entertain, you know which features to look for.',
         'Spotting features like captions, bullet points and labels helps you read faster and understand more.',
       ],
       illustrations: [
-        { brief: 'Three text types with the features that match their purpose', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'newspaper', label: 'report — headings & facts' }, { icon: 'clipboard', label: 'recipe — numbered steps' }, { icon: 'price-tag', label: 'advert — bold words' }], caption: 'Features match the purpose.' } },
+        { brief: 'Three text types with the features that match their purpose', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'newspaper', label: 'report, headings & facts' }, { icon: 'clipboard', label: 'recipe, numbered steps' }, { icon: 'price-tag', label: 'advert, bold words' }], caption: 'Features match the purpose.' } },
       ],
     },
     assignment: {
@@ -115,7 +115,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'A paragraph is a group of sentences all about one main idea. When the idea changes, you start a new paragraph.',
-        'Paragraphs are like little teams — each team holds sentences that belong together, which makes our writing clear and easy to read.',
+        'Paragraphs are like little teams, each team holds sentences that belong together, which makes our writing clear and easy to read.',
         'Writers start a new paragraph for a new idea, a new person talking, or a new time or place.',
       ],
       illustrations: [
@@ -146,7 +146,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'Layout is how a text is arranged on a page or screen. Headings, labels and menus help us find our way around like signposts.',
-        'Digital texts use navigation tools — menus, buttons, search boxes and links — so readers can jump straight to what they need.',
+        'Digital texts use navigation tools, menus, buttons, search boxes and links, so readers can jump straight to what they need.',
         'Words like "next", "back" and "home" are part of navigation too.',
       ],
       illustrations: [
@@ -176,8 +176,8 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'The subject of a sentence is who or what is doing the action. The verb is the action word. They must agree — a singular subject needs a singular verb, and a plural subject needs a plural verb.',
-        '"The dog barks" is correct, but "The dogs barks" is not — the dogs (plural) need "bark".',
+        'The subject of a sentence is who or what is doing the action. The verb is the action word. They must agree, a singular subject needs a singular verb, and a plural subject needs a plural verb.',
+        '"The dog barks" is correct, but "The dogs barks" is not, the dogs (plural) need "bark".',
         'Checking that the subject and verb agree makes our sentences sound right.',
       ],
       illustrations: [
@@ -212,7 +212,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
         'Naming the type of verb helps us understand what is really happening in a sentence.',
       ],
       illustrations: [
-        { brief: 'Five verbs doing different jobs: doing, feeling, thinking, saying, relating', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'runner', label: 'doing — run' }, { icon: 'smiley', label: 'feeling — love' }, { icon: 'brain', label: 'thinking — wonder' }, { icon: 'chat-bubble', label: 'saying — whisper' }, { icon: 'link', label: 'relating — is' }], caption: 'Verbs do different jobs.' } },
+        { brief: 'Five verbs doing different jobs: doing, feeling, thinking, saying, relating', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'runner', label: 'doing, run' }, { icon: 'smiley', label: 'feeling, love' }, { icon: 'brain', label: 'thinking, wonder' }, { icon: 'chat-bubble', label: 'saying, whisper' }, { icon: 'link', label: 'relating, is' }], caption: 'Verbs do different jobs.' } },
       ],
     },
     assignment: {
@@ -239,11 +239,11 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'Verb tense anchors a sentence in time. Past tense happened already (walked), present tense is happening now (walks), and future tense is still to come (will walk).',
-        'Staying in one tense keeps a story clear — if we jump between "ran" and "will run", readers get lost.',
+        'Staying in one tense keeps a story clear, if we jump between "ran" and "will run", readers get lost.',
         'Signal words help: yesterday (past), today (present), tomorrow (future).',
       ],
       illustrations: [
-        { brief: 'A time line from yesterday to tomorrow with the matching verb tense', ready: true, diagram: { kind: 'number-line', min: 0, max: 2, marks: [{ value: 0, label: 'yesterday — walked' }, { value: 1, label: 'today — walk' }, { value: 2, label: 'tomorrow — will walk' }] } },
+        { brief: 'A time line from yesterday to tomorrow with the matching verb tense', ready: true, diagram: { kind: 'number-line', min: 0, max: 2, marks: [{ value: 0, label: 'yesterday, walked' }, { value: 1, label: 'today, walk' }, { value: 2, label: 'tomorrow, will walk' }] } },
       ],
     },
     assignment: {
@@ -269,8 +269,8 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Images do more than decorate a page — they add meaning the words alone cannot give. A picture can show a character\u2019s feelings, a setting detail, or a clue about what happens next.',
-        'Words might say "it was a quiet street" while the picture shows dark shadows and a worried face — the image deepens the mood.',
+        'Images do more than decorate a page, they add meaning the words alone cannot give. A picture can show a character\u2019s feelings, a setting detail, or a clue about what happens next.',
+        'Words might say "it was a quiet street" while the picture shows dark shadows and a worried face, the image deepens the mood.',
         'Writers and illustrators work together so words and pictures tell one richer story.',
       ],
       illustrations: [
@@ -302,7 +302,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       body: [
         'Many words have more than one meaning. "Trunk" can be the stem of a tree or the storage space in a car; "light" can be a lamp or the opposite of heavy.',
         'The sentence around the word tells you which meaning is right. "Turn on the light" and "the box is light" use the same word in different ways.',
-        'Topic and technical words have special jobs — in a science report, words like "evaporation" and "habitat" carry exact meaning.',
+        'Topic and technical words have special jobs, in a science report, words like "evaporation" and "habitat" carry exact meaning.',
       ],
       illustrations: [
         { brief: 'One word, two meanings: the trunk of a tree and the trunk of a car', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'tree', label: 'tree trunk' }, { icon: 'suitcase', label: 'car trunk' }], caption: 'One word, two meanings.' } },
@@ -317,7 +317,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y3-ENG-LA10-q3', type: 'mcq', prompt: 'Which word has a different meaning in "The bat flew at night" and "Swing the bat"?', options: ['bat', 'flew', 'night', 'swing'], answer: 'bat', difficulty: 1 },
         { id: 'Y3-ENG-LA10-q4', type: 'mcq', prompt: 'In a science text, a word like "habitat" is called...', options: ['technical vocabulary', 'a rhyming word', 'an action verb', 'a connecting word'], answer: 'technical vocabulary', difficulty: 2 },
         { id: 'Y3-ENG-LA10-q5', type: 'mcq', prompt: '"The rock star sang" and "The star twinkled." The word "star" means...', options: ['a famous singer in the first, a bright dot in the sky in the second', 'the same thing both times', 'a planet both times', 'an animal both times'], answer: 'a famous singer in the first, a bright dot in the sky in the second', difficulty: 3 },
-        { id: 'Y3-ENG-LA10-q6', type: 'short', prompt: 'In the sentence "Turn off the light", what does "light" mean — a lamp or the opposite of heavy?', answer: 'a lamp', difficulty: 1 },
+        { id: 'Y3-ENG-LA10-q6', type: 'short', prompt: 'In the sentence "Turn off the light", what does "light" mean, a lamp or the opposite of heavy?', answer: 'a lamp', difficulty: 1 },
       ],
     },
   },
@@ -332,7 +332,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'Apostrophes have two important jobs. They show where letters are missing in contractions: "do not" becomes "don\u2019t" and "I am" becomes "I\u2019m".',
-        'Apostrophes also show possession — who owns something. "Sam\u2019s hat" is the hat that belongs to Sam.',
+        'Apostrophes also show possession, who owns something. "Sam\u2019s hat" is the hat that belongs to Sam.',
         'For more than one owner, the apostrophe goes after the s: "the girls\u2019 hats" belongs to many girls.',
       ],
       illustrations: [
@@ -365,7 +365,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Stories grow from the place and people who tell them. We can discuss characters, events and settings in books by First Nations Australian authors and by writers from all over the world.',
-        'Setting helps us understand characters — a character in a desert story faces different challenges than one in a rainforest story.',
+        'Setting helps us understand characters, a character in a desert story faces different challenges than one in a rainforest story.',
         'We read with respect and curiosity, noticing how culture, country and tradition shape each story.',
       ],
       illustrations: [
@@ -395,7 +395,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Great readers connect what happens to characters with their own lives. "The character felt nervous on her first day — I felt that way too!"',
+        'Great readers connect what happens to characters with their own lives. "The character felt nervous on her first day, I felt that way too!"',
         'Sharing these connections helps us understand characters better and enjoy stories more.',
         'We can also compare characters with each other or with people we know.',
       ],
@@ -431,7 +431,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
         'Noticing an author\u2019s word choices helps us understand how the story makes us feel and why.',
       ],
       illustrations: [
-        { brief: 'Two moods side by side: a happy sparkly scene and a scary dark cave', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'sun', label: 'happy — "sun sparkled"' }, { icon: 'raincloud', label: 'scary — "dark cave echoed"' }], caption: 'Word choices create mood.' } },
+        { brief: 'Two moods side by side: a happy sparkly scene and a scary dark cave', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'sun', label: 'happy, "sun sparkled"' }, { icon: 'raincloud', label: 'scary, "dark cave echoed"' }], caption: 'Word choices create mood.' } },
       ],
     },
     assignment: {
@@ -457,12 +457,12 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Poets use rhythm — a steady beat of strong and soft sounds — so their poems feel musical when read aloud.',
+        'Poets use rhythm, a steady beat of strong and soft sounds, so their poems feel musical when read aloud.',
         'Onomatopoeia is a word that sounds like the noise it names: buzz, splash, crash, pop. Writers use it to bring sound to life on the page.',
-        'Listen for rhythm and sound words the next time you read a poem or a story — the words are playing a game with your ears!',
+        'Listen for rhythm and sound words the next time you read a poem or a story, the words are playing a game with your ears!',
       ],
       illustrations: [
-        { brief: 'Rhythm as a beat and onomatopoeia words that sound like their noises', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'music-note', label: 'rhythm — the beat' }, { icon: 'burst', label: 'onomatopoeia — crash!' }], caption: 'Rhythm and sound words bring writing to life.' } },
+        { brief: 'Rhythm as a beat and onomatopoeia words that sound like their noises', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'music-note', label: 'rhythm, the beat' }, { icon: 'burst', label: 'onomatopoeia, crash!' }], caption: 'Rhythm and sound words bring writing to life.' } },
       ],
     },
     assignment: {
@@ -489,7 +489,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'When we write imaginative texts, we become authors! We choose characters, a setting, a problem and how the story is solved.',
-        'We can borrow and adapt language features we love — exciting verbs, sound words, and a problem that keeps readers turning pages.',
+        'We can borrow and adapt language features we love, exciting verbs, sound words, and a problem that keeps readers turning pages.',
         'After writing, authors edit to make the story clearer and more exciting before sharing it.',
       ],
       illustrations: [
@@ -522,11 +522,11 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'A text can have the same purpose but different audiences. An email to your best friend and a letter to your principal both ask for a day off, but they sound very different!',
-        'We change our words and tone to suit the audience — casual and friendly for a mate, polite and careful for an adult we respect.',
+        'We change our words and tone to suit the audience, casual and friendly for a mate, polite and careful for an adult we respect.',
         'Thinking about who will read your text helps you choose the right language.',
       ],
       illustrations: [
-        { brief: 'The same message written for a friend and for the principal', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'chat-bubble', label: 'email to a friend — "hey!"' }, { icon: 'envelope', label: 'letter to the principal — "Dear Ms Ali"' }], caption: 'Same message, different audience.' } },
+        { brief: 'The same message written for a friend and for the principal', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'chat-bubble', label: 'email to a friend, "hey!"' }, { icon: 'envelope', label: 'letter to the principal, "Dear Ms Ali"' }], caption: 'Same message, different audience.' } },
       ],
     },
     assignment: {
@@ -569,7 +569,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y3-ENG-LY02-q3', type: 'mcq', prompt: 'When you want to share your own idea in a group, you should...', options: ['wait for a turn and connect to the topic', 'talk over everyone', 'change the topic', 'whisper to one person'], answer: 'wait for a turn and connect to the topic', difficulty: 1 },
         { id: 'Y3-ENG-LY02-q4', type: 'mcq', prompt: 'Asking a question during a discussion...', options: ['helps everyone understand better', 'ends the discussion', 'is always rude', 'stops you from listening'], answer: 'helps everyone understand better', difficulty: 2 },
         { id: 'Y3-ENG-LY02-q5', type: 'mcq', prompt: 'In a discussion, sticking to the topic means...', options: ['your ideas stay connected to the conversation', 'you talk about anything', 'you never speak', 'you repeat one word'], answer: 'your ideas stay connected to the conversation', difficulty: 2 },
-        { id: 'Y3-ENG-LY02-q6', type: 'short', prompt: 'What do you do with your ears when someone is speaking — talk or listen?', answer: 'listen', difficulty: 1 },
+        { id: 'Y3-ENG-LY02-q6', type: 'short', prompt: 'What do you do with your ears when someone is speaking, talk or listen?', answer: 'listen', difficulty: 1 },
       ],
     },
   },
@@ -584,8 +584,8 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'You can spot the audience and purpose of a text by its features. Big pictures and short words suit young readers; long sentences and hard words suit older readers.',
-        'Features like headings, captions and maps help us identify the purpose — to inform, persuade or entertain.',
-        'An advertisement uses "BUY NOW!" while a dictionary uses alphabetical order — the features give the game away.',
+        'Features like headings, captions and maps help us identify the purpose, to inform, persuade or entertain.',
+        'An advertisement uses "BUY NOW!" while a dictionary uses alphabetical order, the features give the game away.',
       ],
       illustrations: [
         { brief: 'Features that reveal audience and purpose: pictures, facts and persuasion', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'picture-frame', label: 'big pictures = young readers' }, { icon: 'newspaper', label: 'facts = to inform' }, { icon: 'price-tag', label: 'BUY NOW = to persuade' }], caption: 'Features reveal audience and purpose.' } },
@@ -597,7 +597,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       questions: [
         { id: 'Y3-ENG-LY03-q1', type: 'mcq', prompt: 'A picture book with big bright pictures and short words is mostly for...', options: ['young children', 'university students', 'builders', 'no one'], answer: 'young children', difficulty: 1 },
         { id: 'Y3-ENG-LY03-q2', type: 'mcq', prompt: 'A text with facts, headings and captions mostly has the purpose to...', options: ['inform', 'persuade', 'entertain only', 'confuse'], answer: 'inform', difficulty: 1 },
-        { id: 'Y3-ENG-LY03-q3', type: 'mcq', prompt: 'Which feature is a clue that a text is persuading you to buy something?', options: ['"BUY NOW — only $5!"', 'a list of facts about volcanoes', 'a map of Australia', 'a recipe'], answer: '"BUY NOW — only $5!"', difficulty: 1 },
+        { id: 'Y3-ENG-LY03-q3', type: 'mcq', prompt: 'Which feature is a clue that a text is persuading you to buy something?', options: ['"BUY NOW, only $5!"', 'a list of facts about volcanoes', 'a map of Australia', 'a recipe'], answer: '"BUY NOW, only $5!"', difficulty: 1 },
         { id: 'Y3-ENG-LY03-q4', type: 'mcq', prompt: 'A story with funny characters and an exciting plot mostly aims to...', options: ['entertain', 'inform', 'persuade', 'record'], answer: 'entertain', difficulty: 1 },
         { id: 'Y3-ENG-LY03-q5', type: 'mcq', prompt: 'A science textbook uses long sentences and technical words. Its audience is likely...', options: ['students learning the topic', 'babies', 'people who cannot read', 'only cartoon fans'], answer: 'students learning the topic', difficulty: 2 },
         { id: 'Y3-ENG-LY03-q6', type: 'short', prompt: 'What is the purpose of a text that tries to make you buy or do something?', answer: 'to persuade', difficulty: 2 },
@@ -616,7 +616,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       body: [
         'Strong readers use three kinds of knowledge: phonic (sounding out letters), semantic (does it make sense?) and grammatical (does it sound right?).',
         'When a word is tricky, we can sound it out, look at the letters, and check whether the sentence makes sense.',
-        'Good readers also re-read and self-correct — going back to fix a mistake is a sign of a smart reader.',
+        'Good readers also re-read and self-correct, going back to fix a mistake is a sign of a smart reader.',
       ],
       illustrations: [
         { brief: 'The toolkit for reading a tricky word: sound it out, check meaning, check grammar', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Read the tricky word' }, { text: 'Sound it out (phonic)' }, { text: 'Check the meaning (semantic)' }, { text: 'Does it sound right? (grammatical)' }] } },
@@ -645,12 +645,12 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Literal questions have answers right there in the text: "What colour was the hat?" — the text says red.',
+        'Literal questions have answers right there in the text: "What colour was the hat?", the text says red.',
         'Inferred meanings are worked out from clues: the text says "Mia grabbed an umbrella" so we infer it might rain.',
-        'We also evaluate texts — do we agree with the author? Would we change the ending? What makes this text good?',
+        'We also evaluate texts, do we agree with the author? Would we change the ending? What makes this text good?',
       ],
       illustrations: [
-        { brief: 'Literal answers are in the text while inferences use clues', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'magnifier', label: 'literal — right in the text' }, { icon: 'bulb', label: 'infer — from clues' }], caption: 'Literal answers are in the text; inferences use clues.' } },
+        { brief: 'Literal answers are in the text while inferences use clues', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'magnifier', label: 'literal, right in the text' }, { icon: 'bulb', label: 'infer, from clues' }], caption: 'Literal answers are in the text; inferences use clues.' } },
       ],
     },
     assignment: {
@@ -708,7 +708,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'A short presentation has a clear structure: a beginning that hooks the listener, a middle with details, and an end that wraps up.',
-        'Good speakers use tone, pace, pitch and volume — changing how fast, high or loud they speak to keep the audience interested.',
+        'Good speakers use tone, pace, pitch and volume, changing how fast, high or loud they speak to keep the audience interested.',
         'Rehearsing before you present builds confidence and helps you remember your ideas.',
       ],
       illustrations: [
@@ -739,7 +739,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Joined handwriting means writing words with letters that flow together using clear joins.',
-        'Letters should be clearly formed and consistent in size — tall letters like b and h reach up, while short letters like a and o stay small.',
+        'Letters should be clearly formed and consistent in size, tall letters like b and h reach up, while short letters like a and o stay small.',
         'Sitting tall, holding the pen correctly and leaving even spacing help your joined writing look tidy.',
       ],
       illustrations: [
@@ -769,7 +769,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Big words are made of syllables — the beats we clap. "Elephant" has three beats: e-le-phant.',
+        'Big words are made of syllables, the beats we clap. "Elephant" has three beats: e-le-phant.',
         'We blend the syllables together to read a word (el-e-phant → elephant) and segment it to spell it (elephant → e-le-phant).',
         'Using phoneme\u2013grapheme knowledge and clapping syllables helps us read and write longer words confidently.',
       ],
@@ -836,7 +836,7 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
         'Looking carefully at letter patterns and collecting tricky words helps us spell words that do not follow the simple rules.',
       ],
       illustrations: [
-        { brief: 'Words that share a sound but use different letter patterns', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'book', label: 'shell, chef, station — /sh/' }, { icon: 'bulb', label: 'for, door, more, saw — /or/' }], caption: 'Less common spelling patterns.' } },
+        { brief: 'Words that share a sound but use different letter patterns', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'book', label: 'shell, chef, station, /sh/' }, { icon: 'bulb', label: 'for, door, more, saw, /or/' }], caption: 'Less common spelling patterns.' } },
       ],
     },
     assignment: {
@@ -862,12 +862,12 @@ export const YEAR3_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'High-frequency words appear again and again in our reading — words like the, was, they, said and because. Knowing them by sight makes us fluent readers.',
+        'High-frequency words appear again and again in our reading, words like the, was, they, said and because. Knowing them by sight makes us fluent readers.',
         'Homophones are words that sound the same but have different spellings and meanings: their/there/they\u2019re and to/too/two.',
         'We choose the right spelling by thinking about meaning: "Their dog" (belonging), "over there" (a place), "they\u2019re going" (they are).',
       ],
       illustrations: [
-        { brief: 'The homophones there, their, they\u2019re shown with their different meanings', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'eye', label: 'there — a place' }, { icon: 'paw', label: 'their — belonging' }, { icon: 'people', label: 'they\u2019re — they are' }], caption: 'Homophones: same sound, different spelling.' } },
+        { brief: 'The homophones there, their, they\u2019re shown with their different meanings', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'eye', label: 'there, a place' }, { icon: 'paw', label: 'their, belonging' }, { icon: 'people', label: 'they\u2019re, they are' }], caption: 'Homophones: same sound, different spelling.' } },
       ],
     },
     assignment: {

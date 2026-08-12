@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 8 Mathematics — full topic bank.
+ * Year 8 Mathematics, full topic bank.
  * Source of truth for scope: docs/content/year-7-10/mathematics.md (AC v9.0).
  * Every topic carries its AC9M8xxx content-description code and a rendered
  * `diagram` per illustration slot (see src/components/illustrations/diagrams.tsx)
@@ -20,7 +20,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Some numbers cannot be written as a fraction of whole numbers — they are irrational. √2 and π are famous examples: their decimal expansions go on forever without repeating.',
+        'Some numbers cannot be written as a fraction of whole numbers, they are irrational. √2 and π are famous examples: their decimal expansions go on forever without repeating.',
         'You meet them in real contexts: the diagonal of a square is √2 times its side, and every circle measurement uses π. Recognising them means not forcing them into neat fractions.',
       ],
       illustrations: [
@@ -60,7 +60,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Exponent laws shorten calculations: to multiply powers with the same base, add the exponents (2³ × 2² = 2⁵); to divide, subtract them (2⁵ ÷ 2³ = 2²); to raise a power to a power, multiply them ((2²)³ = 2⁶).',
-        'Any number to the power of zero equals 1 — 10⁰ = 1, because dividing a number by itself always gives 1.',
+        'Any number to the power of zero equals 1, 10⁰ = 1, because dividing a number by itself always gives 1.',
       ],
       illustrations: [
         {
@@ -175,7 +175,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Financial problems are all about modelling: GST is 10%, so a $55 price tag usually means $50 of goods plus $5 of GST. Percentages can be added, discounted and compared.',
-        'Model the problem first — write down what you know, choose the calculation (e.g. find 90% after a 10% discount), solve, then check the answer in the real context.',
+        'Model the problem first, write down what you know, choose the calculation (e.g. find 90% after a 10% discount), solve, then check the answer in the real context.',
       ],
       illustrations: [
         {
@@ -206,7 +206,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
         { id: 'Y8-MAT-NN05-q2', type: 'mcq', prompt: 'A price of $55 includes 10% GST. The price before GST is…', options: ['$50', '$49.50', '$60.50'], answer: '$50', difficulty: 3 },
         { id: 'Y8-MAT-NN05-q3', type: 'short', prompt: 'What is 30% of 90?', answer: '27', difficulty: 1 },
         { id: 'Y8-MAT-NN05-q4', type: 'mcq', prompt: 'After a 10% discount, you pay…', options: ['90% of the price', '10% of the price', '110% of the price'], answer: '90% of the price', difficulty: 2 },
-        { id: 'Y8-MAT-NN05-q5', type: 'mcq', prompt: 'A store marks an item up by 20%, then discounts it by 20%. Compared with the original price…', options: ['It is not the same — it is lower', 'It is exactly the same', 'It is higher'], answer: 'It is not the same — it is lower', difficulty: 3 },
+        { id: 'Y8-MAT-NN05-q5', type: 'mcq', prompt: 'A store marks an item up by 20%, then discounts it by 20%. Compared with the original price…', options: ['It is not the same, it is lower', 'It is exactly the same', 'It is higher'], answer: 'It is not the same, it is lower', difficulty: 3 },
         { id: 'Y8-MAT-NN05-q6', type: 'short', prompt: 'What is 5% of 240?', answer: '12', difficulty: 1 },
       ],
     },
@@ -214,7 +214,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
   // ---------- Algebra (4 CDs) ----------
   {
     id: 'Y8-MAT-AL01',
-    title: 'Linear expressions — expand, factorise, rearrange',
+    title: 'Linear expressions, expand, factorise, rearrange',
     year: '8',
     subject: 'mathematics',
     strand: 'Algebra',
@@ -222,7 +222,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Expanding means removing brackets by multiplying each term inside: 3(x + 2) = 3x + 6. Factorising is the reverse — pulling out the common factor: 6x + 4 = 2(3x + 2).',
+        'Expanding means removing brackets by multiplying each term inside: 3(x + 2) = 3x + 6. Factorising is the reverse, pulling out the common factor: 6x + 4 = 2(3x + 2).',
         'These are powered by the algebraic properties: the distributive law, the commutative and associative laws, the identity elements (adding 0, multiplying by 1) and inverses.',
       ],
       illustrations: [
@@ -262,7 +262,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A linear relation like y = 2x + 1 graphs as a straight line. Every point (x, y) on the line is a solution of the equation.',
-        'Solving 3x + 2 = 11 means finding the x that makes it true — undo in reverse order. Inequalities like x − 4 > 2 have a whole range of solutions (x > 6), shown on a number line.',
+        'Solving 3x + 2 = 11 means finding the x that makes it true, undo in reverse order. Inequalities like x − 4 > 2 have a whole range of solutions (x > 6), shown on a number line.',
       ],
       illustrations: [
         {
@@ -309,7 +309,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Linear models describe steady change: a phone plan costs a $10 connection fee plus $5 a month — that is y = 5x + 10. Once it is a formula, you can predict future costs.',
+        'Linear models describe steady change: a phone plan costs a $10 connection fee plus $5 a month, that is y = 5x + 10. Once it is a formula, you can predict future costs.',
         'Model then review: solve the problem, then check whether the straight-line model really fits the situation (is change steady, or does it speed up?).',
       ],
       illustrations: [
@@ -366,7 +366,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Using graphing tools, you can experiment: change the number multiplying x (the slope) and the line gets steeper; change the number added (the intercept) and the whole line shifts up or down.',
-        'Making and testing conjectures — "if I double the slope, the line gets twice as steep" — and generalising patterns is how real mathematicians work with digital tools.',
+        'Making and testing conjectures, "if I double the slope, the line gets twice as steep", and generalising patterns is how real mathematicians work with digital tools.',
       ],
       illustrations: [
         {
@@ -413,7 +413,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A composite shape is made of simpler shapes joined together. To find its area, split it into rectangles and triangles, find each area, then add. Perimeter is the distance all the way around — count only the outside edges.',
+        'A composite shape is made of simpler shapes joined together. To find its area, split it into rectangles and triangles, find each area, then add. Perimeter is the distance all the way around, count only the outside edges.',
         'Look for the "cut": a house-shaped figure is a rectangle with a triangle on top. Splitting along a sensible line makes the maths easy.',
       ],
       illustrations: [
@@ -491,7 +491,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The area of a circle is A = πr² — the square of the radius times π. A radius of 2 cm gives an area of about 12.6 cm².',
+        'The area of a circle is A = πr², the square of the radius times π. A radius of 2 cm gives an area of about 12.6 cm².',
         'A sector is a "pizza slice" of a circle. Its area is the circle’s area multiplied by the fraction of the circle it covers: 90° is a quarter of 360°, so its sector has a quarter of the circle’s area.',
       ],
       illustrations: [
@@ -569,7 +569,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Congruent figures are identical in size and shape — you can slide, flip or rotate one to land exactly on the other. They have matching sides and matching angles.',
+        'Congruent figures are identical in size and shape, you can slide, flip or rotate one to land exactly on the other. They have matching sides and matching angles.',
         'You can construct congruent shapes with a ruler, protractor and compasses, and you can identify congruence by checking side lengths and angles rather than by eye.',
       ],
       illustrations: [
@@ -609,7 +609,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Similar figures have the same shape but different sizes: their matching angles are equal and their matching sides are in the same ratio. That ratio is the scale factor.',
-        'A scale factor of 2 doubles every side. Lengths scale by the factor, but areas scale by the factor squared — double the side, and area goes up 4 times.',
+        'A scale factor of 2 doubles every side. Lengths scale by the factor, but areas scale by the factor squared, double the side, and area goes up 4 times.',
       ],
       illustrations: [
         {
@@ -648,7 +648,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Similarity is used in maps, models and photographs: a building photographed twice from the same angle gives similar triangles, so you can measure heights you cannot reach.',
-        'Modelling with similarity means using the same scale factor for every part — measure one known length, then scale all the rest. Review your answer against the real object.',
+        'Modelling with similarity means using the same scale factor for every part, measure one known length, then scale all the rest. Review your answer against the real object.',
       ],
       illustrations: [
         {
@@ -748,7 +748,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Tessellations are patterns of shapes that tile a surface with no gaps and no overlaps. Regular tessellations use congruent copies of one shape — triangles, squares and hexagons all tessellate.',
+        'Tessellations are patterns of shapes that tile a surface with no gaps and no overlaps. Regular tessellations use congruent copies of one shape, triangles, squares and hexagons all tessellate.',
         'Transformations create tessellations: translate a pattern across the floor, rotate a motif, or reflect it to build larger repeating designs, just like floor tiles or a quilt.',
       ],
       illustrations: [
@@ -787,8 +787,8 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Pythagoras’ theorem links the sides of a right-angled triangle: the square on the hypotenuse (the longest side) equals the sum of the squares on the other two sides — a² + b² = c².',
-        'Use it to find a missing side: for sides 3 and 4, the hypotenuse is √(3² + 4²) = √25 = 5. Check your answer is sensible — the hypotenuse is always the longest side.',
+        'Pythagoras’ theorem links the sides of a right-angled triangle: the square on the hypotenuse (the longest side) equals the sum of the squares on the other two sides, a² + b² = c².',
+        'Use it to find a missing side: for sides 3 and 4, the hypotenuse is √(3² + 4²) = √25 = 5. Check your answer is sensible, the hypotenuse is always the longest side.',
       ],
       illustrations: [
         {
@@ -858,10 +858,10 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
       compactCount: 4,
       questions: [
         { id: 'Y8-MAT-SP04-q1', type: 'mcq', prompt: 'The first step of a right-triangle-checking algorithm is to…', options: ['Find the longest side', 'Draw a circle', 'Guess the answer'], answer: 'Find the longest side', difficulty: 1 },
-        { id: 'Y8-MAT-SP04-q2', type: 'mcq', prompt: 'If a = 5, b = 12, c = 13, then a² + b² = c²?', options: ['Yes — 25 + 144 = 169 = 13²', 'No — it is always wrong', 'Only sometimes'], answer: 'Yes — 25 + 144 = 169 = 13²', difficulty: 2 },
+        { id: 'Y8-MAT-SP04-q2', type: 'mcq', prompt: 'If a = 5, b = 12, c = 13, then a² + b² = c²?', options: ['Yes, 25 + 144 = 169 = 13²', 'No, it is always wrong', 'Only sometimes'], answer: 'Yes, 25 + 144 = 169 = 13²', difficulty: 2 },
         { id: 'Y8-MAT-SP04-q3', type: 'mcq', prompt: 'An algorithm is best described as…', options: ['A step-by-step recipe', 'A single lucky guess', 'A picture with no steps'], answer: 'A step-by-step recipe', difficulty: 1 },
         { id: 'Y8-MAT-SP04-q4', type: 'mcq', prompt: 'Decisions in an algorithm are shown as…', options: ['Branches with yes/no answers', 'Random scribbles', 'Colour changes'], answer: 'Branches with yes/no answers', difficulty: 2 },
-        { id: 'Y8-MAT-SP04-q5', type: 'mcq', prompt: 'For 6, 8, 10, does the algorithm conclude it is right-angled?', options: ['Yes — 36 + 64 = 100 = 10²', 'No', 'Cannot be checked'], answer: 'Yes — 36 + 64 = 100 = 10²', difficulty: 2 },
+        { id: 'Y8-MAT-SP04-q5', type: 'mcq', prompt: 'For 6, 8, 10, does the algorithm conclude it is right-angled?', options: ['Yes, 36 + 64 = 100 = 10²', 'No', 'Cannot be checked'], answer: 'Yes, 36 + 64 = 100 = 10²', difficulty: 2 },
         { id: 'Y8-MAT-SP04-q6', type: 'mcq', prompt: 'The final step of a good algorithm is…', options: ['A clear output for every input', 'A new question', 'No output'], answer: 'A clear output for every input', difficulty: 2 },
       ],
     },
@@ -955,7 +955,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A sample is a smaller group used to make conclusions about a larger population. A representative sample reflects the whole population — in age, location and other key features.',
+        'A sample is a smaller group used to make conclusions about a larger population. A representative sample reflects the whole population, in age, location and other key features.',
         'Random sampling avoids bias: if every student has the same chance of being picked, the sample is fair. Bigger samples are usually more trustworthy than tiny ones.',
       ],
       illustrations: [
@@ -1089,7 +1089,7 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Every event has a complement — everything that is NOT that event. P(not A) = 1 − P(A). If P(rain) = 0.4, then P(no rain) = 0.6.',
+        'Every event has a complement, everything that is NOT that event. P(not A) = 1 − P(A). If P(rain) = 0.4, then P(no rain) = 0.6.',
         'The sum of an event and its complement is always 1 (or 100%). Sometimes it is much easier to work out the complement and subtract it than to count the event directly.',
       ],
       illustrations: [
@@ -1140,8 +1140,8 @@ export const YEAR8_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Simulations run a chance experiment many times using random numbers — a die roll can be simulated with the digits 1 to 6. Digital tools can run thousands of trials in seconds.',
-        'Compare the predicted probability with the relative frequency from the simulation. With more trials, the relative frequency gets closer to the prediction — that is the law of large numbers.',
+        'Simulations run a chance experiment many times using random numbers, a die roll can be simulated with the digits 1 to 6. Digital tools can run thousands of trials in seconds.',
+        'Compare the predicted probability with the relative frequency from the simulation. With more trials, the relative frequency gets closer to the prediction, that is the law of large numbers.',
       ],
       illustrations: [
         {

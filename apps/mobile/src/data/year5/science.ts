@@ -1,11 +1,11 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 5 Science — full topic bank.
+ * Year 5 Science, full topic bank.
  * Source of truth: docs/content/year-1-5/science.md (AC v9.0; strands Science
  * Understanding / Human Endeavour / Inquiry). Every topic carries its AC9S5xxx
  * content-description code (docs/specs/curriculum-research.md §4: cite codes,
- * author original lessons — never bulk-copy syllabus text).
+ * author original lessons, never bulk-copy syllabus text).
  * Each assignment carries 6 questions (nominal pace) / 4 (compact pace),
  * per docs/specs/adaptive-pacing.md's depth-compression model.
  * First Nations knowledge of living things is referenced in Y5-SCI-U01 as
@@ -23,7 +23,7 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Adaptations are the tricks living things have for surviving where they live — structural ones are body features like sharp claws, and behavioural ones are actions like migrating before winter.',
+        'Adaptations are the tricks living things have for surviving where they live, structural ones are body features like sharp claws, and behavioural ones are actions like migrating before winter.',
         'A cactus stores water in its thick stem and a camel can go days without a drink, because each one is built for a hot, dry place. First Nations Australians have watched these patterns in plants and animals over many generations to read the seasons and find food and water.',
       ],
       illustrations: [
@@ -54,7 +54,7 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Earth\'s surface is always on the move — weathering breaks rocks into pieces, erosion carries those pieces away, and deposition drops them somewhere new.',
+        'Earth\'s surface is always on the move, weathering breaks rocks into pieces, erosion carries those pieces away, and deposition drops them somewhere new.',
         'Rain, ice and roots slowly crack rocks; rivers and wind sweep the bits away; and the pieces settle where the flow slows, like where a river meets the sea. Big changes can take millions of years, so keep watching!',
       ],
       illustrations: [
@@ -70,14 +70,14 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
         { id: 'Y5-SCI-U02-q2', type: 'mcq', prompt: 'Erosion is when pieces of rock are…', options: ['Carried away by wind or water', 'Broken in place by ice', 'Dropped and left behind'], answer: 'Carried away by wind or water', difficulty: 1 },
         { id: 'Y5-SCI-U02-q3', type: 'mcq', prompt: 'Deposition happens when carried material…', options: ['Settles and is dropped', 'Breaks into smaller pieces', 'Changes into rock instantly'], answer: 'Settles and is dropped', difficulty: 1 },
         { id: 'Y5-SCI-U02-q4', type: 'mcq', prompt: 'A river deposits the most sediment where its flow slows down, such as…', options: ['Where it meets the ocean', 'On a steep mountain slope', 'Where it rushes fastest'], answer: 'Where it meets the ocean', difficulty: 2 },
-        { id: 'Y5-SCI-U02-q5', type: 'short', prompt: 'Which force — wind, water or ice — is the main mover of loose desert sand dunes?', answer: 'wind', difficulty: 2 },
+        { id: 'Y5-SCI-U02-q5', type: 'short', prompt: 'Which force, wind, water or ice, is the main mover of loose desert sand dunes?', answer: 'wind', difficulty: 2 },
         { id: 'Y5-SCI-U02-q6', type: 'mcq', prompt: 'Which sequence correctly shows the order of the three processes?', options: ['Weathering → erosion → deposition', 'Deposition → weathering → erosion', 'Erosion → deposition → weathering'], answer: 'Weathering → erosion → deposition', difficulty: 3 },
       ],
     },
   },
   {
     id: 'Y5-SCI-U03',
-    title: 'Light — sources, shadows & bending',
+    title: 'Light, sources, shadows & bending',
     year: '5',
     subject: 'science',
     strand: 'Science understanding',
@@ -85,11 +85,11 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Light comes from sources — natural ones like the Sun and made ones like a torch — and it travels in straight lines until something gets in the way.',
-        'When an object blocks the light, a shadow forms behind it. Light can also bounce off a mirror (reflection) and bend as it passes through glass or water (refraction) — that is why a straw looks bent in a glass of water!',
+        'Light comes from sources, natural ones like the Sun and made ones like a torch, and it travels in straight lines until something gets in the way.',
+        'When an object blocks the light, a shadow forms behind it. Light can also bounce off a mirror (reflection) and bend as it passes through glass or water (refraction), that is why a straw looks bent in a glass of water!',
       ],
       illustrations: [
-        { brief: 'Natural source, made source and a mirror reflecting light', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'sun', label: 'Sun — natural source' }, { icon: 'bulb', label: 'Lamp — made source' }, { icon: 'mirror', label: 'Mirror reflects' }], caption: 'Light comes from sources and can reflect' } },
+        { brief: 'Natural source, made source and a mirror reflecting light', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'sun', label: 'Sun, natural source' }, { icon: 'bulb', label: 'Lamp, made source' }, { icon: 'mirror', label: 'Mirror reflects' }], caption: 'Light comes from sources and can reflect' } },
         { brief: 'Shadow formation: light travels straight and is blocked', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Light leaves the lamp' }, { text: 'Travels in a straight line' }, { text: 'Your hand blocks it' }, { text: 'A shadow forms behind' }] } },
       ],
     },
@@ -108,7 +108,7 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
   },
   {
     id: 'Y5-SCI-U04',
-    title: 'Solids, liquids & gases — particles',
+    title: 'Solids, liquids & gases, particles',
     year: '5',
     subject: 'science',
     strand: 'Science understanding',
@@ -116,12 +116,12 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Everything is made of tiny particles, and the state a thing is in — solid, liquid or gas — comes from how those particles sit and move.',
-        'In a solid the particles are packed tight; in a liquid they slide over each other; in a gas they spread out and zoom around. Add heat and the particles gain energy and spread — melt, then boil!',
+        'Everything is made of tiny particles, and the state a thing is in, solid, liquid or gas, comes from how those particles sit and move.',
+        'In a solid the particles are packed tight; in a liquid they slide over each other; in a gas they spread out and zoom around. Add heat and the particles gain energy and spread, melt, then boil!',
       ],
       illustrations: [
-        { brief: 'Particle arrangement in a solid, liquid and gas', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'cube', label: 'Solid — packed tight' }, { icon: 'droplet', label: 'Liquid — slide around' }, { icon: 'wind', label: 'Gas — spread out' }], caption: 'Same particles, different spacing' } },
-        { brief: 'Heating a solid: ice → water → steam', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Ice (solid) — particles locked' }, { text: 'Water (liquid) — particles slide' }, { text: 'Steam (gas) — particles zoom' }] } },
+        { brief: 'Particle arrangement in a solid, liquid and gas', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'cube', label: 'Solid, packed tight' }, { icon: 'droplet', label: 'Liquid, slide around' }, { icon: 'wind', label: 'Gas, spread out' }], caption: 'Same particles, different spacing' } },
+        { brief: 'Heating a solid: ice → water → steam', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Ice (solid), particles locked' }, { text: 'Water (liquid), particles slide' }, { text: 'Steam (gas), particles zoom' }] } },
       ],
     },
     assignment: {
@@ -148,7 +148,7 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Big scientific breakthroughs are usually team efforts — scientists work together across classrooms, countries and even generations, building on the work of the people before them.',
+        'Big scientific breakthroughs are usually team efforts, scientists work together across classrooms, countries and even generations, building on the work of the people before them.',
         'A scientist who shares their results hands the next person a head start. That is how knowledge grows: each discovery becomes the stepping stone for the next one.',
       ],
       illustrations: [
@@ -179,7 +179,7 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Scientific knowledge helps people and communities spot problems and make better choices — from choosing a sunscreen with higher SPF to planning recycling programs.',
+        'Scientific knowledge helps people and communities spot problems and make better choices, from choosing a sunscreen with higher SPF to planning recycling programs.',
         'A farmer checks rainfall data before planting, and a council studies erosion data before protecting a beach. Science turns guesses into informed decisions.',
       ],
       illustrations: [
@@ -211,8 +211,8 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'An investigable question asks about something you can measure and test — like "does water temperature change how fast salt dissolves?" rather than "which flavour is nicer?".',
-        'A prediction is your reasoned guess about what will happen, based on what you already know. Spot a pattern, pose a testable question, then predict before you test — you are thinking like a scientist!',
+        'An investigable question asks about something you can measure and test, like "does water temperature change how fast salt dissolves?" rather than "which flavour is nicer?".',
+        'A prediction is your reasoned guess about what will happen, based on what you already know. Spot a pattern, pose a testable question, then predict before you test, you are thinking like a scientist!',
       ],
       illustrations: [
         { brief: 'From observing a pattern to testing a prediction', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Observe a pattern' }, { text: 'Pose a "does X affect Y?" question' }, { text: 'Make a reasoned prediction' }, { text: 'Test it' }] } },
@@ -243,7 +243,7 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A repeatable investigation is one others can follow: you change only ONE variable at a time, keep everything else the same, and record clear steps so the test can be run again.',
-        'Planning also means describing the risks before you start — hot water, sharp edges, fragile glass — and using materials safely. Run the test a few times to check your results are reliable!',
+        'Planning also means describing the risks before you start, hot water, sharp edges, fragile glass, and using materials safely. Run the test a few times to check your results are reliable!',
       ],
       illustrations: [
         { brief: 'A fair-test plant watering comparison', ready: true, diagram: { kind: 'bar-compare', unit: 'cm', items: [{ label: 'No water', value: 2 }, { label: 'Some water', value: 8 }, { label: 'Lots of water', value: 7 }] } },
@@ -273,7 +273,7 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'The right tool measures the right thing — a ruler for length, a thermometer for temperature, a timer for time — and the finest markings give the most precise readings.',
+        'The right tool measures the right thing, a ruler for length, a thermometer for temperature, a timer for time, and the finest markings give the most precise readings.',
         'Digital tools like electronic timers and digital scales make measuring even more precise. Record your numbers as you go in a table, and your data will be trustworthy!',
       ],
       illustrations: [
@@ -304,7 +304,7 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Raw data is a pile of numbers — turn it into a table, column graph or dot plot and the patterns leap out at you.',
+        'Raw data is a pile of numbers, turn it into a table, column graph or dot plot and the patterns leap out at you.',
         'A plant that grows 2cm, then 5cm, then 9cm, then 14cm has a clear trend: growth keeps climbing. Describing that trend in words is half the scientist\'s job!',
       ],
       illustrations: [
@@ -335,7 +335,7 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Every measurement can hide a small error — a wobbly ruler, a mistimed stopwatch. Comparing your method with a classmate\'s helps you spot where errors might have crept in.',
+        'Every measurement can hide a small error, a wobbly ruler, a mistimed stopwatch. Comparing your method with a classmate\'s helps you spot where errors might have crept in.',
         'A strong conclusion follows from the evidence you actually collected. If your result disagrees with another team\'s, check both methods, retest, and pose a fresh question!',
       ],
       illustrations: [
@@ -366,7 +366,7 @@ export const YEAR5_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Findings only matter if you can share them — and the best way depends on who you are telling. A poster for a school fair, a talk for your class and a report for a scientist all do different jobs.',
+        'Findings only matter if you can share them, and the best way depends on who you are telling. A poster for a school fair, a talk for your class and a report for a scientist all do different jobs.',
         'Pick your language to fit: simple words and clear pictures for younger kids, precise science words for an expert. Know your audience, choose your format, then share your findings with confidence!',
       ],
       illustrations: [

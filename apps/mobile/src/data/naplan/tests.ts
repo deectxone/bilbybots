@@ -37,11 +37,11 @@ export function nextNaplanYear(year: string): NaplanYear | null {
 export interface NaplanDomainMeta {
   id: NaplanDomain;
   label: string;
-  /** Themed vector pictogram (never emoji) — see components/illustrations/icons.tsx. */
+  /** Themed vector pictogram (never emoji), see components/illustrations/icons.tsx. */
   icon: IconName;
   accent: ColorKey;
   tagline: string;
-  /** Official item count (real NAPLAN) — shown so parents see the target shape. */
+  /** Official item count (real NAPLAN), shown so parents see the target shape. */
   officialItems: Record<NaplanYear, number>;
 }
 
@@ -111,7 +111,7 @@ const DURATION: Record<NaplanDomain, Record<NaplanYear, number>> = {
 
 /**
  * Builds a practice test for a domain/year from the authored bank.
- * The facade is a SHORTENED sample (`fullLength: false`) — the real bank
+ * The facade is a SHORTENED sample (`fullLength: false`), the real bank
  * ships via the content pipeline. Section layout mirrors real NAPLAN:
  * conventions = Spelling → Grammar & punctuation (locked);
  * Y7/9 numeracy = Non-calculator → Calculator (locked).

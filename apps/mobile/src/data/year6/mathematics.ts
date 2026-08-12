@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 6 Mathematics — full topic bank.
+ * Year 6 Mathematics, full topic bank.
  * Source of truth for scope: docs/content/year-6/mathematics.md (AC v9.0).
  * Every topic here carries its AC9M6xxx content-description code and a
  * rendered `diagram` per illustration slot (see
@@ -21,8 +21,8 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Numbers can be tiny or giant! In Year 6 you can read them all the way up to the millions.',
-        'Look at 3 204 587 — each digit has its own place: millions, hundred-thousands, ten-thousands, thousands, hundreds, tens, ones.',
-        'Here comes a sneaky one: negative numbers. Temperatures below zero go below the line — and so do bank balances that are overdrawn!',
+        'Look at 3 204 587, each digit has its own place: millions, hundred-thousands, ten-thousands, thousands, hundreds, tens, ones.',
+        'Here comes a sneaky one: negative numbers. Temperatures below zero go below the line, and so do bank balances that are overdrawn!',
       ],
       illustrations: [
         {
@@ -65,7 +65,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A prime number only has two factors: 1 and itself (like 7). A composite number has more than two factors (like 12 = 1×12, 2×6, 3×4).',
-        'A square number is what you get when you multiply a number by itself — 4×4=16, so 16 is a square number. You can always arrange a square number into a perfect square of dots.',
+        'A square number is what you get when you multiply a number by itself, 4×4=16, so 16 is a square number. You can always arrange a square number into a perfect square of dots.',
       ],
       illustrations: [
         {
@@ -95,7 +95,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
   },
   {
     id: 'Y6-MAT-NN03',
-    title: 'Fractions — equivalence, comparing & ordering',
+    title: 'Fractions, equivalence, comparing & ordering',
     year: '6',
     subject: 'mathematics',
     strand: 'Number',
@@ -103,7 +103,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Equivalent fractions are twins that look different — 2/4 and 1/2 are the same amount!',
+        'Equivalent fractions are twins that look different, 2/4 and 1/2 are the same amount!',
         'To compare fractions, give them matching bottoms (same denominator). Place them on one number line and their order becomes obvious.',
       ],
       illustrations: [
@@ -157,7 +157,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Decimals have place value too — tenths and hundredths sit just after the decimal point, like the cents in a price ($4.75).',
+        'Decimals have place value too, tenths and hundredths sit just after the decimal point, like the cents in a price ($4.75).',
         'Line up the decimal points before you add or subtract, then estimate first (round to the nearest dollar) to check your answer makes sense.',
       ],
       illustrations: [
@@ -192,8 +192,8 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'To add or subtract fractions, they need the same denominator first — just like you can only add apples to apples, not apples to oranges.',
-        'Two friends sharing a pizza: if one eats 1/4 and the other eats 2/4, together they ate 3/4 — leaving 1/4 in the box.',
+        'To add or subtract fractions, they need the same denominator first, just like you can only add apples to apples, not apples to oranges.',
+        'Two friends sharing a pizza: if one eats 1/4 and the other eats 2/4, together they ate 3/4, leaving 1/4 in the box.',
       ],
       illustrations: [
         {
@@ -227,7 +227,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        "When you multiply by 10, 100 or 1000, the digits shift left — they don't magically grow zeros, the whole place-value house slides!",
+        "When you multiply by 10, 100 or 1000, the digits shift left, they don't magically grow zeros, the whole place-value house slides!",
         'Dividing by a power of ten shifts the digits right instead, so 45.6 ÷ 10 = 4.56.',
       ],
       illustrations: [
@@ -262,7 +262,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Percent means "out of 100". 25% of a shop item means the price drops by a quarter — 25% and 1/4 are the same amount.',
+        'Percent means "out of 100". 25% of a shop item means the price drops by a quarter, 25% and 1/4 are the same amount.',
         'To find a fraction or percentage of a quantity, divide by the bottom number (or by 100), then multiply by the top number (or the percentage).',
       ],
       illustrations: [
@@ -297,7 +297,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Sometimes an exact answer is not needed — "about how many" is good enough, like guessing the total of a shopping trolley before you reach the checkout.',
+        'Sometimes an exact answer is not needed, "about how many" is good enough, like guessing the total of a shopping trolley before you reach the checkout.',
         'Round each number to a friendly benchmark first (nearest 10, nearest dollar), then do the easier sum.',
       ],
       illustrations: [
@@ -314,13 +314,13 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
         { id: 'Y6-MAT-NN08-q3', type: 'mcq', prompt: 'A trip costs $19.60 + $32.10. Best estimate?', options: ['About $50', 'About $30', 'About $70'], answer: 'About $50', difficulty: 2 },
         { id: 'Y6-MAT-NN08-q4', type: 'mcq', prompt: 'Best estimate for 293 + 412?', options: ['About 500', 'About 700', 'About 900'], answer: 'About 700', difficulty: 2 },
         { id: 'Y6-MAT-NN08-q5', type: 'short', prompt: 'Round 82 to the nearest 10.', answer: '80', difficulty: 1 },
-        { id: 'Y6-MAT-NN08-q6', type: 'mcq', prompt: 'Estimating is most useful when…', options: ['An exact answer is essential, like medicine dosage', 'A quick, good-enough check is all you need', 'Never — always calculate exactly'], answer: 'A quick, good-enough check is all you need', difficulty: 2 },
+        { id: 'Y6-MAT-NN08-q6', type: 'mcq', prompt: 'Estimating is most useful when…', options: ['An exact answer is essential, like medicine dosage', 'A quick, good-enough check is all you need', 'Never, always calculate exactly'], answer: 'A quick, good-enough check is all you need', difficulty: 2 },
       ],
     },
   },
   {
     id: 'Y6-MAT-NN09',
-    title: 'Mathematical modelling — real problems',
+    title: 'Mathematical modelling, real problems',
     year: '6',
     subject: 'mathematics',
     strand: 'Number',
@@ -328,7 +328,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'Modelling means turning a real problem — like planning a school fundraiser — into maths, solving it, then checking the answer makes sense in real life.',
+        'Modelling means turning a real problem, like planning a school fundraiser, into maths, solving it, then checking the answer makes sense in real life.',
         'The process has four steps: formulate (what maths do I need?), solve, interpret (what does the number mean?), and communicate (explain it clearly).',
       ],
       illustrations: [
@@ -370,7 +370,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A pattern rule tells you how to get from one term to the next — like adding 1/2 each time: 1/2, 1, 1 1/2, 2 …',
+        'A pattern rule tells you how to get from one term to the next, like adding 1/2 each time: 1/2, 1, 1 1/2, 2 …',
         'Spotting the rule lets you predict terms far down the pattern without drawing them all out.',
       ],
       illustrations: [
@@ -400,8 +400,8 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'An equation is a balance scale — whatever you do to one side, you must do to the other to keep it level.',
-        'Order of operations says: brackets first, then multiplication/division, then addition/subtraction — like traffic lights telling you what goes first.',
+        'An equation is a balance scale, whatever you do to one side, you must do to the other to keep it level.',
+        'Order of operations says: brackets first, then multiplication/division, then addition/subtraction, like traffic lights telling you what goes first.',
       ],
       illustrations: [
         { brief: 'Balance scale with a mystery number', ready: true, diagram: { kind: 'balance-scale', left: '□ + 5', right: '12', balanced: true } },
@@ -423,7 +423,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
   },
   {
     id: 'Y6-MAT-AL03',
-    title: 'Algorithms — sequences & decisions',
+    title: 'Algorithms, sequences & decisions',
     year: '6',
     subject: 'mathematics',
     strand: 'Algebra',
@@ -431,7 +431,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'An algorithm is just a clear sequence of steps and decisions for solving a problem — like a recipe, but for maths.',
+        'An algorithm is just a clear sequence of steps and decisions for solving a problem, like a recipe, but for maths.',
         'Follow the boxes (steps) and diamonds (decisions) in order, and you always land on the same answer.',
       ],
       illustrations: [
@@ -472,8 +472,8 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Metric units are built in tens — climb the ladder from km to m to cm to mm, and each step multiplies or divides by 10, 100, or 1000.',
-        'Mass (kg→g) and capacity (L→mL) work the same way — always by a power of ten.',
+        'Metric units are built in tens, climb the ladder from km to m to cm to mm, and each step multiplies or divides by 10, 100, or 1000.',
+        'Mass (kg→g) and capacity (L→mL) work the same way, always by a power of ten.',
       ],
       illustrations: [
         { brief: 'A metric ladder: km → m → cm → mm', ready: true, diagram: { kind: 'metric-ladder', units: ['km', 'm', 'cm', 'mm'], highlight: 1 } },
@@ -517,7 +517,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
         { id: 'Y6-MAT-ME02-q2', type: 'short', prompt: 'A garden has area 24m² and length 6m. What is its width?', answer: '4', difficulty: 2 },
         { id: 'Y6-MAT-ME02-q3', type: 'short', prompt: 'A rectangle is 10m long and 3m wide. What is its area?', answer: '30', difficulty: 1 },
         { id: 'Y6-MAT-ME02-q4', type: 'short', prompt: 'A square has side length 6m. What is its area?', answer: '36', difficulty: 2 },
-        { id: 'Y6-MAT-ME02-q5', type: 'mcq', prompt: 'Area is measured in square units because it covers…', options: ['A flat 2D space', 'Only one dimension', 'Nothing — it is random'], answer: 'A flat 2D space', difficulty: 2 },
+        { id: 'Y6-MAT-ME02-q5', type: 'mcq', prompt: 'Area is measured in square units because it covers…', options: ['A flat 2D space', 'Only one dimension', 'Nothing, it is random'], answer: 'A flat 2D space', difficulty: 2 },
         { id: 'Y6-MAT-ME02-q6', type: 'short', prompt: 'A rectangle has area 20m² and width 4m. What is its length?', answer: '5', difficulty: 2 },
       ],
     },
@@ -555,7 +555,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
   },
   {
     id: 'Y6-MAT-ME04',
-    title: 'Angles — relationships',
+    title: 'Angles, relationships',
     year: '6',
     subject: 'mathematics',
     strand: 'Measurement',
@@ -594,11 +594,11 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        "A cross-section is the flat shape you'd see if you sliced straight through a 3D object — like slicing a chocolate block and seeing a rectangle.",
+        "A cross-section is the flat shape you'd see if you sliced straight through a 3D object, like slicing a chocolate block and seeing a rectangle.",
         'A right prism has the same cross-section all the way along its length.',
       ],
       illustrations: [
-        { brief: 'Slicing a chocolate block to reveal its cross-section', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'cube', label: 'Block' }, { icon: 'knife', label: 'Slice' }, { icon: 'triangle-shape', label: 'Cross-section' }], caption: 'Slice straight through — what shape do you see?' } },
+        { brief: 'Slicing a chocolate block to reveal its cross-section', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'cube', label: 'Block' }, { icon: 'knife', label: 'Slice' }, { icon: 'triangle-shape', label: 'Cross-section' }], caption: 'Slice straight through, what shape do you see?' } },
       ],
     },
     assignment: {
@@ -616,7 +616,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
   },
   {
     id: 'Y6-MAT-SP02',
-    title: 'Cartesian plane — four quadrants',
+    title: 'Cartesian plane, four quadrants',
     year: '6',
     subject: 'mathematics',
     strand: 'Space',
@@ -655,7 +655,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Translation slides a shape, reflection flips it like a mirror, and rotation turns it around a point.',
-        'Combine transformations and repeat a shape with no gaps or overlaps, and you get a tessellation — like tiles on a floor.',
+        'Combine transformations and repeat a shape with no gaps or overlaps, and you get a tessellation, like tiles on a floor.',
       ],
       illustrations: [
         { brief: 'A repeating tessellation pattern from a rotated stamp', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'triangle-shape', label: 'Shape' }, { icon: 'rotate-arrow', label: 'Rotate' }, { icon: 'mirror', label: 'Reflect' }, { icon: 'triangle-shape', label: 'Tiled pattern' }], caption: 'Rotate + reflect a shape to tile with no gaps' } },
@@ -684,7 +684,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Side-by-side displays let you compare two data sets at a glance — which team scored more, whose plants grew taller.',
+        'Side-by-side displays let you compare two data sets at a glance, which team scored more, whose plants grew taller.',
         'Compare their mode (most common value), range (biggest minus smallest) and overall shape.',
       ],
       illustrations: [
@@ -715,7 +715,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Adverts and news stories use statistics to persuade — "9 out of 10" sounds convincing, but always ask: out of how many people, and who chose them?',
+        'Adverts and news stories use statistics to persuade, "9 out of 10" sounds convincing, but always ask: out of how many people, and who chose them?',
         'A graph can mislead by starting its axis somewhere other than zero, making small differences look huge.',
       ],
       illustrations: [
@@ -727,11 +727,11 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
       compactCount: 4,
       questions: [
         { id: 'Y6-MAT-ST02-q1', type: 'mcq', prompt: 'A graph axis that skips zero can make differences look…', options: ['Smaller', 'Bigger than they are', 'The same'], answer: 'Bigger than they are', difficulty: 2 },
-        { id: 'Y6-MAT-ST02-q2', type: 'mcq', prompt: '"9 out of 10 people agree" — what should you ask first?', options: ['What colour was the survey?', 'How many people were actually asked?', 'What day was it?'], answer: 'How many people were actually asked?', difficulty: 1 },
+        { id: 'Y6-MAT-ST02-q2', type: 'mcq', prompt: '"9 out of 10 people agree", what should you ask first?', options: ['What colour was the survey?', 'How many people were actually asked?', 'What day was it?'], answer: 'How many people were actually asked?', difficulty: 1 },
         { id: 'Y6-MAT-ST02-q3', type: 'mcq', prompt: 'A survey of only 5 people claiming to represent "everyone" is a warning sign because…', options: ['The sample is too small', 'It used too many colours', 'It was printed'], answer: 'The sample is too small', difficulty: 2 },
         { id: 'Y6-MAT-ST02-q4', type: 'mcq', prompt: 'Who paid for a survey can affect…', options: ['Nothing at all', 'How trustworthy the results might be', 'The weather'], answer: 'How trustworthy the results might be', difficulty: 2 },
         { id: 'Y6-MAT-ST02-q5', type: 'mcq', prompt: "A pie chart whose slices don't add to 100% is a sign of…", options: ['A careful graph', 'A misleading or incorrect graph', 'A pie chart is never wrong'], answer: 'A misleading or incorrect graph', difficulty: 2 },
-        { id: 'Y6-MAT-ST02-q6', type: 'mcq', prompt: 'Before trusting a statistic in an ad, it helps to ask…', options: ['How was this measured, and by whom?', 'What font was used?', 'Nothing — always trust ads'], answer: 'How was this measured, and by whom?', difficulty: 1 },
+        { id: 'Y6-MAT-ST02-q6', type: 'mcq', prompt: 'Before trusting a statistic in an ad, it helps to ask…', options: ['How was this measured, and by whom?', 'What font was used?', 'Nothing, always trust ads'], answer: 'How was this measured, and by whom?', difficulty: 1 },
       ],
     },
   },
@@ -787,7 +787,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Probability lives on a scale from 0 (impossible) to 1 (certain) — or 0% to 100%.',
+        'Probability lives on a scale from 0 (impossible) to 1 (certain), or 0% to 100%.',
         'You can place everyday events on the scale by estimating: rolling a 6 on a die is unlikely; the sun rising tomorrow is certain.',
       ],
       illustrations: [
@@ -821,7 +821,7 @@ export const YEAR6_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Run a chance experiment (rolling a die, flipping a coin) many times and record the results — the more trials, the closer the results get to the predicted probability.',
+        'Run a chance experiment (rolling a die, flipping a coin) many times and record the results, the more trials, the closer the results get to the predicted probability.',
         'Compare what actually happened (observed) with what you expected (predicted) to see how close they were.',
       ],
       illustrations: [

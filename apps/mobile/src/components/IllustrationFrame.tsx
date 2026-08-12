@@ -6,7 +6,7 @@ import { Icon } from './illustrations/icons';
 
 /**
  * Renders the topic's vector diagram when one is authored (`slot.diagram`).
- * Falls back to a "pending" placeholder only for slots not yet authored —
+ * Falls back to a "pending" placeholder only for slots not yet authored,
  * this is the seam where the Phase-2 photo/video pipeline can later swap in
  * a real asset URI instead.
  * Colour variants keep each frame visually distinct & vibrant.

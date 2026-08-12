@@ -1,12 +1,12 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 10 Science — full topic bank.
+ * Year 10 Science, full topic bank.
  * Source of truth: docs/content/year-7-10/science.md (AC v9.0; strands Science
  * Understanding / Human Endeavour / Inquiry; codes verified against ACARA v9.0
  * and the QCAA Years 7–10 Science sequence).
  * Each `AC9S10I02` topic carries `sensitivity: true` per the primary-school
- * convention — it touches Country/Place research-permission awareness, pending
+ * convention, it touches Country/Place research-permission awareness, pending
  * a First Nations protocol review before release.
  */
 export const YEAR10_SCIENCE_TOPICS: Topic[] = [
@@ -21,7 +21,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Chromosomes carry DNA, which holds genes — instructions that are passed from parents to offspring. Meiosis makes gametes with half the chromosome number, and fertilisation restores it, creating variation.',
+        'Chromosomes carry DNA, which holds genes, instructions that are passed from parents to offspring. Meiosis makes gametes with half the chromosome number, and fertilisation restores it, creating variation.',
         'Mendelian inheritance lets us predict patterns: a monohybrid cross with a dominant and a recessive allele gives a predictable ratio of offspring genotypes and phenotypes, often shown with a Punnett square or pedigree.',
       ],
       illustrations: [
@@ -53,7 +53,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Natural selection explains biodiversity: individuals vary, the environment selects the better-adapted, and those survive to reproduce and pass on their genes. Over many generations, populations change.',
-        'Evidence comes from many sources — the fossil record, chemical and anatomical similarities between species, and how species are distributed geographically. Artificial selection (breeding) shows selection working fast.',
+        'Evidence comes from many sources, the fossil record, chemical and anatomical similarities between species, and how species are distributed geographically. Artificial selection (breeding) shows selection working fast.',
       ],
       illustrations: [
         { brief: 'Natural selection loop: variation → selection → survival → inheritance', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Variation' }, { text: 'Selection pressure' }, { text: 'Survival + reproduction' }, { text: 'Trait passed on' }] } },
@@ -83,7 +83,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The big bang theory models the origin and evolution of the universe — from an initial expansion to the formation of stars and galaxies over billions of years. We measure these distances in light-years and astronomical units.',
+        'The big bang theory models the origin and evolution of the universe, from an initial expansion to the formation of stars and galaxies over billions of years. We measure these distances in light-years and astronomical units.',
         'Evidence includes cosmic microwave background radiation, the red/blue shift of galaxies (Edwin Hubble\u2019s observations), and the proportions of matter. Modern telescopes like the ASKAP keep adding new knowledge.',
       ],
       illustrations: [
@@ -177,7 +177,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'The periodic table organises elements by their atomic structure. Elements in the same group have similar properties because they have the same pattern of outer electrons.',
-        'The Bohr model shows electrons in shells. Repeating patterns in the table reflect those outer-electron patterns — which is why flame tests and emission spectra reveal an element\u2019s identity.',
+        'The Bohr model shows electrons in shells. Repeating patterns in the table reflect those outer-electron patterns, which is why flame tests and emission spectra reveal an element\u2019s identity.',
       ],
       illustrations: [
         { brief: 'Periodic table group patterns: similar outer electrons', ready: true, diagram: { kind: 'dot-plot', values: [1, 2, 2, 3, 4, 4, 5], unit: 'outer electrons' } },
@@ -240,7 +240,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Scientific knowledge is validated and refined through publication and peer review. Rosalind Franklin\u2019s data were critical to the DNA double-helix discovery; Mendel\u2019s experiments were validated with large datasets and statistics.',
-        'Claims are checked by other scientists, refined as new evidence appears — the periodic table itself grew and changed as new elements were discovered.',
+        'Claims are checked by other scientists, refined as new evidence appears, the periodic table itself grew and changed as new elements were discovered.',
       ],
       illustrations: [
         { brief: 'Validation loop: findings → review → independent check → acceptance', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Findings' }, { text: 'Peer review' }, { text: 'Independent checks' }, { text: 'Accepted knowledge' }] } },
@@ -300,7 +300,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Science is adopted by society when benefits are clear and support exists. Genetically engineered crops spread as they solved farming problems; helmet laws followed injury statistics; citizen science projects thrive on public interest.',
-        'Climate models are sometimes contested in society even among scientific consensus — understanding why people adopt or resist science helps science have real impact.',
+        'Climate models are sometimes contested in society even among scientific consensus, understanding why people adopt or resist science helps science have real impact.',
       ],
       illustrations: [
         { brief: 'Helmet use: injury rates with vs without helmets', ready: true, diagram: { kind: 'bar-compare', unit: 'injury rate', items: [{ label: 'No helmet', value: 9 }, { label: 'Helmet', value: 3 }] } },
@@ -330,7 +330,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'The values and needs of society influence what research is funded and pursued. Government and commercial funding decides much of what gets studied; space research and new materials follow both curiosity and real-world use.',
-        'Genetic testing raises big questions — for counselling, embryo selection and by insurers — and history shows how society\u2019s misconceptions about heredity once shaped harmful policies.',
+        'Genetic testing raises big questions, for counselling, embryo selection and by insurers, and history shows how society\u2019s misconceptions about heredity once shaped harmful policies.',
       ],
       illustrations: [
         { brief: 'Values → funding → research focus → applications', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Societal values' }, { text: 'Funding' }, { text: 'Research focus' }, { text: 'Applications' }] } },
@@ -360,7 +360,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A tested hypothesis leads to further predictions — science builds on itself. Develop investigable questions, reasoned predictions and hypotheses to test relationships and refine explanatory models.',
+        'A tested hypothesis leads to further predictions, science builds on itself. Develop investigable questions, reasoned predictions and hypotheses to test relationships and refine explanatory models.',
         'From climate modelling to reaction rates, predictions come from models and are then checked against data: "If surface area increases, then the reaction rate increases."',
       ],
       illustrations: [
@@ -451,7 +451,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Choose representations that organise and process data well — spreadsheets for calculations, graphs for patterns, statistics for summaries, and models for relationships. The scale you use can change how data looks.',
+        'Choose representations that organise and process data well, spreadsheets for calculations, graphs for patterns, statistics for summaries, and models for relationships. The scale you use can change how data looks.',
         'Every representation has merits and limits: a time-lapse of polar ice tells a story, a mathematical model tells another. Comparing them reveals the strongest conclusions.',
       ],
       illustrations: [
@@ -482,7 +482,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Connect data from multiple sources to explain patterns, trends, relationships and anomalies — like homologous structures and fossil evidence pointing the same way, or species distributions in time and space.',
+        'Connect data from multiple sources to explain patterns, trends, relationships and anomalies, like homologous structures and fossil evidence pointing the same way, or species distributions in time and space.',
         'Organising data differently can change your interpretation, so explore tables, charts and statistics before drawing conclusions.',
       ],
       illustrations: [
@@ -513,7 +513,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Assess the validity and reproducibility of methods, and evaluate conclusions by identifying assumptions, conflicting evidence and uncertainty. Random and systematic errors affect results differently.',
-        'Data variation signals uncertainty — the more variation, the less confident we can be in a conclusion. Critically judging science in the media matters too.',
+        'Data variation signals uncertainty, the more variation, the less confident we can be in a conclusion. Critically judging science in the media matters too.',
       ],
       illustrations: [
         { brief: 'Error types: random vs systematic', ready: true, diagram: { kind: 'dot-plot', values: [4, 5, 5, 6, 5, 9, 5, 5], unit: 'readings' } },
@@ -542,7 +542,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Build arguments from a variety of evidence — for the age of the universe, the role of humans in climate change, or local actions affecting the planet. Weigh credibility and consistency across sources.',
+        'Build arguments from a variety of evidence, for the age of the universe, the role of humans in climate change, or local actions affecting the planet. Weigh credibility and consistency across sources.',
         'Consider ethical issues and cultural protocols: critically analyse scientific literature for cultural bias relating to First Nations Australians, and question non-therapeutic genetic testing by commercial companies.',
       ],
       illustrations: [
@@ -572,7 +572,7 @@ export const YEAR10_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Communicate findings effectively for purpose and audience — a full investigation report, a public performance about climate change, an infographic of climate evidence, or a campaign for lower speed limits.',
+        'Communicate findings effectively for purpose and audience, a full investigation report, a public performance about climate change, an infographic of climate evidence, or a campaign for lower speed limits.',
         'Scientific texts build arguments with structure, content and language chosen for the reader. Explain outliers, compare with accepted values, and discuss error honestly.',
       ],
       illustrations: [

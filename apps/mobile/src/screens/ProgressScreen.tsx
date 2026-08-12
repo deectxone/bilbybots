@@ -1,6 +1,6 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import type { ChildProfile } from '../types/curriculum';
-import { AppHeader } from '../components/AppHeader';
+import { ScreenShell } from '../components/ScreenShell';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon } from '../components/illustrations/icons';
 import { palette, radius, spacing, subjectColor, type } from '../theme/colors';
@@ -9,7 +9,7 @@ import { fullYearBank } from '../data/content';
 
 /**
  * Parent-facing coverage view: "is 100% of the syllabus still on track to be
- * covered?" is the product's core promise (docs/specs/adaptive-pacing.md) —
+ * covered?" is the product's core promise (docs/specs/adaptive-pacing.md),
  * this facade shows it per subject from topics completed so far.
  */
 export function ProgressScreen({
@@ -30,9 +30,14 @@ export function ProgressScreen({
   const completed = new Set(completedTopicIds);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <AppHeader active="Progress" onHome={onHome} onProgress={() => {}} onSetup={onSetup} onSignOut={onSignOut} />
-
+    <ScreenShell
+      active="Progress"
+      child={child}
+      onHome={onHome}
+      onProgress={() => {}}
+      onSetup={onSetup}
+      onSignOut={onSignOut}
+    >
       <Text style={styles.title}>{child.name}'s progress</Text>
       <Text style={styles.sub}>Year {child.year} · every subject, tracked to 100% coverage</Text>
 
@@ -40,7 +45,7 @@ export function ProgressScreen({
       {earnedBadges.length === 0 ? (
         <View style={styles.emptyBadges}>
           <Icon name="trophy" tint={palette.grape} size={28} />
-          <Text style={styles.emptyText}>No badges yet — finish a lesson to earn your first one!</Text>
+          <Text style={styles.emptyText}>No badges yet, finish a lesson to earn your first one!</Text>
         </View>
       ) : (
         <View style={styles.badgeRow}>
@@ -75,7 +80,7 @@ export function ProgressScreen({
           </View>
         );
       })}
-    </ScrollView>
+    </ScreenShell>
   );
 }
 

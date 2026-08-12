@@ -1,11 +1,11 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 1 HASS — full topic bank.
+ * Year 1 HASS, full topic bank.
  * Source of truth: docs/content/year-1-5/hass.md (AC v9.0; strands History and
  * Geography for Year 1's four knowledge CDs).
  * Y1-HASS-GE02 (AC9HS1K04) touches First Nations Australians' care for
- * Country/Place and carries `sensitivity: true` — it is written to
+ * Country/Place and carries `sensitivity: true`, it is written to
  * established, general facts only (e.g. caring for Country/Place for tens of
  * thousands of years) pending a community-protocol review (see AGENTS.md).
  * Every topic renders real vector diagrams (see
@@ -26,7 +26,7 @@ export const YEAR1_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Families come in all shapes and sizes — a mum and a dad, one parent, grandparents, or two mums or two dads — and every family helps its people feel safe and loved.',
+        'Families come in all shapes and sizes, a mum and a dad, one parent, grandparents, or two mums or two dads, and every family helps its people feel safe and loved.',
         'Long ago, jobs at home were often split in a fixed way, like only mum cooking or only dad working; today anyone in a family can cook, clean, work or help out.',
         'Some things have stayed the same, though: families have always cared for each other, shared meals and played together.',
       ],
@@ -58,7 +58,7 @@ export const YEAR1_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'When your grandparents were little, daily life looked different — many children wrote with chalk, letters arrived by post and there were no mobile phones.',
+        'When your grandparents were little, daily life looked different, many children wrote with chalk, letters arrived by post and there were no mobile phones.',
         'Today many of us ride to school in a car or bus, write with tablets and send messages on phones.',
         'But some things are the same: children then and now go to school to learn, and they love to play with friends!',
       ],
@@ -93,11 +93,11 @@ export const YEAR1_HASS_TOPICS: Topic[] = [
       body: [
         'Look around your local place and you will find three kinds of features: natural, managed and constructed.',
         'Natural features grow or happen by themselves, like a river, a tree or the sky; managed features are looked after by people, like a park or a garden.',
-        'Constructed features are built by people, like houses, roads and schools — and a map can help you find where they all are!',
+        'Constructed features are built by people, like houses, roads and schools, and a map can help you find where they all are!',
       ],
       illustrations: [
         { brief: 'Natural features: a tree, a river and a fish growing or living by themselves', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'tree', label: 'Tree' }, { icon: 'wave', label: 'River' }, { icon: 'fish', label: 'Fish' }], caption: 'Natural features grow or happen by themselves' } },
-        { brief: 'A built house, a cared-for garden and a map to find them', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'house', label: 'House — built' }, { icon: 'sprout', label: 'Garden — cared for' }, { icon: 'map', label: 'Map finds them' }], caption: 'People build some features and care for others' } },
+        { brief: 'A built house, a cared-for garden and a map to find them', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'house', label: 'House, built' }, { icon: 'sprout', label: 'Garden, cared for' }, { icon: 'map', label: 'Map finds them' }], caption: 'People build some features and care for others' } },
       ],
     },
     assignment: {
@@ -106,7 +106,7 @@ export const YEAR1_HASS_TOPICS: Topic[] = [
       questions: [
         { id: 'Y1-HASS-GE01-q1', type: 'mcq', prompt: 'Which of these is a natural feature?', options: ['A river', 'A house', 'A playground'], answer: 'A river', difficulty: 1 },
         { id: 'Y1-HASS-GE01-q2', type: 'mcq', prompt: 'Which of these was BUILT by people?', options: ['A school', 'A mountain', 'A river'], answer: 'A school', difficulty: 1 },
-        { id: 'Y1-HASS-GE01-q3', type: 'short', prompt: 'Who looks after the flowers in a park — people or the wind?', answer: 'people', difficulty: 1 },
+        { id: 'Y1-HASS-GE01-q3', type: 'short', prompt: 'Who looks after the flowers in a park, people or the wind?', answer: 'people', difficulty: 1 },
         { id: 'Y1-HASS-GE01-q4', type: 'short', prompt: 'Trees, rivers and mountains are called ___ features.', answer: 'natural', difficulty: 2 },
         { id: 'Y1-HASS-GE01-q5', type: 'mcq', prompt: 'A map of your local area helps you…', options: ['Find where places like the park and shop are', 'Know what is for dinner', 'Hear a loud noise'], answer: 'Find where places like the park and shop are', difficulty: 2 },
         { id: 'Y1-HASS-GE01-q6', type: 'mcq', prompt: 'Roads, houses and bridges are made by people, so they are called…', options: ['Constructed features', 'Natural features', 'Invisible features'], answer: 'Constructed features', difficulty: 2 },
@@ -124,8 +124,8 @@ export const YEAR1_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Places are special, and we can all help look after them — by putting rubbish in the bin, saving water and planting trees.',
-        'First Nations Australians have cared for and looked after Country/Place for tens of thousands of years — the longest care of all.',
+        'Places are special, and we can all help look after them, by putting rubbish in the bin, saving water and planting trees.',
+        'First Nations Australians have cared for and looked after Country/Place for tens of thousands of years, the longest care of all.',
         'When many people care for a place together, it stays healthy, safe and beautiful for everyone.',
       ],
       illustrations: [

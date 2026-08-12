@@ -16,7 +16,7 @@ export const PRIVACY_DOC: LegalDoc = {
     },
     {
       heading: 'Information we collect',
-      body: 'When a parent signs up with Google, we receive your name and email address from Google. The profile we create for each child (name, school year, state and chosen subjects) is provided by the parent. We also store progress made inside the app — completed lessons, badges and practice-test results.',
+      body: 'When a parent signs up with Google, we receive your name and email address from Google. The profile we create for each child (name, school year, state and chosen subjects) is provided by the parent. We also store progress made inside the app, completed lessons, badges and practice-test results.',
     },
     {
       heading: 'How we use it',
@@ -32,7 +32,7 @@ export const PRIVACY_DOC: LegalDoc = {
     },
     {
       heading: 'Your rights',
-      body: 'You can access, correct or delete your information at any time — in the app, or by emailing us. If you have a concern, contact us first and we will respond promptly.',
+      body: 'You can access, correct or delete your information at any time, in the app, or by emailing us. If you have a concern, contact us first and we will respond promptly.',
     },
   ],
 };
@@ -67,18 +67,15 @@ export const TERMS_DOC: LegalDoc = {
 export const CONTACT_DOC: LegalDoc = {
   title: 'Contact us',
   updated: 'August 2026',
+  showContactForm: true,
   sections: [
     {
       heading: 'We\u2019d love to hear from you',
-      body: 'Questions, feedback or concerns about privacy, content or the app in general? Reach out and we\u2019ll get back to you as soon as we can.',
+      body: 'Questions, feedback or concerns about privacy, content or the app in general? Send us a message below and we\u2019ll get back to you as soon as we can.',
     },
     {
-      heading: 'Email',
-      body: 'hello@bilbybots.com — for general questions and feedback.',
-    },
-    {
-      heading: 'Privacy',
-      body: 'For privacy-related questions or to exercise any data right, email privacy@bilbybots.com. We respond to privacy requests within 30 days.',
+      heading: 'What happens to your message',
+      body: 'Your message (and email, if you add one) goes straight to the BilbyBots team. We read every submission and reply to privacy-related requests within 30 days.',
     },
   ],
 };

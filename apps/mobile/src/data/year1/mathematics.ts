@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 1 Mathematics — full topic bank.
+ * Year 1 Mathematics, full topic bank.
  * Source of truth for scope: Australian Curriculum v9.0 (AC9M1xxx) content
  * descriptions for Number, Algebra, Measurement, Space and Statistics.
  * Every topic here carries its AC9M1xxx content-description code and a

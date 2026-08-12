@@ -1,16 +1,16 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 8 History — full topic bank (AC v9.0, subject code HH).
+ * Year 8 History, full topic bank (AC v9.0, subject code HH).
  * Source of truth: docs/content/year-7-10/history.md. Year 8 requires at least
  * one topic from "Medieval Europe and the early modern world" and one from
  * either "Empires and expansions" or "Asia-Pacific world". This bank delivers
  * the full Medieval sub-strand (AC9HH8K01–K06) plus the "Japan under the
- * Shoguns" depth study (AC9HH8K12–K16) — the classic NSW Stage 4 pairing.
+ * Shoguns" depth study (AC9HH8K12–K16), the classic NSW Stage 4 pairing.
  * Skills CDs (AC9HH8S01–S08) are woven into the units per the source doc.
  *
  * Note: the "Making and transforming the Australian nation" unit is a YEAR 9
- * sub-strand in v9.0 (AC9HH9K01–K07); it is authored there, not here — see
+ * sub-strand in v9.0 (AC9HH9K01–K07); it is authored there, not here, see
  * docs/content/year-7-10/history.md §framing-note.
  */
 export const YEAR8_HISTORY_TOPICS: Topic[] = [
@@ -20,7 +20,7 @@ export const YEAR8_HISTORY_TOPICS: Topic[] = [
     title: 'Rome falls, the medieval world begins',
     year: '8',
     subject: 'hass',
-    strand: 'History — The Medieval World',
+    strand: 'History, The Medieval World',
     cd: [{ ac: 'AC9HH8K01' }],
     learn: {
       learnTimeMin: 12,
@@ -54,7 +54,7 @@ export const YEAR8_HISTORY_TOPICS: Topic[] = [
     title: 'Feudal society: kings, nobles, knights & peasants',
     year: '8',
     subject: 'hass',
-    strand: 'History — The Medieval World',
+    strand: 'History, The Medieval World',
     cd: [{ ac: 'AC9HH8K02' }],
     learn: {
       learnTimeMin: 12,
@@ -88,7 +88,7 @@ export const YEAR8_HISTORY_TOPICS: Topic[] = [
     title: 'The Church, monasteries & learning',
     year: '8',
     subject: 'hass',
-    strand: 'History — The Medieval World',
+    strand: 'History, The Medieval World',
     cd: [{ ac: 'AC9HH8K03' }, { ac: 'AC9HH8K05' }],
     learn: {
       learnTimeMin: 12,
@@ -122,7 +122,7 @@ export const YEAR8_HISTORY_TOPICS: Topic[] = [
     title: 'The Black Death',
     year: '8',
     subject: 'hass',
-    strand: 'History — The Medieval World',
+    strand: 'History, The Medieval World',
     cd: [{ ac: 'AC9HH8K03' }, { ac: 'AC9HH8K04' }],
     learn: {
       learnTimeMin: 12,
@@ -156,13 +156,13 @@ export const YEAR8_HISTORY_TOPICS: Topic[] = [
     title: 'Crusades, contact & trade',
     year: '8',
     subject: 'hass',
-    strand: 'History — The Medieval World',
+    strand: 'History, The Medieval World',
     cd: [{ ac: 'AC9HH8K03' }, { ac: 'AC9HH8K04' }],
     learn: {
       learnTimeMin: 12,
       body: [
-        'From 1096, European Christians launched a series of Crusades — military campaigns to take control of the Holy Land from Muslim rulers. The Crusades lasted for centuries and brought great suffering.',
-        'They also created deep contact between Europe and the Islamic world: trade flourished, and European travellers gained access to goods, ideas and knowledge — including in science, medicine and mathematics — from the Muslim world.',
+        'From 1096, European Christians launched a series of Crusades, military campaigns to take control of the Holy Land from Muslim rulers. The Crusades lasted for centuries and brought great suffering.',
+        'They also created deep contact between Europe and the Islamic world: trade flourished, and European travellers gained access to goods, ideas and knowledge, including in science, medicine and mathematics, from the Muslim world.',
       ],
       illustrations: [
         {
@@ -190,13 +190,13 @@ export const YEAR8_HISTORY_TOPICS: Topic[] = [
     title: 'The Renaissance: a new age of ideas',
     year: '8',
     subject: 'hass',
-    strand: 'History — The Medieval World',
+    strand: 'History, The Medieval World',
     cd: [{ ac: 'AC9HH8K01' }, { ac: 'AC9HH8K05' }, { ac: 'AC9HH8K06' }],
     learn: {
       learnTimeMin: 12,
       body: [
-        'From around 1400, Italy and then the rest of Europe experienced the Renaissance — a "rebirth" of interest in the ideas, art and learning of ancient Greece and Rome. Thinkers called humanists focused on human potential and the natural world.',
-        'Great artists, inventors and scientists such as Leonardo da Vinci, Michelangelo, Copernicus and Galileo reshaped how people saw the world, while the printing press spread new ideas faster than ever — helping begin the modern age. Historians continue to interpret the period differently.',
+        'From around 1400, Italy and then the rest of Europe experienced the Renaissance, a "rebirth" of interest in the ideas, art and learning of ancient Greece and Rome. Thinkers called humanists focused on human potential and the natural world.',
+        'Great artists, inventors and scientists such as Leonardo da Vinci, Michelangelo, Copernicus and Galileo reshaped how people saw the world, while the printing press spread new ideas faster than ever, helping begin the modern age. Historians continue to interpret the period differently.',
       ],
       illustrations: [
         {
@@ -225,12 +225,12 @@ export const YEAR8_HISTORY_TOPICS: Topic[] = [
     title: 'Feudal Japan: shoguns, daimyo & samurai',
     year: '8',
     subject: 'hass',
-    strand: 'History — The Asia-Pacific World',
+    strand: 'History, The Asia-Pacific World',
     cd: [{ ac: 'AC9HH8K12' }],
     learn: {
       learnTimeMin: 12,
       body: [
-        'For centuries, Japan was ruled by shoguns — military leaders — who held real power, while the emperor remained a symbolic figurehead. Below the shogun were the daimyo (powerful lords), who governed their own lands.',
+        'For centuries, Japan was ruled by shoguns, military leaders, who held real power, while the emperor remained a symbolic figurehead. Below the shogun were the daimyo (powerful lords), who governed their own lands.',
         'This system kept society stable and ordered, with each class having clear roles: samurai warriors served their lords, while farmers, artisans and merchants worked beneath them.',
       ],
       illustrations: [
@@ -259,12 +259,12 @@ export const YEAR8_HISTORY_TOPICS: Topic[] = [
     title: 'Samurai, bushido & daily life',
     year: '8',
     subject: 'hass',
-    strand: 'History — The Asia-Pacific World',
+    strand: 'History, The Asia-Pacific World',
     cd: [{ ac: 'AC9HH8K12' }, { ac: 'AC9HH8K14' }],
     learn: {
       learnTimeMin: 12,
       body: [
-        'Samurai followed a strict warrior code called bushido — "the way of the warrior" — which valued loyalty, honour, courage, frugality and mastery of martial arts. A samurai\'s honour was central to their identity.',
+        'Samurai followed a strict warrior code called bushido, "the way of the warrior", which valued loyalty, honour, courage, frugality and mastery of martial arts. A samurai\'s honour was central to their identity.',
         'Daily life in feudal Japan differed across the classes: farmers grew rice and other crops, artisans produced crafts such as swords and pottery, and merchants traded goods, even though they sat low in the social order.',
       ],
       illustrations: [
@@ -293,7 +293,7 @@ export const YEAR8_HISTORY_TOPICS: Topic[] = [
     title: "Tokugawa rule & Japan's isolation",
     year: '8',
     subject: 'hass',
-    strand: 'History — The Asia-Pacific World',
+    strand: 'History, The Asia-Pacific World',
     cd: [{ ac: 'AC9HH8K13' }, { ac: 'AC9HH8K15' }],
     learn: {
       learnTimeMin: 12,
@@ -305,7 +305,7 @@ export const YEAR8_HISTORY_TOPICS: Topic[] = [
         {
           brief: 'A flowchart: Tokugawa unifies Japan, strict social order, sakoku isolation, Perry arrives 1853',
           ready: true,
-          diagram: { kind: 'flowchart', steps: [{ text: 'Tokugawa unifies Japan' }, { text: 'Strict social order' }, { text: 'Sakoku — closing borders' }, { text: 'Commodore Perry 1853' }] },
+          diagram: { kind: 'flowchart', steps: [{ text: 'Tokugawa unifies Japan' }, { text: 'Strict social order' }, { text: 'Sakoku, closing borders' }, { text: 'Commodore Perry 1853' }] },
         },
       ],
     },
@@ -327,13 +327,13 @@ export const YEAR8_HISTORY_TOPICS: Topic[] = [
     title: 'Continuity, change & interpretations of shogunate Japan',
     year: '8',
     subject: 'hass',
-    strand: 'History — The Asia-Pacific World',
+    strand: 'History, The Asia-Pacific World',
     cd: [{ ac: 'AC9HH8K14' }, { ac: 'AC9HH8K16' }],
     learn: {
       learnTimeMin: 12,
       body: [
         'Under the shoguns, Japan experienced both continuity and change: the social order and warrior culture stayed remarkably stable for centuries, while the economy, towns and merchant wealth grew and changed over time.',
-        'Historians interpret this era differently — for example, debating how much Japan was really "closed" under sakoku, how the Tokugawa maintained control, and how to weigh the costs and achievements of the period. These different interpretations show how historians build arguments from evidence.',
+        'Historians interpret this era differently, for example, debating how much Japan was really "closed" under sakoku, how the Tokugawa maintained control, and how to weigh the costs and achievements of the period. These different interpretations show how historians build arguments from evidence.',
       ],
       illustrations: [
         {

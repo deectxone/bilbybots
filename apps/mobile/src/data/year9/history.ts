@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 9 History — full topic bank (AC v9.0, subject code HH).
+ * Year 9 History, full topic bank (AC v9.0, subject code HH).
  * Source of truth: docs/content/year-7-10/history.md. Year 9 mandates BOTH
  * sub-strands: "Making and transforming the Australian nation (1750–1914)"
  * (AC9HH9K01–K07) and "First World War (1914–1918)" (AC9HH9K08–K12).
@@ -10,7 +10,7 @@ import type { Topic } from '../../types/curriculum';
  * SENSITIVITY: MA03 (colonisation & frontier conflict) and MA06 (perspectives
  * of colonisers, settlers and First Nations Australians; contested terms) plus
  * WW01–WW03 (war service, Gallipoli, trench warfare) carry `sensitivity: true`
- * — written to established, broadly-agreed facts with age-appropriate framing,
+ *, written to established, broadly-agreed facts with age-appropriate framing,
  * pending human review. Follow the Y6-HASS-HI02 / Y7 Deep Time review pattern.
  */
 export const YEAR9_HISTORY_TOPICS: Topic[] = [
@@ -20,12 +20,12 @@ export const YEAR9_HISTORY_TOPICS: Topic[] = [
     title: 'European expansion & why people came',
     year: '9',
     subject: 'hass',
-    strand: 'History — Making the Australian Nation',
+    strand: 'History, Making the Australian Nation',
     cd: [{ ac: 'AC9HH9K01' }],
     learn: {
       learnTimeMin: 12,
       body: [
-        'In the late 1700s and early 1800s, European empires — especially Britain — expanded around the globe. People moved for many reasons: some were forced (convicts transported, people fleeing famine and persecution), while others were pulled by promises of land, work and a new life.',
+        'In the late 1700s and early 1800s, European empires, especially Britain, expanded around the globe. People moved for many reasons: some were forced (convicts transported, people fleeing famine and persecution), while others were pulled by promises of land, work and a new life.',
         'In 1788 the British established a colony at Sydney Cove. In the decades that followed, both convicts and free settlers crossed the seas to Australia, changing the continent forever.',
       ],
       illustrations: [
@@ -54,12 +54,12 @@ export const YEAR9_HISTORY_TOPICS: Topic[] = [
     title: 'The colonies grow',
     year: '9',
     subject: 'hass',
-    strand: 'History — Making the Australian Nation',
+    strand: 'History, Making the Australian Nation',
     cd: [{ ac: 'AC9HH9K02' }],
     learn: {
       learnTimeMin: 12,
       body: [
-        'Australia grew as a set of separate British colonies — New South Wales, Van Diemen\'s Land (Tasmania), Western Australia, South Australia, Victoria and Queensland. Each developed in its own way, shaped by geography, gold and the different kinds of settlers who arrived.',
+        'Australia grew as a set of separate British colonies, New South Wales, Van Diemen\'s Land (Tasmania), Western Australia, South Australia, Victoria and Queensland. Each developed in its own way, shaped by geography, gold and the different kinds of settlers who arrived.',
         'Farming, especially wool, drove much of the economy, and explorers pushed across the Blue Mountains to open new lands for pasture and settlement.',
       ],
       illustrations: [
@@ -88,14 +88,14 @@ export const YEAR9_HISTORY_TOPICS: Topic[] = [
     title: 'First Nations Australians & colonisation',
     year: '9',
     subject: 'hass',
-    strand: 'History — Making the Australian Nation',
+    strand: 'History, Making the Australian Nation',
     cd: [{ ac: 'AC9HH9K03' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 14,
       body: [
         'When the British colonised Australia, First Nations Australians had lived on the continent for over 65,000 years, with deep connections to their lands, waters and laws. Colonisation brought enormous and lasting change: land was taken, traditional ways of life were disrupted, and European diseases spread.',
-        'The frontier was often violent: conflict, known as frontier conflict, occurred across the continent as settlement extended. First Nations Australians responded in many ways — defending Country, adapting and surviving — and their cultures, knowledge and resilience continue today. This history is told respectfully and carefully.',
+        'The frontier was often violent: conflict, known as frontier conflict, occurred across the continent as settlement extended. First Nations Australians responded in many ways, defending Country, adapting and surviving, and their cultures, knowledge and resilience continue today. This history is told respectfully and carefully.',
       ],
       illustrations: [
         {
@@ -123,12 +123,12 @@ export const YEAR9_HISTORY_TOPICS: Topic[] = [
     title: 'Gold, growth & change',
     year: '9',
     subject: 'hass',
-    strand: 'History — Making the Australian Nation',
+    strand: 'History, Making the Australian Nation',
     cd: [{ ac: 'AC9HH9K02' }, { ac: 'AC9HH9K04' }],
     learn: {
       learnTimeMin: 12,
       body: [
-        'From 1851, gold rushes in New South Wales and Victoria transformed the colonies. Tens of thousands of people — from Britain, Europe, China and elsewhere — poured in, and cities boomed.',
+        'From 1851, gold rushes in New South Wales and Victoria transformed the colonies. Tens of thousands of people, from Britain, Europe, China and elsewhere, poured in, and cities boomed.',
         'Gold brought wealth and rapid growth, but also conflict: the Eureka Stockade in 1854 saw diggers rise up against unfair mining licences, a moment remembered in Australian history and democracy debates. Railways and telegraph lines soon linked the growing colonies.',
       ],
       illustrations: [
@@ -157,12 +157,12 @@ export const YEAR9_HISTORY_TOPICS: Topic[] = [
     title: 'Federation & the new nation',
     year: '9',
     subject: 'hass',
-    strand: 'History — Making the Australian Nation',
+    strand: 'History, Making the Australian Nation',
     cd: [{ ac: 'AC9HH9K04' }],
     learn: {
       learnTimeMin: 12,
       body: [
-        'In the late 1800s, many Australians argued for the six colonies to unite. Conferences and constitutional conventions — with leaders such as Sir Henry Parkes — drafted a Constitution, and in 1898–1899 the people voted in referendums to approve it.',
+        'In the late 1800s, many Australians argued for the six colonies to unite. Conferences and constitutional conventions, with leaders such as Sir Henry Parkes, drafted a Constitution, and in 1898–1899 the people voted in referendums to approve it.',
         'On 1 January 1901, Australia federated: the six colonies became the one nation of Australia under a federal Constitution, with a national Parliament alongside the state parliaments.',
       ],
       illustrations: [
@@ -191,13 +191,13 @@ export const YEAR9_HISTORY_TOPICS: Topic[] = [
     title: 'Australian society 1901–1914: identity & ideas',
     year: '9',
     subject: 'hass',
-    strand: 'History — Making the Australian Nation',
+    strand: 'History, Making the Australian Nation',
     cd: [{ ac: 'AC9HH9K05' }, { ac: 'AC9HH9K06' }, { ac: 'AC9HH9K07' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 14,
       body: [
-        'Around Federation, Australia was building an identity — of mateship, a "fair go" and egalitarianism — celebrated in art, writing and sport. But not everyone shared in it equally: women still fought for the vote (won federally in 1902), non-European migrants faced exclusion under the "White Australia" policy, and First Nations Australians were denied rights that others enjoyed.',
+        'Around Federation, Australia was building an identity, of mateship, a "fair go" and egalitarianism, celebrated in art, writing and sport. But not everyone shared in it equally: women still fought for the vote (won federally in 1902), non-European migrants faced exclusion under the "White Australia" policy, and First Nations Australians were denied rights that others enjoyed.',
         'The new federal government also made laws that shaped life for everyone: old-age and invalid pensions, and the Harvester Judgement on fair wages. Understanding these different experiences helps us see the nation\'s full story.',
       ],
       illustrations: [
@@ -227,13 +227,13 @@ export const YEAR9_HISTORY_TOPICS: Topic[] = [
     title: "Causes of the war & why Australians enlisted",
     year: '9',
     subject: 'hass',
-    strand: 'History — First World War',
+    strand: 'History, First World War',
     cd: [{ ac: 'AC9HH9K08' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 12,
       body: [
-        'The First World War (1914–1918) was sparked by long-term causes — militarism, the alliance system, imperialism and nationalism in Europe — and triggered by the assassination of Archduke Franz Ferdinand in 1914. When Britain declared war on Germany, Australia, as part of the British Empire, was at war too.',
+        'The First World War (1914–1918) was sparked by long-term causes, militarism, the alliance system, imperialism and nationalism in Europe, and triggered by the assassination of Archduke Franz Ferdinand in 1914. When Britain declared war on Germany, Australia, as part of the British Empire, was at war too.',
         'Around 400,000 Australians enlisted in the Australian Imperial Force, for many reasons: a sense of duty to the Empire, adventure, regular pay, and pressure from propaganda and communities. First Nations Australian men also served, despite facing discrimination.',
       ],
       illustrations: [
@@ -262,14 +262,14 @@ export const YEAR9_HISTORY_TOPICS: Topic[] = [
     title: 'Gallipoli 1915',
     year: '9',
     subject: 'hass',
-    strand: 'History — First World War',
+    strand: 'History, First World War',
     cd: [{ ac: 'AC9HH9K09' }, { ac: 'AC9HH9K10' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 12,
       body: [
-        'On 25 April 1915, Australian and New Zealand troops — the Anzacs — landed at Gallipoli in the Ottoman Empire as part of a campaign to knock the Turks out of the war and open a sea route to Russia.',
-        'The campaign lasted eight months and failed, with heavy losses on both sides. The bravery and endurance of the Anzacs in terrible conditions gave rise to the Anzac legend and made 25 April a day Australians honour — Anzac Day.',
+        'On 25 April 1915, Australian and New Zealand troops, the Anzacs, landed at Gallipoli in the Ottoman Empire as part of a campaign to knock the Turks out of the war and open a sea route to Russia.',
+        'The campaign lasted eight months and failed, with heavy losses on both sides. The bravery and endurance of the Anzacs in terrible conditions gave rise to the Anzac legend and made 25 April a day Australians honour, Anzac Day.',
       ],
       illustrations: [
         {
@@ -297,13 +297,13 @@ export const YEAR9_HISTORY_TOPICS: Topic[] = [
     title: 'The Western Front & trench warfare',
     year: '9',
     subject: 'hass',
-    strand: 'History — First World War',
+    strand: 'History, First World War',
     cd: [{ ac: 'AC9HH9K09' }, { ac: 'AC9HH9K10' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 12,
       body: [
-        'After Gallipoli, most Australian troops moved to the Western Front in France and Belgium, where the war was fought in trenches. Soldiers lived in muddy, cramped trenches and faced deadly new weapons — machine guns, artillery, poison gas and tanks.',
+        'After Gallipoli, most Australian troops moved to the Western Front in France and Belgium, where the war was fought in trenches. Soldiers lived in muddy, cramped trenches and faced deadly new weapons, machine guns, artillery, poison gas and tanks.',
         'Australians fought in terrible battles such as Fromelles, the Somme, Pozières and Passchendaele, suffering enormous losses. In the Middle East, the Australian Light Horse fought campaigns in places such as Palestine, Sinai and Beersheba.',
       ],
       illustrations: [
@@ -332,7 +332,7 @@ export const YEAR9_HISTORY_TOPICS: Topic[] = [
     title: 'The war at home',
     year: '9',
     subject: 'hass',
-    strand: 'History — First World War',
+    strand: 'History, First World War',
     cd: [{ ac: 'AC9HH9K11' }],
     learn: {
       learnTimeMin: 12,
@@ -366,13 +366,13 @@ export const YEAR9_HISTORY_TOPICS: Topic[] = [
     title: 'The end of the war & commemoration',
     year: '9',
     subject: 'hass',
-    strand: 'History — First World War',
+    strand: 'History, First World War',
     cd: [{ ac: 'AC9HH9K10' }, { ac: 'AC9HH9K12' }],
     learn: {
       learnTimeMin: 12,
       body: [
         'The war turned decisively in 1917–1918 with the Russian Revolution and the entry of the United States. On 11 November 1918, the Armistice ended the fighting. The peace treaties that followed, such as the Treaty of Versailles, placed heavy penalties on Germany.',
-        'Australians have commemorated the war ever since — through Anzac Day, war memorials and the Anzac legend. Historians debate the legend and what it means, and the war\'s memory continues to shape Australian identity.',
+        'Australians have commemorated the war ever since, through Anzac Day, war memorials and the Anzac legend. Historians debate the legend and what it means, and the war\'s memory continues to shape Australian identity.',
       ],
       illustrations: [
         {

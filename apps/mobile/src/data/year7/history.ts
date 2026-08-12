@@ -1,18 +1,18 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 7 History — full topic bank (AC v9.0, subject code HH).
+ * Year 7 History, full topic bank (AC v9.0, subject code HH).
  * Source of truth: docs/content/year-7-10/history.md. Year 7 covers the two
  * mandatory v9.0 sub-strands: "Deep time history of Australia" (AC9HH7K01–K07)
  * and "The ancient world" (AC9HH7K08–K13, depth study: Ancient Egypt).
  * Skills CDs (AC9HH7S01–S08) are woven into the units per the source doc.
  *
- * SENSITIVITY: all six Deep Time topics carry `sensitivity: true` — they
+ * SENSITIVITY: all six Deep Time topics carry `sensitivity: true`, they
  * involve First Nations Australians' deep histories and cultural knowledge,
  * and ACARA's own guidance (the FIRST framework) requires community-protocol
  * review. They are written to established, broadly-agreed facts only and
  * must be reviewed with First Nations community knowledge holders before
- * release — the same pattern as Y6-HASS-HI02 (see AGENTS.md).
+ * release, the same pattern as Y6-HASS-HI02 (see AGENTS.md).
  */
 export const YEAR7_HISTORY_TOPICS: Topic[] = [
   // ---------- Deep time history of Australia (7 CDs) ----------
@@ -21,13 +21,13 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: 'How we know the deep past: evidence & time',
     year: '7',
     subject: 'hass',
-    strand: 'History — Deep Time',
+    strand: 'History, Deep Time',
     cd: [{ ac: 'AC9HH7K01' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 12,
       body: [
-        'Historians and archaeologists investigate the deep past using many kinds of evidence: stone tools, rock art, campsites and human remains — plus scientific dating methods such as radiocarbon dating and thermoluminescence, which measure how old materials really are.',
+        'Historians and archaeologists investigate the deep past using many kinds of evidence: stone tools, rock art, campsites and human remains, plus scientific dating methods such as radiocarbon dating and thermoluminescence, which measure how old materials really are.',
         "First Nations Australians' own oral histories, art and knowledge systems are equally important evidence, and they work alongside science to reveal the ancient past. Historical time terms help us talk about it: BCE/CE, and BP (Before Present) for the oldest dates.",
       ],
       illustrations: [
@@ -64,14 +64,14 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: 'Arrival on Sahul: migration to Australia',
     year: '7',
     subject: 'hass',
-    strand: 'History — Deep Time',
+    strand: 'History, Deep Time',
     cd: [{ ac: 'AC9HH7K02' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 12,
       body: [
         'When sea levels were much lower, Australia, New Guinea and Tasmania were joined in one giant landmass called Sahul. Early ancestors were skilled seafarers: they crossed the seas from Southeast Asia and made their way across the continent.',
-        'Scientific dating of sites such as Lake Mungo, together with genetic research, shows that First Nations Australians have lived on the continent for at least 65,000 years — among the longest continuous occupations of any land on Earth.',
+        'Scientific dating of sites such as Lake Mungo, together with genetic research, shows that First Nations Australians have lived on the continent for at least 65,000 years, among the longest continuous occupations of any land on Earth.',
       ],
       illustrations: [
         {
@@ -99,7 +99,7 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: "The world's oldest continuing cultures",
     year: '7',
     subject: 'hass',
-    strand: 'History — Deep Time',
+    strand: 'History, Deep Time',
     cd: [{ ac: 'AC9HH7K03' }],
     sensitivity: true,
     learn: {
@@ -134,14 +134,14 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: 'Surviving environmental change',
     year: '7',
     subject: 'hass',
-    strand: 'History — Deep Time',
+    strand: 'History, Deep Time',
     cd: [{ ac: 'AC9HH7K04' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 12,
       body: [
         'Over tens of thousands of years, Australia\'s environment changed dramatically: seas rose and cut off Tasmania and New Guinea, some regions dried out, and giant animals (megafauna) disappeared. First Nations Australians adapted to each change, developing new ways to live in different places.',
-        'Oral traditions still recall these changes — for example, stories of rising seas swallowing coastal lands. People responded by moving with the seasons, managing water carefully, and using the land sustainably.',
+        'Oral traditions still recall these changes, for example, stories of rising seas swallowing coastal lands. People responded by moving with the seasons, managing water carefully, and using the land sustainably.',
       ],
       illustrations: [
         {
@@ -169,13 +169,13 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: 'Technologies, land & water management',
     year: '7',
     subject: 'hass',
-    strand: 'History — Deep Time',
+    strand: 'History, Deep Time',
     cd: [{ ac: 'AC9HH7K05' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 12,
       body: [
-        'Early First Nations Australians were skilled technologists: they developed stone tools, ground-edge axes, millstones and fishing technologies suited to each environment — from the sea country of the Torres Strait to the deserts of the centre.',
+        'Early First Nations Australians were skilled technologists: they developed stone tools, ground-edge axes, millstones and fishing technologies suited to each environment, from the sea country of the Torres Strait to the deserts of the centre.',
         'They also managed land and water: cultural burning kept the bush healthy, and structures such as the eel traps at Budj Bim in Victoria and the stone fish traps at Brewarrina in New South Wales show careful engineering to harvest food sustainably.',
       ],
       illustrations: [
@@ -190,7 +190,7 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
       nominalCount: 6,
       compactCount: 4,
       questions: [
-        { id: 'Y7-HIS-DT05-q1', type: 'mcq', prompt: 'The eel traps at Budj Bim are an example of…', options: ['Aquaculture — farming and trapping food sustainably', 'Modern city plumbing', 'A kind of weapon'], answer: 'Aquaculture — farming and trapping food sustainably', difficulty: 2 },
+        { id: 'Y7-HIS-DT05-q1', type: 'mcq', prompt: 'The eel traps at Budj Bim are an example of…', options: ['Aquaculture, farming and trapping food sustainably', 'Modern city plumbing', 'A kind of weapon'], answer: 'Aquaculture, farming and trapping food sustainably', difficulty: 2 },
         { id: 'Y7-HIS-DT05-q2', type: 'mcq', prompt: 'Cultural burning is a practice that…', options: ['Manages the land and keeps the bush healthy', 'Destroys all plants', 'Was invented last century'], answer: 'Manages the land and keeps the bush healthy', difficulty: 2 },
         { id: 'Y7-HIS-DT05-q3', type: 'mcq', prompt: 'Stone tools, ground-edge axes and millstones are examples of…', options: ['Technological achievements', 'Written records', 'Types of transport'], answer: 'Technological achievements', difficulty: 1 },
         { id: 'Y7-HIS-DT05-q4', type: 'mcq', prompt: 'The stone fish traps at Brewarrina in New South Wales show…', options: ['Careful engineering for sustainable food harvesting', 'A modern shopping centre', 'A type of castle'], answer: 'Careful engineering for sustainable food harvesting', difficulty: 2 },
@@ -204,14 +204,14 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: 'Social organisation, culture & caring for Country',
     year: '7',
     subject: 'hass',
-    strand: 'History — Deep Time',
+    strand: 'History, Deep Time',
     cd: [{ ac: 'AC9HH7K06' }, { ac: 'AC9HH7K07' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 14,
       body: [
         'First Nations Australians organised their societies through complex systems of kinship, moieties and totems, which set out relationships between people, and between people and Country, seas, waterways, sky and universe. Lore, ceremonies and rites of passage guided daily life.',
-        'Cultural obligations to protect significant sites — including ancestral remains and artefacts — continue today. Collaboration between First Nations Australians and researchers, museums and governments helps preserve this heritage, with places such as the Willandra Lakes and Budj Bim on the World Heritage list.',
+        'Cultural obligations to protect significant sites, including ancestral remains and artefacts, continue today. Collaboration between First Nations Australians and researchers, museums and governments helps preserve this heritage, with places such as the Willandra Lakes and Budj Bim on the World Heritage list.',
       ],
       illustrations: [
         {
@@ -240,13 +240,13 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: 'Investigating the ancient past',
     year: '7',
     subject: 'hass',
-    strand: 'History — The Ancient World',
+    strand: 'History, The Ancient World',
     cd: [{ ac: 'AC9HH7K08' }],
     learn: {
       learnTimeMin: 12,
       body: [
         'Historians and archaeologists investigate ancient societies using many methods: excavating sites, studying layers of soil (stratigraphy), analysing DNA, and reading written records and inscriptions. Sources can be primary (from the time) or secondary (later interpretations).',
-        'Preserving the remains and heritage of the past matters — that is why organisations such as UNESCO protect World Heritage sites, and why efforts like saving the temples of Abu Simbel, or debates about returning the Elgin Marbles, take place.',
+        'Preserving the remains and heritage of the past matters, that is why organisations such as UNESCO protect World Heritage sites, and why efforts like saving the temples of Abu Simbel, or debates about returning the Elgin Marbles, take place.',
       ],
       illustrations: [
         {
@@ -274,7 +274,7 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: 'The Nile shapes Ancient Egypt',
     year: '7',
     subject: 'hass',
-    strand: 'History — The Ancient World',
+    strand: 'History, The Ancient World',
     cd: [{ ac: 'AC9HH7K09' }],
     learn: {
       learnTimeMin: 12,
@@ -308,7 +308,7 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: "Egypt's social pyramid",
     year: '7',
     subject: 'hass',
-    strand: 'History — The Ancient World',
+    strand: 'History, The Ancient World',
     cd: [{ ac: 'AC9HH7K10' }],
     learn: {
       learnTimeMin: 12,
@@ -342,13 +342,13 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: 'Beliefs, death & funerary customs',
     year: '7',
     subject: 'hass',
-    strand: 'History — The Ancient World',
+    strand: 'History, The Ancient World',
     cd: [{ ac: 'AC9HH7K11' }],
     learn: {
       learnTimeMin: 12,
       body: [
         'Ancient Egyptians believed in an afterlife, so preparing for death was a major part of life. Bodies were mummified to preserve them for the journey, and people were buried with goods for the next world.',
-        'Tombs — from simple graves to giant pyramids and rock-cut tombs in the Valley of the Kings — reflected a person\'s status, while texts such as the Book of the Dead contained spells to help the dead pass judgement and reach the afterlife.',
+        'Tombs, from simple graves to giant pyramids and rock-cut tombs in the Valley of the Kings, reflected a person\'s status, while texts such as the Book of the Dead contained spells to help the dead pass judgement and reach the afterlife.',
       ],
       illustrations: [
         {
@@ -376,13 +376,13 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: 'Power, contact & conflict',
     year: '7',
     subject: 'hass',
-    strand: 'History — The Ancient World',
+    strand: 'History, The Ancient World',
     cd: [{ ac: 'AC9HH7K12' }],
     learn: {
       learnTimeMin: 12,
       body: [
         'During the New Kingdom, pharaohs built an empire, using armies and the Nile for transport to expand Egypt\'s power and trade. Egypt traded with lands such as Cyprus, Crete and Greece, and fought wars with neighbours.',
-        'War could end in peace treaties: after the Battle of Kadesh, Ramses II made a famous peace treaty with the Hittites — one of the oldest known peace treaties in the world.',
+        'War could end in peace treaties: after the Battle of Kadesh, Ramses II made a famous peace treaty with the Hittites, one of the oldest known peace treaties in the world.',
       ],
       illustrations: [
         {
@@ -410,7 +410,7 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
     title: 'Significant individuals & legacy',
     year: '7',
     subject: 'hass',
-    strand: 'History — The Ancient World',
+    strand: 'History, The Ancient World',
     cd: [{ ac: 'AC9HH7K13' }],
     learn: {
       learnTimeMin: 12,
@@ -422,7 +422,7 @@ export const YEAR7_HISTORY_TOPICS: Topic[] = [
         {
           brief: 'A flowchart of Egyptian legacies: Hatshepsut\'s rule, Ramses II\'s peace treaty, Tutankhamun\'s tomb, influence today',
           ready: true,
-          diagram: { kind: 'flowchart', steps: [{ text: "Hatshepsut — a ruling queen" }, { text: 'Ramses II — temple builder' }, { text: "Tutankhamun — tomb discovery" }, { text: 'Legacy still visible today' }] },
+          diagram: { kind: 'flowchart', steps: [{ text: "Hatshepsut, a ruling queen" }, { text: 'Ramses II, temple builder' }, { text: "Tutankhamun, tomb discovery" }, { text: 'Legacy still visible today' }] },
         },
       ],
     },

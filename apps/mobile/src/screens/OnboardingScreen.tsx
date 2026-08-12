@@ -67,7 +67,7 @@ export function OnboardingScreen({
       >
         <BilbyLogo markSize={56} textSize={30} tone="light" />
         <Text style={styles.hello}>
-          {editing ? `Setup — ${initial!.name}'s learning plan` : "G'day! Meet your learning buddy."}
+          {editing ? `Setup, ${initial!.name}'s learning plan` : "G'day! Meet your learning buddy."}
         </Text>
       </LinearGradient>
 

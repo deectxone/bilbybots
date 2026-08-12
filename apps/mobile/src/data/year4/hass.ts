@@ -1,12 +1,12 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 4 HASS — full knowledge-strand topic bank (History, Geography, Civics
+ * Year 4 HASS, full knowledge-strand topic bank (History, Geography, Civics
  * & Citizenship). Source of truth: docs/content/year-1-5/hass.md (AC v9.0).
  * Skills CDs (AC9HS4S01–S07) are woven into these knowledge units per the
  * source doc, not authored separately.
  * `Y4-HASS-HI01`, `Y4-HASS-HI04` and `Y4-HASS-GE02` carry
- * `sensitivity: true` — they touch First Nations Australians' histories,
+ * `sensitivity: true`, they touch First Nations Australians' histories,
  * cultures and Country/Place, and are written to established, general facts
  * only, pending a community-protocol review before release (see AGENTS.md
  * child-safety/accuracy constraints). HI04 also presents the differing views
@@ -25,7 +25,7 @@ export const YEAR4_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Before the First Fleet ever arrived, Australia was already home to hundreds of different First Nations groups, each with its own languages, stories and ways of living — and First Nations Australians are among the world\'s oldest continuous cultures.',
+        'Before the First Fleet ever arrived, Australia was already home to hundreds of different First Nations groups, each with its own languages, stories and ways of living, and First Nations Australians are among the world\'s oldest continuous cultures.',
         'Their connection to Country and Place is deep and special: Country means the land, water and sky, and caring for it is part of who they are. First Nations Australians have lived on and cared for Country for tens of thousands of years, and many communities still do today.',
       ],
       illustrations: [
@@ -60,7 +60,7 @@ export const YEAR4_HASS_TOPICS: Topic[] = [
       learnTimeMin: 11,
       body: [
         'In the 1700s, Britain\'s prisons were overcrowded with people convicted of crimes, and the British government needed somewhere to send them. Britain also wanted a base to protect its trade in the region.',
-        'So in 1788, the First Fleet — 11 ships carrying convicts, soldiers and supplies — sailed across the world and arrived at Sydney Cove, where the first British colony was set up.',
+        'So in 1788, the First Fleet, 11 ships carrying convicts, soldiers and supplies, sailed across the world and arrived at Sydney Cove, where the first British colony was set up.',
       ],
       illustrations: [
         {
@@ -118,7 +118,7 @@ export const YEAR4_HASS_TOPICS: Topic[] = [
         { id: 'Y4-HASS-HI03-q3', type: 'mcq', prompt: 'Convicts helped build the colony by doing jobs like…', options: ['Building and farming', 'Flying planes', 'Teaching in universities'], answer: 'Building and farming', difficulty: 2 },
         { id: 'Y4-HASS-HI03-q4', type: 'mcq', prompt: 'In the early colony, food was often…', options: ['In short supply', 'Delivered fresh daily', 'Free for everyone'], answer: 'In short supply', difficulty: 2 },
         { id: 'Y4-HASS-HI03-q5', type: 'mcq', prompt: 'Many of the first colonists lived in…', options: ['Small huts and tents', 'Tall apartment blocks', 'Stone castles'], answer: 'Small huts and tents', difficulty: 2 },
-        { id: 'Y4-HASS-HI03-q6', type: 'mcq', prompt: 'Life in the colony was different for different people — officials and convicts had…', options: ['Very different daily experiences', 'Exactly the same life', 'No rules at all'], answer: 'Very different daily experiences', difficulty: 3 },
+        { id: 'Y4-HASS-HI03-q6', type: 'mcq', prompt: 'Life in the colony was different for different people, officials and convicts had…', options: ['Very different daily experiences', 'Exactly the same life', 'No rules at all'], answer: 'Very different daily experiences', difficulty: 3 },
       ],
     },
   },
@@ -133,7 +133,7 @@ export const YEAR4_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'When the First Fleet arrived in 1788, a time of contact began between British colonists and First Nations Australians. For First Nations people, this contact brought very big changes — the loss of land and Country, new diseases, and conflicts.',
+        'When the First Fleet arrived in 1788, a time of contact began between British colonists and First Nations Australians. For First Nations people, this contact brought very big changes, the loss of land and Country, new diseases, and conflicts.',
         'Different people describe these events in different ways: some call the arrival "settlement" or "colonisation", while many First Nations Australians describe it as an invasion. Through all of it, First Nations communities showed great strength, and today they continue to live, care for and connect with their Country.',
       ],
       illustrations: [
@@ -168,7 +168,7 @@ export const YEAR4_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Environments are places where living things are connected — plants, animals, people, water and soil all depend on each other. Rainforests, deserts, savannas and rivers are all examples of different environments.',
+        'Environments are places where living things are connected, plants, animals, people, water and soil all depend on each other. Rainforests, deserts, savannas and rivers are all examples of different environments.',
         'In Australia, native vegetation and water sources keep people and animals alive, and it is the same on other continents like Africa. When we understand these environments, we understand how to look after them.',
       ],
       illustrations: [
@@ -189,7 +189,7 @@ export const YEAR4_HASS_TOPICS: Topic[] = [
       compactCount: 4,
       questions: [
         { id: 'Y4-HASS-GE01-q1', type: 'mcq', prompt: 'Which of these is a natural environment?', options: ['A rainforest', 'A shopping centre', 'A school building'], answer: 'A rainforest', difficulty: 1 },
-        { id: 'Y4-HASS-GE01-q2', type: 'mcq', prompt: 'All living things — people, plants and animals — need what to survive?', options: ['Water', 'Only toys', 'Only screens'], answer: 'Water', difficulty: 1 },
+        { id: 'Y4-HASS-GE01-q2', type: 'mcq', prompt: 'All living things, people, plants and animals, need what to survive?', options: ['Water', 'Only toys', 'Only screens'], answer: 'Water', difficulty: 1 },
         { id: 'Y4-HASS-GE01-q3', type: 'mcq', prompt: 'Native vegetation helps by…', options: ['Giving animals food and shelter', 'Blocking all the rain', 'Making loud noises'], answer: 'Giving animals food and shelter', difficulty: 2 },
         { id: 'Y4-HASS-GE01-q4', type: 'mcq', prompt: 'Rivers and other water sources are important to people for…', options: ['Drinking and growing food', 'Nothing at all', 'Only swimming in winter'], answer: 'Drinking and growing food', difficulty: 2 },
         { id: 'Y4-HASS-GE01-q5', type: 'short', prompt: 'The lesson compares Australia\'s environments with which other continent?', answer: 'Africa', difficulty: 2 },
@@ -209,7 +209,7 @@ export const YEAR4_HASS_TOPICS: Topic[] = [
       learnTimeMin: 11,
       body: [
         'Some resources, like sunlight, wind and water, can be renewed by nature, while others, like coal and oil, are used much faster than they can ever be replaced.',
-        'Using resources carefully so they last for the future is called sustainable use. First Nations Australians have shown custodial responsibility for Country for tens of thousands of years — caring for land and water so everything can keep growing — and we can all learn from that care.',
+        'Using resources carefully so they last for the future is called sustainable use. First Nations Australians have shown custodial responsibility for Country for tens of thousands of years, caring for land and water so everything can keep growing, and we can all learn from that care.',
       ],
       illustrations: [
         {
@@ -248,7 +248,7 @@ export const YEAR4_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Rules are made by groups for the people in that group — like a family rule or a classroom rule. Laws are made by the government and apply to everyone in the country.',
+        'Rules are made by groups for the people in that group, like a family rule or a classroom rule. Laws are made by the government and apply to everyone in the country.',
         'Police and courts make sure laws are followed, and laws help keep us safe and treat everyone fairly. The big difference: breaking a rule affects your group, but breaking a law affects the whole community.',
       ],
       illustrations: [
@@ -282,7 +282,7 @@ export const YEAR4_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Your local government — also called the council — is the level of government closest to you. It looks after local parks, libraries, footpaths, rubbish collection and local roads.',
+        'Your local government, also called the council, is the level of government closest to you. It looks after local parks, libraries, footpaths, rubbish collection and local roads.',
         'Community members use these services every day, and we can contribute too, by caring for shared places and joining local groups. The council helps the local area run smoothly for everyone.',
       ],
       illustrations: [
@@ -316,12 +316,12 @@ export const YEAR4_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Everyone belongs to lots of different groups — families, school groups, sport teams, cultural communities and religious groups. These groups are part of who you are and help shape your identity.',
+        'Everyone belongs to lots of different groups, families, school groups, sport teams, cultural communities and religious groups. These groups are part of who you are and help shape your identity.',
         'Australia is diverse, which means people come from many different cultures and backgrounds. When we learn about and respect different groups, everyone feels welcome and included.',
       ],
       illustrations: [
         {
-          brief: 'Many different groups — family, sport, culture — as one community',
+          brief: 'Many different groups, family, sport, culture, as one community',
           ready: true,
           diagram: { kind: 'icon-scene', items: [{ icon: 'people', label: 'Family' }, { icon: 'ball', label: 'Sport' }, { icon: 'flag', label: 'Culture' }], caption: 'Many groups, one shared community' },
         },

@@ -50,7 +50,7 @@ import { YEAR10_HISTORY_TOPICS } from './year10/history';
  * topics in curriculum order.
  *
  * Primary History topics are authored under the existing `hass` subject id
- * (the AC v9.0 HASS content-description codes, e.g. AC9HS1K01) — a proper
+ * (the AC v9.0 HASS content-description codes, e.g. AC9HS1K01), a proper
  * History/Geography/Civics/Economics split is a follow-up type change, and
  * secondary History topics (e.g. AC9HH7K01) share the same `hass` id today.
  */
@@ -128,7 +128,7 @@ export function buildWeekPlan(year: string): Topic[] {
   return Object.values(yearBank).flatMap((topics) => topics.slice(0, WEEK_TOPIC_COUNT));
 }
 
-/** Full authored bank for a year + subject — used by the Progress screen for coverage %. */
+/** Full authored bank for a year + subject, used by the Progress screen for coverage %. */
 export function fullYearBank(year: string, subject: SubjectId): Topic[] {
   if (!isYearBank(year)) return [];
   return bankByYear[year]![subject] ?? [];

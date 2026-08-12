@@ -3,7 +3,7 @@ import Svg, { Circle, Ellipse, Path } from 'react-native-svg';
 import { palette } from '../theme/colors';
 
 /**
- * BilbyBots' mascot, full-body — rendered big, translucent and
+ * BilbyBots' mascot, full-body, rendered big, translucent and
  * non-interactive in the bottom-right corner of every screen, like a
  * watermark peeking in rather than a floating button. Pure vector (no
  * image asset), so it stays crisp at any size.
@@ -11,7 +11,7 @@ import { palette } from '../theme/colors';
 function BilbyFigure({ size }: { size: number }) {
   return (
     <Svg width={size} height={size} viewBox="0 0 220 260">
-      {/* tail — a bilby's signature crested tail, curling up behind */}
+      {/* tail, a bilby's signature crested tail, curling up behind */}
       <Path
         d="M 168 190 C 210 170 214 100 190 60 C 205 95 198 150 165 175 Z"
         fill={palette.ink}

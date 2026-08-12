@@ -3,7 +3,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import type { ChildProfile } from '../types/curriculum';
 import type { NaplanDomain, NaplanResult, NaplanYear } from '../types/naplan';
-import { AppHeader } from '../components/AppHeader';
+import { ScreenShell } from '../components/ScreenShell';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon } from '../components/illustrations/icons';
 import { palette, radius, spacing, gradients } from '../theme/colors';
@@ -16,12 +16,12 @@ import {
 } from '../data/naplan/tests';
 
 /**
- * NAPLAN practice hub — the track's landing page. Lists the four domains as
+ * NAPLAN practice hub, the track's landing page. Lists the four domains as
  * cards with official test shape and the child's best score per domain.
  *
  * Year handling: the hub works with or without a child profile. When a
  * profile exists, the year defaults to the child's NEXT NAPLAN year (their
- * current year if it's 3/5/7/9, otherwise the year up — e.g. a Year 6 child
+ * current year if it's 3/5/7/9, otherwise the year up, e.g. a Year 6 child
  * practises toward Year 7), and it is always overridable via the year pills.
  */
 export function NaplanHubScreen({
@@ -52,9 +52,14 @@ export function NaplanHubScreen({
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <AppHeader active="NaplanHub" onHome={onHome} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
-
+    <ScreenShell
+      active="NaplanHub"
+      child={child}
+      onHome={onHome}
+      onProgress={onProgress}
+      onSetup={onSetup}
+      onSignOut={onSignOut}
+    >
       <LinearGradient
         colors={[...gradients.hero]}
         start={{ x: 0, y: 0 }}
@@ -63,14 +68,14 @@ export function NaplanHubScreen({
       >
         <Text style={styles.heroTitle}>NAPLAN practice</Text>
         <Text style={styles.heroSub}>
-          Original questions in the real NAPLAN format — timed, with the same
+          Original questions in the real NAPLAN format, timed, with the same
           item types and locked sections.
         </Text>
         {child && recommended ? (
           <BadgeChip
             label={
               recommended === child.year
-                ? `${child.name}'s NAPLAN year — Year ${recommended}`
+                ? `${child.name}'s NAPLAN year, Year ${recommended}`
                 : `Next NAPLAN: Year ${recommended}`
             }
             earned
@@ -134,11 +139,11 @@ export function NaplanHubScreen({
       })}
 
       <Text style={styles.note}>
-        Official NAPLAN has {year === '3' ? '36–52' : '42–52'} items per domain —
+        Official NAPLAN has {year === '3' ? '36–52' : '42–52'} items per domain,
         these practice tests are shorter, with results indicative only. They are
         original NAPLAN-style questions, not official NAPLAN material.
       </Text>
-    </ScrollView>
+    </ScreenShell>
   );
 }
 

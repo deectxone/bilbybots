@@ -1,7 +1,7 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import type { ChildProfile } from '../types/curriculum';
-import { AppHeader } from '../components/AppHeader';
+import { ScreenShell } from '../components/ScreenShell';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon } from '../components/illustrations/icons';
 import { palette, radius, spacing, type, gradients } from '../theme/colors';
@@ -9,11 +9,11 @@ import { nextNaplanYear, NAPLAN_YEARS } from '../data/naplan/tests';
 import { subjectById } from '../data/subjects';
 
 /**
- * The landing/home screen — the app opens here, before any profile is built.
+ * The landing/home screen, the app opens here, before any profile is built.
  * It hosts the two learning tracks side by side:
  *   1. The weekly plan (learn-first lessons, badges, 100% coverage). Needs a
  *      child profile, so without one it steps into onboarding first.
- *   2. NAPLAN practice (original NAPLAN-style tests for Years 3/5/7/9) —
+ *   2. NAPLAN practice (original NAPLAN-style tests for Years 3/5/7/9),
  *      usable immediately via the hub's year picker.
  */
 export function HomeScreen({
@@ -27,7 +27,7 @@ export function HomeScreen({
   onSignUp,
 }: {
   child: ChildProfile | null;
-  /** Guest preview session — show a "create account" banner instead of saving. */
+  /** Guest preview session, show a "create account" banner instead of saving. */
   isGuest?: boolean;
   onOpenWeekPlan: () => void;
   onOpenNaplan: () => void;
@@ -41,9 +41,15 @@ export function HomeScreen({
   const planSubjects = child ? child.subjects.map((s) => subjectById(s).label).join(' + ') : '';
 
   return (
-    <ScrollView contentContainerStyle={styles.container} style={styles.scroll}>
-      <AppHeader active="Home" onHome={() => {}} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
-
+    <ScreenShell
+      active="Home"
+      child={child}
+      isGuest={isGuest}
+      onHome={() => {}}
+      onProgress={onProgress}
+      onSetup={onSetup}
+      onSignOut={onSignOut}
+    >
       {isGuest && onSignUp && (
         <View style={styles.guestBanner}>
           <View style={styles.guestBannerText}>
@@ -132,8 +138,8 @@ export function HomeScreen({
               {naplanNext
                 ? child && naplanNext === child.year
                   ? `Timed practice tests for Year ${naplanNext} · Reading, Writing, Conventions, Numeracy`
-                  : `Timed practice tests for Year ${naplanNext} — the next NAPLAN for ${child!.name}`
-                : `Practice tests for Years ${NAPLAN_YEARS.join(', ')} — pick a year to start`}
+                  : `Timed practice tests for Year ${naplanNext}, the next NAPLAN for ${child!.name}`
+                : `Practice tests for Years ${NAPLAN_YEARS.join(', ')}, pick a year to start`}
             </Text>
           </View>
           <Text style={styles.chevron}>›</Text>
@@ -141,10 +147,10 @@ export function HomeScreen({
       </Pressable>
 
       <Text style={styles.footnote}>
-        All questions are original, NAPLAN-style items — not official NAPLAN
+        All questions are original, NAPLAN-style items, not official NAPLAN
         questions, and no ACARA affiliation.
       </Text>
-    </ScrollView>
+    </ScreenShell>
   );
 }
 

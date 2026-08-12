@@ -4,7 +4,7 @@ import type { ChildProfile, Topic } from '../types/curriculum';
 import { IllustrationFrame } from '../components/IllustrationFrame';
 import { BadgeChip } from '../components/BadgeChip';
 import { PrimaryButton } from '../components/PrimaryButton';
-import { AppHeader } from '../components/AppHeader';
+import { ScreenShell } from '../components/ScreenShell';
 import { palette, radius, spacing, subjectColor, type } from '../theme/colors';
 import { subjectById } from '../data/subjects';
 import { Icon } from '../components/illustrations/icons';
@@ -13,7 +13,7 @@ const NUMERIC_ANSWER = /^-?\d+(\.\d+)?$/;
 
 /**
  * Kids type numbers with or without thousands separators (spaces or commas,
- * e.g. "600405" / "600 405" / "600,405") — all should count as correct.
+ * e.g. "600405" / "600 405" / "600,405"), all should count as correct.
  * Non-numeric answers keep exact (trimmed, case-insensitive) matching so
  * spacing stays meaningful for word answers.
  */
@@ -68,8 +68,15 @@ export function LessonScreen({
   const allCorrect = checked && topic.assignment.questions.length > 0 && score === topic.assignment.questions.length;
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <AppHeader active="Lesson" onHome={onHome} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
+    <ScreenShell
+      active="Lesson"
+      child={child}
+      isGuest={isGuest}
+      onHome={onHome}
+      onProgress={onProgress}
+      onSetup={onSetup}
+      onSignOut={onSignOut}
+    >
       <View style={styles.content}>
       <Pressable onPress={onBack} hitSlop={12} style={styles.backWrap}>
         <Text style={styles.back}>‹ Back to my week</Text>
@@ -133,7 +140,7 @@ export function LessonScreen({
                           key={o}
                           accessibilityRole="radio"
                           accessibilityState={{ checked: selected }}
-                          accessibilityLabel={`${q.prompt} — ${o}`}
+                          accessibilityLabel={`${q.prompt}, ${o}`}
                           onPress={() => {
                             setChecked(false);
                             setAnswers((a) => ({ ...a, [q.id]: o }));
@@ -163,7 +170,7 @@ export function LessonScreen({
                 ) : (
                   <View>
                     <TextInput
-                      accessibilityLabel={`${q.prompt} — type your answer`}
+                      accessibilityLabel={`${q.prompt}, type your answer`}
                       style={[
                         styles.answerInput,
                         checked && (questionCorrect ? styles.answerInputGood : styles.answerInputBad),
@@ -195,7 +202,7 @@ export function LessonScreen({
           {checked && (
             <View style={[styles.result, allCorrect ? styles.resultGood : styles.resultBad]}>
               <Text style={styles.resultTitle}>
-                {allCorrect ? 'Nailed it!' : 'Almost — have another go'}
+                {allCorrect ? 'Nailed it!' : 'Almost, have another go'}
               </Text>
               <Text style={styles.resultScore}>
                 {score}/{topic.assignment.questions.length} correct
@@ -235,7 +242,7 @@ export function LessonScreen({
             <View style={styles.advanceBox}>
               <Text style={styles.advanceTitle}>Advance level unlocked</Text>
               <Text style={styles.advanceText}>
-                You finished early! Bonus challenges are coming soon — your star
+                You finished early! Bonus challenges are coming soon, your star
                 badge is saved either way.
               </Text>
             </View>
@@ -249,7 +256,7 @@ export function LessonScreen({
         </View>
       )}
       </View>
-    </ScrollView>
+    </ScreenShell>
   );
 }
 

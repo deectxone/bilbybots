@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 10 Mathematics — full topic bank.
+ * Year 10 Mathematics, full topic bank.
  * Source of truth for scope: docs/content/year-7-10/mathematics.md (AC v9.0).
  * Every topic carries its AC9M10xxx content-description code and a rendered
  * `diagram` per illustration slot (see src/components/illustrations/diagrams.tsx)
@@ -20,7 +20,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'When you round or truncate a real number before calculating, the answer drifts from the exact result. Using π ≈ 3.14 across many steps makes the error accumulate — a real concern in engineering and finance.',
+        'When you round or truncate a real number before calculating, the answer drifts from the exact result. Using π ≈ 3.14 across many steps makes the error accumulate, a real concern in engineering and finance.',
         'Compare the exact representation with the approximation to see the impact. Knowing when accuracy matters (bank balances, medical doses) versus when it does not (a rough measurement) is part of numerate judgement.',
       ],
       illustrations: [
@@ -52,7 +52,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
   // ---------- Algebra (5 CDs) ----------
   {
     id: 'Y10-MAT-AL01',
-    title: 'Algebraic techniques — expansion, factorisation & equations',
+    title: 'Algebraic techniques, expansion, factorisation & equations',
     year: '10',
     subject: 'mathematics',
     strand: 'Algebra',
@@ -60,7 +60,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Factorising is expansion in reverse. x² + 5x + 6 = (x + 2)(x + 3), and completing the square rewrites a quadratic as a perfect square plus a constant — the completed square form (x + h)² + k.',
+        'Factorising is expansion in reverse. x² + 5x + 6 = (x + 2)(x + 3), and completing the square rewrites a quadratic as a perfect square plus a constant, the completed square form (x + h)² + k.',
         'Apply the exponent laws to algebraic terms with positive and negative integer exponents, then solve equations algebraically.',
       ],
       illustrations: [
@@ -107,8 +107,8 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A linear inequality in 2 variables — like 2x + 3y < 24 — shades a whole region of the Cartesian plane. Test a point (like (0, 0)) to decide which side to shade.',
-        'Simultaneous equations share a solution that satisfies both at once. Graphically, the solution is the point where the two lines cross — the break-even point in a business problem.',
+        'A linear inequality in 2 variables, like 2x + 3y < 24, shades a whole region of the Cartesian plane. Test a point (like (0, 0)) to decide which side to shade.',
+        'Simultaneous equations share a solution that satisfies both at once. Graphically, the solution is the point where the two lines cross, the break-even point in a business problem.',
       ],
       illustrations: [
         {
@@ -137,7 +137,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
       questions: [
         { id: 'Y10-MAT-AL02-q1', type: 'mcq', prompt: 'The solution of simultaneous linear equations is where…', options: ['The two lines cross', 'The lines are parallel', 'The graph starts'], answer: 'The two lines cross', difficulty: 1 },
         { id: 'Y10-MAT-AL02-q2', type: 'mcq', prompt: 'To check which side of 2x + 3y < 24 to shade, you test…', options: ['A point like (0, 0)', 'The letter of the graph', 'Nothing at all'], answer: 'A point like (0, 0)', difficulty: 2 },
-        { id: 'Y10-MAT-AL02-q3', type: 'mcq', prompt: 'Does the point (3, 5) satisfy 2y < x²?', options: ['Yes — 10 < 9 is false', 'No — 10 < 9 is false', 'Cannot be tested'], answer: 'No — 10 < 9 is false', difficulty: 3 },
+        { id: 'Y10-MAT-AL02-q3', type: 'mcq', prompt: 'Does the point (3, 5) satisfy 2y < x²?', options: ['Yes, 10 < 9 is false', 'No, 10 < 9 is false', 'Cannot be tested'], answer: 'No, 10 < 9 is false', difficulty: 3 },
         { id: 'Y10-MAT-AL02-q4', type: 'mcq', prompt: 'The "break-even point" in a business problem is where…', options: ['Costs equal revenue', 'Revenue is zero', 'Costs double'], answer: 'Costs equal revenue', difficulty: 2 },
         { id: 'Y10-MAT-AL02-q5', type: 'mcq', prompt: 'An inequality 12m + 21s ≤ 150 with m and s whole numbers has solutions that are…', options: ['Whole number pairs', 'Only m = 0', 'No solutions'], answer: 'Whole number pairs', difficulty: 2 },
         { id: 'Y10-MAT-AL02-q6', type: 'mcq', prompt: 'If y = 2x and y = 8 − x, the intersection has…', options: ['x = 2, y = 4', 'x = 4, y = 8', 'x = 0, y = 8'], answer: 'x = 2, y = 4', difficulty: 2 },
@@ -154,7 +154,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'In an exponential relation the dependent variable multiplies by a constant ratio each step — doubling, halving, growing 10% at a time. A table of values with a constant ratio reveals it instantly.',
+        'In an exponential relation the dependent variable multiplies by a constant ratio each step, doubling, halving, growing 10% at a time. A table of values with a constant ratio reveals it instantly.',
         'The graph rises or falls steeply and the algebraic form is y = a × bˣ. Solve related equations by rewriting with the same base where possible, using digital tools when not.',
       ],
       illustrations: [
@@ -197,7 +197,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Choose the right model for change: linear functions have constant first differences, quadratics have constant second differences, and exponentials have a constant ratio. Growth and decay situations — compound interest, radioactive decay, populations — are exponential.',
+        'Choose the right model for change: linear functions have constant first differences, quadratics have constant second differences, and exponentials have a constant ratio. Growth and decay situations, compound interest, radioactive decay, populations, are exponential.',
         'Doubling time and half-life describe exponential change: how long to double, or to halve. Model the situation, interpret the solution, evaluate the model and report assumptions.',
       ],
       illustrations: [
@@ -245,7 +245,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Digital tools let you experiment with functions: zoom in to find where two graphs cross (like x² = 2ˣ), apply transformations, and locate axis intercepts with a bisection algorithm.',
-        'Make and test conjectures, then generalise the patterns you see. This experimental loop — hypothesise, test, refine, generalise — is how mathematicians and machine learners work.',
+        'Make and test conjectures, then generalise the patterns you see. This experimental loop, hypothesise, test, refine, generalise, is how mathematicians and machine learners work.',
       ],
       illustrations: [
         {
@@ -299,8 +299,8 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A composite object is built from simpler solids — prisms, cylinders, spheres and pyramids. Its volume is the sum of its parts; its surface area must only count the faces actually visible on the outside.',
-        'Estimate first, then calculate precisely. Real decisions — how much rainwater a roof can save, whether to hire extra freezer space — come down to these sums.',
+        'A composite object is built from simpler solids, prisms, cylinders, spheres and pyramids. Its volume is the sum of its parts; its surface area must only count the faces actually visible on the outside.',
+        'Estimate first, then calculate precisely. Real decisions, how much rainwater a roof can save, whether to hire extra freezer space, come down to these sums.',
       ],
       illustrations: [
         {
@@ -338,7 +338,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A logarithmic scale is calibrated in orders of magnitude — each equal step multiplies the quantity by 10 (or another factor) instead of adding a fixed amount. It tames data that spans huge ranges.',
+        'A logarithmic scale is calibrated in orders of magnitude, each equal step multiplies the quantity by 10 (or another factor) instead of adding a fixed amount. It tames data that spans huge ranges.',
         'The Richter, decibel and pH scales are logarithmic: an earthquake of magnitude 7 is 10 times the amplitude of magnitude 6. Reading such graphs requires knowing the scale is not linear.',
       ],
       illustrations: [
@@ -419,7 +419,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Every measurement carries error — a ruler’s limits, a sensor’s tolerance. In research, compounded errors can produce biased findings, and in finance, truncating cents across millions of customers adds up.',
+        'Every measurement carries error, a ruler’s limits, a sensor’s tolerance. In research, compounded errors can produce biased findings, and in finance, truncating cents across millions of customers adds up.',
         'Analysing the instrument and method is part of judging the accuracy of a result. When a number matters, ask how it was measured and how big the error could be.',
       ],
       illustrations: [
@@ -506,7 +506,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A proof uses a sequence of logically connected statements to show something is always true — unlike a practical demonstration, which just shows one example. Placing two triangles on top of each other is a demonstration; a congruence test is a proof.',
+        'A proof uses a sequence of logically connected statements to show something is always true, unlike a practical demonstration, which just shows one example. Placing two triangles on top of each other is a demonstration; a congruence test is a proof.',
         'From proven theorems you deduce new results: the base angles of an isosceles triangle are equal, the angle sum of a triangle is 180°. Each step follows from the one before.',
       ],
       illustrations: [
@@ -553,7 +553,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A network is a set of nodes (vertices) connected by edges (links), modelling real relationships — transport routes, social networks, electrical wiring, food webs. Interpreting a network means asking what the nodes and edges represent.',
+        'A network is a set of nodes (vertices) connected by edges (links), modelling real relationships, transport routes, social networks, electrical wiring, food webs. Interpreting a network means asking what the nodes and edges represent.',
         'Connectedness asks whether everything is linked and how. Euler’s formula V + E = F + 2 ties together the vertices, edges and faces of any network drawn on a flat surface.',
       ],
       illustrations: [
@@ -592,7 +592,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Spatial problems — routing, coverage, designing a floor plan to reduce congestion — are solved by defining the problem, decomposing it, and applying algorithms with digital tools.',
+        'Spatial problems, routing, coverage, designing a floor plan to reduce congestion, are solved by defining the problem, decomposing it, and applying algorithms with digital tools.',
         'Design, test and refine: build the algorithm (as a flowchart or pseudocode), validate it with test cases, and justify the solution in terms of the original problem.',
       ],
       illustrations: [
@@ -683,7 +683,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Continuous data distributions are compared with box plots, histograms and dot plots, discussing centre, spread, shape and outliers. Box plots summarise a data set with the five-number summary.',
-        'Discuss symmetry, skew and modality — is the distribution balanced, stretched to one side, or with more than one hump? Handling outliers thoughtfully is important in machine learning too.',
+        'Discuss symmetry, skew and modality, is the distribution balanced, stretched to one side, or with more than one hump? Handling outliers thoughtfully is important in machine learning too.',
       ],
       illustrations: [
         {
@@ -722,7 +722,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A scatterplot shows the association between two numerical variables: strength (tight clustering), direction (positive or negative) and linearity (how straight the pattern is).',
-        'Association is not the same as cause and effect — ice cream sales and drownings both rise in summer, but one does not cause the other. Use a line of good fit by eye to gauge reliability of predictions.',
+        'Association is not the same as cause and effect, ice cream sales and drownings both rise in summer, but one does not cause the other. Use a line of good fit by eye to gauge reliability of predictions.',
       ],
       illustrations: [
         {
@@ -752,7 +752,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
         { id: 'Y10-MAT-ST03-q3', type: 'mcq', prompt: 'Tight clustering on a clear trend suggests…', options: ['A strong association', 'No association', 'A broken graph'], answer: 'A strong association', difficulty: 1 },
         { id: 'Y10-MAT-ST03-q4', type: 'mcq', prompt: 'A line of good fit helps you…', options: ['Judge reliability of predictions', 'Colour the graph', 'Count the points'], answer: 'Judge reliability of predictions', difficulty: 2 },
         { id: 'Y10-MAT-ST03-q5', type: 'mcq', prompt: 'A negative association means…', options: ['As one rises, the other falls', 'Both always rise', 'No pattern'], answer: 'As one rises, the other falls', difficulty: 1 },
-        { id: 'Y10-MAT-ST03-q6', type: 'mcq', prompt: 'Ice cream sales and drownings both rise in summer — this shows…', options: ['Association, not causation', 'Clear causation', 'No relationship at all'], answer: 'Association, not causation', difficulty: 2 },
+        { id: 'Y10-MAT-ST03-q6', type: 'mcq', prompt: 'Ice cream sales and drownings both rise in summer, this shows…', options: ['Association, not causation', 'Clear causation', 'No relationship at all'], answer: 'Association, not causation', difficulty: 2 },
       ],
     },
   },
@@ -766,7 +766,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Two-way tables organise data by two categorical variables at once — like junior versus senior students and their survey responses. Percentages and proportions in the cells reveal patterns.',
+        'Two-way tables organise data by two categorical variables at once, like junior versus senior students and their survey responses. Percentages and proportions in the cells reveal patterns.',
         'Compare groups by looking at proportions rather than raw counts: if juniors answer "yes" in a higher proportion than seniors, there is an association between year level and response.',
       ],
       illustrations: [
@@ -806,7 +806,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A bivariate investigation collects two variables over time through observation, experiment or measurement, then graphs, interprets and analyses the data to answer the research question.',
-        'Report findings with consideration of the limitations of any inferences — interpolation and extrapolation beyond the data, and the validity of the sample, bound what you can honestly claim.',
+        'Report findings with consideration of the limitations of any inferences, interpolation and extrapolation beyond the data, and the validity of the sample, bound what you can honestly claim.',
       ],
       illustrations: [
         {
@@ -848,7 +848,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Conditional probability is the chance of an event given that another has already happened — the language of "if … then", "given", "of", "knowing that". P(rain | cloudy) means the probability of rain given it is cloudy.',
+        'Conditional probability is the chance of an event given that another has already happened, the language of "if … then", "given", "of", "knowing that". P(rain | cloudy) means the probability of rain given it is cloudy.',
         'Two-way tables and tree diagrams help you avoid the classic mistake of treating dependent events as independent. Conditional probability underpins natural language processing and recommendation systems.',
       ],
       illustrations: [
@@ -887,7 +887,7 @@ export const YEAR10_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Simulations model conditional probability — sampling with or without replacement, dependent events, and counter-intuitive puzzles like the three-door problem or the birthday problem.',
+        'Simulations model conditional probability, sampling with or without replacement, dependent events, and counter-intuitive puzzles like the three-door problem or the birthday problem.',
         'Run many trials with digital tools, interpret the relative frequencies, and recognise when differences between sampling methods become negligible with large samples. Simulations drive real decisions in insurance, queueing and supply.',
       ],
       illustrations: [

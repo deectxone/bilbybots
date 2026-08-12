@@ -1,12 +1,12 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 9 Science — full topic bank.
+ * Year 9 Science, full topic bank.
  * Source of truth: docs/content/year-7-10/science.md (AC v9.0; strands Science
  * Understanding / Human Endeavour / Inquiry; codes verified against ACARA v9.0
  * and the QCAA Years 7–10 Science sequence).
  * Each `AC9S9I02` topic carries `sensitivity: true` per the primary-school
- * convention — it touches Country/Place research-permission awareness, pending
+ * convention, it touches Country/Place research-permission awareness, pending
  * a First Nations protocol review before release.
  */
 export const YEAR9_SCIENCE_TOPICS: Topic[] = [
@@ -21,7 +21,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Body systems work together to respond to stimuli — light, temperature, danger or hunger. Electrical impulses in nerves and chemical hormones both carry messages, coordinating the whole body.',
+        'Body systems work together to respond to stimuli, light, temperature, danger or hunger. Electrical impulses in nerves and chemical hormones both carry messages, coordinating the whole body.',
         'A negative feedback mechanism keeps things stable: a receptor senses a change, a command centre compares it to a set point, and an effector corrects it. Think of temperature regulation or blood-sugar control by insulin.',
       ],
       illustrations: [
@@ -52,7 +52,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Sexual reproduction needs two gametes (sperm and egg) to join, mixing genes and creating variation. Asexual reproduction makes genetically identical offspring from one parent — like many plants can do.',
+        'Sexual reproduction needs two gametes (sperm and egg) to join, mixing genes and creating variation. Asexual reproduction makes genetically identical offspring from one parent, like many plants can do.',
         'Reproductive strategies relate to environment: species with little parental care often produce many offspring, while those that care for young (like humans) produce few. Variation from sexual reproduction helps species survive change.',
       ],
       illustrations: [
@@ -69,7 +69,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
         { id: 'Y9-SCI-U02-q3', type: 'mcq', prompt: 'Sexual reproduction creates more variation, which helps a species…', options: ['Survive a changing environment', 'Grow faster in one spot', 'Hide from everything'], answer: 'Survive a changing environment', difficulty: 2 },
         { id: 'Y9-SCI-U02-q4', type: 'mcq', prompt: 'The form of sperm and eggs is related to their…', options: ['Function in reproduction', 'Colour', 'Smell'], answer: 'Function in reproduction', difficulty: 3 },
         { id: 'Y9-SCI-U02-q5', type: 'mcq', prompt: 'Species with little parental care usually produce…', options: ['Many offspring', 'Very few offspring', 'No offspring'], answer: 'Many offspring', difficulty: 2 },
-        { id: 'Y9-SCI-U02-q6', type: 'mcq', prompt: 'Strawberries can reproduce asexually by runners — new plants are…', options: ['Clones of the parent', 'A mix of two parents', 'A new species'], answer: 'Clones of the parent', difficulty: 3 },
+        { id: 'Y9-SCI-U02-q6', type: 'mcq', prompt: 'Strawberries can reproduce asexually by runners, new plants are…', options: ['Clones of the parent', 'A mix of two parents', 'A new species'], answer: 'Clones of the parent', difficulty: 3 },
       ],
     },
   },
@@ -83,7 +83,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Carbon moves between Earth\u2019s spheres — geosphere, biosphere, hydrosphere and atmosphere. Photosynthesis takes carbon dioxide from the air into plants; respiration returns it; combustion (burning) releases stored carbon quickly.',
+        'Carbon moves between Earth\u2019s spheres, geosphere, biosphere, hydrosphere and atmosphere. Photosynthesis takes carbon dioxide from the air into plants; respiration returns it; combustion (burning) releases stored carbon quickly.',
         'Human activity like burning fossil fuels has pushed more carbon into the atmosphere, strengthening the greenhouse effect and warming the planet. Natural and technological capture (sequestration) can help draw it back down.',
       ],
       illustrations: [
@@ -115,7 +115,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Energy moves through materials in ways the particle model explains: conduction passes heat through solids by vibrating particles, and convection carries heat in liquids and gases as warmer fluid rises. Sound travels as waves through a medium.',
-        'Light can behave as waves and as particles (photons). The particle model also explains electricity — moving charged particles — and how voltage, conductors and insulators work.',
+        'Light can behave as waves and as particles (photons). The particle model also explains electricity, moving charged particles, and how voltage, conductors and insulators work.',
       ],
       illustrations: [
         { brief: 'Conduction, convection and radiation comparison', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Conduction (solids)' }, { text: 'Convection (fluids)' }, { text: 'Radiation (waves)' }] } },
@@ -145,7 +145,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The law of conservation of energy says energy is never created or destroyed — it is only transferred or transformed. But in every change, some energy becomes less usable (usually heat), so no system is 100% efficient.',
+        'The law of conservation of energy says energy is never created or destroyed, it is only transferred or transformed. But in every change, some energy becomes less usable (usually heat), so no system is 100% efficient.',
         'Efficiency compares useful output to total input. Sankey diagrams show energy flowing in and splitting into useful output and wasted energy. Improving efficiency saves energy and money.',
       ],
       illustrations: [
@@ -176,8 +176,8 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Our model of the atom changed as experiments found electrons, protons and neutrons. Protons are positive, electrons are negative and light, neutrons are neutral. Isotopes are atoms of the same element with different numbers of neutrons — some are unstable.',
-        'Unstable isotopes decay radioactively, releasing alpha, beta or gamma radiation until they become stable. Half-life is the time for half the atoms to decay — carbon-14 dating uses this, and radioisotopes treat cancer and test materials.',
+        'Our model of the atom changed as experiments found electrons, protons and neutrons. Protons are positive, electrons are negative and light, neutrons are neutral. Isotopes are atoms of the same element with different numbers of neutrons, some are unstable.',
+        'Unstable isotopes decay radioactively, releasing alpha, beta or gamma radiation until they become stable. Half-life is the time for half the atoms to decay, carbon-14 dating uses this, and radioisotopes treat cancer and test materials.',
       ],
       illustrations: [
         { brief: 'Atom model: protons, neutrons, electrons', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'orbit', label: 'Electrons' }, { icon: 'cube', label: 'Protons + neutrons' }], caption: 'Tiny nucleus, orbiting electrons' } },
@@ -207,7 +207,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'In a chemical reaction, atoms rearrange but none are created or destroyed — that is the law of conservation of mass. In a closed system, the total mass before and after a reaction is equal.',
+        'In a chemical reaction, atoms rearrange but none are created or destroyed, that is the law of conservation of mass. In a closed system, the total mass before and after a reaction is equal.',
         'Balanced equations represent this: the same number of atoms of each element on both sides. Reactants become products, shown with word equations or symbols.',
       ],
       illustrations: [
@@ -239,7 +239,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Scientific knowledge is validated and refined through publication and peer review. Scientists submit findings to journals, where other experts check the work before it is published — and papers can be rejected if the evidence is weak.',
+        'Scientific knowledge is validated and refined through publication and peer review. Scientists submit findings to journals, where other experts check the work before it is published, and papers can be rejected if the evidence is weak.',
         'Marshall and Warren\u2019s discovery that bacteria cause stomach ulcers was first rejected, then later validated. Peer review keeps the record honest, though it is not perfect.',
       ],
       illustrations: [
@@ -269,7 +269,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Advances in technology enable advances in science — imaging lets us watch body systems work — and science drives new technologies and engineering, from the cochlear implant to wi-fi, both pioneered in Australia.',
+        'Advances in technology enable advances in science, imaging lets us watch body systems work, and science drives new technologies and engineering, from the cochlear implant to wi-fi, both pioneered in Australia.',
         'This is a two-way street: better instruments reveal more, and new understanding builds better machines.',
       ],
       illustrations: [
@@ -361,7 +361,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'An investigable question can be answered with data — "How does exercise intensity affect heart rate?" A reasoned prediction and hypothesis must be testable and have a scientific reason.',
+        'An investigable question can be answered with data, "How does exercise intensity affect heart rate?" A reasoned prediction and hypothesis must be testable and have a scientific reason.',
         'A hypothesis has to be able to be supported or refuted by evidence. "If objects of different temperatures touch, heat transfers from hot to cold until they match" is a testable hypothesis.',
       ],
       illustrations: [
@@ -375,7 +375,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
         { id: 'Y9-SCI-I01-q1', type: 'mcq', prompt: 'A scientific hypothesis must be…', options: ['Testable and refutable by evidence', 'Always true', 'A mystery'], answer: 'Testable and refutable by evidence', difficulty: 2 },
         { id: 'Y9-SCI-I01-q2', type: 'mcq', prompt: '"How does exercise intensity affect heart rate?" is an…', options: ['Investigable question', 'Unanswerable question', 'Opinion'], answer: 'Investigable question', difficulty: 1 },
         { id: 'Y9-SCI-I01-q3', type: 'mcq', prompt: 'A reasoned prediction is based on…', options: ['Scientific reasoning and prior knowledge', 'Pure luck', 'A coin toss'], answer: 'Scientific reasoning and prior knowledge', difficulty: 2 },
-        { id: 'Y9-SCI-I01-q4', type: 'mcq', prompt: 'Heat transfers from hot to cold until temperatures match — this is a…', options: ['Testable hypothesis', 'Slogan', 'Fashion'], answer: 'Testable hypothesis', difficulty: 2 },
+        { id: 'Y9-SCI-I01-q4', type: 'mcq', prompt: 'Heat transfers from hot to cold until temperatures match, this is a…', options: ['Testable hypothesis', 'Slogan', 'Fashion'], answer: 'Testable hypothesis', difficulty: 2 },
         { id: 'Y9-SCI-I01-q5', type: 'mcq', prompt: 'If evidence refutes your hypothesis, you should…', options: ['Revise your explanation', 'Ignore the data', 'Stop asking questions'], answer: 'Revise your explanation', difficulty: 2 },
         { id: 'Y9-SCI-I01-q6', type: 'mcq', prompt: 'Explanatory models (like the particle model) help scientists…', options: ['Form testable predictions and hypotheses', 'Avoid experiments', 'Hide data'], answer: 'Form testable predictions and hypotheses', difficulty: 3 },
       ],
@@ -422,7 +422,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Precision comes from choosing the right instrument and recording correctly — an electronic balance for mass, the right scale for a data logger, correct significant figures and scientific notation.',
+        'Precision comes from choosing the right instrument and recording correctly, an electronic balance for mass, the right scale for a data logger, correct significant figures and scientific notation.',
         'Sample size matters: more data points give a more reliable average, and digital tools help collect large, replicable samples efficiently.',
       ],
       illustrations: [
@@ -453,7 +453,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Representations organise data for analysis: spreadsheets for tables and graphs, descriptive statistics (mean, median, range) for summaries, and models or equations for relationships.',
-        'Choose the right summary for the job — sometimes the mean is best, sometimes the range matters more. Sankey diagrams and balanced equations each represent energy or mass relationships in their own useful way.',
+        'Choose the right summary for the job, sometimes the mean is best, sometimes the range matters more. Sankey diagrams and balanced equations each represent energy or mass relationships in their own useful way.',
       ],
       illustrations: [
         { brief: 'Mean, median and range on a data set', ready: true, diagram: { kind: 'dot-plot', values: [3, 4, 4, 5, 6, 6, 6, 9], unit: 'values' } },
@@ -483,7 +483,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Connecting data from different sources reveals patterns, trends and anomalies. Atmospheric monitoring and ice cores both show rising carbon dioxide; published sound-level data and your own measurements can be compared.',
-        'Extrapolating from a graph needs care — you can predict beyond the data, but only if the pattern holds. Look for proportional relationships, like halving heat transfer when insulation doubles.',
+        'Extrapolating from a graph needs care, you can predict beyond the data, but only if the pattern holds. Look for proportional relationships, like halving heat transfer when insulation doubles.',
       ],
       illustrations: [
         { brief: 'Two sources, one trend: atmospheric + ice-core CO2', ready: true, diagram: { kind: 'bar-compare', unit: 'CO2', items: [{ label: 'Ice core', value: 3 }, { label: 'Modern monitoring', value: 8 }] } },
@@ -543,7 +543,7 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Construct arguments from a variety of evidence. Check the credibility of secondary sources, look for multiple consistent lines of evidence (like vaccine effectiveness), and interrogate the reasoning behind claims.',
-        'Respect ethical issues and cultural protocols when accessing or using secondary data — no personal information that could harm, correct citation, and respect for First Peoples\u2019 knowledges in "both ways" research.',
+        'Respect ethical issues and cultural protocols when accessing or using secondary data, no personal information that could harm, correct citation, and respect for First Peoples\u2019 knowledges in "both ways" research.',
       ],
       illustrations: [
         { brief: 'Multiple lines of evidence → strong argument', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Evidence 1' }, { text: 'Evidence 2' }, { text: 'Evidence 3' }, { text: 'Strong argument' }] } },
@@ -572,8 +572,8 @@ export const YEAR9_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Communicate ideas and findings effectively for your purpose and audience — a full report for experts, an interactive presentation on feedback loops, or a social media campaign on carbon footprints.',
-        'Language and text features matter, and so does cultural responsiveness — respecting cultural protocols when communicating about First Nations knowledges.',
+        'Communicate ideas and findings effectively for your purpose and audience, a full report for experts, an interactive presentation on feedback loops, or a social media campaign on carbon footprints.',
+        'Language and text features matter, and so does cultural responsiveness, respecting cultural protocols when communicating about First Nations knowledges.',
       ],
       illustrations: [
         { brief: 'Purpose → audience → format decision flow', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Purpose' }, { text: 'Audience' }, { text: 'Content + format' }, { text: 'Effective text' }] } },

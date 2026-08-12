@@ -2,7 +2,7 @@
  * NAPLAN practice-track types.
  *
  * Mirrors the design in `docs/specs/naplan-test-spec.md`: original
- * "NAPLAN-style" items (never ACARA items — see `naplan-research.md` for the
+ * "NAPLAN-style" items (never ACARA items, see `naplan-research.md` for the
  * FOI-licence wall) that replicate the real test's structure: domains, item
  * types, durations and locked sections.
  */
@@ -13,7 +13,7 @@ export type NaplanDomain = 'reading' | 'writing' | 'conventions' | 'numeracy';
 
 /**
  * Item types supported by the runner. Real NAPLAN also uses drag-and-drop,
- * hot-spot and audio dictation (spelling) — those land in Phase 2; the facade
+ * hot-spot and audio dictation (spelling), those land in Phase 2; the facade
  * ships mcq / multi / text / proofread.
  */
 export type NaplanItemType = 'mcq' | 'multi' | 'text' | 'proofread';
@@ -38,9 +38,9 @@ export interface NaplanItem {
   /** Skill tag for the results breakdown, e.g. "number & algebra", "spelling". */
   skill: string;
   difficulty: 1 | 2 | 3;
-  /** Reading only — the stimulus this item belongs to. */
+  /** Reading only, the stimulus this item belongs to. */
   stimulusId?: string;
-  /** Numeracy only — tool allowed for this item (Y7/9 calculator section). */
+  /** Numeracy only, tool allowed for this item (Y7/9 calculator section). */
   tool?: 'calculator' | 'ruler' | 'protractor';
 }
 

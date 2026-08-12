@@ -1,12 +1,12 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 8 Science — full topic bank.
+ * Year 8 Science, full topic bank.
  * Source of truth: docs/content/year-7-10/science.md (AC v9.0; strands Science
  * Understanding / Human Endeavour / Inquiry; codes verified against ACARA v9.0
  * and the QCAA Years 7–10 Science sequence).
  * Each `AC9S8I02` topic carries `sensitivity: true` per the primary-school
- * convention — it touches Country/Place research-permission awareness, pending
+ * convention, it touches Country/Place research-permission awareness, pending
  * a First Nations protocol review before release.
  */
 export const YEAR8_SCIENCE_TOPICS: Topic[] = [
@@ -21,7 +21,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Cells are the basic units of living things. A microscope reveals their parts — the nucleus holds the DNA, the cytoplasm is the jelly-like filling, and the membrane controls what enters and leaves.',
+        'Cells are the basic units of living things. A microscope reveals their parts, the nucleus holds the DNA, the cytoplasm is the jelly-like filling, and the membrane controls what enters and leaves.',
         'Plant cells have extras: a stiff cell wall for support, chloroplasts for photosynthesis and a large vacuole. Animal cells have none of these. Single-celled organisms do everything inside just one cell.',
       ],
       illustrations: [
@@ -53,7 +53,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Similar cells group into tissues, tissues form organs, and organs work together in systems. In the heart, muscle tissue pumps blood; in a leaf, cells and tissues work to make food and move water.',
-        'Structure and function are linked: an organ is shaped the way it is because of what it does. Compare a lung with a leaf — both are "exchange surfaces" with huge internal surface area.',
+        'Structure and function are linked: an organ is shaped the way it is because of what it does. Compare a lung with a leaf, both are "exchange surfaces" with huge internal surface area.',
       ],
       illustrations: [
         { brief: 'Cell → tissue → organ → system hierarchy', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Cells' }, { text: 'Tissues' }, { text: 'Organs' }, { text: 'Systems' }] } },
@@ -84,7 +84,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         "Earth's outer layer is broken into tectonic plates that move very slowly. At divergent boundaries plates pull apart; at convergent boundaries they collide (one may sink under the other); at transform boundaries they slide past each other.",
-        'Earthquakes, volcanoes and mountain ranges cluster along these boundaries. The theory is backed by evidence — matching fossil patterns, the shape of coastlines, and maps of quakes and ridges (pioneered by Marie Tharp).',
+        'Earthquakes, volcanoes and mountain ranges cluster along these boundaries. The theory is backed by evidence, matching fossil patterns, the shape of coastlines, and maps of quakes and ridges (pioneered by Marie Tharp).',
       ],
       illustrations: [
         { brief: 'Three plate boundary types: divergent, convergent, transform', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'globe', label: 'Divergent' }, { icon: 'globe', label: 'Convergent' }, { icon: 'globe', label: 'Transform' }], caption: 'Plates meet at three boundary types' } },
@@ -115,7 +115,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Rocks form in three ways. Igneous rocks form from cooled magma or lava; sedimentary rocks form from layers of particles pressed together; metamorphic rocks form when heat and pressure change existing rocks.',
-        'The rock cycle links these through weathering, erosion, deposition, burial, heating and uplift — over timescales from thousands to millions of years. Rock properties reflect how they formed, which guides how we use them.',
+        'The rock cycle links these through weathering, erosion, deposition, burial, heating and uplift, over timescales from thousands to millions of years. Rock properties reflect how they formed, which guides how we use them.',
       ],
       illustrations: [
         { brief: 'Rock cycle loop: magma → igneous → sediment → sedimentary → metamorphic', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Magma/lava' }, { text: 'Igneous' }, { text: 'Weathering + sediment' }, { text: 'Sedimentary' }, { text: 'Heat + pressure' }, { text: 'Metamorphic' }] } },
@@ -145,7 +145,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Energy comes in two broad types. Kinetic energy is energy of movement — a rolling ball, moving water, electricity. Potential energy is stored energy — chemical (batteries, food), elastic (a stretched band) and gravitational (a lifted object).',
+        'Energy comes in two broad types. Kinetic energy is energy of movement, a rolling ball, moving water, electricity. Potential energy is stored energy, chemical (batteries, food), elastic (a stretched band) and gravitational (a lifted object).',
         'Energy can be transferred between objects and transformed from one form to another. On a roller-coaster, gravitational potential becomes kinetic as the car drops, and some is always lost as heat.',
       ],
       illustrations: [
@@ -177,7 +177,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Matter is classified as elements (one type of atom), compounds (two or more types of atom chemically joined, like H2O) or mixtures (substances mixed but not joined, like solutions, suspensions and colloids).',
-        'Elements have symbols (H, O, Fe), compounds have formulas (H2O, CO2), and mixtures are described by percentages. Models help show this — balls for atoms, joined balls for molecules, loose balls for mixtures.',
+        'Elements have symbols (H, O, Fe), compounds have formulas (H2O, CO2), and mixtures are described by percentages. Models help show this, balls for atoms, joined balls for molecules, loose balls for mixtures.',
       ],
       illustrations: [
         { brief: 'Element vs compound vs mixture atom models', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Element: one atom type' }, { text: 'Compound: atoms joined' }, { text: 'Mixture: not joined' }] } },
@@ -207,7 +207,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'In a physical change, no new substance forms — ice melts, sugar dissolves, a shape bends. In a chemical change, a new substance is made and you can often spot it.',
+        'In a physical change, no new substance forms, ice melts, sugar dissolves, a shape bends. In a chemical change, a new substance is made and you can often spot it.',
         'Indicators of chemical change include gas bubbles, a solid forming (precipitate), a colour change or a temperature change. Energy is usually absorbed or released too.',
       ],
       illustrations: [
@@ -240,7 +240,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'New evidence or new perspectives can change scientific knowledge. Microscopes and medical imaging revealed cells and organs; deep-Earth imaging found new resources; plate-tectonics evidence changed how we see our planet.',
-        'Sometimes this means overturning an older idea — like continental drift giving way to the accepted theory of plate tectonics once enough evidence piled up.',
+        'Sometimes this means overturning an older idea, like continental drift giving way to the accepted theory of plate tectonics once enough evidence piled up.',
       ],
       illustrations: [
         { brief: 'Evidence timeline: old idea → new evidence → changed knowledge', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Old idea' }, { text: 'New evidence' }, { text: 'Knowledge updated' }] } },
@@ -269,7 +269,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Cultural perspectives and world views influence science. Women scientists were sometimes "written out" of history — the Matilda effect. Different cultures bring different questions, materials and ways of knowing.',
+        'Cultural perspectives and world views influence science. Women scientists were sometimes "written out" of history, the Matilda effect. Different cultures bring different questions, materials and ways of knowing.',
         'Bamboo building traditions inspired quake-resistant structures; First Nations Australians develop materials through holistic world views that combine many kinds of knowledge.',
       ],
       illustrations: [
@@ -300,7 +300,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Scientific responses to real problems raise ethical, environmental, social and economic questions. Organ transplants save lives but raise big ethical questions; new building materials and early-warning systems protect quake-prone regions.',
-        'Hybrid and electric vehicles are a scientific response to fossil-fuel depletion; biodegradable materials tackle landfill. Science does not just discover — it shapes how society chooses to live.',
+        'Hybrid and electric vehicles are a scientific response to fossil-fuel depletion; biodegradable materials tackle landfill. Science does not just discover, it shapes how society chooses to live.',
       ],
       illustrations: [
         { brief: 'Considerations wheel: ethical, environmental, social, economic', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Ethical' }, { text: 'Environmental' }, { text: 'Social' }, { text: 'Economic' }] } },
@@ -331,7 +331,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Science communication shapes what individuals and communities believe and do. Campaigns encourage organ donation; countries share seismic data for tsunami alerts; science communicators inspire interest in science.',
-        'Clear, honest communication lets people make informed choices — about their health, the environment and policy. How science is told matters as much as the science itself.',
+        'Clear, honest communication lets people make informed choices, about their health, the environment and policy. How science is told matters as much as the science itself.',
       ],
       illustrations: [
         { brief: 'Communication → viewpoint → policy flow', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Science findings' }, { text: 'Communication' }, { text: 'Informed viewpoints' }, { text: 'Community policy' }] } },
@@ -361,7 +361,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Investigable questions test relationships or explore models — like "How does salt concentration affect plant cells?" A good question can be answered with data. Causation differs from correlation: two things happening together do not prove one causes the other.',
+        'Investigable questions test relationships or explore models, like "How does salt concentration affect plant cells?" A good question can be answered with data. Causation differs from correlation: two things happening together do not prove one causes the other.',
         'A hypothesis is a reasoned prediction of what you expect and why. "An earthquake of greater magnitude causes more damage because more energy is transferred" links the prediction to a scientific reason.',
       ],
       illustrations: [
@@ -394,7 +394,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A reproducible investigation tests a hypothesis with controlled variables. You identify what to change, what to measure and what to hold constant, and you document assumptions (like using dialysis tubing to model a cell wall).',
-        'Plan for safety and ethics: manage risks, and treat heritage sites and artefacts on Country/Place with care — no harm, and follow permission and cultural protocols.',
+        'Plan for safety and ethics: manage risks, and treat heritage sites and artefacts on Country/Place with care, no harm, and follow permission and cultural protocols.',
       ],
       illustrations: [
         { brief: 'Reproducibility loop: plan → run → repeat → compare', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Plan variables' }, { text: 'Run test' }, { text: 'Repeat trials' }, { text: 'Compare results' }] } },
@@ -454,7 +454,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Representations organise data: tables, line graphs (independent variable on the horizontal axis), energy flow diagrams for roller-coasters, maps for volcanoes and earthquakes, and models for things you cannot see.',
-        'Every representation has strengths and limits. Physical models, diagrams and simulations each show some things well and others poorly — choosing the right one matters.',
+        'Every representation has strengths and limits. Physical models, diagrams and simulations each show some things well and others poorly, choosing the right one matters.',
       ],
       illustrations: [
         { brief: 'Energy flow diagram for a rocket launch', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Chemical (fuel)' }, { text: 'Kinetic (motion)' }, { text: 'Heat + sound' }] } },
@@ -484,8 +484,8 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Analysing data means spotting patterns, trends and relationships — and flagging anomalies. "Dropping a mass from a greater height produces a larger indentation" describes a relationship, then you ask whether it is causal.',
-        'Measures of central tendency — mean, median and mode — summarise a data set, while outliers are values that stand apart and need investigating.',
+        'Analysing data means spotting patterns, trends and relationships, and flagging anomalies. "Dropping a mass from a greater height produces a larger indentation" describes a relationship, then you ask whether it is causal.',
+        'Measures of central tendency, mean, median and mode, summarise a data set, while outliers are values that stand apart and need investigating.',
       ],
       illustrations: [
         { brief: 'Mean / median / mode summary of a data set', ready: true, diagram: { kind: 'dot-plot', values: [4, 5, 5, 5, 6, 7, 12], unit: 'cm' } },
@@ -516,7 +516,7 @@ export const YEAR8_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Evaluate your methods: identify assumptions, possible sources of error (inconsistent controls, measurement mistakes), conflicting evidence and unanswered questions. Then explain how to improve.',
-        'Compare results with other groups or sources — consistency strengthens a conclusion; conflicts and unanswered questions weaken it or point to more work.',
+        'Compare results with other groups or sources, consistency strengthens a conclusion; conflicts and unanswered questions weaken it or point to more work.',
       ],
       illustrations: [
         { brief: 'Evaluation checklist: assumptions, error, conflict, gaps', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Assumptions?' }, { text: 'Sources of error?' }, { text: 'Conflicting evidence?' }, { text: 'Unanswered questions?' }] } },

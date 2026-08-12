@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 4 Mathematics — full topic bank.
+ * Year 4 Mathematics, full topic bank.
  * Source of truth for scope: docs/content/year-4/mathematics.md (AC v9.0).
  * Every topic here carries its AC9M4xxx content-description code and a
  * rendered `diagram` per illustration slot (see
@@ -20,7 +20,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Decimals are place-value houses for tiny numbers! Digits after the decimal point are tenths and hundredths — smaller than 1 but just as important.',
+        'Decimals are place-value houses for tiny numbers! Digits after the decimal point are tenths and hundredths, smaller than 1 but just as important.',
         '0.7 and 0.70 show the same amount, because one tenth is ten hundredths. Reading prices like $3.45 uses hundredths too.',
       ],
       illustrations: [
@@ -68,7 +68,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Even numbers can be split into two equal groups — like 8 and 8! Odd numbers always leave one lonely one over.',
+        'Even numbers can be split into two equal groups, like 8 and 8! Odd numbers always leave one lonely one over.',
         'Look at the last digit: if it is 0, 2, 4, 6 or 8, the number is even. You can check any number, even a huge one.',
       ],
       illustrations: [
@@ -107,7 +107,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Equivalent fractions look different but show the same amount — 1/2, 2/4 and 0.5 are all the same slice of pizza!',
+        'Equivalent fractions look different but show the same amount, 1/2, 2/4 and 0.5 are all the same slice of pizza!',
         'Decimals and fractions are secret twins: 0.25 and 1/4 mean the same thing. Spotting the twins makes maths feel like a treasure hunt.',
       ],
       illustrations: [
@@ -202,7 +202,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Multiplying by 10 slides every digit one place to the left — the whole place-value house shifts!',
+        'Multiplying by 10 slides every digit one place to the left, the whole place-value house shifts!',
         'Dividing by 10 slides digits right instead, so 3400 ÷ 100 = 34. Watch the digits travel and the answer appears.',
       ],
       illustrations: [
@@ -288,7 +288,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'When you shop, you do not always need the exact total — "about how much" is plenty. Round $4.80 up to $5 and the sums get friendly.',
+        'When you shop, you do not always need the exact total, "about how much" is plenty. Round $4.80 up to $5 and the sums get friendly.',
         'Rounding to the nearest dollar makes estimating a trolley of groceries quick, so you can check if you have enough money to pay.',
       ],
       illustrations: [
@@ -367,7 +367,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Algorithms are clever step-by-step recipes for big sums. When adding, always start with the ones column and carry leftovers to the next.',
-        'Breaking multiplication into tens and ones keeps it tidy — 5 × 24 is 5 × 20 plus 5 × 4. Follow the steps and you can not get lost.',
+        'Breaking multiplication into tens and ones keeps it tidy, 5 × 24 is 5 × 20 plus 5 × 4. Follow the steps and you can not get lost.',
       ],
       illustrations: [
         {
@@ -413,7 +413,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A mystery number hides in an equation — find it and the scale balances!',
+        'A mystery number hides in an equation, find it and the scale balances!',
         'To find the mystery, undo what was done: if □ + 4 = 9, do 9 − 4. Addition and subtraction are perfect opposites.',
       ],
       illustrations: [
@@ -452,7 +452,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Knowing your times tables up to 10 × 10 is like having a superpower — the facts come fast and you can break apart harder ones.',
+        'Knowing your times tables up to 10 × 10 is like having a superpower, the facts come fast and you can break apart harder ones.',
         'If you know 3 × 8 = 24, then 6 × 8 is double: 48! Build new facts from ones you already know.',
       ],
       illustrations: [
@@ -491,7 +491,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A scale is a number ladder on a tool like a ruler or thermometer — each mark is a step!',
+        'A scale is a number ladder on a tool like a ruler or thermometer, each mark is a step!',
         'Read between the marks to measure carefully: a pencil halfway between 10 cm and 20 cm is 15 cm long. Little steps make big measurements.',
       ],
       illustrations: [
@@ -570,7 +570,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'The clock splits the day into two halves: "am" for the morning and "pm" for the afternoon and evening.',
-        'Count on in minutes and hours to find how long things take — a movie from 1:00pm to 2:30pm runs for 90 minutes.',
+        'Count on in minutes and hours to find how long things take, a movie from 1:00pm to 2:30pm runs for 90 minutes.',
       ],
       illustrations: [
         {
@@ -609,7 +609,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Angles are turns between two lines. Less than a quarter turn is acute, a quarter turn is a right angle, and more than that is obtuse.',
-        'A straight angle is two right angles together — 180°! Spot angles everywhere: in clock hands, scissors and corners.',
+        'A straight angle is two right angles together, 180°! Spot angles everywhere: in clock hands, scissors and corners.',
       ],
       illustrations: [
         {
@@ -647,7 +647,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A composite shape is a big shape built from smaller ones — like two rectangles pushed together into an L!',
+        'A composite shape is a big shape built from smaller ones, like two rectangles pushed together into an L!',
         'Split it into simple shapes, find each area, then add them up. Small parts, big whole.',
       ],
       illustrations: [
@@ -695,7 +695,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Maps use grids of rows and columns, and grid references give every square a secret address!',
-        'Move across first, then up — just like (2,3) means 2 across and 3 up. Follow the address and find the treasure.',
+        'Move across first, then up, just like (2,3) means 2 across and 3 up. Follow the address and find the treasure.',
       ],
       illustrations: [
         {
@@ -733,14 +733,14 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A shape has symmetry when it can fold in half and both sides match perfectly — like a butterfly!',
+        'A shape has symmetry when it can fold in half and both sides match perfectly, like a butterfly!',
         'The fold is the line of symmetry. A square has 4 of them, but a shape like the letter R has none. Search for lines everywhere.',
       ],
       illustrations: [
         {
           brief: 'Mirror scene: fold along the line and both sides match',
           ready: true,
-          diagram: { kind: 'icon-scene', items: [{ icon: 'mirror', label: 'Fold' }, { icon: 'arrow-right', label: 'Both sides match' }, { icon: 'check-box', label: 'Symmetric!' }], caption: 'Fold along the line — both sides match' },
+          diagram: { kind: 'icon-scene', items: [{ icon: 'mirror', label: 'Fold' }, { icon: 'arrow-right', label: 'Both sides match' }, { icon: 'check-box', label: 'Symmetric!' }], caption: 'Fold along the line, both sides match' },
         },
         {
           brief: 'Points mirrored across the vertical axis on a grid',
@@ -772,7 +772,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'When numbers are big, one picture can stand for many — like one star meaning 5 books! That is a many-to-one scale.',
+        'When numbers are big, one picture can stand for many, like one star meaning 5 books! That is a many-to-one scale.',
         'Multiply the pictures by what each one stands for, and the real total appears. Big data, small graph.',
       ],
       illustrations: [
@@ -898,7 +898,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Every chance event sits somewhere on the scale from impossible to certain. Winning the lottery is unlikely; the sun rising is certain.',
-        'Independent events do not change each other\'s chances — a coin landing heads the first time does not make tails more likely next time!',
+        'Independent events do not change each other\'s chances, a coin landing heads the first time does not make tails more likely next time!',
       ],
       illustrations: [
         {
@@ -931,7 +931,7 @@ export const YEAR4_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Run a chance experiment many times and record every trial — the more you run, the closer the results get to what you predicted.',
+        'Run a chance experiment many times and record every trial, the more you run, the closer the results get to what you predicted.',
         'Flip a coin 100 times and you will usually see about 50 heads and 50 tails. Compare what happened with what you expected.',
       ],
       illustrations: [

@@ -1,11 +1,11 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 5 English — full topic bank.
+ * Year 5 English, full topic bank.
  * Source of truth for scope: docs/content/year-1-5/english.md (AC v9.0,
  * strands Language/Literature/Literacy). Every topic carries its AC9E5xxx
  * content-description code (docs/specs/curriculum-research.md §4: cite
- * codes, author original lessons — never bulk-copy syllabus text).
+ * codes, author original lessons, never bulk-copy syllabus text).
  * Each assignment carries 6 questions (nominal pace) / 4 (compact pace),
  * per docs/specs/adaptive-pacing.md's depth-compression model.
  */
@@ -22,7 +22,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'The words you choose tell people who you are talking to and how close you are. You might say "G\'day, what\'s up?" to your mate but "Good morning, how can I help you?" to the school office.',
-        'Matching your words to the person and the situation is called register — your register quietly announces the relationship before your message even lands.',
+        'Matching your words to the person and the situation is called register, your register quietly announces the relationship before your message even lands.',
       ],
       illustrations: [
         { brief: 'Two greetings side by side: casual for a mate vs formal for a principal', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'chat-bubble', label: '"G\'day, what\'s up?"' }, { icon: 'envelope', label: '"Dear Principal,"' }], caption: 'Same idea, different registers' } },
@@ -32,7 +32,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       nominalCount: 6,
       compactCount: 4,
       questions: [
-        { id: 'Y5-ENG-LA01-q1', type: 'mcq', prompt: 'Which greeting best fits a talk with your teacher in class?', options: ['G\'day, what\'s up?', 'Hello, Mrs Chen — may I ask a question?'], answer: 'Hello, Mrs Chen — may I ask a question?', difficulty: 1 },
+        { id: 'Y5-ENG-LA01-q1', type: 'mcq', prompt: 'Which greeting best fits a talk with your teacher in class?', options: ['G\'day, what\'s up?', 'Hello, Mrs Chen, may I ask a question?'], answer: 'Hello, Mrs Chen, may I ask a question?', difficulty: 1 },
         { id: 'Y5-ENG-LA01-q2', type: 'mcq', prompt: 'The level of formality we match to a person and situation is called…', options: ['Register', 'Rhyme', 'Rhythm'], answer: 'Register', difficulty: 1 },
         { id: 'Y5-ENG-LA01-q3', type: 'mcq', prompt: 'Casual language full of slang and shortened words usually signals…', options: ['A close, familiar relationship', 'A formal business meeting', 'A court case'], answer: 'A close, familiar relationship', difficulty: 1 },
         { id: 'Y5-ENG-LA01-q4', type: 'mcq', prompt: 'Which sentence sounds the most formal?', options: ['Grab us a drink, will ya?', 'Would you mind passing me a drink, please?', 'Pass the drink.'], answer: 'Would you mind passing me a drink, please?', difficulty: 2 },
@@ -51,7 +51,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'An assertion is a claim like "Recycling is important." A BARE assertion just states it — anyone can ask "Why?" and you would be stuck.',
+        'An assertion is a claim like "Recycling is important." A BARE assertion just states it, anyone can ask "Why?" and you would be stuck.',
         'Level up by adding reasons, evidence and what others think, and by checking an authoritative source, so your reader can actually trust your claim.',
       ],
       illustrations: [
@@ -81,7 +81,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A text can be spoken (a podcast), written (a report) or multimodal — words plus pictures and sound together. Each "mode" uses language in its own special way.',
+        'A text can be spoken (a podcast), written (a report) or multimodal, words plus pictures and sound together. Each "mode" uses language in its own special way.',
         'Every mode is also organised into stages: a speech opens with a greeting, a report opens with an introduction. Knowing the stages helps you follow along.',
       ],
       illustrations: [
@@ -94,7 +94,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       questions: [
         { id: 'Y5-ENG-LA03-q1', type: 'mcq', prompt: 'A podcast that you only listen to is mainly a…', options: ['Spoken text', 'Written text', 'Silent text'], answer: 'Spoken text', difficulty: 1 },
         { id: 'Y5-ENG-LA03-q2', type: 'mcq', prompt: 'A text combining words, images and sound is called…', options: ['Multimodal', 'Monologue', 'Outline'], answer: 'Multimodal', difficulty: 1 },
-        { id: 'Y5-ENG-LA03-q3', type: 'mcq', prompt: 'The organised parts of a text — like a greeting, then a body, then a goodbye — are its…', options: ['Stages', 'Decorations', 'Margins'], answer: 'Stages', difficulty: 2 },
+        { id: 'Y5-ENG-LA03-q3', type: 'mcq', prompt: 'The organised parts of a text, like a greeting, then a body, then a goodbye, are its…', options: ['Stages', 'Decorations', 'Margins'], answer: 'Stages', difficulty: 2 },
         { id: 'Y5-ENG-LA03-q4', type: 'mcq', prompt: 'A report with headings and a labelled diagram is mostly a…', options: ['Multimodal text', 'A chant', 'A whisper'], answer: 'Multimodal text', difficulty: 1 },
         { id: 'Y5-ENG-LA03-q5', type: 'short', prompt: 'Name one stage a spoken presentation usually opens with.', answer: 'greeting', difficulty: 2 },
         { id: 'Y5-ENG-LA03-q6', type: 'mcq', prompt: 'Knowing a text\'s characteristic stages mainly helps a reader or listener…', options: ['Predict what comes next', 'Skip the beginning', 'Ignore all headings'], answer: 'Predict what comes next', difficulty: 2 },
@@ -111,7 +111,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Cohesion is the glue that joins your sentences and paragraphs. One powerful glue is how you START a sentence — whatever comes first is what the reader notices most.',
+        'Cohesion is the glue that joins your sentences and paragraphs. One powerful glue is how you START a sentence, whatever comes first is what the reader notices most.',
         'Want the spotlight on the problem? Start with it: "The flood came fast." Want the spotlight on the setting? Start with it: "On the dry riverbank, the flood came fast."',
       ],
       illustrations: [
@@ -142,7 +142,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A complex sentence holds a main clause that stands alone, plus a dependent clause that adds more: "While the rain hammered the roof, the kittens slept."',
-        'Writers use them on purpose — the extra idea first builds suspense, and saved for last it lands the surprise. Complex sentences make writing flow like music instead of bumps.',
+        'Writers use them on purpose, the extra idea first builds suspense, and saved for last it lands the surprise. Complex sentences make writing flow like music instead of bumps.',
       ],
       illustrations: [
         { brief: 'A complex sentence built like a train with a main engine and dependent carriage', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'train-engine', label: 'Main: the kittens slept' }, { icon: 'train-car', label: 'Dependent: while the rain hammered' }], caption: 'A complex sentence rides like a train' } },
@@ -202,7 +202,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'In a comic, a film or a slideshow, the ORDER of images changes the story. A cat picture, then a broken vase, then a dog picture tells a very different tale from cat, dog, then broken vase.',
-        'Viewers follow the sequence frame by frame, so each picture builds meaning on the one before it — order is the storyteller.',
+        'Viewers follow the sequence frame by frame, so each picture builds meaning on the one before it, order is the storyteller.',
       ],
       illustrations: [
         { brief: 'Three frames that tell a cause-and-effect story through their order', ready: true, diagram: { kind: 'flowchart', steps: [{ text: '[Cat sits near shelf]' }, { text: '[Broken vase on floor]' }, { text: '[Dog looks shocked]' }, { text: 'Order makes the reader guess who did it' }] } },
@@ -262,7 +262,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Commas after prepositional phrases show where the extra detail ends: "In the morning, we surf." and "With a flick of her wrist, she bowled."',
-        'Apostrophes show ownership. One owner: "the girl\'s bag". More than one owner (plural possession): "the girls\' bags" — the apostrophe slides after the s.',
+        'Apostrophes show ownership. One owner: "the girl\'s bag". More than one owner (plural possession): "the girls\' bags", the apostrophe slides after the s.',
       ],
       illustrations: [
         { brief: 'One owner vs many owners with the apostrophe placed correctly', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'ball', label: "the bowler's ball" }, { icon: 'ball', label: "the bowlers' balls" }], caption: 'One owner vs many owners' } },
@@ -323,7 +323,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Instead of "I just liked it", a sharp opinion uses literary terms: "The author builds suspense through a cliffhanger" or "The simile makes the desert feel alive".',
-        'Then give your evidence — quote the part of the text that shows it — and listen to others\' views with an open mind, because different readers notice different things.',
+        'Then give your evidence, quote the part of the text that shows it, and listen to others\' views with an open mind, because different readers notice different things.',
       ],
       illustrations: [
         { brief: 'Building a literary opinion from claim to evidence', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Opinion: "The ending rocks!"' }, { text: 'Use a literary term: the cliffhanger' }, { text: 'Evidence: quote from the text' }, { text: 'Listen to other views' }] } },
@@ -335,9 +335,9 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       questions: [
         { id: 'Y5-ENG-LE02-q1', type: 'mcq', prompt: 'Which opinion uses a literary term?', options: ['The cliffhanger made me desperate to read on', 'The book was nice', 'I liked chapter two'], answer: 'The cliffhanger made me desperate to read on', difficulty: 1 },
         { id: 'Y5-ENG-LE02-q2', type: 'mcq', prompt: 'Supporting an opinion with a quote from the text is giving…', options: ['Evidence', 'An apology', 'A guess'], answer: 'Evidence', difficulty: 1 },
-        { id: 'Y5-ENG-LE02-q3', type: 'mcq', prompt: '"The author uses personification to bring the storm alive" — personification is…', options: ['A literary device', 'A page number', 'A type of font'], answer: 'A literary device', difficulty: 1 },
-        { id: 'Y5-ENG-LE02-q4', type: 'short', prompt: 'What do we call the structure of a story — the way its parts are arranged? (Clue: starts with "pl")', answer: 'plot', difficulty: 2 },
-        { id: 'Y5-ENG-LE02-q5', type: 'mcq', prompt: 'When another reader disagrees with your opinion, a good response is…', options: ['"Interesting — what part of the text made you think that?"', '"You\'re wrong, period."', 'To stop listening'], answer: '"Interesting — what part of the text made you think that?"', difficulty: 2 },
+        { id: 'Y5-ENG-LE02-q3', type: 'mcq', prompt: '"The author uses personification to bring the storm alive", personification is…', options: ['A literary device', 'A page number', 'A type of font'], answer: 'A literary device', difficulty: 1 },
+        { id: 'Y5-ENG-LE02-q4', type: 'short', prompt: 'What do we call the structure of a story, the way its parts are arranged? (Clue: starts with "pl")', answer: 'plot', difficulty: 2 },
+        { id: 'Y5-ENG-LE02-q5', type: 'mcq', prompt: 'When another reader disagrees with your opinion, a good response is…', options: ['"Interesting, what part of the text made you think that?"', '"You\'re wrong, period."', 'To stop listening'], answer: '"Interesting, what part of the text made you think that?"', difficulty: 2 },
         { id: 'Y5-ENG-LE02-q6', type: 'mcq', prompt: 'Opinions presented with literary terms and evidence are…', options: ['Easier to understand and discuss', 'Always confusing', 'Impossible to disagree with'], answer: 'Easier to understand and discuss', difficulty: 2 },
       ],
     },
@@ -353,7 +353,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Who tells the story changes the story. First person ("I crept through the door") drops you inside one character\'s head; third person uses "she", "he" and "they"; an omniscient narrator knows everyone\'s thoughts.',
-        'The same school camp could be thrilling to one character and terrifying to another — point of view shapes what you see, what you believe, and how you feel.',
+        'The same school camp could be thrilling to one character and terrifying to another, point of view shapes what you see, what you believe, and how you feel.',
       ],
       illustrations: [
         { brief: 'Three points of view looking at the same scene', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'eye', label: 'First person "I"' }, { icon: 'people', label: 'Third person "she"' }, { icon: 'book', label: 'Omniscient: all minds' }], caption: 'Whose eyes tell the story?' } },
@@ -383,7 +383,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Writers paint with words. A simile compares using "like" or "as" (the fire glowed like a sunset); a metaphor says one thing IS another (the fire was a hungry beast); personification gives objects human actions (the fire swallowed the log).',
-        'Sound devices add music: rhyme, rhythm, alliteration (silent, silver stars) and onomatopoeia (crackle, whoosh, hiss) — poets and songwriters use them constantly.',
+        'Sound devices add music: rhyme, rhythm, alliteration (silent, silver stars) and onomatopoeia (crackle, whoosh, hiss), poets and songwriters use them constantly.',
       ],
       illustrations: [
         { brief: 'Simile, metaphor, personification and onomatopoeia as picture and sound cards', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'sun', label: '"glowed like a sunset" simile' }, { icon: 'wind', label: '"the wind howled" personification' }, { icon: 'wave', label: '"crackle, hiss" onomatopoeia' }], caption: 'Imagery and sound devices' } },
@@ -394,7 +394,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       compactCount: 4,
       questions: [
         { id: 'Y5-ENG-LE04-q1', type: 'mcq', prompt: '"The rain fell like silver needles" is a…', options: ['Simile', 'Fact', 'Heading'], answer: 'Simile', difficulty: 1 },
-        { id: 'Y5-ENG-LE04-q2', type: 'mcq', prompt: '"The wind howled at the window" gives the wind a human action — this is…', options: ['Personification', 'A list', 'A number'], answer: 'Personification', difficulty: 2 },
+        { id: 'Y5-ENG-LE04-q2', type: 'mcq', prompt: '"The wind howled at the window" gives the wind a human action, this is…', options: ['Personification', 'A list', 'A number'], answer: 'Personification', difficulty: 2 },
         { id: 'Y5-ENG-LE04-q3', type: 'mcq', prompt: '"The night was a velvet blanket" (no "like" or "as") is a…', options: ['Metaphor', 'Simile', 'Rhyme'], answer: 'Metaphor', difficulty: 2 },
         { id: 'Y5-ENG-LE04-q4', type: 'mcq', prompt: '"Sizzle" and "crackle" are examples of…', options: ['Onomatopoeia', 'Alliteration', 'An antonym'], answer: 'Onomatopoeia', difficulty: 1 },
         { id: 'Y5-ENG-LE04-q5', type: 'short', prompt: 'Which device repeats starting sounds, as in "slippery, silver snake"?', answer: 'alliteration', difficulty: 2 },
@@ -412,8 +412,8 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Now you get to make it glow. Plan a storyline with a character you care about, then add figurative language where it matters — a simile for a scary moment, personification for an angry storm.',
-        'Experiment bravely: write a wild draft, then edit — swap flat words for vivid ones and cut anything that slows the action, until your words sing.',
+        'Now you get to make it glow. Plan a storyline with a character you care about, then add figurative language where it matters, a simile for a scary moment, personification for an angry storm.',
+        'Experiment bravely: write a wild draft, then edit, swap flat words for vivid ones and cut anything that slows the action, until your words sing.',
       ],
       illustrations: [
         { brief: 'A writing-flow from planning to editing a story with figurative language', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Plan the storyline' }, { text: 'Add figurative language' }, { text: 'Draft' }, { text: 'Edit & publish' }] } },
@@ -443,7 +443,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A letter from the 1800s, a wartime newsreel and today\'s online news each speak from their own time and place — their words, technology and concerns reveal the era they were made in.',
+        'A letter from the 1800s, a wartime newsreel and today\'s online news each speak from their own time and place, their words, technology and concerns reveal the era they were made in.',
         'Ask: what does this text tell me about when and where it was created? The answers are clues about history, technology and values.',
       ],
       illustrations: [
@@ -473,7 +473,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Paraphrasing means putting someone\'s idea into your own words — "So you\'re saying we should rehome the puppy to a farm?" — to check you truly understood.',
+        'Paraphrasing means putting someone\'s idea into your own words, "So you\'re saying we should rehome the puppy to a farm?", to check you truly understood.',
         'Smart questions do heavy lifting: clarifying questions untangle confusion, and probing questions like "What makes you say that?" ask for reasons. Together they keep a conversation honest and deep.',
       ],
       illustrations: [
@@ -533,8 +533,8 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'You do not have to read every word of everything. Skim to get the gist fast — run your eyes over headings, first lines and images to catch the general idea.',
-        'Scan when you hunt for one thing: a date, a name, a phone number — let your eyes jump until the target jumps out. Confirming means reading that exact spot closely to be sure it is right.',
+        'You do not have to read every word of everything. Skim to get the gist fast, run your eyes over headings, first lines and images to catch the general idea.',
+        'Scan when you hunt for one thing: a date, a name, a phone number, let your eyes jump until the target jumps out. Confirming means reading that exact spot closely to be sure it is right.',
       ],
       illustrations: [
         { brief: 'Three reading strategies: skim for gist, scan for a fact, confirm by close reading', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'magnifier', label: 'Skim: gist' }, { icon: 'eye', label: 'Scan: one fact' }, { icon: 'check-box', label: 'Confirm: read closely' }], caption: 'Three ways to read' } },
@@ -563,7 +563,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Active readers build meaning two ways: literal meaning is exactly what the text says; inferred meaning is what you work out from the clues. Then come the big questions — is this information reliable? Is the reasoning fair?',
+        'Active readers build meaning two ways: literal meaning is exactly what the text says; inferred meaning is what you work out from the clues. Then come the big questions, is this information reliable? Is the reasoning fair?',
         'Evaluating means judging: who wrote this, why, and would I trust it? A random blog and a government website are not equal sources.',
       ],
       illustrations: [
@@ -594,7 +594,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'When you publish, make your writing shine. Use text connectives (first, meanwhile, as a result) to glue ideas, expanded noun groups to paint detail, and technical vocabulary to show you know your topic.',
-        'Dialogue needs correct punctuation: "We made it!" shouted Maya. — capitals, commas and quotation marks each have a job.',
+        'Dialogue needs correct punctuation: "We made it!" shouted Maya., capitals, commas and quotation marks each have a job.',
       ],
       illustrations: [
         { brief: 'A writing-process flow through to publishing with noun groups and dialogue', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Plan' }, { text: 'Draft with noun groups & dialogue' }, { text: 'Revise' }, { text: 'Publish the polished text' }] } },
@@ -624,7 +624,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A strong talk is planned: pick your key ideas, add elaborated detail with extra examples and explanations, and structure it with a clear opening, middle and close.',
-        'Then rehearse your delivery — speak clearly, slow down for the big ideas, vary your tone and volume, and use slides or props to support, never to read from.',
+        'Then rehearse your delivery, speak clearly, slow down for the big ideas, vary your tone and volume, and use slides or props to support, never to read from.',
       ],
       illustrations: [
         { brief: 'A rehearsal checklist for a spoken presentation', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'mic', label: 'Speak clearly' }, { icon: 'speaker', label: 'Volume' }, { icon: 'clock', label: 'Pace' }, { icon: 'bulb', label: 'Elaborate ideas' }], caption: 'Plan, rehearse, deliver' } },
@@ -654,7 +654,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Tricky letter patterns make the same letters say different sounds. "ea" sounds different in beach, bread and great; "ough" sounds different in though, through, cough and tough.',
-        'Use every tool you have: sound it out, check the word parts (morphemes), and try the word in a sentence — one of your attempts will click.',
+        'Use every tool you have: sound it out, check the word parts (morphemes), and try the word in a sentence, one of your attempts will click.',
       ],
       illustrations: [
         { brief: 'Grapheme cards showing the same letter patterns with different sounds', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'book', label: 'ea: beach, bread, great' }, { icon: 'bookmark', label: 'ough: though, through, tough' }], caption: 'Same letters, different sounds' } },
@@ -684,7 +684,7 @@ export const YEAR5_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'New words are built from old parts. Start with a base word (print), add a prefix (reprint) or a suffix (printer, printable), and watch new words pop out.',
-        'Word origins help too — "tele" means far (telephone, television), so you can guess "telescope" means far-seeing. Build boldly, then check your spelling against the patterns you know.',
+        'Word origins help too, "tele" means far (telephone, television), so you can guess "telescope" means far-seeing. Build boldly, then check your spelling against the patterns you know.',
       ],
       illustrations: [
         { brief: 'A base word branching into new words with prefixes and suffixes', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'base: print' }, { text: 'prefix: reprint' }, { text: 'suffix: printer' }, { text: 'suffix: printable' }] } },

@@ -7,7 +7,7 @@ import { Icon } from './icons';
 const W = 280;
 const H = 150;
 
-/** Shared frame every diagram renders inside — fixed viewbox, consistent margins. */
+/** Shared frame every diagram renders inside, fixed viewbox, consistent margins. */
 function Frame({ children }: { children: React.ReactNode }) {
   return (
     <Svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`}>

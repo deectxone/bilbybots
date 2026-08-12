@@ -1,11 +1,11 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 9 English — full topic bank.
+ * Year 9 English, full topic bank.
  * Source of truth for scope: docs/content/year-7-10/english.md (AC v9.0,
  * strands Language/Literature/Literacy). Every topic carries its AC9E9xxx
  * content-description code (docs/specs/curriculum-research.md §4: cite
- * codes, author original lessons — never bulk-copy syllabus text).
+ * codes, author original lessons, never bulk-copy syllabus text).
  * Year 9 has 23 content descriptions: Language (9), Literature (6),
  * Literacy (8). Each assignment carries 6 questions (nominal pace) / 4
  * (compact pace), per docs/specs/adaptive-pacing.md's depth-compression model.
@@ -22,8 +22,8 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The way you speak does more than carry information — it can lift someone up or shut them down. Jargon, titles, the pronoun you choose and who gets to interrupt all build the unspoken power structure of a conversation.',
-        'Recognising how language empowers (or diminishes) relationships and roles is the first step to using your own words deliberately — and to noticing when others are using theirs on you.',
+        'The way you speak does more than carry information, it can lift someone up or shut them down. Jargon, titles, the pronoun you choose and who gets to interrupt all build the unspoken power structure of a conversation.',
+        'Recognising how language empowers (or diminishes) relationships and roles is the first step to using your own words deliberately, and to noticing when others are using theirs on you.',
       ],
       illustrations: [
         { brief: 'A power ladder showing how language can elevate or diminish a speaker\'s role', ready: true, diagram: { kind: 'metric-ladder', units: ['Diminish', 'Include', 'Empower'], highlight: 2 } },
@@ -44,7 +44,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y9-ENG-LA02',
-    title: 'Evaluating — directly & indirectly',
+    title: 'Evaluating, directly & indirectly',
     year: '9',
     subject: 'english',
     strand: 'Language',
@@ -52,7 +52,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'You can evaluate something head-on ("this plan is brilliant") or nudge a judgement sideways — an allusion quietly compares your subject to something grand, a single evocative adjective does the persuading, or a metaphor makes an argument feel inevitable.',
+        'You can evaluate something head-on ("this plan is brilliant") or nudge a judgement sideways, an allusion quietly compares your subject to something grand, a single evocative adjective does the persuading, or a metaphor makes an argument feel inevitable.',
         'Indirect evaluation is often the craftiest: a critic who never says "bad" can still demolish a film by calling it "a 2003 time capsule that never unlocked its door".',
       ],
       illustrations: [
@@ -82,8 +82,8 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Strong authors rarely just copy a structure — they bend it. A satirical news site borrows a serious headline format to mock it, a spoken-word poem borrows a speech\'s build-up and then breaks it with silence.',
-        'When an author "subverts" a structure, they flip what an audience expects — playing with spoken, written, visual and multimodal elements at once to create a surprise that lands harder than plain conformity.',
+        'Strong authors rarely just copy a structure, they bend it. A satirical news site borrows a serious headline format to mock it, a spoken-word poem borrows a speech\'s build-up and then breaks it with silence.',
+        'When an author "subverts" a structure, they flip what an audience expects, playing with spoken, written, visual and multimodal elements at once to create a surprise that lands harder than plain conformity.',
       ],
       illustrations: [
         { brief: 'A flowchart: expected structure, then the author\'s subverted twist', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Audience expects a familiar structure' }, { text: 'Author adapts or breaks it' }, { text: 'Surprise changes the effect' }] } },
@@ -104,7 +104,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y9-ENG-LA04',
-    title: 'Cohesion — condensing & linking ideas',
+    title: 'Cohesion, condensing & linking ideas',
     year: '9',
     subject: 'english',
     strand: 'Language',
@@ -112,7 +112,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Nominalisation condenses a whole action into a noun — "people protested" becomes "the protest" — letting you refer back to a big idea in one word. Text connectives ("furthermore", "by contrast", "as a result") then stitch ideas together across sentences and paragraphs.',
+        'Nominalisation condenses a whole action into a noun, "people protested" becomes "the protest", letting you refer back to a big idea in one word. Text connectives ("furthermore", "by contrast", "as a result") then stitch ideas together across sentences and paragraphs.',
         'These devices work as a pair: nominalisation packs the ideas down, connectives show exactly how the packed ideas relate. Together they make dense, fluent, genuinely cohesive writing.',
       ],
       illustrations: [
@@ -142,7 +142,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Deliberate sentence variation is a craft tool. A writer who has used long, flowing sentences can suddenly drop a single short sentence — or even a fragment like "No. Never." — and the break reads like a drumbeat.',
+        'Deliberate sentence variation is a craft tool. A writer who has used long, flowing sentences can suddenly drop a single short sentence, or even a fragment like "No. Never.", and the break reads like a drumbeat.',
         'Fragments and standalone dependent clauses are usually "errors", but skilled authors break the pattern on purpose for emphasis, pace or voice. The effect only works because the surrounding sentences are so clearly complete.',
       ],
       illustrations: [
@@ -172,7 +172,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Abstract nouns name things you cannot touch — "progress", "conflict", "innovation". Nominalisation turns an action into one of these nouns ("the city grew" becomes "the growth of the city"), which lets a writer summarise an entire idea in a single word.',
+        'Abstract nouns name things you cannot touch, "progress", "conflict", "innovation". Nominalisation turns an action into one of these nouns ("the city grew" becomes "the growth of the city"), which lets a writer summarise an entire idea in a single word.',
         'This is how writers condense complex ideas: instead of re-explaining an event, they name it once and then build on that name. It is the engine of tight, analytical prose.',
       ],
       illustrations: [
@@ -202,7 +202,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A symbol in an image works like a symbol in a poem — one object carries a bigger meaning. In a still photo, a single wilted flower might stand for loss; in a film, a character\'s mirror could grow cracked as their identity does.',
+        'A symbol in an image works like a symbol in a poem, one object carries a bigger meaning. In a still photo, a single wilted flower might stand for loss; in a film, a character\'s mirror could grow cracked as their identity does.',
         'In moving images, symbols can develop: a colour recurs, a setting repeats, and each return adds meaning. Analysing image symbols means asking what the object is literally, and what it is being made to stand for.',
       ],
       illustrations: [
@@ -233,7 +233,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Mood is the feeling a text creates in you (tense, whimsical, bleak); tone is the attitude the writer or narrator takes (mocking, sincere, detached). Both are built word by word.',
-        'Vocabulary does the heavy lifting: a "gleaming corridor" feels different from a "slick tunnel". Analysing how word choices create style means noticing the precise shades of meaning a writer has chosen — and what they could have chosen instead.',
+        'Vocabulary does the heavy lifting: a "gleaming corridor" feels different from a "slick tunnel". Analysing how word choices create style means noticing the precise shades of meaning a writer has chosen, and what they could have chosen instead.',
       ],
       illustrations: [
         { brief: 'A thermometer of mood: from cold neutral words up to warm evocative ones', ready: true, diagram: { kind: 'thermometer', min: 0, max: 10, value: 8, unit: '/10 mood' } },
@@ -262,7 +262,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Quotation marks, brackets, commas and full stops do more than end sentences — they are the grammar of giving credit. Quotation marks tell a reader these are someone else\'s exact words; brackets frame a citation or an added note.',
+        'Quotation marks, brackets, commas and full stops do more than end sentences, they are the grammar of giving credit. Quotation marks tell a reader these are someone else\'s exact words; brackets frame a citation or an added note.',
         'Knowing who to cite, when to quote directly and when to report a source in your own words keeps your writing honest and makes your argument verifiable. Getting the punctuation wrong can accidentally make another person\'s words look like your own.',
       ],
       illustrations: [
@@ -293,8 +293,8 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Literature by First Nations Australian authors and by wide-ranging Australian and world writers represents people and places through particular cultural lenses — what a character values, how a place is described, and whose history is centred all carry a context.',
-        'Analysing these representations means asking not just what a text shows, but how its author\'s culture and era shaped what was shown — and comparing how different texts represent the same kind of person or place.',
+        'Literature by First Nations Australian authors and by wide-ranging Australian and world writers represents people and places through particular cultural lenses, what a character values, how a place is described, and whose history is centred all carry a context.',
+        'Analysing these representations means asking not just what a text shows, but how its author\'s culture and era shaped what was shown, and comparing how different texts represent the same kind of person or place.',
       ],
       illustrations: [
         { brief: 'A world map with book icons marking representations from different contexts', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'globe', label: 'World authors' }, { icon: 'book', label: 'First Nations texts' }, { icon: 'people', label: 'People & places' }], caption: 'Representation carries its context' } },
@@ -323,11 +323,11 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Your first impression of a text is real and worth noticing — an opening line, an early scene, a first feeling about a character. But a first impression is only a starting point.',
+        'Your first impression of a text is real and worth noticing, an opening line, an early scene, a first feeling about a character. But a first impression is only a starting point.',
         'A strong personal response compares that initial reaction with what a close reading of the whole text reveals: the character you first judged harshly may be reframed by the ending, and the ending re-reads the beginning.',
       ],
       illustrations: [
-        { brief: 'A flowchart: initial impression, then whole-text re-reading changes it', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Record your first impression' }, { text: 'Analyse the whole text' }, { text: 'Compare — how did it change?' }] } },
+        { brief: 'A flowchart: initial impression, then whole-text re-reading changes it', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Record your first impression' }, { text: 'Analyse the whole text' }, { text: 'Compare, how did it change?' }] } },
       ],
     },
     assignment: {
@@ -353,7 +353,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Readers do not all prefer the same books, and the reasons are built into the texts — a fast-paced plot, a striking voice, ideas that challenge us, or characters we feel for. Different features appeal to different readers.',
+        'Readers do not all prefer the same books, and the reasons are built into the texts, a fast-paced plot, a striking voice, ideas that challenge us, or characters we feel for. Different features appeal to different readers.',
         'Analysing what makes a text appealing means separating the features themselves (structure, style, ideas) from your personal taste, and explaining how the features create the appeal.',
       ],
       illustrations: [
@@ -383,7 +383,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Aesthetic qualities are the artistic properties of a text — how its language, rhythm and imagery combine to feel striking, beautiful, unsettling or powerful. Evaluating them means judging not just whether a text works, but how its style creates that effect.',
+        'Aesthetic qualities are the artistic properties of a text, how its language, rhythm and imagery combine to feel striking, beautiful, unsettling or powerful. Evaluating them means judging not just whether a text works, but how its style creates that effect.',
         'An author\'s style is the fingerprint of their aesthetic choices: the sentence rhythms, favoured imagery and recurring tones that make their writing recognisable, and appealing, in a particular way.',
       ],
       illustrations: [
@@ -414,7 +414,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 14,
       body: [
         'Beyond a single image, literary devices can run through a whole text. An extended metaphor develops one comparison again and again; metonymy lets one part stand for the whole ("the crown" for the monarchy); allegory builds an entire story that maps onto a second meaning.',
-        'Intertextual references tie a text to earlier texts — a modern poem echoing a myth, a film nodding to a classic novel. Analysing these devices means asking how each one deepens meaning beyond the literal story.',
+        'Intertextual references tie a text to earlier texts, a modern poem echoing a myth, a film nodding to a classic novel. Analysing these devices means asking how each one deepens meaning beyond the literal story.',
       ],
       illustrations: [
         { brief: 'An allegory shown as two overlapping layers: literal story and hidden meaning', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'book', label: 'Literal story' }, { icon: 'link', label: 'Intertextual echo' }, { icon: 'mirror', label: 'Hidden meaning' }], caption: 'One text, layered meanings' } },
@@ -443,7 +443,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'A hybrid literary text mixes conventions from more than one form — a narrative told partly as a screenplay, a poem embedded inside a short story, a novel that slides into journalism. The blend is deliberate, not accidental.',
+        'A hybrid literary text mixes conventions from more than one form, a narrative told partly as a screenplay, a poem embedded inside a short story, a novel that slides into journalism. The blend is deliberate, not accidental.',
         'Creating your own hybrid means choosing which conventions to borrow and why: each borrowed structure carries its own effects, and editing is where you test whether the mix actually works for your purpose and audience.',
       ],
       illustrations: [
@@ -474,7 +474,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Every representation of a person, place, event or concept carries traces of where it was made — the era\'s values, the outlet\'s agenda, the audience it targets. A public figure can be represented very differently in different media and different moments.',
+        'Every representation of a person, place, event or concept carries traces of where it was made, the era\'s values, the outlet\'s agenda, the audience it targets. A public figure can be represented very differently in different media and different moments.',
         'Analysing this means connecting what a text shows with the context that shaped it: who made it, for whom, and what they wanted the viewer or reader to conclude.',
       ],
       illustrations: [
@@ -504,7 +504,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Spoken texts position their listeners — a podcast narrator\'s tone, a politician\'s repetition, a comedian\'s timing all steer how you respond before you even decide what you think.',
+        'Spoken texts position their listeners, a podcast narrator\'s tone, a politician\'s repetition, a comedian\'s timing all steer how you respond before you even decide what you think.',
         'Critical listening means analysing how the language features of a spoken text work on you, then using interaction skills to discuss and defend your own opinion of it rather than absorbing it passively.',
       ],
       illustrations: [
@@ -534,7 +534,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A perspective on an issue, event, situation, individual or group is built from language choices — which facts are emphasised, which words are loaded, who gets named and who stays anonymous.',
+        'A perspective on an issue, event, situation, individual or group is built from language choices, which facts are emphasised, which words are loaded, who gets named and who stays anonymous.',
         'Analysing a perspective means evaluating how the language features work together: a report that keeps calling a protest a "riot" is not just describing, it is representing through a particular lens.',
       ],
       illustrations: [
@@ -550,7 +550,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y9-ENG-LY03-q3', type: 'mcq', prompt: 'A text that names some people and keeps others anonymous is making a…', options: ['Representational choice about who matters', 'Spelling error', 'Random accident'], answer: 'Representational choice about who matters', difficulty: 2 },
         { id: 'Y9-ENG-LY03-q4', type: 'mcq', prompt: 'Analysing a perspective means evaluating…', options: ['How language features combine to push one view', 'Only the headline font', 'The reading time'], answer: 'How language features combine to push one view', difficulty: 2 },
         { id: 'Y9-ENG-LY03-q5', type: 'mcq', prompt: 'Emphasising some facts and downplaying others is a technique for…', options: ['Representing a particular perspective', 'Staying perfectly neutral', 'Removing all opinion'], answer: 'Representing a particular perspective', difficulty: 2 },
-        { id: 'Y9-ENG-LY03-q6', type: 'mcq', prompt: 'A "neutral" representation of a contested event is…', options: ['Practically impossible — every choice reflects some perspective', 'The only correct option', 'Easy to produce'], answer: 'Practically impossible — every choice reflects some perspective', difficulty: 2 },
+        { id: 'Y9-ENG-LY03-q6', type: 'mcq', prompt: 'A "neutral" representation of a contested event is…', options: ['Practically impossible, every choice reflects some perspective', 'The only correct option', 'Easy to produce'], answer: 'Practically impossible, every choice reflects some perspective', difficulty: 2 },
       ],
     },
   },
@@ -565,7 +565,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A paragraph is a unit of thought: it opens with a contention, develops it with evidence and explanation, and links to the next idea. In extended texts, the order of whole paragraphs is itself an argument.',
-        'Analysing the organisation of ideas means evaluating how paragraph order and internal structure shape meaning — why did the author build this point before that one, and what effect does that ordering have on the reader?',
+        'Analysing the organisation of ideas means evaluating how paragraph order and internal structure shape meaning, why did the author build this point before that one, and what effect does that ordering have on the reader?',
       ],
       illustrations: [
         { brief: 'A paragraph building block: contention, evidence, explanation, link', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Contention (main idea)' }, { text: 'Evidence & explanation' }, { text: 'Link to next paragraph' }] } },
@@ -594,7 +594,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Comprehension strategies (visualising, predicting, connecting, summarising, monitoring, questioning, inferring) become even more powerful when applied across texts — comparing and contrasting what different sources claim and how they argue.',
+        'Comprehension strategies (visualising, predicting, connecting, summarising, monitoring, questioning, inferring) become even more powerful when applied across texts, comparing and contrasting what different sources claim and how they argue.',
         'Synthesising across texts means noticing agreement and conflict between sources, then building a position that accounts for both rather than simply picking one side.',
       ],
       illustrations: [
@@ -624,7 +624,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'Creating a text in Year 9 means selecting everything for a purpose and audience — organising and expanding your ideas, then choosing text structures, language features, literary devices and multimodal features that fit.',
+        'Creating a text in Year 9 means selecting everything for a purpose and audience, organising and expanding your ideas, then choosing text structures, language features, literary devices and multimodal features that fit.',
         'Editing and publishing turn the draft into the finished piece: checking that every choice still serves the purpose, tightening what wandered, and preparing the text for the audience who will actually receive it.',
       ],
       illustrations: [
@@ -640,7 +640,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y9-ENG-LY06-q3', type: 'mcq', prompt: 'Editing a draft mainly involves checking that…', options: ['Every choice still serves the text\'s purpose', 'The font is unusual', 'The text is as long as possible'], answer: "Every choice still serves the text's purpose", difficulty: 2 },
         { id: 'Y9-ENG-LY06-q4', type: 'mcq', prompt: 'A "literary device" a writer might select for effect is…', options: ['A metaphor', 'A page number', 'A margin'], answer: 'A metaphor', difficulty: 1 },
         { id: 'Y9-ENG-LY06-q5', type: 'mcq', prompt: 'Publishing is the stage where a writer…', options: ['Prepares the finished text for its real audience', 'First brainstorms ideas', 'Chooses a topic'], answer: 'Prepares the finished text for its real audience', difficulty: 2 },
-        { id: 'Y9-ENG-LY06-q6', type: 'mcq', prompt: 'A text may be imaginative, reflective, informative, persuasive, analytical and/or critical — the mix chosen depends on…', options: ['The purpose the writer is trying to achieve', 'The font size', 'The page count'], answer: 'The purpose the writer is trying to achieve', difficulty: 2 },
+        { id: 'Y9-ENG-LY06-q6', type: 'mcq', prompt: 'A text may be imaginative, reflective, informative, persuasive, analytical and/or critical, the mix chosen depends on…', options: ['The purpose the writer is trying to achieve', 'The font size', 'The page count'], answer: 'The purpose the writer is trying to achieve', difficulty: 2 },
       ],
     },
   },
@@ -654,7 +654,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A presentation is a performance of ideas — you plan, create, rehearse and deliver, using language features, literary devices and voice (volume, tone, pitch and pace) to shape how the audience receives each point.',
+        'A presentation is a performance of ideas, you plan, create, rehearse and deliver, using language features, literary devices and voice (volume, tone, pitch and pace) to shape how the audience receives each point.',
         'In a multimodal presentation, slides and visuals work with your voice rather than against it. Rehearsing aloud is the only way to discover how the whole package lands together.',
       ],
       illustrations: [
@@ -684,7 +684,7 @@ export const YEAR9_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Spelling is not just about being correct — writers manipulate it on purpose. A story might spell a character\'s accent phonetically ("nah, yer right, mate") to bring their voice to life, or respell words for humour or emphasis.',
+        'Spelling is not just about being correct, writers manipulate it on purpose. A story might spell a character\'s accent phonetically ("nah, yer right, mate") to bring their voice to life, or respell words for humour or emphasis.',
         'Analysing spelling for effect means spotting when a deviation from standard spelling is a deliberate craft choice that carries meaning, rather than an error that needs fixing.',
       ],
       illustrations: [

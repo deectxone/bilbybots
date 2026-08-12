@@ -2,13 +2,13 @@ import type { NaplanPrompt } from '../../types/naplan';
 
 /**
  * Original NAPLAN-style WRITING prompts (ACARA's released prompts are
- * Excluded Material and cannot be reused — every prompt below is our own
+ * Excluded Material and cannot be reused, every prompt below is our own
  * wording). Real NAPLAN gives Y3/5 a different prompt pool from Y7/9, and
  * a sitting is always ONE prompt of ONE text type (narrative or
  * persuasive). Here the app randomly draws one prompt from the matching
  * pool each time a practice test is built, so repeat sessions see variety.
  *
- * id must contain the substring 'Y35' or 'Y79' — buildNaplanTest() in
+ * id must contain the substring 'Y35' or 'Y79', buildNaplanTest() in
  * tests.ts filters the pool on that substring, it is not cosmetic.
  */
 export const WRITING_PROMPTS: NaplanPrompt[] = [
@@ -32,14 +32,14 @@ export const WRITING_PROMPTS: NaplanPrompt[] = [
     textType: 'narrative',
     title: 'The Smallest Helper',
     text:
-      'Write a story about a very small creature who does something very big. It could be an ant, a mouse, a beetle — you decide.',
+      'Write a story about a very small creature who does something very big. It could be an ant, a mouse, a beetle, you decide.',
   },
   {
     id: 'WP-Y35-PERS-01',
     textType: 'persuasive',
     title: 'A Garden for Every School',
     text:
-      'Should every school have a vegetable garden? Write a persuasive text to convince your principal that your school should — or should not — build one.',
+      'Should every school have a vegetable garden? Write a persuasive text to convince your principal that your school should, or should not, build one.',
   },
   {
     id: 'WP-Y35-PERS-02',
@@ -68,7 +68,7 @@ export const WRITING_PROMPTS: NaplanPrompt[] = [
     textType: 'narrative',
     title: 'The Last Message',
     text:
-      'Your character finds an old message meant for someone else — a letter, a note, a voicemail, a text. Write a story about what they do once they read or hear it.',
+      'Your character finds an old message meant for someone else, a letter, a note, a voicemail, a text. Write a story about what they do once they read or hear it.',
   },
   {
     id: 'WP-Y79-NARR-03',
@@ -100,7 +100,7 @@ export const WRITING_PROMPTS: NaplanPrompt[] = [
   },
 ];
 
-/** Original self-marking rubric criteria — our own wording for the published
+/** Original self-marking rubric criteria, our own wording for the published
  * NAPLAN writing criteria (audience, text structure, ideas, vocabulary,
  * cohesion, sentence structure, spelling, punctuation). */
 export const WRITING_RUBRIC: ReadonlyArray<{ id: string; label: string }> = [

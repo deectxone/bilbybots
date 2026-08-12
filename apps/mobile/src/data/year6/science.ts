@@ -1,10 +1,10 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 6 Science — full topic bank.
+ * Year 6 Science, full topic bank.
  * Source of truth: docs/content/year-6/science.md (AC v9.0; strands Science
  * Understanding / Human Endeavour / Inquiry).
- * `AC9S6I02` carries a `sensitivity: true` flag per the source doc — it
+ * `AC9S6I02` carries a `sensitivity: true` flag per the source doc, it
  * touches Country/Place research-permission awareness and is written
  * generally, pending a First Nations protocol review before release.
  */
@@ -20,8 +20,8 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A habitat is everywhere from a desert to a rainforest to a coral reef — and every living thing there depends on the right temperature, water, light, food and shelter to survive.',
-        'Change one condition — less rain, a hotter summer — and you change how well plants and animals in that habitat grow and survive.',
+        'A habitat is everywhere from a desert to a rainforest to a coral reef, and every living thing there depends on the right temperature, water, light, food and shelter to survive.',
+        'Change one condition, less rain, a hotter summer, and you change how well plants and animals in that habitat grow and survive.',
       ],
       illustrations: [
         { brief: 'A desert/rainforest/reef habitat panel', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'sun', label: 'Desert' }, { icon: 'tree', label: 'Rainforest' }, { icon: 'fish', label: 'Reef' }], caption: 'Different habitats, different survival conditions' } },
@@ -43,7 +43,7 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
   },
   {
     id: 'Y6-SCI-U02',
-    title: 'Earth, Sun & planets — day, night & seasons',
+    title: 'Earth, Sun & planets, day, night & seasons',
     year: '6',
     subject: 'science',
     strand: 'Science understanding',
@@ -51,8 +51,8 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        "Earth spins on its axis once a day (giving us day and night) and orbits the Sun once a year (giving us seasons). It's Earth's tilt — not distance from the Sun — that causes the seasons.",
-        'Different places on Earth get different day lengths through the year because of that same tilt — that is why summer days in Australia are long and winter days are short.',
+        "Earth spins on its axis once a day (giving us day and night) and orbits the Sun once a year (giving us seasons). It's Earth's tilt, not distance from the Sun, that causes the seasons.",
+        'Different places on Earth get different day lengths through the year because of that same tilt, that is why summer days in Australia are long and winter days are short.',
       ],
       illustrations: [
         { brief: "A solar-system model showing Earth's tilt and orbit", ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'sun', label: 'Sun' }, { icon: 'orbit', label: 'Earth (tilted) orbits' }], caption: "Earth's tilt and spin drive day/night and seasons" } },
@@ -81,8 +81,8 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A circuit needs a complete loop — battery, wires and a bulb all connected — for electricity to flow and energy to transform from chemical (battery) into light and heat.',
-        'Conductors (like metal) let electricity flow through them; insulators (like plastic or rubber) block it — that is why wires have a metal core wrapped in a plastic coat.',
+        'A circuit needs a complete loop, battery, wires and a bulb all connected, for electricity to flow and energy to transform from chemical (battery) into light and heat.',
+        'Conductors (like metal) let electricity flow through them; insulators (like plastic or rubber) block it, that is why wires have a metal core wrapped in a plastic coat.',
       ],
       illustrations: [
         { brief: 'A battery-bulb circuit with insulators vs conductors labelled', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'battery', label: 'Battery' }, { icon: 'bolt', label: 'Wire' }, { icon: 'bulb', label: 'Bulb' }], caption: 'A complete circuit lets electricity flow' } },
@@ -97,7 +97,7 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
         { id: 'Y6-SCI-U03-q2', type: 'mcq', prompt: 'For a bulb to light up, the circuit must be…', options: ['Broken', 'A complete loop', 'Made only of plastic'], answer: 'A complete loop', difficulty: 1 },
         { id: 'Y6-SCI-U03-q3', type: 'mcq', prompt: 'An insulator is a material that…', options: ['Blocks electricity from flowing', 'Always lets electricity flow', 'Generates electricity'], answer: 'Blocks electricity from flowing', difficulty: 2 },
         { id: 'Y6-SCI-U03-q4', type: 'mcq', prompt: 'The plastic coating around a wire is there to…', options: ['Insulate and protect it', 'Help electricity flow faster', 'Make it heavier'], answer: 'Insulate and protect it', difficulty: 2 },
-        { id: 'Y6-SCI-U03-q5', type: 'mcq', prompt: 'In a working torch circuit, energy transforms from chemical (battery) into…', options: ['Light and heat', 'Sound only', 'Nothing — energy disappears'], answer: 'Light and heat', difficulty: 2 },
+        { id: 'Y6-SCI-U03-q5', type: 'mcq', prompt: 'In a working torch circuit, energy transforms from chemical (battery) into…', options: ['Light and heat', 'Sound only', 'Nothing, energy disappears'], answer: 'Light and heat', difficulty: 2 },
         { id: 'Y6-SCI-U03-q6', type: 'mcq', prompt: 'If a wire in a circuit is cut, the bulb will…', options: ['Stay lit', 'Turn off, since the loop is broken', 'Get brighter'], answer: 'Turn off, since the loop is broken', difficulty: 1 },
       ],
     },
@@ -112,12 +112,12 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A reversible change can be undone — ice melts to water and can be frozen back again; sugar dissolves in water and the water can be evaporated to get the sugar back.',
-        'An irreversible change makes a new substance you cannot get back — cooking an egg or a nail rusting cannot be undone.',
+        'A reversible change can be undone, ice melts to water and can be frozen back again; sugar dissolves in water and the water can be evaporated to get the sugar back.',
+        'An irreversible change makes a new substance you cannot get back, cooking an egg or a nail rusting cannot be undone.',
       ],
       illustrations: [
         { brief: 'Ice / water / steam cycle', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Ice (solid)' }, { text: 'Water (liquid)' }, { text: 'Steam (gas)' }] } },
-        { brief: 'A rusty nail timeline showing an irreversible change', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'nail', label: 'Nail' }, { icon: 'droplet', label: 'Exposed to water/air' }, { icon: 'nail', label: 'Rusted' }], caption: 'Rusting makes a new substance — irreversible' } },
+        { brief: 'A rusty nail timeline showing an irreversible change', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'nail', label: 'Nail' }, { icon: 'droplet', label: 'Exposed to water/air' }, { icon: 'nail', label: 'Rusted' }], caption: 'Rusting makes a new substance, irreversible' } },
       ],
     },
     assignment: {
@@ -126,7 +126,7 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
       questions: [
         { id: 'Y6-SCI-U04-q1', type: 'mcq', prompt: 'Which is a reversible change?', options: ['Freezing water', 'Cooking a pancake', 'A rusting nail'], answer: 'Freezing water', difficulty: 1 },
         { id: 'Y6-SCI-U04-q2', type: 'mcq', prompt: 'Cooking an egg is irreversible because…', options: ['It gets cold again', 'It forms a new substance that cannot change back', 'Nothing actually changes'], answer: 'It forms a new substance that cannot change back', difficulty: 2 },
-        { id: 'Y6-SCI-U04-q3', type: 'mcq', prompt: 'Dissolving sugar in water is…', options: ['Reversible — the water can be evaporated to get the sugar back', 'Irreversible — the sugar is gone forever'], answer: 'Reversible — the water can be evaporated to get the sugar back', difficulty: 2 },
+        { id: 'Y6-SCI-U04-q3', type: 'mcq', prompt: 'Dissolving sugar in water is…', options: ['Reversible, the water can be evaporated to get the sugar back', 'Irreversible, the sugar is gone forever'], answer: 'Reversible, the water can be evaporated to get the sugar back', difficulty: 2 },
         { id: 'Y6-SCI-U04-q4', type: 'mcq', prompt: 'A nail rusting is an example of a change that is…', options: ['Reversible', 'Irreversible'], answer: 'Irreversible', difficulty: 1 },
         { id: 'Y6-SCI-U04-q5', type: 'mcq', prompt: 'Melting ice into water is…', options: ['Reversible', 'Irreversible'], answer: 'Reversible', difficulty: 1 },
         { id: 'Y6-SCI-U04-q6', type: 'mcq', prompt: 'An irreversible change is one that…', options: ['Produces a new substance you cannot get back', 'Always involves water', 'Never involves heat'], answer: 'Produces a new substance you cannot get back', difficulty: 2 },
@@ -144,8 +144,8 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Big scientific discoveries are rarely made by one person alone — they build on the work of scientists before them, from many cultures and countries, working together.',
-        'First Nations Australians developed deep knowledge of astronomy, land and seasons over tens of thousands of years — knowledge that scientists today still learn from.',
+        'Big scientific discoveries are rarely made by one person alone, they build on the work of scientists before them, from many cultures and countries, working together.',
+        'First Nations Australians developed deep knowledge of astronomy, land and seasons over tens of thousands of years, knowledge that scientists today still learn from.',
       ],
       illustrations: [
         { brief: 'A scientists\' timeline showing teamwork across cultures and eras', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'telescope', label: 'Observe' }, { icon: 'people', label: 'Collaborate' }, { icon: 'helix', label: 'Build knowledge' }, { icon: 'globe', label: 'Across cultures' }], caption: 'Science builds on shared knowledge across generations' } },
@@ -174,7 +174,7 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Communities use scientific knowledge to make real decisions — like choosing drought-resistant crops, planning recycling programs, or protecting a coastline from erosion.',
+        'Communities use scientific knowledge to make real decisions, like choosing drought-resistant crops, planning recycling programs, or protecting a coastline from erosion.',
         'Even everyday choices, like picking a sunscreen with the right SPF, use science to make an informed decision.',
       ],
       illustrations: [
@@ -205,8 +205,8 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Good scientific questions can actually be tested — "what happens if…" or "how does… affect…" rather than questions with no testable answer.',
-        'A prediction is your reasoned guess about what will happen, based on what you already know — not just a random guess.',
+        'Good scientific questions can actually be tested, "what happens if…" or "how does… affect…" rather than questions with no testable answer.',
+        'A prediction is your reasoned guess about what will happen, based on what you already know, not just a random guess.',
       ],
       illustrations: [
         { brief: 'A question-ladder from "what" to "how/if" questions', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'What is it? (observe)' }, { text: 'Why does it happen?' }, { text: 'What if I change X?' }, { text: 'Testable question!' }] } },
@@ -236,8 +236,8 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A fair test changes only ONE thing at a time (the variable), keeps everything else the same (controlled), and measures the result — that way you know what actually caused the change.',
-        'Planning also means thinking about safety, and — for investigations on Country or Place — understanding that some land and knowledge require permission before you investigate there.',
+        'A fair test changes only ONE thing at a time (the variable), keeps everything else the same (controlled), and measures the result, that way you know what actually caused the change.',
+        'Planning also means thinking about safety, and, for investigations on Country or Place, understanding that some land and knowledge require permission before you investigate there.',
       ],
       illustrations: [
         { brief: 'A "fair test" lab bench showing changed/measured/controlled jars for a plant experiment', ready: true, diagram: { kind: 'bar-compare', unit: 'cm', items: [{ label: 'No water', value: 2 }, { label: 'Some water', value: 8 }, { label: 'Lots of water', value: 7 }] } },
@@ -266,8 +266,8 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Rulers, thermometers and timers all measure with a level of precision — recording "about 10cm" is very different from a careful "10.2cm".',
-        'Good scientists record data as they go in a table or log, not from memory afterwards — memory is unreliable and precision matters.',
+        'Rulers, thermometers and timers all measure with a level of precision, recording "about 10cm" is very different from a careful "10.2cm".',
+        'Good scientists record data as they go in a table or log, not from memory afterwards, memory is unreliable and precision matters.',
       ],
       illustrations: [
         { brief: 'Ruler, thermometer and timer close-ups with a data table', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'ruler', label: 'Ruler' }, { icon: 'clock', label: 'Timer' }, { icon: 'clipboard', label: 'Data log' }], caption: 'The right tool, measured and recorded precisely' } },
@@ -280,7 +280,7 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
         { id: 'Y6-SCI-I03-q1', type: 'mcq', prompt: 'Which tool measures temperature?', options: ['Ruler', 'Thermometer', 'Timer'], answer: 'Thermometer', difficulty: 1 },
         { id: 'Y6-SCI-I03-q2', type: 'mcq', prompt: 'Which tool measures how long something takes?', options: ['Timer', 'Ruler', 'Thermometer'], answer: 'Timer', difficulty: 1 },
         { id: 'Y6-SCI-I03-q3', type: 'mcq', prompt: 'Recording "about 10cm" instead of "10.2cm" is…', options: ['Less precise', 'More precise', 'Exactly the same'], answer: 'Less precise', difficulty: 2 },
-        { id: 'Y6-SCI-I03-q4', type: 'mcq', prompt: 'Data should be recorded…', options: ['As you go, in a table or log', 'Only from memory afterwards', 'Never — just remember it'], answer: 'As you go, in a table or log', difficulty: 2 },
+        { id: 'Y6-SCI-I03-q4', type: 'mcq', prompt: 'Data should be recorded…', options: ['As you go, in a table or log', 'Only from memory afterwards', 'Never, just remember it'], answer: 'As you go, in a table or log', difficulty: 2 },
         { id: 'Y6-SCI-I03-q5', type: 'mcq', prompt: 'Digital tools (like a digital thermometer) can help scientists…', options: ['Measure with more precision', 'Make results less reliable', 'Replace the need to measure'], answer: 'Measure with more precision', difficulty: 2 },
         { id: 'Y6-SCI-I03-q6', type: 'mcq', prompt: 'Why is precise measurement important in an investigation?', options: ['So results can be trusted and compared', 'It looks neater', 'It is required by law'], answer: 'So results can be trusted and compared', difficulty: 2 },
       ],
@@ -296,7 +296,7 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Raw data (a pile of tally marks) is hard to read — turning it into a table or graph reveals patterns and trends at a glance.',
+        'Raw data (a pile of tally marks) is hard to read, turning it into a table or graph reveals patterns and trends at a glance.',
         'Once you have a graph, describe what it shows in words too: what went up, what stayed the same, what surprised you?',
       ],
       illustrations: [
@@ -312,13 +312,13 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
         { id: 'Y6-SCI-I04-q3', type: 'mcq', prompt: 'A tally mark chart is most useful for…', options: ['Quickly counting how often something occurs', 'Showing exact temperatures', 'Drawing pictures'], answer: 'Quickly counting how often something occurs', difficulty: 1 },
         { id: 'Y6-SCI-I04-q4', type: 'mcq', prompt: 'After building a graph, a scientist should also…', options: ['Describe what it shows in words', 'Throw away the data', 'Never look at it again'], answer: 'Describe what it shows in words', difficulty: 2 },
         { id: 'Y6-SCI-I04-q5', type: 'mcq', prompt: 'A physical model (like a 3D volcano model) helps represent data by…', options: ['Making an idea easier to see and understand', 'Replacing all numbers', 'Being purely decorative'], answer: 'Making an idea easier to see and understand', difficulty: 2 },
-        { id: 'Y6-SCI-I04-q6', type: 'mcq', prompt: 'Choosing the right way to represent data (table vs graph) depends on…', options: ['What best shows the pattern in that data', 'Personal favourite colour', 'Nothing — they are all identical'], answer: 'What best shows the pattern in that data', difficulty: 2 },
+        { id: 'Y6-SCI-I04-q6', type: 'mcq', prompt: 'Choosing the right way to represent data (table vs graph) depends on…', options: ['What best shows the pattern in that data', 'Personal favourite colour', 'Nothing, they are all identical'], answer: 'What best shows the pattern in that data', difficulty: 2 },
       ],
     },
   },
   {
     id: 'Y6-SCI-I05',
-    title: 'Evaluating — errors & evidence',
+    title: 'Evaluating, errors & evidence',
     year: '6',
     subject: 'science',
     strand: 'Science inquiry',
@@ -326,7 +326,7 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Every measurement can have small errors — a wobbly ruler, a mistimed stopwatch. Good scientists think about what might have gone wrong rather than assuming every result is perfect.',
+        'Every measurement can have small errors, a wobbly ruler, a mistimed stopwatch. Good scientists think about what might have gone wrong rather than assuming every result is perfect.',
         'A strong conclusion is backed by evidence (data you collected), not just a feeling about what you expected to find.',
       ],
       illustrations: [
@@ -356,7 +356,7 @@ export const YEAR6_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Findings only matter if you can explain them clearly — a scientific poster uses headings, a diagram and short, precise sentences to share what you found.',
+        'Findings only matter if you can explain them clearly, a scientific poster uses headings, a diagram and short, precise sentences to share what you found.',
         'Choose your language for your audience: a class presentation and a written report can both be accurate, but sound quite different.',
       ],
       illustrations: [

@@ -1,34 +1,47 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import type { ChildProfile } from '../types/curriculum';
 import { palette, radius, spacing, type } from '../theme/colors';
-import { AppHeader } from '../components/AppHeader';
+import { ScreenShell } from '../components/ScreenShell';
+import { ContactForm } from '../components/ContactForm';
 
 /**
  * Generic legal/policy page. Reused for Privacy, Terms and Contact so the
  * app ships a finished set of parent-facing pages without extra routing
- * machinery. Content is plain-language and kid/parent friendly.
+ * machinery. Content is plain-language and kid/parent friendly. When
+ * `showContactForm` is set (the Contact page) an inline message form is
+ * rendered under the copy.
  */
 export type LegalDoc = {
   title: string;
   updated: string;
   sections: { heading: string; body: string }[];
+  showContactForm?: boolean;
 };
 
 export function LegalScreen({
   doc,
+  child,
   onHome,
   onProgress,
   onSetup,
   onSignOut,
 }: {
   doc: LegalDoc;
+  child?: ChildProfile | null;
   onHome: () => void;
   onProgress: () => void;
   onSetup?: () => void;
   onSignOut?: () => void;
 }) {
   return (
-    <ScrollView contentContainerStyle={styles.container} style={styles.scroll}>
-      <AppHeader active="Home" onHome={onHome} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
+    <ScreenShell
+      active="Home"
+      child={child}
+      onHome={onHome}
+      onProgress={onProgress}
+      onSetup={onSetup}
+      onSignOut={onSignOut}
+    >
       <View style={styles.content}>
         <Text style={styles.title}>{doc.title}</Text>
         <Text style={styles.updated}>Last updated: {doc.updated}</Text>
@@ -39,7 +52,7 @@ export function LegalScreen({
           </View>
         ))}
       </View>
-    </ScrollView>
+    </ScreenShell>
   );
 }
 

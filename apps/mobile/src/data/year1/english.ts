@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 1 English — full topic bank.
+ * Year 1 English, full topic bank.
  * Source of truth for scope: docs/content/year-1-5/english.md (AC v9.0,
  * strands Language/Literature/Literacy). Every topic carries its AC9E1xxx
  * content-description code and a rendered `diagram` per illustration slot

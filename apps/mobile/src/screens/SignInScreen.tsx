@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { palette, radius, spacing, type, gradients } from '../theme/colors';
+import { palette, radius, spacing, type } from '../theme/colors';
 import { BilbyLogo } from '../components/BilbyLogo';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { Icon, type IconName } from '../components/illustrations/icons';
-import { SignInHero } from '../components/illustrations/SignInHero';
+import { HeroPark } from '../components/HeroPark';
 import { isAuthConfigured } from '../utils/supabase';
 import { signInWithGoogle } from '../utils/auth';
 
 /**
- * Google sign-in gate — styled as the product landing page (HiBob/ELMO
+ * Google sign-in gate, styled as the product landing page (HiBob/ELMO
  * inspired): hero visual, headline, feature rows, trust chips, CTA and a
  * legal footer. Footer links open in-app legal pages.
  */
@@ -20,7 +19,7 @@ export function SignInScreen({
   onOpenDoc,
 }: {
   onSignedIn: () => void;
-  /** Explore without an account — sample lesson + one practice test, then sign-up prompt. */
+  /** Explore without an account, sample lesson + one practice test, then sign-up prompt. */
   onGuest: () => void;
   onOpenDoc: (doc: 'privacy' | 'terms' | 'contact') => void;
 }) {
@@ -49,7 +48,7 @@ export function SignInScreen({
     {
       icon: 'book',
       title: 'Aligned to the Australian Curriculum',
-      body: 'Every topic maps to ACARA v9.0 content descriptions — NSW first, then QLD, VIC, WA.',
+      body: 'Every topic maps to ACARA v9.0 content descriptions, NSW first, then QLD, VIC, WA.',
     },
     {
       icon: 'brain',
@@ -64,28 +63,24 @@ export function SignInScreen({
   ];
 
   return (
-    <ScrollView contentContainerStyle={styles.root} style={styles.scroll} bounces={false}>
-      <LinearGradient
-        colors={[...gradients.hero]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.hero}
-      >
-        <View style={styles.heroTop}>
-          <BilbyLogo markSize={40} textSize={22} tone="light" />
-        </View>
-        <SignInHero size={320} />
-        <View style={styles.heroText}>
-          <Text style={styles.headline}>
-            A smarter weekly plan for {'\n'}
-            <Text style={styles.headlineAccent}>every young learner</Text>
-          </Text>
-          <Text style={styles.sub}>
-            BilbyBots helps Australian kids in Years 1–10 stay on track — with
-            lessons, badges and practice that fit their school year.
-          </Text>
-        </View>
-      </LinearGradient>
+    <View style={styles.screen}>
+      <View style={styles.stickyHeader}>
+        <BilbyLogo markSize={40} textSize={22} tone="dark" />
+      </View>
+      <ScrollView contentContainerStyle={styles.root} style={styles.scroll} bounces={false}>
+        <HeroPark>
+          <View style={styles.heroSpacer} />
+          <View style={styles.heroText}>
+            <Text style={styles.headline}>
+              A smarter weekly plan for {'\n'}
+              <Text style={styles.headlineAccent}>every young learner</Text>
+            </Text>
+            <Text style={styles.sub}>
+              BilbyBots helps Australian kids in Years 1–10 stay on track, with
+              lessons, badges and practice that fit their school year.
+            </Text>
+          </View>
+        </HeroPark>
 
       <View style={styles.card}>
         <Text style={styles.cardEyebrow}>Parent sign-in</Text>
@@ -180,35 +175,46 @@ export function SignInScreen({
       </View>
 
       <Text style={styles.footnote}>
-        Practice questions are original, NAPLAN-style items — not official NAPLAN
+        Practice questions are original, NAPLAN-style items, not official NAPLAN
         tests, and no ACARA affiliation.
       </Text>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  scroll: { backgroundColor: palette.cream },
+  screen: { flex: 1, backgroundColor: palette.cream },
+  scroll: { flex: 1, backgroundColor: palette.cream },
   root: { paddingBottom: spacing.xl * 2, flexGrow: 1 },
-  hero: { paddingTop: spacing.lg, paddingBottom: spacing.xl, alignItems: 'center' },
-  heroTop: { alignSelf: 'flex-start', paddingHorizontal: spacing.xl, paddingBottom: spacing.sm },
-  heroText: { alignItems: 'center', paddingHorizontal: spacing.xl, marginTop: spacing.sm },
+  stickyHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.md,
+    backgroundColor: palette.cream,
+    borderBottomWidth: 1,
+    borderBottomColor: palette.ink + '14',
+    elevation: 4,
+  },
+  heroSpacer: { flex: 1 },
+  heroText: { alignItems: 'center', marginTop: spacing.sm },
   headline: {
-    fontSize: type.h1 + 6,
-    lineHeight: 38,
+    fontSize: type.h1 + 14,
+    lineHeight: 50,
     fontWeight: '900',
-    color: palette.white,
+    color: palette.ink,
     textAlign: 'center',
   },
-  headlineAccent: { color: palette.sunny },
+  headlineAccent: { color: palette.grape },
   sub: {
-    color: palette.white,
+    color: palette.ink,
     fontSize: type.body,
     lineHeight: 23,
     marginTop: spacing.md,
     textAlign: 'center',
     maxWidth: 420,
-    opacity: 0.95,
+    opacity: 0.85,
   },
   card: {
     marginHorizontal: spacing.xl,

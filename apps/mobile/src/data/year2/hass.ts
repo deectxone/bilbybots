@@ -1,11 +1,11 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 2 HASS — full topic bank.
+ * Year 2 HASS, full topic bank.
  * Source of truth: docs/content/year-1-5/hass.md (AC v9.0; strands History and
  * Geography for Year 2's four knowledge CDs).
  * Y2-HASS-GE02 (AC9HS2K04) touches First Nations connection to Country/Place
- * and carries `sensitivity: true` — it is written to established, general
+ * and carries `sensitivity: true`, it is written to established, general
  * facts only pending a community-protocol review (see AGENTS.md). Every topic
  * renders real vector diagrams (see
  * src/components/illustrations/diagrams.tsx) and ships 6 assignment questions
@@ -24,13 +24,13 @@ export const YEAR2_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Some places and people in our local area are special to us — a library where we read, a park where friends meet, or a kind helper who keeps our street safe.',
+        'Some places and people in our local area are special to us, a library where we read, a park where friends meet, or a kind helper who keeps our street safe.',
         'A place can be important for social reasons (where family and friends come together), cultural reasons (where traditions and celebrations happen), or spiritual reasons (a quiet, special place that means a lot to people).',
-        'When we learn why a place matters, we can care for it so it stays special for years to come — and telling others about it keeps its story alive!',
+        'When we learn why a place matters, we can care for it so it stays special for years to come, and telling others about it keeps its story alive!',
       ],
       illustrations: [
         { brief: 'Local places that matter: a library, a park and a meeting place', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'book', label: 'Library' }, { icon: 'tree', label: 'Park' }, { icon: 'people', label: 'Friends meet' }], caption: 'Some local places are special to us' } },
-        { brief: 'Flowchart: why a place is important — visit it, learn its story, care for it', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Find a special place' }, { text: 'Learn its story' }, { text: 'Tell others why it matters' }, { text: 'Care for it together' }] } },
+        { brief: 'Flowchart: why a place is important, visit it, learn its story, care for it', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Find a special place' }, { text: 'Learn its story' }, { text: 'Tell others why it matters' }, { text: 'Care for it together' }] } },
       ],
     },
     assignment: {
@@ -91,7 +91,7 @@ export const YEAR2_HASS_TOPICS: Topic[] = [
       body: [
         'You can draw your street on a small map, then zoom out to show your town, then your state or territory, and then all of Australia.',
         'These zoomed-out maps fit together like nesting dolls: your street is part of your town, your town is part of your state, and your state is part of Australia.',
-        'Zooming out shows how each little place is connected to a bigger place — and a map or a globe helps you see the whole picture!',
+        'Zooming out shows how each little place is connected to a bigger place, and a map or a globe helps you see the whole picture!',
       ],
       illustrations: [
         { brief: 'Flowchart zooming out from street to town to state to Australia', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'My street' }, { text: 'My town' }, { text: 'My state' }, { text: 'Australia' }] } },
@@ -122,9 +122,9 @@ export const YEAR2_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'For tens of thousands of years, First Nations Australians have cared for their Country/Place — the land, rivers, plants and animals that connect to their family, stories and culture.',
+        'For tens of thousands of years, First Nations Australians have cared for their Country/Place, the land, rivers, plants and animals that connect to their family, stories and culture.',
         'This connection is passed down through generations and shown through stories, art, songs and ceremonies, and by caring for the land and water.',
-        'Country is much more than land — it is family, home and belonging, and it is precious to the people who care for it.',
+        'Country is much more than land, it is family, home and belonging, and it is precious to the people who care for it.',
       ],
       illustrations: [
         { brief: 'Country cared for over generations: land, water and a special place', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'tree', label: 'Land' }, { icon: 'droplet', label: 'Water' }, { icon: 'sun', label: 'Sky' }], caption: 'First Nations Australians care for Country/Place' } },
@@ -140,7 +140,7 @@ export const YEAR2_HASS_TOPICS: Topic[] = [
         { id: 'Y2-HASS-GE02-q3', type: 'mcq', prompt: 'Connection to Country/Place is passed down through…', options: ['generations', 'the post', 'a single season'], answer: 'generations', difficulty: 2 },
         { id: 'Y2-HASS-GE02-q4', type: 'mcq', prompt: 'Which is a way connection to Country/Place is shown?', options: ['Stories, art, song and ceremony', 'Shopping lists', 'Traffic lights'], answer: 'Stories, art, song and ceremony', difficulty: 2 },
         { id: 'Y2-HASS-GE02-q5', type: 'mcq', prompt: 'Caring for the land and water is a way of…', options: ['showing respect for Country/Place', 'making noise', 'playing a game'], answer: 'showing respect for Country/Place', difficulty: 1 },
-        { id: 'Y2-HASS-GE02-q6', type: 'short', prompt: 'To First Nations Australians, Country is more than land — it is also what?', answer: 'family, home and belonging', difficulty: 3 },
+        { id: 'Y2-HASS-GE02-q6', type: 'short', prompt: 'To First Nations Australians, Country is more than land, it is also what?', answer: 'family, home and belonging', difficulty: 3 },
       ],
     },
   },

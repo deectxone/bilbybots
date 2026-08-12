@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 3 Mathematics — full topic bank.
+ * Year 3 Mathematics, full topic bank.
  * Scope mirrors the Australian Curriculum v9.0 content descriptions for
  * Year 3 (AC9M3xxx). Every topic carries its ACARA code and a rendered
  * `diagram` per illustration slot (see
@@ -20,7 +20,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Numbers keep going beyond 10 000 — ten thousand is ten lots of one thousand!',
+        'Numbers keep going beyond 10 000, ten thousand is ten lots of one thousand!',
         'Each digit still has its own place: ten-thousands, thousands, hundreds, tens and ones.',
         'Read them left to right, place by place, and even the biggest numbers stop feeling scary.',
       ],
@@ -55,7 +55,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A unit fraction is one piece of a whole cut into equal parts — like one slice of a pizza cut into quarters.',
+        'A unit fraction is one piece of a whole cut into equal parts, like one slice of a pizza cut into quarters.',
         '1/2, 1/3, 1/4 and 1/10 are all unit fractions because the top number is always 1.',
         'The bigger the bottom number, the smaller each piece, so 1/10 is tinier than 1/2!',
       ],
@@ -95,7 +95,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Add and subtract big numbers by lining up the place values — ones under ones, tens under tens, hundreds under hundreds.',
+        'Add and subtract big numbers by lining up the place values, ones under ones, tens under tens, hundreds under hundreds.',
         'When a column makes ten or more, regroup (carry) that ten into the next column.',
         'Estimate the answer first, then do the exact sum, and you will know if you landed on the right number.',
       ],
@@ -127,7 +127,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Multiplication is quick adding of equal groups — 3 groups of 4 makes 12.',
+        'Multiplication is quick adding of equal groups, 3 groups of 4 makes 12.',
         'Division shares into equal groups, so 12 shared between 3 is 4.',
         'Knowing your 2, 3, 4, 5 and 10 times tables makes both super fast.',
       ],
@@ -159,7 +159,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Estimation means making a clever guess that is close to the real answer — like about how many sweets are in a jar.',
+        'Estimation means making a clever guess that is close to the real answer, like about how many sweets are in a jar.',
         'Round numbers to friendly amounts first (to the nearest 10), then add or subtract.',
         'Estimating before you calculate helps you spot silly mistakes in your exact answer.',
       ],
@@ -191,7 +191,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Money maths is everywhere — buying lunch, saving pocket money and counting change.',
+        'Money maths is everywhere, buying lunch, saving pocket money and counting change.',
         'Adding, subtracting and multiplying dollars and cents helps you plan what you can really buy.',
         'Modelling means using maths to answer a real money question, then checking your answer makes sense.',
       ],
@@ -235,7 +235,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'An algorithm is a set of steps you follow in order to finish a task — like a recipe or a treasure-map trail.',
+        'An algorithm is a set of steps you follow in order to finish a task, like a recipe or a treasure-map trail.',
         'Some steps are decisions: "Is the number even? If yes, go one way; if no, go the other."',
         'Following the steps in the same order every time gives you the same, correct answer.',
       ],
@@ -271,7 +271,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Addition and subtraction are opposites — they undo each other, so 7 + 5 = 12 means 12 − 5 = 7.',
+        'Addition and subtraction are opposites, they undo each other, so 7 + 5 = 12 means 12 − 5 = 7.',
         'Multiplication and division are opposites too: 6 × 4 = 24 means 24 ÷ 4 = 6.',
         'Use the opposite operation to find a missing number, like the box in 8 + □ = 12.',
       ],
@@ -305,7 +305,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
       body: [
         'Your brain can do maths faster than a calculator when you know clever tricks!',
         'Counting on is handy: 58 + 7 is 58, then 5 more makes 63, then 2 more makes 65.',
-        'Bridging to 10 and doubling help too — 6 + 7 is the same as 6 + 6 + 1.',
+        'Bridging to 10 and doubling help too, 6 + 7 is the same as 6 + 6 + 1.',
       ],
       illustrations: [
         { brief: 'Counting on from 58 to 65 on a number line', ready: true, diagram: { kind: 'number-line', min: 0, max: 100, marks: [{ value: 65, label: '58 + 7 = 65' }] } },
@@ -335,8 +335,8 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Your 3, 4, 5 and 10 times tables are superpowers — 3 × 4, 4 × 5 and 10 × 7 are your friends!',
-        'Count in groups to find the answer: 4, 8, 12, 16 — so 4 × 4 = 16.',
+        'Your 3, 4, 5 and 10 times tables are superpowers, 3 × 4, 4 × 5 and 10 × 7 are your friends!',
+        'Count in groups to find the answer: 4, 8, 12, 16, so 4 × 4 = 16.',
         'Knowing these facts by heart makes bigger maths much easier later on.',
       ],
       illustrations: [
@@ -367,7 +367,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Millimetres, centimetres, metres and kilometres all measure length — think rulers and tape measures.',
+        'Millimetres, centimetres, metres and kilometres all measure length, think rulers and tape measures.',
         'Estimating first helps you choose the right unit: a pencil is about 15 cm and a classroom about 8 m.',
         'One metre is 100 centimetres, and one kilometre is 1000 metres.',
       ],
@@ -433,7 +433,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
       body: [
         'Time is measured in seconds, minutes, hours, days, weeks, months and years.',
         'One minute has 60 seconds, and one hour has 60 minutes.',
-        'Knowing these facts helps you work out how long things take — like a 45-minute lesson or a 2-hour movie.',
+        'Knowing these facts helps you work out how long things take, like a 45-minute lesson or a 2-hour movie.',
       ],
       illustrations: [
         { brief: 'A number line marking 60 seconds in one minute', ready: true, diagram: { kind: 'number-line', min: 0, max: 60, marks: [{ value: 60, label: '1 minute = 60 s' }] } },
@@ -465,7 +465,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
       body: [
         'On an analogue clock the big hand counts minutes and the little hand counts hours.',
         'Digital clocks show the time with numbers, like 3:45, and the minute part counts up to 59.',
-        'Half past 3 (3:30) is the same time on both clocks — just shown in a different way!',
+        'Half past 3 (3:30) is the same time on both clocks, just shown in a different way!',
       ],
       illustrations: [
         { brief: 'An analogue clock and a digital clock both showing 3:45', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'clock', label: 'analogue' }, { icon: 'timer', label: '3:45' }], caption: 'Same time, two clocks' } },
@@ -495,9 +495,9 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'An angle is how much something turns — like a door swinging open or a child turning around.',
+        'An angle is how much something turns, like a door swinging open or a child turning around.',
         'A quarter turn makes a right angle, and a half turn is two right angles in a row.',
-        'Turning all the way around is a full turn — that is 360 degrees.',
+        'Turning all the way around is a full turn, that is 360 degrees.',
       ],
       illustrations: [
         { brief: 'Four quarter turns adding to a full circle', ready: true, diagram: { kind: 'angle-diagram', style: 'point', angles: [90, 90, 90, 90] } },
@@ -527,7 +527,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Money comes in dollars and cents — 100 cents make one dollar.',
+        'Money comes in dollars and cents, 100 cents make one dollar.',
         'Prices look like $4.75: the dollars come first, then the cents after the point.',
         'Adding and subtracting money is just adding and subtracting with dollars and cents.',
       ],
@@ -559,7 +559,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Objects around you have features — edges, corners, faces and angles.',
+        'Objects around you have features, edges, corners, faces and angles.',
         'Prisms, pyramids and cylinders are 3D objects; circles, squares and triangles are flat 2D shapes.',
         'Look for shapes hiding in everyday things: a dice is a cube and a can is a cylinder.',
       ],
@@ -590,7 +590,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A map is a bird\u2019s-eye drawing of a place — like your classroom or playground.',
+        'A map is a bird\u2019s-eye drawing of a place, like your classroom or playground.',
         'Maps use symbols, labels and simple grids so you can find places and give directions.',
         'Follow a route on the map from one place to another, and your directions will lead the way!',
       ],
@@ -622,7 +622,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Data is information you collect — like the favourite pets or colours in your class.',
+        'Data is information you collect, like the favourite pets or colours in your class.',
         'Categorical data sorts things into groups, like "dog", "cat" or "fish".',
         'Discrete data is counted in whole numbers, like how many children are away each day.',
       ],
@@ -654,7 +654,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Column graphs, picture graphs and dot plots all show data — comparing them helps you spot patterns.',
+        'Column graphs, picture graphs and dot plots all show data, comparing them helps you spot patterns.',
         'Look for which column is tallest (the most) and which is shortest (the fewest).',
         'Different displays can tell the same story, so always check the labels to read them correctly.',
       ],
@@ -688,7 +688,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
       body: [
         'A statistical investigation answers a question by collecting and reading data.',
         'Pose a question, collect the data, make a display, then say what you found.',
-        'With a grown-up guiding you, you can investigate anything — like the most popular ice-cream flavour!',
+        'With a grown-up guiding you, you can investigate anything, like the most popular ice-cream flavour!',
       ],
       illustrations: [
         {
@@ -730,7 +730,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Chance words describe how likely something is — impossible, unlikely, even chance, likely and certain.',
+        'Chance words describe how likely something is, impossible, unlikely, even chance, likely and certain.',
         'Rolling a 7 on a die is impossible, but getting heads or tails on a coin is an even chance.',
         'Putting events on a chance line helps you compare them fairly.',
       ],
@@ -761,7 +761,7 @@ export const YEAR3_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Run a chance experiment many times — like flipping a coin or rolling a die — and record each result.',
+        'Run a chance experiment many times, like flipping a coin or rolling a die, and record each result.',
         'The more trials you do, the closer your results come to what you predicted.',
         'Compare what you expected with what actually happened to see how chance behaves.',
       ],

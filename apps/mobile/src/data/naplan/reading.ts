@@ -1,7 +1,7 @@
 import type { NaplanItem, NaplanStimulus } from '../../types/naplan';
 
 /**
- * NAPLAN-style READING stimulus texts + items (original prose — never ACARA
+ * NAPLAN-style READING stimulus texts + items (original prose, never ACARA
  * reading magazines; see AGENTS.md licensing note). Each stimulus supports a
  * cluster of items covering the cognitive processes NAPLAN reading assesses:
  * locating & identifying, integrating & interpreting, analysing & evaluating.
@@ -51,7 +51,7 @@ export const READING_STIMULI: NaplanStimulus[] = [
     title: 'The Wind',
     body: [
       "The wind runs races with the leaves,\nIt whistles through the trees,\nIt tugs at hats and flutters flags,\nAnd rustles autumn leaves.",
-      "You cannot see the wind at all,\nBut still you know it's there —\nIt pushes clouds across the sky\nAnd lifts a kite in the air.",
+      "You cannot see the wind at all,\nBut still you know it's there\nIt pushes clouds across the sky\nAnd lifts a kite in the air.",
     ],
   },
 
@@ -79,7 +79,7 @@ export const READING_STIMULI: NaplanStimulus[] = [
     title: 'How Volcanoes Erupt',
     body: [
       'Deep underground, intense heat melts rock into a thick liquid called magma. Because magma is lighter than the solid rock around it, it slowly rises towards the surface.',
-      "Pressure builds as the magma pushes upward through cracks in the Earth's crust. When the pressure becomes too great, the volcano erupts, releasing magma — now called lava — along with ash and gas.",
+      "Pressure builds as the magma pushes upward through cracks in the Earth's crust. When the pressure becomes too great, the volcano erupts, releasing magma, now called lava, along with ash and gas.",
       'Not every eruption is explosive. Some volcanoes ooze slow-moving lava for weeks, while others burst suddenly and violently, sending ash clouds high into the sky.',
     ],
   },
@@ -107,7 +107,7 @@ export const READING_STIMULI: NaplanStimulus[] = [
     title: 'The Printing Press',
     body: [
       'Around 1440, Johannes Gutenberg built a printing press with movable metal letters. Before this, books were copied by hand and were so expensive that only the wealthy could own them.',
-      'The press meant hundreds of copies could be printed quickly and cheaply. Ideas — scientific, religious and political — spread across Europe at a speed never seen before.',
+      'The press meant hundreds of copies could be printed quickly and cheaply. Ideas, scientific, religious and political, spread across Europe at a speed never seen before.',
       'Historians often call the printing press one of the most influential inventions of the last thousand years.',
     ],
   },
@@ -116,7 +116,7 @@ export const READING_STIMULI: NaplanStimulus[] = [
     title: 'The Long Walk Back',
     body: [
       "By the time Theo realised the track had forked without a signpost, the afternoon light was already turning gold and thin. He had two options: backtrack the way he'd come, adding an hour to an already long hike, or take the unmarked path and hope it rejoined the main trail before dark.",
-      "He thought about his father's advice — never gamble on an unfamiliar track when the light is fading — and, reluctantly, turned back the way he had come.",
+      "He thought about his father's advice, never gamble on an unfamiliar track when the light is fading, and, reluctantly, turned back the way he had come.",
       'It was well after dark when he reached the car park, torch in hand and legs aching, but he felt a quiet satisfaction. The extra hour had cost him comfort, not safety.',
     ],
   },
@@ -125,7 +125,7 @@ export const READING_STIMULI: NaplanStimulus[] = [
     title: 'Coral Bleaching Explained',
     body: [
       'Coral reefs get their brilliant colour from tiny algae that live inside coral tissue in a mutually beneficial relationship: the algae photosynthesise and share food with the coral, while the coral offers the algae shelter and nutrients.',
-      'When ocean temperatures rise even slightly above normal for a sustained period, corals become stressed and expel these algae. Without them, the coral turns pale or white — a process known as bleaching.',
+      'When ocean temperatures rise even slightly above normal for a sustained period, corals become stressed and expel these algae. Without them, the coral turns pale or white, a process known as bleaching.',
       'Bleached coral is not dead, but it is vulnerable. If temperatures return to normal quickly, some corals recover their algae and colour. If the heat persists, the coral is likely to starve and die, and the whole reef ecosystem that depends on it suffers.',
     ],
   },
@@ -154,7 +154,7 @@ export const READING_STIMULI: NaplanStimulus[] = [
     body: [
       'Some people argue that school recycling programs cost too much time and money. In my view, this criticism ignores the bigger picture.',
       'A school-wide recycling program teaches a daily habit that students carry into adulthood. It also reduces the rubbish our school sends to landfill by more than a third.',
-      'The small cost of running the program is repaid many times over — not in money, but in the values it builds and the environment it protects. That is a lesson worth keeping.',
+      'The small cost of running the program is repaid many times over, not in money, but in the values it builds and the environment it protects. That is a lesson worth keeping.',
     ],
   },
   {
@@ -162,7 +162,7 @@ export const READING_STIMULI: NaplanStimulus[] = [
     title: 'How Recommendation Algorithms Shape What We See',
     body: [
       'Every time you watch, like or skip something online, you leave behind a small trace of data. Recommendation algorithms are built to notice patterns in these traces and predict, with unsettling accuracy, what will keep you watching next.',
-      'This is not inherently sinister — the same technology helps people discover music or articles they genuinely enjoy. The concern lies in what the algorithm optimises for: engagement, not accuracy or balance. Content that provokes a strong reaction, whether fascination or outrage, tends to keep people scrolling longer than measured, nuanced content does.',
+      'This is not inherently sinister, the same technology helps people discover music or articles they genuinely enjoy. The concern lies in what the algorithm optimises for: engagement, not accuracy or balance. Content that provokes a strong reaction, whether fascination or outrage, tends to keep people scrolling longer than measured, nuanced content does.',
       'Over time, this can quietly narrow the range of perspectives a person encounters, not through any single decision, but through thousands of small, invisible nudges. Understanding this mechanism is the first step towards resisting it.',
     ],
   },
@@ -170,7 +170,7 @@ export const READING_STIMULI: NaplanStimulus[] = [
     id: 'ST-Y9-EXPLORER',
     title: 'Between Stations',
     body: [
-      'The train had stopped between stations for eleven minutes now, and nobody around Nadia seemed troubled by it — least of all the man opposite, who kept turning the pages of a paperback with the unhurried calm of someone who had nowhere urgent to be.',
+      'The train had stopped between stations for eleven minutes now, and nobody around Nadia seemed troubled by it, least of all the man opposite, who kept turning the pages of a paperback with the unhurried calm of someone who had nowhere urgent to be.',
       "Nadia checked her phone, then the window, then her phone again. She had rehearsed the interview answers so many times that the words had started to feel like someone else's, borrowed and slightly too large.",
       "When the train finally shuddered forward, the man looked up, smiled faintly, and said, 'Wherever you're going, you'll get there when you get there.' It wasn't advice, exactly. But for the rest of the journey, Nadia found she believed it.",
     ],
@@ -181,7 +181,7 @@ export const READING_STIMULI: NaplanStimulus[] = [
     body: [
       "Biology, not laziness, is the reason many teenagers struggle to fall asleep before 11pm. During adolescence, the body's internal clock shifts later, delaying the release of the sleep hormone melatonin by roughly two hours compared with childhood.",
       'Despite this, most Australian high schools start before 8:45am, forcing teenagers to choose between insufficient sleep and being on time. Studies consistently link inadequate sleep in this age group to poorer concentration, lower academic performance and increased risk of mental health difficulties.',
-      'Shifting school start times even thirty minutes later is a low-cost, evidence-based change. Critics point to logistical hurdles — bus timetables, after-school sport — but these are solvable problems, not reasons to ignore a well-documented biological reality.',
+      'Shifting school start times even thirty minutes later is a low-cost, evidence-based change. Critics point to logistical hurdles, bus timetables, after-school sport, but these are solvable problems, not reasons to ignore a well-documented biological reality.',
     ],
   },
   {
@@ -189,7 +189,7 @@ export const READING_STIMULI: NaplanStimulus[] = [
     title: 'Inheritance',
     body: [
       "My grandmother's hands knew forty years\nOf bread dough and unpicked hems,\nOf letters folded twice, then twice again,\nAddresses to towns that no longer exist by those names.",
-      'I hold a pen the way she held a needle —\nCareful, certain, slightly turned —\nAnd wonder what of hers I carry\nThat I have never consciously learned.',
+      'I hold a pen the way she held a needle\nCareful, certain, slightly turned\nAnd wonder what of hers I carry\nThat I have never consciously learned.',
     ],
   },
 ];
@@ -225,7 +225,7 @@ export const READING_ITEMS: NaplanItem[] = [
     domain: 'reading',
     year: '3',
     itemType: 'mcq',
-    prompt: 'The rain tapped "like little fingers". This shows that the writer is —',
+    prompt: 'The rain tapped "like little fingers". This shows that the writer is',
     options: ['comparing the rain to something gentle', 'telling us it was very cold', 'saying the rain was very loud', 'describing what Mia could see'],
     answer: 'comparing the rain to something gentle',
     skill: 'analysing & evaluating',
@@ -367,7 +367,7 @@ export const READING_ITEMS: NaplanItem[] = [
     domain: 'reading',
     year: '3',
     itemType: 'mcq',
-    prompt: "Words like 'First', 'Next', 'Then' and 'Finally' help the reader to —",
+    prompt: "Words like 'First', 'Next', 'Then' and 'Finally' help the reader to",
     options: ['follow the steps in the right order', 'understand why bread is healthy', 'know how the sandwich tastes', 'learn the names of the fillings'],
     answer: 'follow the steps in the right order',
     skill: 'analysing & evaluating',
@@ -433,7 +433,7 @@ export const READING_ITEMS: NaplanItem[] = [
     domain: 'reading',
     year: '3',
     itemType: 'mcq',
-    prompt: "In the poem, 'whistles through the trees' means the wind —",
+    prompt: "In the poem, 'whistles through the trees' means the wind",
     options: [
       'makes a whistling sound as it moves through the trees',
       'stops completely near the trees',
@@ -584,7 +584,7 @@ export const READING_ITEMS: NaplanItem[] = [
     domain: 'reading',
     year: '5',
     itemType: 'mcq',
-    prompt: "In the text, 'intense heat' most likely means —",
+    prompt: "In the text, 'intense heat' most likely means",
     options: ['extremely strong heat', 'slightly warm conditions', 'heat that comes and goes', 'cool underground temperatures'],
     answer: 'extremely strong heat',
     skill: 'integrating & interpreting',
@@ -816,7 +816,7 @@ export const READING_ITEMS: NaplanItem[] = [
     domain: 'reading',
     year: '7',
     itemType: 'mcq',
-    prompt: "In this context, 'gamble' most nearly means —",
+    prompt: "In this context, 'gamble' most nearly means",
     options: ['take an uncertain risk', 'play a card game', 'spend money carelessly', 'win an unexpected prize'],
     answer: 'take an uncertain risk',
     skill: 'integrating & interpreting',
@@ -1011,7 +1011,7 @@ export const READING_ITEMS: NaplanItem[] = [
     domain: 'reading',
     year: '7',
     itemType: 'mcq',
-    prompt: "The poet describes the city as holding 'its breath'. This is an example of —",
+    prompt: "The poet describes the city as holding 'its breath'. This is an example of",
     options: [
       'personification, giving the city a human quality',
       'a simile comparing two things using ‘like’',
@@ -1179,7 +1179,7 @@ export const READING_ITEMS: NaplanItem[] = [
     domain: 'reading',
     year: '9',
     itemType: 'mcq',
-    prompt: "The words 'felt like someone else's, borrowed and slightly too large' suggest that Nadia's rehearsed answers now feel —",
+    prompt: "The words 'felt like someone else's, borrowed and slightly too large' suggest that Nadia's rehearsed answers now feel",
     options: [
       'unnatural and disconnected from her own voice',
       'perfectly suited to her',
@@ -1261,7 +1261,7 @@ export const READING_ITEMS: NaplanItem[] = [
     domain: 'reading',
     year: '9',
     itemType: 'mcq',
-    prompt: "In this context, 'evidence-based' most nearly means —",
+    prompt: "In this context, 'evidence-based' most nearly means",
     options: ['supported by research findings', 'based on personal opinion only', 'required by law', 'expensive to put in place'],
     answer: 'supported by research findings',
     skill: 'integrating & interpreting',
@@ -1304,7 +1304,7 @@ export const READING_ITEMS: NaplanItem[] = [
     domain: 'reading',
     year: '9',
     itemType: 'mcq',
-    prompt: 'The comparison between holding a pen and holding a needle mainly suggests that the poet —',
+    prompt: 'The comparison between holding a pen and holding a needle mainly suggests that the poet',
     options: [
       "has unconsciously inherited some of her grandmother's habits or qualities",
       'dislikes sewing as much as her grandmother did',
@@ -1321,7 +1321,7 @@ export const READING_ITEMS: NaplanItem[] = [
     domain: 'reading',
     year: '9',
     itemType: 'mcq',
-    prompt: "In the final line, 'never consciously learned' suggests the poet believes some things are passed down —",
+    prompt: "In the final line, 'never consciously learned' suggests the poet believes some things are passed down",
     options: [
       'without deliberate teaching or awareness',
       'only through written instructions',

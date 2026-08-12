@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 10 History — full topic bank (AC v9.0, subject code HH).
+ * Year 10 History, full topic bank (AC v9.0, subject code HH).
  * Source of truth: docs/content/year-7-10/history.md. Year 10 mandates BOTH
  * sub-strands: "Second World War" (AC9HH10K01–K06) and "Building modern
  * Australia (1945–present)" (AC9HH10K07–K13). Skills CDs (AC9HH10S01–S08)
@@ -10,7 +10,7 @@ import type { Topic } from '../../types/curriculum';
  * SENSITIVITY: WW02 (POWs and the Pacific war), WW03 (the Holocaust and the
  * atomic bomb), WW04 (home front incl. First Nations Australians), BA02, BA03
  * and BA05 (First Nations Australians' rights and reconciliation) carry
- * `sensitivity: true` — written to established facts with age-appropriate,
+ * `sensitivity: true`, written to established facts with age-appropriate,
  * respectful framing, pending human/community-protocol review before release.
  */
 export const YEAR10_HISTORY_TOPICS: Topic[] = [
@@ -20,7 +20,7 @@ export const YEAR10_HISTORY_TOPICS: Topic[] = [
     title: 'Causes & outbreak of the Second World War',
     year: '10',
     subject: 'hass',
-    strand: 'History — Second World War',
+    strand: 'History, Second World War',
     cd: [{ ac: 'AC9HH10K01' }],
     learn: {
       learnTimeMin: 12,
@@ -54,7 +54,7 @@ export const YEAR10_HISTORY_TOPICS: Topic[] = [
     title: 'Australia at war: places & experiences',
     year: '10',
     subject: 'hass',
-    strand: 'History — Second World War',
+    strand: 'History, Second World War',
     cd: [{ ac: 'AC9HH10K02' }],
     sensitivity: true,
     learn: {
@@ -89,13 +89,13 @@ export const YEAR10_HISTORY_TOPICS: Topic[] = [
     title: 'Turning points: the Holocaust & the atomic bomb',
     year: '10',
     subject: 'hass',
-    strand: 'History — Second World War',
+    strand: 'History, Second World War',
     cd: [{ ac: 'AC9HH10K03' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 14,
       body: [
-        'The Second World War included the Holocaust — the systematic murder of around six million Jews by Nazi Germany and its collaborators, along with the persecution and murder of many other groups. The Nazis built an entire system of hatred and killing, and the world has struggled to understand it since.',
+        'The Second World War included the Holocaust, the systematic murder of around six million Jews by Nazi Germany and its collaborators, along with the persecution and murder of many other groups. The Nazis built an entire system of hatred and killing, and the world has struggled to understand it since.',
         'In August 1945, the United States dropped atomic bombs on Hiroshima and Nagasaki, devastating both cities. Japan surrendered, ending the war, but the bombs raised deep and lasting questions about the human cost of the war and the power of new weapons.',
       ],
       illustrations: [
@@ -124,7 +124,7 @@ export const YEAR10_HISTORY_TOPICS: Topic[] = [
     title: 'The home front',
     year: '10',
     subject: 'hass',
-    strand: 'History — Second World War',
+    strand: 'History, Second World War',
     cd: [{ ac: 'AC9HH10K04' }],
     sensitivity: true,
     learn: {
@@ -159,13 +159,13 @@ export const YEAR10_HISTORY_TOPICS: Topic[] = [
     title: 'Aftermath: rebuilding & commemoration',
     year: '10',
     subject: 'hass',
-    strand: 'History — Second World War',
+    strand: 'History, Second World War',
     cd: [{ ac: 'AC9HH10K05' }, { ac: 'AC9HH10K06' }],
     learn: {
       learnTimeMin: 12,
       body: [
         'The Second World War reshaped Australia\'s place in the world. Australia helped found the United Nations and, under Prime Minister Ben Chifley, began post-war reconstruction. The war also shifted Australia\'s alliance from Britain toward the United States, sealed with the ANZUS treaty.',
-        'Australians commemorate the war through Anzac Day and memorials, but historians debate aspects of it — for example, the "Battle for Australia" and how the Kokoda campaign is remembered and commemorated today.',
+        'Australians commemorate the war through Anzac Day and memorials, but historians debate aspects of it, for example, the "Battle for Australia" and how the Kokoda campaign is remembered and commemorated today.',
       ],
       illustrations: [
         {
@@ -194,7 +194,7 @@ export const YEAR10_HISTORY_TOPICS: Topic[] = [
     title: 'Post-war migration: a new Australia',
     year: '10',
     subject: 'hass',
-    strand: 'History — Building Modern Australia',
+    strand: 'History, Building Modern Australia',
     cd: [{ ac: 'AC9HH10K07' }, { ac: 'AC9HH10K08' }],
     learn: {
       learnTimeMin: 12,
@@ -228,13 +228,13 @@ export const YEAR10_HISTORY_TOPICS: Topic[] = [
     title: 'First Nations Australians: campaigns before 1965',
     year: '10',
     subject: 'hass',
-    strand: 'History — Building Modern Australia',
+    strand: 'History, Building Modern Australia',
     cd: [{ ac: 'AC9HH10K09' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 14,
       body: [
-        'For most of the 20th century, First Nations Australians faced discriminatory laws and policies. Governments practised protection, segregation and, from 1937, a policy of assimilation. Many children were forcibly removed from their families — the Stolen Generations — causing deep and lasting harm.',
+        'For most of the 20th century, First Nations Australians faced discriminatory laws and policies. Governments practised protection, segregation and, from 1937, a policy of assimilation. Many children were forcibly removed from their families, the Stolen Generations, causing deep and lasting harm.',
         'First Nations Australians organised to fight for rights. The 1938 Day of Mourning marked 150 years since the First Fleet, and organisations such as the Australian Aborigines League and the Australian Aboriginal Progressive Association campaigned for citizenship, land and justice.',
       ],
       illustrations: [
@@ -263,7 +263,7 @@ export const YEAR10_HISTORY_TOPICS: Topic[] = [
     title: 'The movement for rights: 1962 to today',
     year: '10',
     subject: 'hass',
-    strand: 'History — Building Modern Australia',
+    strand: 'History, Building Modern Australia',
     cd: [{ ac: 'AC9HH10K10' }, { ac: 'AC9HH10K11' }],
     sensitivity: true,
     learn: {
@@ -298,13 +298,13 @@ export const YEAR10_HISTORY_TOPICS: Topic[] = [
     title: "Women's movement & changing rights",
     year: '10',
     subject: 'hass',
-    strand: 'History — Building Modern Australia',
+    strand: 'History, Building Modern Australia',
     cd: [{ ac: 'AC9HH10K12' }, { ac: 'AC9HH10K13' }],
     learn: {
       learnTimeMin: 12,
       body: [
         "Since 1945, women's roles and rights in Australia have changed enormously. Women campaigned for equal pay and an end to the 'marriage bar' that forced women to leave jobs when they married, and laws such as the Sex Discrimination Act 1984 protected women from discrimination.",
-        'Women have become leaders in government, business, sport and the arts. The women\'s movement of the 1960s and 70s, and continuing action since, have improved women\'s status in education, work and public life — though the gender pay gap and other issues remain.',
+        'Women have become leaders in government, business, sport and the arts. The women\'s movement of the 1960s and 70s, and continuing action since, have improved women\'s status in education, work and public life, though the gender pay gap and other issues remain.',
       ],
       illustrations: [
         {
@@ -332,13 +332,13 @@ export const YEAR10_HISTORY_TOPICS: Topic[] = [
     title: 'Continuing change: rights & identity today',
     year: '10',
     subject: 'hass',
-    strand: 'History — Building Modern Australia',
+    strand: 'History, Building Modern Australia',
     cd: [{ ac: 'AC9HH10K11' }, { ac: 'AC9HH10K13' }],
     sensitivity: true,
     learn: {
       learnTimeMin: 12,
       body: [
-        "Australia's story of rights continues. First Nations Australians have advanced Reconciliation — an ongoing process of truth-telling and healing — marked by events such as the Redfern Speech, the Bringing Them Home report and the Apology to the Stolen Generations in 2008. Debates over migration, multiculturalism and the treatment of asylum seekers continue to shape national identity.",
+        "Australia's story of rights continues. First Nations Australians have advanced Reconciliation, an ongoing process of truth-telling and healing, marked by events such as the Redfern Speech, the Bringing Them Home report and the Apology to the Stolen Generations in 2008. Debates over migration, multiculturalism and the treatment of asylum seekers continue to shape national identity.",
         'Australia today is one of the world\'s most multicultural nations. Understanding this history of rights and change helps us see both how far Australia has come and the work still to be done.',
       ],
       illustrations: [

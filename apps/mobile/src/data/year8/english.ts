@@ -1,11 +1,11 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 8 English — full topic bank.
+ * Year 8 English, full topic bank.
  * Source of truth for scope: docs/content/year-7-10/english.md (AC v9.0,
  * strands Language/Literature/Literacy). Every topic carries its AC9E8xxx
  * content-description code (docs/specs/curriculum-research.md §4: cite
- * codes, author original lessons — never bulk-copy syllabus text).
+ * codes, author original lessons, never bulk-copy syllabus text).
  * Each assignment carries 6 questions (nominal pace) / 4 (compact pace),
  * per docs/specs/adaptive-pacing.md's depth-compression model.
  */
@@ -21,7 +21,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The way someone speaks can signal who they are — their community, generation or background — and it can also be judged unfairly by others who expect only one "correct" way to talk.',
+        'The way someone speaks can signal who they are, their community, generation or background, and it can also be judged unfairly by others who expect only one "correct" way to talk.',
         'Language carries power: whoever controls the "standard" version of a language often controls whose voice gets taken seriously in schools, courts and media.',
       ],
       illustrations: [
@@ -81,7 +81,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Writers bend familiar structures to fit new purposes — a "listicle" borrows a report\'s ordered format but adds personality and humour; a podcast script borrows narrative stages but is built to be heard, not seen.',
+        'Writers bend familiar structures to fit new purposes, a "listicle" borrows a report\'s ordered format but adds personality and humour; a podcast script borrows narrative stages but is built to be heard, not seen.',
         'Every adaptation is a trade-off: gaining engagement or accessibility might mean losing some formal precision.',
       ],
       illustrations: [
@@ -103,7 +103,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y8-ENG-LA04',
-    title: 'Cohesion — linking paragraphs & nominalisation',
+    title: 'Cohesion, linking paragraphs & nominalisation',
     year: '8',
     subject: 'english',
     strand: 'Language',
@@ -111,8 +111,8 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Beyond single sentences, whole paragraphs need linking — a strong opening sentence in paragraph two can echo the last idea of paragraph one, keeping the whole essay feeling like one connected argument.',
-        'Nominalisation turns a verb into a noun ("the city expanded" becomes "the expansion of the city"), letting writers refer back to a whole idea in just a few words — useful for dense, cohesive academic writing.',
+        'Beyond single sentences, whole paragraphs need linking, a strong opening sentence in paragraph two can echo the last idea of paragraph one, keeping the whole essay feeling like one connected argument.',
+        'Nominalisation turns a verb into a noun ("the city expanded" becomes "the expansion of the city"), letting writers refer back to a whole idea in just a few words, useful for dense, cohesive academic writing.',
       ],
       illustrations: [
         { brief: 'A chain linking paragraph endings to the next paragraph\'s opening idea', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Paragraph 1 ends: "...caused rapid growth."' }, { text: 'Paragraph 2 opens: "This expansion..."' }] } },
@@ -133,7 +133,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y8-ENG-LA05',
-    title: 'Complex sentences — embedding for elaboration',
+    title: 'Complex sentences, embedding for elaboration',
     year: '8',
     subject: 'english',
     strand: 'Language',
@@ -141,8 +141,8 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'Embedding a clause inside another sentence packs in extra information without starting a new sentence — "The policy, which had been debated for years, finally passed."',
-        'Skilled writers stack multiple embedded and subordinate clauses to build genuinely complex, information-dense sentences — but overdo it and clarity suffers, so balance is key.',
+        'Embedding a clause inside another sentence packs in extra information without starting a new sentence, "The policy, which had been debated for years, finally passed."',
+        'Skilled writers stack multiple embedded and subordinate clauses to build genuinely complex, information-dense sentences, but overdo it and clarity suffers, so balance is key.',
       ],
       illustrations: [
         { brief: 'A sentence with a nested embedded clause shown as a box within a box', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'box', label: 'Main clause' }, { icon: 'box', label: 'Embedded clause inside' }], caption: 'Clauses nested for elaboration' } },
@@ -171,8 +171,8 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Abstract nouns name ideas rather than things you can touch — "justice", "freedom", "growth". Leaning on abstract nouns and nominalisations gives writing a formal, objective, almost official tone.',
-        'Compare "the government decided to reduce spending" (concrete, active) with "the decision to reduce spending" (abstract, nominalised) — the second sounds more like a policy report.',
+        'Abstract nouns name ideas rather than things you can touch, "justice", "freedom", "growth". Leaning on abstract nouns and nominalisations gives writing a formal, objective, almost official tone.',
+        'Compare "the government decided to reduce spending" (concrete, active) with "the decision to reduce spending" (abstract, nominalised), the second sounds more like a policy report.',
       ],
       illustrations: [
         { brief: 'A concrete verb sentence rewritten as an abstract nominalised sentence', ready: true, diagram: { kind: 'balance-scale', left: 'decided (verb, concrete)', right: 'decision (noun, abstract)', balanced: true } },
@@ -193,7 +193,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y8-ENG-LA07',
-    title: 'Multimodal texts — visual & audio interplay',
+    title: 'Multimodal texts, visual & audio interplay',
     year: '8',
     subject: 'english',
     strand: 'Language',
@@ -201,7 +201,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'In a film or game, music can contradict the visuals on purpose — cheerful music over a sad scene creates unsettling irony rather than simple sadness.',
+        'In a film or game, music can contradict the visuals on purpose, cheerful music over a sad scene creates unsettling irony rather than simple sadness.',
         'Analysing multimodal texts means noticing how sound, image and words interact: do they reinforce one message, or create tension between two?',
       ],
       illustrations: [
@@ -231,7 +231,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'A single symbol can shift meaning across a text — a caged bird might first suggest sadness, then later transform into a symbol of hope once it is freed.',
+        'A single symbol can shift meaning across a text, a caged bird might first suggest sadness, then later transform into a symbol of hope once it is freed.',
         'Tracking how figurative language evolves across a text (not just spotting one device) shows a much deeper understanding of an author\'s craft.',
       ],
       illustrations: [
@@ -261,8 +261,8 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Longer, more complex sentences need punctuation to stay readable — commas mark off embedded clauses, semicolons separate related independent clauses in a list, and brackets add an aside without derailing the main sentence.',
-        'Punctuation in a complex sentence is a map for the reader\'s breath and attention — get it wrong and the sentence collapses into confusion.',
+        'Longer, more complex sentences need punctuation to stay readable, commas mark off embedded clauses, semicolons separate related independent clauses in a list, and brackets add an aside without derailing the main sentence.',
+        'Punctuation in a complex sentence is a map for the reader\'s breath and attention, get it wrong and the sentence collapses into confusion.',
       ],
       illustrations: [
         { brief: 'A long complex sentence annotated with punctuation roles', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'link', label: 'Commas mark clauses' }, { icon: 'box', label: 'Brackets add an aside' }], caption: 'Punctuation guides the reader through complexity' } },
@@ -292,7 +292,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Literature from diverse identities, times and cultures — including First Nations Australian and world authors — expands whose experience gets to be seen as central to a story.',
+        'Literature from diverse identities, times and cultures, including First Nations Australian and world authors, expands whose experience gets to be seen as central to a story.',
         'Reading beyond your own background trains you to recognise a perspective different from your own without dismissing it, which is a genuine literacy skill.',
       ],
       illustrations: [
@@ -322,7 +322,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Two texts about the same real issue — say, growing up in a new country — can represent it in very different lights depending on the author\'s own experience and choices.',
+        'Two texts about the same real issue, say, growing up in a new country, can represent it in very different lights depending on the author\'s own experience and choices.',
         'Comparing representations means asking not just "what happens" but "whose feelings and values are centred, and whose are left in the background?"',
       ],
       illustrations: [
@@ -352,7 +352,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Authors "position" readers by controlling what we know and when — revealing a villain\'s tragic backstory late can shift our sympathy even after disliking them for chapters.',
+        'Authors "position" readers by controlling what we know and when, revealing a villain\'s tragic backstory late can shift our sympathy even after disliking them for chapters.',
         'Structure and language work together to position us: which character\'s thoughts we access, and which words describe them, both steer our judgement.',
       ],
       illustrations: [
@@ -412,8 +412,8 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'Structure does not have to run in order — telling a story out of sequence (starting at the end, then flashing back) can build suspense that a straight timeline cannot.',
-        'Voice is a character\'s (or narrator\'s) personality on the page — word choice, sentence length and attitude combine to make writing sound distinctly like one person.',
+        'Structure does not have to run in order, telling a story out of sequence (starting at the end, then flashing back) can build suspense that a straight timeline cannot.',
+        'Voice is a character\'s (or narrator\'s) personality on the page, word choice, sentence length and attitude combine to make writing sound distinctly like one person.',
       ],
       illustrations: [
         { brief: 'A story timeline reordered: ending shown first, then flashback', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Show the ending first' }, { text: 'Flash back to the beginning' }, { text: 'Build to the middle events' }, { text: 'Return to the ending, now understood' }] } },
@@ -443,7 +443,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The same real event can be reported very differently depending on the intended audience — a children\'s news bulletin softens language a tabloid might sensationalise.',
+        'The same real event can be reported very differently depending on the intended audience, a children\'s news bulletin softens language a tabloid might sensationalise.',
         'Analysing representation for audience means comparing how the same subject is shaped, simplified or dramatised for different groups of readers or viewers.',
       ],
       illustrations: [
@@ -473,11 +473,11 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A structured debate has clear roles — an opening argument, rebuttal, and closing summary — and each speaker must listen closely enough to respond directly, not just repeat prepared notes.',
+        'A structured debate has clear roles, an opening argument, rebuttal, and closing summary, and each speaker must listen closely enough to respond directly, not just repeat prepared notes.',
         'Collaborative discussion works best when group members share airtime fairly and actively build a shared understanding rather than just defending fixed positions.',
       ],
       illustrations: [
-        { brief: 'A debate structure: opening, rebuttal, closing', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Opening argument' }, { text: 'Rebuttal — respond directly' }, { text: 'Closing summary' }] } },
+        { brief: 'A debate structure: opening, rebuttal, closing', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Opening argument' }, { text: 'Rebuttal, respond directly' }, { text: 'Closing summary' }] } },
       ],
     },
     assignment: {
@@ -503,7 +503,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The same content can be reshaped for print, audio or video, and each mode demands different structural choices — a podcast needs verbal signposting ("next, let\'s look at…") that a printed heading does silently.',
+        'The same content can be reshaped for print, audio or video, and each mode demands different structural choices, a podcast needs verbal signposting ("next, let\'s look at…") that a printed heading does silently.',
         'Analysing across modes means asking how the same purpose gets achieved through totally different structural tools.',
       ],
       illustrations: [
@@ -518,7 +518,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y8-ENG-LY03-q2', type: 'mcq', prompt: 'Adapting the same content across print, audio and video mainly changes…', options: ['The structural tools used to achieve the same purpose', 'The core purpose itself, always', 'Nothing meaningful'], answer: 'The structural tools used to achieve the same purpose', difficulty: 2 },
         { id: 'Y8-ENG-LY03-q3', type: 'mcq', prompt: 'A video documentary can use visual cues that a printed article cannot, such as…', options: ['Camera framing and on-screen text', 'Headings and paragraphs', 'Page numbers'], answer: 'Camera framing and on-screen text', difficulty: 2 },
         { id: 'Y8-ENG-LY03-q4', type: 'mcq', prompt: 'Analysing structure across modes means asking…', options: ['How does this mode achieve its purpose with its own tools?', 'Which mode is always superior?', 'What is the file size?'], answer: 'How does this mode achieve its purpose with its own tools?', difficulty: 2 },
-        { id: 'Y8-ENG-LY03-q5', type: 'mcq', prompt: 'A printed report uses headings; a spoken presentation achieves the same organising function with…', options: ['Verbal transitions and signposting phrases', 'Nothing at all — spoken texts have no structure', 'Only silence'], answer: 'Verbal transitions and signposting phrases', difficulty: 2 },
+        { id: 'Y8-ENG-LY03-q5', type: 'mcq', prompt: 'A printed report uses headings; a spoken presentation achieves the same organising function with…', options: ['Verbal transitions and signposting phrases', 'Nothing at all, spoken texts have no structure', 'Only silence'], answer: 'Verbal transitions and signposting phrases', difficulty: 2 },
         { id: 'Y8-ENG-LY03-q6', type: 'mcq', prompt: 'Language features (like word choice and tone) adapted for a mode should still…', options: ['Serve the text\'s overall purpose and audience', 'Ignore the audience completely', 'Remain unchanged regardless of mode'], answer: "Serve the text's overall purpose and audience", difficulty: 2 },
       ],
     },
@@ -533,7 +533,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'As texts get denser — a research article, a classic novel with archaic language — good readers slow down, break long sentences into chunks, and use context clues before reaching for a dictionary.',
+        'As texts get denser, a research article, a classic novel with archaic language, good readers slow down, break long sentences into chunks, and use context clues before reaching for a dictionary.',
         'Selecting the right strategy for a complex text also means knowing when to reread, when to look something up, and when to keep reading and let meaning emerge later.',
       ],
       illustrations: [
@@ -555,7 +555,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y8-ENG-LY05',
-    title: 'Comprehension — synthesising across texts',
+    title: 'Comprehension, synthesising across texts',
     year: '8',
     subject: 'english',
     strand: 'Literacy',
@@ -563,7 +563,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Synthesising means combining information from several sources into one coherent understanding — not just listing what each text says separately.',
+        'Synthesising means combining information from several sources into one coherent understanding, not just listing what each text says separately.',
         'Two sources might disagree; noticing and explaining that disagreement is itself part of building a fuller, more critical understanding of a topic.',
       ],
       illustrations: [
@@ -593,8 +593,8 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'Editing is more than fixing typos — it means checking whether every paragraph still serves the text\'s stated purpose and cutting anything that does not.',
-        'A useful editing pass asks one question per read-through: first structure, then language choices, then punctuation and spelling — trying to fix everything at once usually misses things.',
+        'Editing is more than fixing typos, it means checking whether every paragraph still serves the text\'s stated purpose and cutting anything that does not.',
+        'A useful editing pass asks one question per read-through: first structure, then language choices, then punctuation and spelling, trying to fix everything at once usually misses things.',
       ],
       illustrations: [
         { brief: 'Three separate editing passes: structure, language, then punctuation', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Pass 1: structure & purpose' }, { text: 'Pass 2: language & tone' }, { text: 'Pass 3: punctuation & spelling' }] } },
@@ -607,7 +607,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y8-ENG-LY06-q1', type: 'mcq', prompt: 'Editing for structure mainly checks whether…', options: ['Every paragraph serves the text\'s purpose', 'Every word is spelled correctly', 'The font is consistent'], answer: "Every paragraph serves the text's purpose", difficulty: 1 },
         { id: 'Y8-ENG-LY06-q2', type: 'mcq', prompt: 'Doing separate editing passes (structure, then language, then punctuation) mainly helps because…', options: ['Trying to fix everything at once misses things', 'It is required by law', 'It makes editing slower with no benefit'], answer: 'Trying to fix everything at once misses things', difficulty: 2 },
         { id: 'Y8-ENG-LY06-q3', type: 'mcq', prompt: 'A paragraph that no longer serves a text\'s purpose during editing should usually be…', options: ['Cut or revised', 'Left unchanged regardless', 'Made longer automatically'], answer: 'Cut or revised', difficulty: 2 },
-        { id: 'Y8-ENG-LY06-q4', type: 'mcq', prompt: 'Editing is best understood as…', options: ['More than fixing typos — reshaping for purpose', 'Only correcting spelling mistakes', 'Optional and rarely useful'], answer: 'More than fixing typos — reshaping for purpose', difficulty: 2 },
+        { id: 'Y8-ENG-LY06-q4', type: 'mcq', prompt: 'Editing is best understood as…', options: ['More than fixing typos, reshaping for purpose', 'Only correcting spelling mistakes', 'Optional and rarely useful'], answer: 'More than fixing typos, reshaping for purpose', difficulty: 2 },
         { id: 'Y8-ENG-LY06-q5', type: 'mcq', prompt: 'Drafting comes before editing because…', options: ['You need a full draft before deciding what to refine', 'Editing always happens first', 'Drafting and editing are the same step'], answer: 'You need a full draft before deciding what to refine', difficulty: 2 },
         { id: 'Y8-ENG-LY06-q6', type: 'mcq', prompt: 'Checking punctuation and spelling is usually best left until…', options: ['After structure and language have been revised', 'Before any drafting begins', 'It should never be checked'], answer: 'After structure and language have been revised', difficulty: 2 },
       ],
@@ -623,7 +623,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A strong spoken presentation deploys rhetorical choices deliberately — a rule-of-three list for impact, a pause before the key statistic, a rhetorical question to open.',
+        'A strong spoken presentation deploys rhetorical choices deliberately, a rule-of-three list for impact, a pause before the key statistic, a rhetorical question to open.',
         'Structural choices matter too: opening with a striking fact, then building the case, then closing with a memorable call to action gives a talk a shape the audience can follow.',
       ],
       illustrations: [
@@ -645,7 +645,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y8-ENG-LY08',
-    title: 'Word knowledge — morphology & etymology for spelling',
+    title: 'Word knowledge, morphology & etymology for spelling',
     year: '8',
     subject: 'english',
     strand: 'Literacy',
@@ -654,7 +654,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Knowing that "-tion" turns a verb into a noun (act → action, create → creation) lets you spell and use a whole family of related words with confidence.',
-        'Etymology can also explain "odd" spellings — "psychology" keeps its silent "p" because it comes from the Greek "psyche" (mind/soul).',
+        'Etymology can also explain "odd" spellings, "psychology" keeps its silent "p" because it comes from the Greek "psyche" (mind/soul).',
       ],
       illustrations: [
         { brief: 'A word family tree built from one root with different suffixes', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'sprout', label: 'act (root)' }, { icon: 'box', label: 'action, active, actor' }], caption: 'One root, a whole word family' } },
@@ -683,7 +683,7 @@ export const YEAR8_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'As subjects get more advanced, so does their vocabulary — "hypothesis" in science, "coefficient" in maths, "perspective" in art — each term carries precise meaning that a vague substitute cannot.',
+        'As subjects get more advanced, so does their vocabulary, "hypothesis" in science, "coefficient" in maths, "perspective" in art, each term carries precise meaning that a vague substitute cannot.',
         'A strong technical vocabulary lets you read advanced texts confidently and express complex ideas concisely instead of circling around them in plain words.',
       ],
       illustrations: [

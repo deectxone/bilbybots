@@ -1,11 +1,11 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 7 English — full topic bank.
+ * Year 7 English, full topic bank.
  * Source of truth for scope: docs/content/year-7-10/english.md (AC v9.0,
  * strands Language/Literature/Literacy). Every topic carries its AC9E7xxx
  * content-description code (docs/specs/curriculum-research.md §4: cite
- * codes, author original lessons — never bulk-copy syllabus text).
+ * codes, author original lessons, never bulk-copy syllabus text).
  * Each assignment carries 6 questions (nominal pace) / 4 (compact pace),
  * per docs/specs/adaptive-pacing.md's depth-compression model.
  */
@@ -13,7 +13,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   // ---------- Language (9 CDs) ----------
   {
     id: 'Y7-ENG-LA01',
-    title: 'Language variation — dialect, register & jargon',
+    title: 'Language variation, dialect, register & jargon',
     year: '7',
     subject: 'english',
     strand: 'Language',
@@ -21,7 +21,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Every group of English speakers has its own flavour of the language — Aussie slang with a mate, careful courtroom English, a surfer\'s jargon, a Scottish dialect. None of these is "wrong" English; each is a variety suited to its speakers and situation.',
+        'Every group of English speakers has its own flavour of the language, Aussie slang with a mate, careful courtroom English, a surfer\'s jargon, a Scottish dialect. None of these is "wrong" English; each is a variety suited to its speakers and situation.',
         'Register is how formal or casual your language is right now; dialect is tied to where you are from or which community you belong to. Skilled speakers slide between registers on purpose.',
       ],
       illustrations: [
@@ -51,7 +51,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Persuasive writers choose evaluative words on purpose — "outstanding" instead of "good", "disastrous" instead of "bad" — to push you toward their opinion without seeming to argue at all.',
+        'Persuasive writers choose evaluative words on purpose, "outstanding" instead of "good", "disastrous" instead of "bad", to push you toward their opinion without seeming to argue at all.',
         'Spotting evaluative language is the first step to reading critically: ask whether a word is describing a fact or nudging your judgement.',
       ],
       illustrations: [
@@ -81,11 +81,11 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'As texts get more sophisticated, their "skeletons" get more varied — a feature article might blend narrative and fact, a blog post might mix opinion with instructions.',
+        'As texts get more sophisticated, their "skeletons" get more varied, a feature article might blend narrative and fact, a blog post might mix opinion with instructions.',
         'Recognising a hybrid structure helps you predict what is coming and judge whether the author is informing, persuading, or entertaining you (often more than one at once).',
       ],
       illustrations: [
-        { brief: 'A flowchart of a hybrid feature-article structure', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Hook — a personal anecdote' }, { text: 'Facts & evidence' }, { text: 'Expert quote' }, { text: 'Call to reflect' }] } },
+        { brief: 'A flowchart of a hybrid feature-article structure', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Hook, a personal anecdote' }, { text: 'Facts & evidence' }, { text: 'Expert quote' }, { text: 'Call to reflect' }] } },
       ],
     },
     assignment: {
@@ -103,7 +103,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-ENG-LA04',
-    title: 'Cohesion — paragraphing & cohesive devices',
+    title: 'Cohesion, paragraphing & cohesive devices',
     year: '7',
     subject: 'english',
     strand: 'Language',
@@ -111,7 +111,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A strong paragraph opens with a topic sentence that names its main idea, then every other sentence supports it — like spokes pointing back to a wheel\'s hub.',
+        'A strong paragraph opens with a topic sentence that names its main idea, then every other sentence supports it, like spokes pointing back to a wheel\'s hub.',
         'Cohesive devices (however, therefore, this shows, as a result) act as signposts, telling the reader exactly how one idea connects to the next.',
       ],
       illustrations: [
@@ -133,7 +133,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-ENG-LA05',
-    title: 'Clause combining — compound & complex sentences',
+    title: 'Clause combining, compound & complex sentences',
     year: '7',
     subject: 'english',
     strand: 'Language',
@@ -141,8 +141,8 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'Two equal ideas joined by "and", "but" or "or" make a compound sentence — both halves could stand alone. A complex sentence instead joins a main idea to a dependent one using words like "because", "although" or "when".',
-        'Choosing compound versus complex changes the relationship you signal between ideas — equal partners, or one idea leaning on another.',
+        'Two equal ideas joined by "and", "but" or "or" make a compound sentence, both halves could stand alone. A complex sentence instead joins a main idea to a dependent one using words like "because", "although" or "when".',
+        'Choosing compound versus complex changes the relationship you signal between ideas, equal partners, or one idea leaning on another.',
       ],
       illustrations: [
         { brief: 'Two sentence-building blocks: equal halves joined vs a leaning dependent clause', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'link', label: 'Compound: equal + equal' }, { icon: 'triangle-shape', label: 'Complex: main + dependent' }], caption: 'Two ways to combine clauses' } },
@@ -163,7 +163,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-ENG-LA06',
-    title: 'Modality — showing certainty & obligation',
+    title: 'Modality, showing certainty & obligation',
     year: '7',
     subject: 'english',
     strand: 'Language',
@@ -172,7 +172,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Modal words let you dial certainty up or down: "it will rain" sounds sure, "it might rain" hedges, "it must rain eventually" claims necessity. Modal verbs (can, might, must, should) and adverbs (certainly, possibly) both do this job.',
-        'Writers choose modality carefully — a scientist says "the data suggests", not "the data proves", to stay honest about how sure they really are.',
+        'Writers choose modality carefully, a scientist says "the data suggests", not "the data proves", to stay honest about how sure they really are.',
       ],
       illustrations: [
         { brief: 'A certainty scale from impossible to certain marked with modal words', ready: true, diagram: { kind: 'probability-scale', markers: [{ value: 0.2, label: 'might' }, { value: 0.6, label: 'should' }, { value: 0.95, label: 'must' }] } },
@@ -201,7 +201,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Layout, font size, colour and image placement are not decoration — a huge red headline screams urgency, a clean grid of white space feels calm and trustworthy.',
+        'Layout, font size, colour and image placement are not decoration, a huge red headline screams urgency, a clean grid of white space feels calm and trustworthy.',
         'Multimodal texts (webpages, posters, video) combine words, images and sound so that each mode adds something the others cannot do alone.',
       ],
       illustrations: [
@@ -223,7 +223,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-ENG-LA08',
-    title: 'Figurative language — extended metaphor & symbolism',
+    title: 'Figurative language, extended metaphor & symbolism',
     year: '7',
     subject: 'english',
     strand: 'Language',
@@ -231,8 +231,8 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'An extended metaphor keeps developing one comparison across several sentences or a whole poem — "life is a journey" might return again and again as roads, maps and detours.',
-        'A symbol is an object standing for a bigger idea — a dove for peace, a storm for inner turmoil. Writers plant symbols to say more than their literal words state.',
+        'An extended metaphor keeps developing one comparison across several sentences or a whole poem, "life is a journey" might return again and again as roads, maps and detours.',
+        'A symbol is an object standing for a bigger idea, a dove for peace, a storm for inner turmoil. Writers plant symbols to say more than their literal words state.',
       ],
       illustrations: [
         { brief: 'A journey-as-life extended metaphor traced across a winding road', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'map', label: '"a winding road"' }, { icon: 'flag', label: '"a fork ahead"' }, { icon: 'suitcase', label: '"packing regrets"' }], caption: 'One metaphor developed across a text' } },
@@ -253,7 +253,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-ENG-LA09',
-    title: 'Punctuation for clarity & effect — semicolon, colon & dash',
+    title: 'Punctuation for clarity & effect, semicolon, colon & dash',
     year: '7',
     subject: 'english',
     strand: 'Language',
@@ -262,7 +262,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A semicolon joins two closely related independent sentences without "and" (The storm hit; the town went dark). A colon introduces a list or explanation (She packed one thing: her diary). A dash creates a dramatic pause or interruption.',
-        'Each mark creates a slightly different rhythm and emphasis — choosing between them is a craft decision, not just a rule to follow.',
+        'Each mark creates a slightly different rhythm and emphasis, choosing between them is a craft decision, not just a rule to follow.',
       ],
       illustrations: [
         { brief: 'Three punctuation marks shown with their distinct jobs', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'link', label: 'Semicolon: joins related ideas' }, { icon: 'arrow-right', label: 'Colon: introduces a list' }, { icon: 'burst', label: 'Dash: dramatic pause' }], caption: 'Advanced punctuation, different jobs' } },
@@ -292,7 +292,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Stories carry the fingerprints of when and where they were made — a novel written by a First Nations Australian author, or one from another country and era, reflects real historical and cultural experience.',
+        'Stories carry the fingerprints of when and where they were made, a novel written by a First Nations Australian author, or one from another country and era, reflects real historical and cultural experience.',
         'Reading widely across contexts builds empathy: you start to see how a character\'s world shapes their choices in ways your own world might not.',
       ],
       illustrations: [
@@ -322,7 +322,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The same theme — say, courage — can appear in a poem, a short story and a film, each shaping it differently through the tools available to that form.',
+        'The same theme, say, courage, can appear in a poem, a short story and a film, each shaping it differently through the tools available to that form.',
         'Comparing forms sharpens your sense of craft: a poem might compress courage into one striking image, while a film shows it through actors\' expressions and music.',
       ],
       illustrations: [
@@ -344,7 +344,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-ENG-LE03',
-    title: "An author's craft — structure & language choices",
+    title: "An author's craft, structure & language choices",
     year: '7',
     subject: 'english',
     strand: 'Literature',
@@ -352,7 +352,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Authors make deliberate choices — starting mid-action, withholding a character\'s name, using short sentences in a tense scene — and each choice shapes how we feel and what we understand.',
+        'Authors make deliberate choices, starting mid-action, withholding a character\'s name, using short sentences in a tense scene, and each choice shapes how we feel and what we understand.',
         'Asking "why did the author choose this?" turns reading into detective work: every structural and language decision is a clue to meaning.',
       ],
       illustrations: [
@@ -374,7 +374,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-ENG-LE04',
-    title: 'Poetic techniques — form & sound',
+    title: 'Poetic techniques, form & sound',
     year: '7',
     subject: 'english',
     strand: 'Literature',
@@ -382,7 +382,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'A poem\'s form (free verse, sonnet, ballad) is a container that shapes meaning — a strict rhyme scheme can feel playful or trap a speaker\'s emotion inside rigid lines.',
+        'A poem\'s form (free verse, sonnet, ballad) is a container that shapes meaning, a strict rhyme scheme can feel playful or trap a speaker\'s emotion inside rigid lines.',
         'Sound devices (assonance, consonance, rhythm) work alongside imagery so a poem is felt in the mouth and ear, not just understood in the mind.',
       ],
       illustrations: [
@@ -404,7 +404,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-ENG-LE05',
-    title: 'Creating literary texts — experimenting with viewpoint',
+    title: 'Creating literary texts, experimenting with viewpoint',
     year: '7',
     subject: 'english',
     strand: 'Literature',
@@ -413,7 +413,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 14,
       body: [
         'Point of view is a lens: first person ("I") puts the reader inside one mind, third person can zoom out to show everything, second person ("you") pulls the reader into the action directly.',
-        'Rewriting a familiar scene from a new viewpoint — or trying a literary device you have never used — is a powerful way to discover what point of view can do.',
+        'Rewriting a familiar scene from a new viewpoint, or trying a literary device you have never used, is a powerful way to discover what point of view can do.',
       ],
       illustrations: [
         { brief: 'A camera lens metaphor for first, second and third person viewpoints', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Choose a scene' }, { text: 'Try first, second and third person' }, { text: 'Compare the effect on the reader' }, { text: 'Select and refine' }] } },
@@ -443,8 +443,8 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Every text represents its subject in a particular way — a news photo choosing an angle, a documentary choosing which voices to include. Representation is never neutral; it is always a choice.',
-        'Ask who is shown, who is left out, and what impression that creates — the gaps in a text can matter as much as what is included.',
+        'Every text represents its subject in a particular way, a news photo choosing an angle, a documentary choosing which voices to include. Representation is never neutral; it is always a choice.',
+        'Ask who is shown, who is left out, and what impression that creates, the gaps in a text can matter as much as what is included.',
       ],
       illustrations: [
         { brief: 'A camera frame showing what is included vs cropped out of a scene', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'picture-frame', label: 'What\'s shown' }, { icon: 'magnifier', label: 'What\'s left out' }], caption: 'Representation is always a choice' } },
@@ -473,7 +473,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Building on others\' ideas in a discussion means genuinely listening, then extending or respectfully challenging what was said — "building on what Sam said, I\'d also add…"',
+        'Building on others\' ideas in a discussion means genuinely listening, then extending or respectfully challenging what was said, "building on what Sam said, I\'d also add…"',
         'Good group discussion is a shared construction, not a competition to speak the most; the best contributions connect to what came before.',
       ],
       illustrations: [
@@ -503,7 +503,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A text\'s structure (its stages) and its language features (word choices, sentence patterns) are a team — a persuasive speech structures reasons in a build-up, and its language leans on rhetorical questions to match.',
+        'A text\'s structure (its stages) and its language features (word choices, sentence patterns) are a team, a persuasive speech structures reasons in a build-up, and its language leans on rhetorical questions to match.',
         'Analysing purpose means checking whether structure and language pull in the same direction for the intended audience.',
       ],
       illustrations: [
@@ -525,7 +525,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-ENG-LY04',
-    title: 'Reading strategy — navigating a range of texts',
+    title: 'Reading strategy, navigating a range of texts',
     year: '7',
     subject: 'english',
     strand: 'Literacy',
@@ -533,7 +533,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Different purposes call for different reading strategies — skim a webpage to see if it is useful, scan a textbook index for one fact, then read closely once you find the right source.',
+        'Different purposes call for different reading strategies, skim a webpage to see if it is useful, scan a textbook index for one fact, then read closely once you find the right source.',
         'Efficient readers do not read everything at the same speed; they match their strategy to what they actually need.',
       ],
       illustrations: [
@@ -555,7 +555,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-ENG-LY05',
-    title: 'Comprehension strategies — monitoring & inferring',
+    title: 'Comprehension strategies, monitoring & inferring',
     year: '7',
     subject: 'english',
     strand: 'Literacy',
@@ -563,7 +563,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Monitoring your comprehension means noticing when meaning breaks down — "wait, that doesn\'t make sense" — and pausing to re-read, look up a word, or ask a question.',
+        'Monitoring your comprehension means noticing when meaning breaks down, "wait, that doesn\'t make sense", and pausing to re-read, look up a word, or ask a question.',
         'Inferring builds on clues the text gives without spelling everything out; strong readers combine what the text says with what they already know.',
       ],
       illustrations: [
@@ -593,7 +593,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'A persuasive text is built, not just written — plan your strongest reasons, draft an argument that builds toward them, then revise for evaluative language and cohesive devices.',
+        'A persuasive text is built, not just written, plan your strongest reasons, draft an argument that builds toward them, then revise for evaluative language and cohesive devices.',
         'Publishing is the final polish: check that structure, language and evidence all point toward convincing your intended audience.',
       ],
       illustrations: [
@@ -623,7 +623,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A spoken presentation needs the same planning as writing, plus performance choices — pitch, tone, pace, volume and eye contact all shape how convincing you sound.',
+        'A spoken presentation needs the same planning as writing, plus performance choices, pitch, tone, pace, volume and eye contact all shape how convincing you sound.',
         'Rehearsing aloud (not just reading silently) is the only way to catch awkward phrasing and build genuine confidence before the real delivery.',
       ],
       illustrations: [
@@ -636,7 +636,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
       questions: [
         { id: 'Y7-ENG-LY07-q1', type: 'mcq', prompt: 'Rehearsing a speech aloud (not just reading it silently) mainly helps a speaker…', options: ['Catch awkward phrasing and build confidence', 'Memorise the audience\'s names', 'Avoid needing any structure'], answer: 'Catch awkward phrasing and build confidence', difficulty: 1 },
         { id: 'Y7-ENG-LY07-q2', type: 'mcq', prompt: 'Eye contact during a presentation mainly helps…', options: ['Engage and connect with the audience', 'Speed up the talk', 'Replace slides entirely'], answer: 'Engage and connect with the audience', difficulty: 1 },
-        { id: 'Y7-ENG-LY07-q3', type: 'mcq', prompt: 'Varying pace during a speech — slowing for a key point — mainly helps…', options: ['Emphasise the most important idea', 'Confuse the audience', 'Shorten the speech automatically'], answer: 'Emphasise the most important idea', difficulty: 2 },
+        { id: 'Y7-ENG-LY07-q3', type: 'mcq', prompt: 'Varying pace during a speech, slowing for a key point, mainly helps…', options: ['Emphasise the most important idea', 'Confuse the audience', 'Shorten the speech automatically'], answer: 'Emphasise the most important idea', difficulty: 2 },
         { id: 'Y7-ENG-LY07-q4', type: 'mcq', prompt: 'A spoken presentation requires planning similar to writing, plus…', options: ['Performance choices like pitch and pace', 'No planning at all', 'Only visual slides'], answer: 'Performance choices like pitch and pace', difficulty: 2 },
         { id: 'Y7-ENG-LY07-q5', type: 'mcq', prompt: 'Speaking in a flat, unchanging tone throughout a speech tends to…', options: ['Lose audience engagement', 'Increase excitement', 'Improve clarity automatically'], answer: 'Lose audience engagement', difficulty: 2 },
         { id: 'Y7-ENG-LY07-q6', type: 'mcq', prompt: 'Feedback after a rehearsal is most useful for…', options: ['Refining delivery before the real presentation', 'Replacing the need to present at all', 'Choosing a new topic'], answer: 'Refining delivery before the real presentation', difficulty: 2 },
@@ -645,7 +645,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-ENG-LY08',
-    title: 'Word knowledge — morphemes & etymology',
+    title: 'Word knowledge, morphemes & etymology',
     year: '7',
     subject: 'english',
     strand: 'Literacy',
@@ -653,8 +653,8 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A morpheme is the smallest unit of meaning in a word — "unbreakable" splits into un- (not) + break (base) + -able (can be done). Knowing morphemes lets you decode words you have never seen.',
-        'Etymology traces a word\'s history — many English words travelled from Latin, Greek, French or other languages, and their origin often hints at their meaning.',
+        'A morpheme is the smallest unit of meaning in a word, "unbreakable" splits into un- (not) + break (base) + -able (can be done). Knowing morphemes lets you decode words you have never seen.',
+        'Etymology traces a word\'s history, many English words travelled from Latin, Greek, French or other languages, and their origin often hints at their meaning.',
       ],
       illustrations: [
         { brief: 'A word broken into morpheme building blocks', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'box', label: 'un-' }, { icon: 'box', label: 'break' }, { icon: 'box', label: '-able' }], caption: 'Morphemes: the smallest units of meaning' } },
@@ -683,7 +683,7 @@ export const YEAR7_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Every subject has its own precise vocabulary — "photosynthesis" in science, "variable" in maths, "colonisation" in history — and using the exact term shows real understanding, not a vague approximation.',
+        'Every subject has its own precise vocabulary, "photosynthesis" in science, "variable" in maths, "colonisation" in history, and using the exact term shows real understanding, not a vague approximation.',
         'Building technical vocabulary means noticing new terms, checking their precise meaning, and practising using them correctly in your own sentences.',
       ],
       illustrations: [

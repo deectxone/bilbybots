@@ -5,7 +5,7 @@ import * as SecureStore from 'expo-secure-store';
 import type { Session } from '@supabase/supabase-js';
 
 /**
- * Supabase client (Google OAuth via Supabase's auth providers — see
+ * Supabase client (Google OAuth via Supabase's auth providers, see
  * docs/specs/auth-setup.md for the one-time setup).
  *
  * Tokens are persisted:
@@ -58,7 +58,7 @@ const secureStorage = {
 };
 
 /** Configured Supabase client, or null when env vars aren't set yet.
- *  Must NOT call createClient() with empty strings — supabase-js throws
+ *  Must NOT call createClient() with empty strings, supabase-js throws
  *  "supabaseUrl is required" at module load, which blanks the whole app. */
 export const supabase: SupabaseClient | null = isAuthConfigured
   ? createClient(supabaseUrl, supabaseAnonKey, {

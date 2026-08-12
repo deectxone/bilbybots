@@ -1,14 +1,14 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 2 Science — full topic bank.
+ * Year 2 Science, full topic bank.
  * Source of truth: docs/content/year-1-5/science.md (AC v9.0; strands Science
  * Understanding / Human Endeavour / Inquiry).
  * Y1–2 share the H01 + I01–I06 band content descriptions; U01–U03 are
  * Year-2-specific. Every topic renders real vector diagrams (see
  * src/components/illustrations/diagrams.tsx) and ships 6 assignment questions
  * at nominal pace / 4 under compact pace.
- * U01 references First Nations seasonal sky knowledge as general facts only —
+ * U01 references First Nations seasonal sky knowledge as general facts only,
  * no sensitivity flag (per docs/content/year-1-5/science.md).
  */
 export const YEAR2_SCIENCE_TOPICS: Topic[] = [
@@ -24,8 +24,8 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Earth is a planet that travels around the Sun, and together they are part of our solar system.',
-        'Watch the sky across a day and you will spot the pattern: the Sun rises, crosses the sky and sets — then the Moon and stars appear for the night.',
-        'Some First Nations Australians have read the night sky for tens of thousands of years, watching special stars to know when the seasons change — that is clever science too!',
+        'Watch the sky across a day and you will spot the pattern: the Sun rises, crosses the sky and sets, then the Moon and stars appear for the night.',
+        'Some First Nations Australians have read the night sky for tens of thousands of years, watching special stars to know when the seasons change, that is clever science too!',
       ],
       illustrations: [
         { brief: 'The Sun, Earth and orbiting Moon showing Earth as a planet in the solar system', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'sun', label: 'Sun' }, { icon: 'globe', label: 'Earth' }, { icon: 'orbit', label: 'Moon orbits' }], caption: 'Earth is a planet in our solar system' } },
@@ -55,7 +55,7 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Lots of actions make sounds — clapping, drumming, plucking a rubber band — and every sound starts with something vibrating (shaking very fast).',
+        'Lots of actions make sounds, clapping, drumming, plucking a rubber band, and every sound starts with something vibrating (shaking very fast).',
         'Pluck a rubber band and hold it still: once it stops vibrating, the sound stops too!',
         'Sounds can be loud or soft and high or low, and your ears are the clever detectors that catch them all.',
       ],
@@ -87,9 +87,9 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'You can change how materials look and feel by bending, twisting, stretching or breaking them — but the material itself stays the same.',
+        'You can change how materials look and feel by bending, twisting, stretching or breaking them, but the material itself stays the same.',
         'A paper clip you bend is still a paper clip; stretch a rubber band and it is still a rubber band.',
-        'Some changes can be undone — straighten the paper clip and it is a paper clip again — while breaking is usually much harder to fix.',
+        'Some changes can be undone, straighten the paper clip and it is a paper clip again, while breaking is usually much harder to fix.',
       ],
       illustrations: [
         { brief: 'A bent paper clip, a stretched rubber band and shaped clay', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'bolt', label: 'Bent' }, { icon: 'triangle-shape', label: 'Stretched' }, { icon: 'cube', label: 'Shaped' }], caption: 'Bending, twisting and stretching changes the shape, not the material' } },
@@ -120,9 +120,9 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Science is all around you every day — cooking pancakes, packing your lunchbox, or checking the weather before you go out.',
+        'Science is all around you every day, cooking pancakes, packing your lunchbox, or checking the weather before you go out.',
         'People use patterns to make clever predictions: seeing dark clouds, you predict rain and grab an umbrella.',
-        'Noticing patterns and making predictions is a superpower — the exact same trick scientists use!',
+        'Noticing patterns and making predictions is a superpower, the exact same trick scientists use!',
       ],
       illustrations: [
         { brief: 'Everyday scenes: home, cooking, weather and cleaning', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'house', label: 'Home' }, { icon: 'bowl', label: 'Cooking' }, { icon: 'sun', label: 'Weather' }, { icon: 'bottle', label: 'Cleaning' }], caption: 'Science is part of everyday life' } },
@@ -153,9 +153,9 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Scientists start with questions — like "Does a plant grow taller with more sunlight?" — then make a prediction, a smart guess of what they think will happen.',
+        'Scientists start with questions, like "Does a plant grow taller with more sunlight?", then make a prediction, a smart guess of what they think will happen.',
         'Good questions are ones you can test, and good predictions are based on what you already know.',
-        'Predictions do not have to be right every time — testing them is how you learn something new!',
+        'Predictions do not have to be right every time, testing them is how you learn something new!',
       ],
       illustrations: [
         { brief: 'Flowchart of a full investigation: question, prediction, test, learn', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Ask a question' }, { text: 'Make a prediction' }, { text: 'Test it out' }, { text: 'Learn something new' }] } },
@@ -169,7 +169,7 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
         { id: 'Y2-SCI-I01-q1', type: 'mcq', prompt: 'Which question can you test?', options: ['Will a seed grow if it gets water and sun?', 'What is your favourite colour?', 'How old is the sky?'], answer: 'Will a seed grow if it gets water and sun?', difficulty: 1 },
         { id: 'Y2-SCI-I01-q2', type: 'mcq', prompt: 'A prediction is…', options: ['a smart guess about what might happen', 'a fact you already know for sure', 'a kind of food'], answer: 'a smart guess about what might happen', difficulty: 1 },
         { id: 'Y2-SCI-I01-q3', type: 'mcq', prompt: 'You think "the plant will grow 5 cm in a week". That is a…', options: ['prediction', 'question', 'conclusion'], answer: 'prediction', difficulty: 2 },
-        { id: 'Y2-SCI-I01-q4', type: 'short', prompt: 'A scientist wants to learn about plants. What does she start with — a question or a report?', answer: 'a question', difficulty: 1 },
+        { id: 'Y2-SCI-I01-q4', type: 'short', prompt: 'A scientist wants to learn about plants. What does she start with, a question or a report?', answer: 'a question', difficulty: 1 },
         { id: 'Y2-SCI-I01-q5', type: 'mcq', prompt: 'A good prediction is based on…', options: ['what you already know', 'a random guess', 'your favourite colour'], answer: 'what you already know', difficulty: 2 },
         { id: 'Y2-SCI-I01-q6', type: 'mcq', prompt: 'If your prediction turns out wrong, you should…', options: ['learn from it and try again', 'give up', 'hide it'], answer: 'learn from it and try again', difficulty: 2 },
       ],
@@ -186,7 +186,7 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 8,
       body: [
         'Before any investigation, stop and plan: read the steps, get the right materials and listen to your teacher.',
-        'Some materials need extra care — hot water, sharp tools or things you must never taste — so always follow the safety rules.',
+        'Some materials need extra care, hot water, sharp tools or things you must never taste, so always follow the safety rules.',
         'Working safely means you can explore and discover, and everyone stays happy and unhurt.',
       ],
       illustrations: [
@@ -217,7 +217,7 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Observing means looking, listening, smelling and touching carefully — like noticing a plant growing a little taller each day.',
+        'Observing means looking, listening, smelling and touching carefully, like noticing a plant growing a little taller each day.',
         'Recording means writing or drawing what you see, or measuring it with tools like a ruler or a thermometer.',
         'You can even use digital tools, like a phone camera or a digital thermometer, to capture observations exactly as they happen.',
       ],
@@ -249,7 +249,7 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Sorting is putting things into groups — like sorting shells into big and small, or leaves by colour.',
+        'Sorting is putting things into groups, like sorting shells into big and small, or leaves by colour.',
         'When you sort observations into a table or a graph, patterns pop out: maybe more birds visited on rainy days than sunny days.',
         'Patterns help you describe what happened and predict what might happen next.',
       ],
@@ -267,7 +267,7 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
         { id: 'Y2-SCI-I04-q3', type: 'short', prompt: 'In the bar chart, which day had the fewest birds?', answer: 'Mon', difficulty: 2 },
         { id: 'Y2-SCI-I04-q4', type: 'mcq', prompt: 'A pattern in your data helps you…', options: ['describe what happened and predict next', 'hide the data', 'stop observing'], answer: 'describe what happened and predict next', difficulty: 2 },
         { id: 'Y2-SCI-I04-q5', type: 'mcq', prompt: 'Putting leaves into piles by colour is a way of…', options: ['sorting and organising data', 'mixing everything', 'throwing them away'], answer: 'sorting and organising data', difficulty: 1 },
-        { id: 'Y2-SCI-I04-q6', type: 'short', prompt: 'What can you spot more easily after sorting data — a pattern or a secret?', answer: 'a pattern', difficulty: 1 },
+        { id: 'Y2-SCI-I04-q6', type: 'short', prompt: 'What can you spot more easily after sorting data, a pattern or a secret?', answer: 'a pattern', difficulty: 1 },
       ],
     },
   },
@@ -281,7 +281,7 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'After you test a prediction, compare it with what really happened — did the plant grow the 5 cm you predicted, or more?',
+        'After you test a prediction, compare it with what really happened, did the plant grow the 5 cm you predicted, or more?',
         'Your prediction and your observation can match or be different, and either way you have learned something.',
         'Sometimes it helps to look at what a classmate observed too, and to think of a new question to test next.',
       ],
@@ -313,7 +313,7 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Sharing your observations is the last big step — you can tell a friend, draw a picture, or make a little poster.',
+        'Sharing your observations is the last big step, you can tell a friend, draw a picture, or make a little poster.',
         'Use clear words like "the leaf was green and 12 cm long" so others can picture exactly what you saw.',
         'A good report tells the question, what you did, what you saw, and what you think it means.',
       ],
@@ -328,7 +328,7 @@ export const YEAR2_SCIENCE_TOPICS: Topic[] = [
       questions: [
         { id: 'Y2-SCI-I06-q1', type: 'mcq', prompt: 'Sharing your observations with others is called…', options: ['communicating', 'hiding', 'sleeping'], answer: 'communicating', difficulty: 1 },
         { id: 'Y2-SCI-I06-q2', type: 'mcq', prompt: 'Which words are clearest for a report?', options: ['"The leaf was green and 12 cm long"', '"It was kind of a thing"', '"You had to be there"'], answer: '"The leaf was green and 12 cm long"', difficulty: 2 },
-        { id: 'Y2-SCI-I06-q3', type: 'short', prompt: 'What should a good report always tell first — the question or the answer?', answer: 'the question', difficulty: 2 },
+        { id: 'Y2-SCI-I06-q3', type: 'short', prompt: 'What should a good report always tell first, the question or the answer?', answer: 'the question', difficulty: 2 },
         { id: 'Y2-SCI-I06-q4', type: 'mcq', prompt: 'A good word for "what you saw and measured" in a report is…', options: ['observation', 'secret', 'snack'], answer: 'observation', difficulty: 2 },
         { id: 'Y2-SCI-I06-q5', type: 'mcq', prompt: 'Drawing a picture of what you saw is a way to…', options: ['communicate your observation', 'waste time', 'avoid science'], answer: 'communicate your observation', difficulty: 1 },
         { id: 'Y2-SCI-I06-q6', type: 'short', prompt: 'Name one way to share your observations with others.', answer: 'a poster', difficulty: 1 },

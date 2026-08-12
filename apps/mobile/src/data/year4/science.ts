@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 4 Science — full topic bank.
+ * Year 4 Science, full topic bank.
  * Source of truth for scope: docs/content/year-1-5/science.md (AC v9.0).
  * Strands: Science understanding (AC9S4U01–04), Science as a human endeavour
  * (AC9S4H01–02), Science inquiry (AC9S4I01–06). Every topic carries its
@@ -22,9 +22,9 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Every habitat is packed with living things that depend on each other for food — and a food chain shows exactly who eats who!',
+        'Every habitat is packed with living things that depend on each other for food, and a food chain shows exactly who eats who!',
         'Plants are producers that make their own food from sunlight, animals are consumers that eat other living things, and tiny decomposers recycle leftovers into soil.',
-        'Point each arrow at what gets eaten — sun to grass to grasshopper to kookaburra — and you can read the whole chain of life.',
+        'Point each arrow at what gets eaten, sun to grass to grasshopper to kookaburra, and you can read the whole chain of life.',
       ],
       illustrations: [
         {
@@ -78,8 +78,8 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Water is always on the move — the water cycle is its never-ending road trip around Earth!',
-        'The Sun heats water so it evaporates into water vapour and rises; high up it cools and condenses into clouds; then it falls back to Earth as precipitation — rain or snow.',
+        'Water is always on the move, the water cycle is its never-ending road trip around Earth!',
+        'The Sun heats water so it evaporates into water vapour and rises; high up it cools and condenses into clouds; then it falls back to Earth as precipitation, rain or snow.',
         'When the water lands, it flows into rivers and oceans, and the whole journey starts again.',
       ],
       illustrations: [
@@ -90,9 +90,9 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
             kind: 'flowchart',
             steps: [
               { text: 'Sun heats the water' },
-              { text: 'Evaporation — water turns to vapour' },
-              { text: 'Condensation — clouds form' },
-              { text: 'Precipitation — rain falls' },
+              { text: 'Evaporation, water turns to vapour' },
+              { text: 'Condensation, clouds form' },
+              { text: 'Precipitation, rain falls' },
               { text: 'Water flows back to rivers & oceans' },
             ],
           },
@@ -128,7 +128,7 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
   },
   {
     id: 'Y4-SCI-U03',
-    title: 'Forces — friction, gravity & magnets',
+    title: 'Forces, friction, gravity & magnets',
     year: '4',
     subject: 'science',
     strand: 'Science understanding',
@@ -136,7 +136,7 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A force is a push or a pull — and you are a force machine every time you open a door, kick a ball or squeeze a tube of toothpaste!',
+        'A force is a push or a pull, and you are a force machine every time you open a door, kick a ball or squeeze a tube of toothpaste!',
         'Gravity pulls things towards the centre of Earth, friction rubs and slows things down, and magnets pull or push on some metals without even touching them.',
         'Forces can change how fast something moves, which way it goes, and even its shape.',
       ],
@@ -192,7 +192,7 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Every material has properties — its special qualities — and choosing the right material is a superpower: soft fibres for clothes, strong metals for tools, see-through glass for windows and light plastics for toys!',
+        'Every material has properties, its special qualities, and choosing the right material is a superpower: soft fibres for clothes, strong metals for tools, see-through glass for windows and light plastics for toys!',
         'Some materials come from nature, like wool and wood, while others are made by people, like plastic and glass.',
         'First Nations Australians have used natural materials like bark, fibre and stone with care and respect for Country for thousands of years.',
       ],
@@ -203,10 +203,10 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
           diagram: {
             kind: 'icon-scene',
             items: [
-              { icon: 'tree', label: 'Fibres — soft & warm' },
-              { icon: 'cube', label: 'Metal — strong' },
-              { icon: 'bottle', label: 'Glass — see-through' },
-              { icon: 'bowl', label: 'Plastic — light' },
+              { icon: 'tree', label: 'Fibres, soft & warm' },
+              { icon: 'cube', label: 'Metal, strong' },
+              { icon: 'bottle', label: 'Glass, see-through' },
+              { icon: 'bowl', label: 'Plastic, light' },
             ],
             caption: 'Properties match the job',
           },
@@ -249,7 +249,7 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Scientists are pattern-spotters — they collect data, like how much rain falls each day, and use it to explain what is happening and why.',
+        'Scientists are pattern-spotters, they collect data, like how much rain falls each day, and use it to explain what is happening and why.',
         'One splash of data is just a clue, but lots of data gathered over time can reveal a pattern that grows into a strong scientific explanation.',
         'That is how scientists came to explain everything from where rain comes from to why the river rises in spring.',
       ],
@@ -305,7 +305,7 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'When there is a problem, science can help find the answer — like designing a solar water purifier so people can get clean drinking water.',
+        'When there is a problem, science can help find the answer, like designing a solar water purifier so people can get clean drinking water.',
         'People study the problem, test ideas and use what they learn to build better solutions.',
         'You already use this superpower: when a glue stick stops sticking, you ask why and try something new!',
       ],
@@ -363,7 +363,7 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Scientists start with questions! The best ones can be tested, like "Do plants grow taller with more light?"',
-        'A prediction is your best guess about what will happen, based on what you already know — not just a wild guess.',
+        'A prediction is your best guess about what will happen, based on what you already know, not just a wild guess.',
         'Ask a testable question, make a prediction, then investigate to find out if you were right.',
       ],
       illustrations: [
@@ -420,7 +420,7 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
       body: [
         'A fair test is a fair race: change only ONE thing, keep everything else the same, and measure what happens.',
         'The thing you change is the variable you are testing, and the things you keep the same are the controlled variables.',
-        'A good plan also thinks about safety — safe tools, safe materials and a safe place to work.',
+        'A good plan also thinks about safety, safe tools, safe materials and a safe place to work.',
       ],
       illustrations: [
         {
@@ -473,7 +473,7 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Scaled instruments have marked scales that let you measure carefully — a ruler in centimetres, a thermometer in degrees, a measuring cup in millilitres and a stopwatch in seconds.',
+        'Scaled instruments have marked scales that let you measure carefully, a ruler in centimetres, a thermometer in degrees, a measuring cup in millilitres and a stopwatch in seconds.',
         'To read a scale, line up your eye with the mark and read the number exactly where the liquid or pointer sits.',
         'Measuring precisely and recording straight away makes your results trustworthy.',
       ],
@@ -527,7 +527,7 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Raw data is hard to read — turning your measurements into a table or a column graph makes patterns pop out!',
+        'Raw data is hard to read, turning your measurements into a table or a column graph makes patterns pop out!',
         'A table lines numbers up neatly, and a graph turns numbers into bars you can compare at a glance.',
         'Choose the representation that shows your pattern best, then read it back: what went up, what stayed the same?',
       ],
@@ -583,7 +583,7 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'After an investigation, compare your results with what others found and with your prediction — scientists love comparing!',
+        'After an investigation, compare your results with what others found and with your prediction, scientists love comparing!',
         'If your results are close together, you can be more confident in your conclusion; if they are very different, it is time to wonder why and maybe test again.',
         'A conclusion answers your question using the evidence you gathered, not just what you hoped would happen.',
       ],
@@ -637,7 +637,7 @@ export const YEAR4_SCIENCE_TOPICS: Topic[] = [
       body: [
         'Findings are only useful if you share them! You can present a talk, build a poster or write a report with your question, method, results and conclusion.',
         'Use clear science words like "data" and "conclusion", and use digital tools like slides or charts to make your findings shine.',
-        'Good scientists think about their audience — a poster for your class and a note for your family can both tell the same true story.',
+        'Good scientists think about their audience, a poster for your class and a note for your family can both tell the same true story.',
       ],
       illustrations: [
         {

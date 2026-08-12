@@ -9,7 +9,7 @@
  *
  * Brand direction (inspired by polished ANZ SaaS products such as ELMO):
  * strong, confident hero gradients, one clear primary CTA colour, and white
- * cards with soft shadows — playful enough for kids, professional enough for
+ * cards with soft shadows, playful enough for kids, professional enough for
  * parents.
  */
 export const palette = {
@@ -62,7 +62,7 @@ export const spacing = {
 } as const;
 
 /**
- * Type ramp — consistent display sizes so every screen reads like one
+ * Type ramp, consistent display sizes so every screen reads like one
  * product (no ad-hoc fontSizes in components).
  */
 export const type = {

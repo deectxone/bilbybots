@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 3 Science — full topic bank.
+ * Year 3 Science, full topic bank.
  * Scope mirrors the Australian Curriculum v9.0 content descriptions for
  * Year 3 (AC9S3xxx, AC9S3Hxx, AC9S3Ixx) across the three strands:
  * Science understanding (U01–U04), Science as a human endeavour (H01–H02)
@@ -22,7 +22,7 @@ export const YEAR3_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Living things grow, need food and water, and can make more living things — rocks and toy cars just stay the same.',
+        'Living things grow, need food and water, and can make more living things, rocks and toy cars just stay the same.',
         'Plants and animals each live through a life cycle: a butterfly starts as an egg, becomes a caterpillar, then a chrysalis, and finally a butterfly!',
         'Spotting the stages of a life cycle helps us see that every living thing is on an amazing journey.',
       ],
@@ -62,7 +62,7 @@ export const YEAR3_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Soil, rocks and minerals are Earth resources — things our planet gives us that people use every day.',
+        'Soil, rocks and minerals are Earth resources, things our planet gives us that people use every day.',
         'Soil is made when wind and rain slowly break rocks into tiny pieces that mix with dead leaves and animals.',
         'First Nations Australians have cared for Country for tens of thousands of years, using soil, rocks and minerals carefully so the land stays healthy for everyone.',
       ],
@@ -143,8 +143,8 @@ export const YEAR3_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'Solids keep their own shape, but liquids flow and take the shape of whatever container they are in.',
-        'When we add heat, a solid can melt into a liquid — like ice melting into water on a warm day.',
-        'When we take heat away, a liquid can freeze back into a solid — put water in the freezer and it becomes ice again!',
+        'When we add heat, a solid can melt into a liquid, like ice melting into water on a warm day.',
+        'When we take heat away, a liquid can freeze back into a solid, put water in the freezer and it becomes ice again!',
       ],
       illustrations: [
         {
@@ -224,7 +224,7 @@ export const YEAR3_SCIENCE_TOPICS: Topic[] = [
       body: [
         'When people understand how the world works, they can use that knowledge to solve problems.',
         'Scientists learnt that cold slows germs, so people invented fridges to keep food safe, and they learnt how sunlight can hurt skin, so they made sunscreen.',
-        'Almost every helpful thing around you — clean water, safe bridges, warm clothes — started with science.',
+        'Almost every helpful thing around you, clean water, safe bridges, warm clothes, started with science.',
       ],
       illustrations: [
         {
@@ -263,7 +263,7 @@ export const YEAR3_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 8,
       body: [
         'A good science question is one you can test by watching, measuring or doing an experiment.',
-        'Before you test, you make a prediction — what you think will happen, based on what you have already observed.',
+        'Before you test, you make a prediction, what you think will happen, based on what you have already observed.',
         'Predictions are brave guesses with reasons behind them, and testing them is how you find out if you were right.',
       ],
       illustrations: [
@@ -304,7 +304,7 @@ export const YEAR3_SCIENCE_TOPICS: Topic[] = [
       body: [
         'A fair test changes only ONE thing and keeps everything else exactly the same.',
         'That way, when the result changes, you know the one thing you changed caused it.',
-        'Real scientists also plan for safety — no tasting, wear goggles, and follow the steps carefully.',
+        'Real scientists also plan for safety, no tasting, wear goggles, and follow the steps carefully.',
       ],
       illustrations: [
         {
@@ -343,7 +343,7 @@ export const YEAR3_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 8,
       body: [
         'Scientists measure carefully with scaled instruments like thermometers for temperature, rulers for length and jugs for volume.',
-        'Read the number the line or pointer sits on, and always write the unit too — 25°C, 9 cm or 250 mL.',
+        'Read the number the line or pointer sits on, and always write the unit too, 25°C, 9 cm or 250 mL.',
         'Careful measuring means your data is honest and everyone can trust it.',
       ],
       illustrations: [
@@ -423,7 +423,7 @@ export const YEAR3_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 8,
       body: [
         'After a test, compare your findings with other groups and check that everyone ran a fair test.',
-        'Then look at the data and draw a conclusion — a statement about what you learned.',
+        'Then look at the data and draw a conclusion, a statement about what you learned.',
         'The best scientists end by asking a brand-new question to test next time.',
       ],
       illustrations: [
@@ -462,7 +462,7 @@ export const YEAR3_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Findings are not meant to be kept secret — scientists share them so others can learn and check the work.',
+        'Findings are not meant to be kept secret, scientists share them so others can learn and check the work.',
         'You can communicate with words, labelled diagrams, graphs, photos and digital tools.',
         'Using scientific words like "temperature", "melt" and "predict" makes your sharing clear and grown-up.',
       ],

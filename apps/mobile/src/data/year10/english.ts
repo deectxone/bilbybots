@@ -1,11 +1,11 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 10 English — full topic bank.
+ * Year 10 English, full topic bank.
  * Source of truth for scope: docs/content/year-7-10/english.md (AC v9.0,
  * strands Language/Literature/Literacy). Every topic carries its AC9E10xxx
  * content-description code (docs/specs/curriculum-research.md §4: cite
- * codes, author original lessons — never bulk-copy syllabus text).
+ * codes, author original lessons, never bulk-copy syllabus text).
  * Year 10 has 25 content descriptions: Language (9), Literature (8),
  * Literacy (8). Each assignment carries 6 questions (nominal pace) / 4
  * (compact pace), per docs/specs/adaptive-pacing.md's depth-compression model.
@@ -22,8 +22,8 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Words can throw the door open or shut it. Inclusive language ("we", "everyone", "your community") draws listeners in, while exclusive language — unexplained jargon, in-jokes, "of course you\'d know" — quietly locks others out.',
-        'Understanding how language includes or excludes, and how it empowers or disempowers people, lets you hear the social effect of every choice — and lets you choose language that opens doors deliberately rather than by accident.',
+        'Words can throw the door open or shut it. Inclusive language ("we", "everyone", "your community") draws listeners in, while exclusive language, unexplained jargon, in-jokes, "of course you\'d know", quietly locks others out.',
+        'Understanding how language includes or excludes, and how it empowers or disempowers people, lets you hear the social effect of every choice, and lets you choose language that opens doors deliberately rather than by accident.',
       ],
       illustrations: [
         { brief: 'A door that opens for inclusive language and closes for exclusive language', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'people', label: '"we", "everyone"' }, { icon: 'house', label: 'Included' }, { icon: 'lock', label: 'Excluded' }], caption: 'Language opens or shuts the door' } },
@@ -53,7 +53,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Every act of evaluation carries fingerprints of the evaluator\'s values. When a reviewer calls a film "a triumph of spectacle over story", the praise and the criticism both reveal what that reviewer believes cinema should be.',
-        'Values can surface explicitly ("this is wrong") or implicitly — buried in word choice, emphasis and what gets left unsaid. Analysing evaluation means reading through the judgement to the values underneath it.',
+        'Values can surface explicitly ("this is wrong") or implicitly, buried in word choice, emphasis and what gets left unsaid. Analysing evaluation means reading through the judgement to the values underneath it.',
       ],
       illustrations: [
         { brief: 'A balance scale showing an explicit judgement and the values underneath it', ready: true, diagram: { kind: 'balance-scale', left: 'Explicit judgement', right: 'Underlying values', balanced: true } },
@@ -112,7 +112,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Paragraph structure does not have to be monotonous — an author can open paragraphs differently, vary their internal build, and shift sentence position to keep cohesion while the writing stays dynamic.',
+        'Paragraph structure does not have to be monotonous, an author can open paragraphs differently, vary their internal build, and shift sentence position to keep cohesion while the writing stays dynamic.',
         'Paragraphs and images can also be integrated: a paragraph can set up a claim that a photograph then confirms, or an image can lead into the paragraph that explains it. The pairing itself becomes a meaning-making structure.',
       ],
       illustrations: [
@@ -142,8 +142,8 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Different sentence structures craft an idea differently — a long, branching sentence can build layers of reasoning, while a short, blunt one can deliver a verdict. The same idea changes shape depending on the sentence you build around it.',
-        'Analysing and evaluating sentence structures means testing which structure most effectively expresses and crafts the idea the writer wants to land — and explaining how the structure does that work.',
+        'Different sentence structures craft an idea differently, a long, branching sentence can build layers of reasoning, while a short, blunt one can deliver a verdict. The same idea changes shape depending on the sentence you build around it.',
+        'Analysing and evaluating sentence structures means testing which structure most effectively expresses and crafts the idea the writer wants to land, and explaining how the structure does that work.',
       ],
       illustrations: [
         { brief: 'One idea shown through three different sentence structures with different effects', ready: true, diagram: { kind: 'balance-scale', left: 'Long, layered', right: 'Short, blunt', balanced: true } },
@@ -164,7 +164,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y10-ENG-LA06',
-    title: 'Syntax — word order, meaning & style',
+    title: 'Syntax, word order, meaning & style',
     year: '10',
     subject: 'english',
     strand: 'Language',
@@ -172,7 +172,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Syntax is the ordering of words in a sentence, and order is meaning. "Only I hit the ball" and "I only hit the ball" place the emphasis on entirely different words — the syntax decides which idea gets stressed.',
+        'Syntax is the ordering of words in a sentence, and order is meaning. "Only I hit the ball" and "I only hit the ball" place the emphasis on entirely different words, the syntax decides which idea gets stressed.',
         'Style is also born in syntax: an author who front-loads with "Never had she felt so free" creates a different rhythm and tension than the flat "She had never felt so free." Analysing syntax means tracking how arrangement shapes both what is said and how it feels.',
       ],
       illustrations: [
@@ -194,7 +194,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y10-ENG-LA07',
-    title: 'Still & moving images — evaluating choices',
+    title: 'Still & moving images, evaluating choices',
     year: '10',
     subject: 'english',
     strand: 'Language',
@@ -202,11 +202,11 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Every image is full of choices: framing, camera angle, lighting, colour, focus, and — in film — movement and editing. Each choice nudges how a subject is represented.',
+        'Every image is full of choices: framing, camera angle, lighting, colour, focus, and, in film, movement and editing. Each choice nudges how a subject is represented.',
         'Evaluating those choices means judging their effects on the representation: a low angle makes a subject loom powerful, warm light softens a scene, a close-up forces intimacy. Analysis connects the visible choice to the resulting meaning.',
       ],
       illustrations: [
-        { brief: 'The same subject shot three ways — low angle, warm light, close-up — with effects', ready: true, diagram: { kind: 'bar-compare', unit: '/10 impact', items: [{ label: 'Low angle', value: 8 }, { label: 'Warm light', value: 5 }, { label: 'Close-up', value: 9 }] } },
+        { brief: 'The same subject shot three ways, low angle, warm light, close-up, with effects', ready: true, diagram: { kind: 'bar-compare', unit: '/10 impact', items: [{ label: 'Low angle', value: 8 }, { label: 'Warm light', value: 5 }, { label: 'Close-up', value: 9 }] } },
       ],
     },
     assignment: {
@@ -232,7 +232,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Academic writing demands precision, and precision is built from vocabulary — the right technical and academic term says in one word what a vague phrase would circle around in ten.',
+        'Academic writing demands precision, and precision is built from vocabulary, the right technical and academic term says in one word what a vague phrase would circle around in ten.',
         'Expanding your academic vocabulary means not just knowing more words but using them exactly: "assume", "assert" and "argue" are not interchangeable, and choosing between them changes the claim you are making.',
       ],
       illustrations: [
@@ -263,10 +263,10 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'By Year 10, punctuation is a creative instrument, not just a rulebook. A dash can withhold a revelation, a semicolon can hold two ideas in careful balance, and deliberate fragment punctuation can make a page breathe.',
-        'Authors experiment with punctuation to shape rhythm, tone and silence — but the experiment only works if a reader still navigates the meaning. Understanding the conventions is what makes breaking them meaningful.',
+        'Authors experiment with punctuation to shape rhythm, tone and silence, but the experiment only works if a reader still navigates the meaning. Understanding the conventions is what makes breaking them meaningful.',
       ],
       illustrations: [
-        { brief: 'A sentence whose punctuation choices (dash, semicolon, ellipsis) are each annotated', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'burst', label: 'Dash — withholding' }, { icon: 'link', label: 'Semicolon — balance' }, { icon: 'clock', label: 'Ellipsis — pause' }], caption: 'Punctuation as a creative instrument' } },
+        { brief: 'A sentence whose punctuation choices (dash, semicolon, ellipsis) are each annotated', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'burst', label: 'Dash, withholding' }, { icon: 'link', label: 'Semicolon, balance' }, { icon: 'clock', label: 'Ellipsis, pause' }], caption: 'Punctuation as a creative instrument' } },
       ],
     },
     assignment: {
@@ -285,7 +285,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
   // ---------- Literature (8 CDs) ----------
   {
     id: 'Y10-ENG-LE01',
-    title: 'Representation & context — evaluating',
+    title: 'Representation & context, evaluating',
     year: '10',
     subject: 'english',
     strand: 'Literature',
@@ -293,7 +293,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'By Year 10, you do not just spot representations — you evaluate how well they reflect their context. A First Nations Australian author\'s representation of place draws on cultural knowledge a distant author cannot replicate, and each choice can be weighed against its context.',
+        'By Year 10, you do not just spot representations, you evaluate how well they reflect their context. A First Nations Australian author\'s representation of place draws on cultural knowledge a distant author cannot replicate, and each choice can be weighed against its context.',
         'Evaluating representation means asking how accurately and honestly a text reflects the context it claims to represent, and what a representation gains or loses by being filtered through a particular author\'s experience.',
       ],
       illustrations: [
@@ -323,7 +323,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Literature study is a conversation. A strong reader not only forms an interpretation but reflects on it — testing it against the text and against other readers\' views — and then extends it, building new insight on what others have noticed.',
+        'Literature study is a conversation. A strong reader not only forms an interpretation but reflects on it, testing it against the text and against other readers\' views, and then extends it, building new insight on what others have noticed.',
         'Extending an interpretation might mean pushing a reading further, applying it to a different scene, or respectfully complicating it. The goal is depth: the shared conversation produces more than any single reader alone.',
       ],
       illustrations: [
@@ -353,7 +353,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The aesthetic qualities of a text — its structure, language features, literary devices and visual features — work together with the context in which you experience it to shape how you respond.',
+        'The aesthetic qualities of a text, its structure, language features, literary devices and visual features, work together with the context in which you experience it to shape how you respond.',
         'A poem read aloud in a quiet room lands differently than one skimmed on a phone at a bus stop; an ending that felt bold in its era may feel familiar today. Analysing audience response means tracking how all these factors combine.',
       ],
       illustrations: [
@@ -383,7 +383,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Literature does not just tell stories — it takes positions. A novel can endorse or interrogate a social value, present a character whose choices raise moral questions, or test an ethical position by pushing it to its consequences.',
+        'Literature does not just tell stories, it takes positions. A novel can endorse or interrogate a social value, present a character whose choices raise moral questions, or test an ethical position by pushing it to its consequences.',
         'Evaluating these positions means judging them, not just describing them: is the position persuasive, consistent, fair? And do you agree with it? Literature gives you a safe arena to argue with big ideas.',
       ],
       illustrations: [
@@ -413,7 +413,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'No text stands alone. Intertextual connections tie a text to others — a retelling of a myth, a poem echoing a Shakespeare line, a novel that converses with a film — and each connection opens a new path of interpretation.',
+        'No text stands alone. Intertextual connections tie a text to others, a retelling of a myth, a poem echoing a Shakespeare line, a novel that converses with a film, and each connection opens a new path of interpretation.',
         'Analysing how text structure, language features, literary devices and intertextual connections shape interpretation means asking what a reference adds: does it deepen a theme, invite comparison, or invite the reader to re-read both texts?',
       ],
       illustrations: [
@@ -443,7 +443,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        '"Voice" is not just narration — it is a literary device that builds a distinct presence, and it works differently in different forms. A poem creates voice through line breaks and sound, a novel through narrator and prose rhythm, a film through performance and camera.',
+        '"Voice" is not just narration, it is a literary device that builds a distinct presence, and it works differently in different forms. A poem creates voice through line breaks and sound, a novel through narrator and prose rhythm, a film through performance and camera.',
         'Comparing how voice is used across poetry, novels and film reveals what each form makes possible: the same emotion can be evoked by a poet\'s intimate "I", a narrator\'s shifting perspective, or an actor\'s silent close-up.',
       ],
       illustrations: [
@@ -459,7 +459,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y10-ENG-LE06-q3', type: 'mcq', prompt: 'A film can create a character\'s voice through…', options: ['Performance and camera choices', 'Line breaks', 'Stanza structure'], answer: 'Performance and camera choices', difficulty: 2 },
         { id: 'Y10-ENG-LE06-q4', type: 'mcq', prompt: 'Comparing voice across forms mainly reveals…', options: ['What each form makes possible for evoking emotion', 'That all forms are identical', 'Nothing about craft'], answer: 'What each form makes possible for evoking emotion', difficulty: 2 },
         { id: 'Y10-ENG-LE06-q5', type: 'mcq', prompt: 'The same emotion can be evoked differently because…', options: ['Each form\'s tools for voice differ', 'Emotions cannot be evoked', 'Only film has tools'], answer: "Each form's tools for voice differ", difficulty: 2 },
-        { id: 'Y10-ENG-LE06-q6', type: 'mcq', prompt: 'A silent close-up in film can function like…', options: ['A first-person "I" in a poem — intimate access to feeling', 'A page number', 'A stanza break'], answer: 'A first-person "I" in a poem — intimate access to feeling', difficulty: 3 },
+        { id: 'Y10-ENG-LE06-q6', type: 'mcq', prompt: 'A silent close-up in film can function like…', options: ['A first-person "I" in a poem, intimate access to feeling', 'A page number', 'A stanza break'], answer: 'A first-person "I" in a poem, intimate access to feeling', difficulty: 3 },
       ],
     },
   },
@@ -474,7 +474,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Evaluating the aesthetic qualities of a text is a developed critical act: you judge its artistic merit by weighing how structure, language, imagery and form combine to produce effect and meaning.',
-        'An aesthetic evaluation is not a vague "I liked it" — it is a reasoned argument. You point to the specific qualities, explain how they work, and judge whether the text achieves something striking, subtle, powerful or lasting.',
+        'An aesthetic evaluation is not a vague "I liked it", it is a reasoned argument. You point to the specific qualities, explain how they work, and judge whether the text achieves something striking, subtle, powerful or lasting.',
       ],
       illustrations: [
         { brief: 'A thermometer measuring the strength of a text\'s aesthetic qualities', ready: true, diagram: { kind: 'thermometer', min: 0, max: 10, value: 7, unit: '/10 aesthetic' } },
@@ -503,8 +503,8 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'Creating a literary text at Year 10 means sustaining a voice — building one recognisable presence that holds across the whole piece, and selecting and adapting text structures, literary devices, and language, auditory or visual features to serve it.',
-        'A sustained voice is not just consistency; it is purposeful. You choose every feature to reinforce that voice, then edit relentlessly so nothing breaks the spell — every sentence should feel like the same storyteller wrote it.',
+        'Creating a literary text at Year 10 means sustaining a voice, building one recognisable presence that holds across the whole piece, and selecting and adapting text structures, literary devices, and language, auditory or visual features to serve it.',
+        'A sustained voice is not just consistency; it is purposeful. You choose every feature to reinforce that voice, then edit relentlessly so nothing breaks the spell, every sentence should feel like the same storyteller wrote it.',
       ],
       illustrations: [
         { brief: 'A flowchart: choose a voice, adapt features to it, edit to sustain it', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Choose a voice' }, { text: 'Adapt structures & devices to it' }, { text: 'Edit to sustain it' }] } },
@@ -534,7 +534,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'At Year 10 you analyse and evaluate how people, places, events and concepts are represented in texts, and how those representations reflect their contexts — including the role of stereotypes and the agendas behind a portrayal.',
+        'At Year 10 you analyse and evaluate how people, places, events and concepts are represented in texts, and how those representations reflect their contexts, including the role of stereotypes and the agendas behind a portrayal.',
         'Evaluation here means forming a judgement: is this representation fair, accurate, harmful or illuminating, given the context it comes from? You weigh the representation against both the text\'s context and your own critical standards.',
       ],
       illustrations: [
@@ -565,7 +565,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Listening at Year 10 means explaining how a spoken text is built: what its text structures and language features are, what purposes they serve, and what effects they produce on a listener.',
-        'After analysing, you use interaction skills to discuss and present your own opinion about the text — moving from passive reception to an active, reasoned critical position.',
+        'After analysing, you use interaction skills to discuss and present your own opinion about the text, moving from passive reception to an active, reasoned critical position.',
       ],
       illustrations: [
         { brief: 'A spoken text being unpacked: structure, purpose, effect, then your opinion', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Listen' }, { text: 'Explain structure & language effects' }, { text: 'Present your opinion' }] } },
@@ -594,7 +594,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Language carries more than information — it carries values, beliefs and attitudes. Some are stated outright, but many are implicit, hidden in word choice, tone, and what a text takes for granted.',
+        'Language carries more than information, it carries values, beliefs and attitudes. Some are stated outright, but many are implicit, hidden in word choice, tone, and what a text takes for granted.',
         'Analysing and evaluating how language features represent values means noticing the implicit assumptions beneath the surface: a text that repeatedly calls a policy "bold" is quietly endorsing it, whatever it claims to be doing.',
       ],
       illustrations: [
@@ -624,7 +624,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Organisation is strategy. How an author orders ideas — what comes first, what is saved for last, what is repeated and what is cut — is chosen to achieve a purpose with a particular audience.',
+        'Organisation is strategy. How an author orders ideas, what comes first, what is saved for last, what is repeated and what is cut, is chosen to achieve a purpose with a particular audience.',
         'Analysing and evaluating organisation means asking whether the arrangement actually works: does this structure lead the reader where the author wants them to go, and could it be done more effectively?',
       ],
       illustrations: [
@@ -654,7 +654,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Complex and abstract ideas need more than one strategy at a time — you visualise to hold a scene, question to test a claim, infer to reach implied meaning, and summarise to keep the thread. In Year 10 you integrate these strategies into one flexible reading process.',
+        'Complex and abstract ideas need more than one strategy at a time, you visualise to hold a scene, question to test a claim, infer to reach implied meaning, and summarise to keep the thread. In Year 10 you integrate these strategies into one flexible reading process.',
         'Integrating strategies means deploying the right ones for the task and shifting between them as meaning demands, so that difficult texts yield both understanding and critical judgement.',
       ],
       illustrations: [
@@ -684,7 +684,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'Creating written and multimodal texts at Year 10 means experimenting — with text structures, language features, literary devices and multimodal features — to achieve specific purposes and audiences in imaginative, reflective, informative, persuasive, analytical and/or critical ways.',
+        'Creating written and multimodal texts at Year 10 means experimenting, with text structures, language features, literary devices and multimodal features, to achieve specific purposes and audiences in imaginative, reflective, informative, persuasive, analytical and/or critical ways.',
         'Experimentation is not chaos: you plan how to organise, expand and develop ideas, then test how each feature serves the purpose, editing until the experiment lands.',
       ],
       illustrations: [
@@ -714,7 +714,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A Year 10 presentation experiments with rhetorical devices — anaphora that drums a message home, antithesis that sets ideas in sharp contrast, a rhetorical question that hands the audience an unspoken answer.',
+        'A Year 10 presentation experiments with rhetorical devices, anaphora that drums a message home, antithesis that sets ideas in sharp contrast, a rhetorical question that hands the audience an unspoken answer.',
         'You plan how to organise and develop ideas so the devices build rather than decorate, then rehearse and deliver to engage audiences for the specific purpose of your talk.',
       ],
       illustrations: [
@@ -744,7 +744,7 @@ export const YEAR10_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'At Year 10 you both master the spelling system and learn to manipulate it. Using knowledge of how English spelling works — roots, affixes, patterns, generalisations — lets you spell unfamiliar words correctly and also break spelling deliberately for effect.',
+        'At Year 10 you both master the spelling system and learn to manipulate it. Using knowledge of how English spelling works, roots, affixes, patterns, generalisations, lets you spell unfamiliar words correctly and also break spelling deliberately for effect.',
         'Manipulating spelling means crafting respellings that represent dialect, create humour, signal character or make a point. It is a writer\'s tool only when the reader recognises the deliberate deviation from the standard.',
       ],
       illustrations: [

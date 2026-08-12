@@ -36,7 +36,7 @@ export function emptyPersistedState(): PersistedAppState {
   };
 }
 
-/** Load and validate persisted state. Never throws — worst case returns empty. */
+/** Load and validate persisted state. Never throws, worst case returns empty. */
 export async function loadPersistedState(): Promise<PersistedAppState> {
   try {
     const raw = await AsyncStorage.getItem(STORAGE_KEY);

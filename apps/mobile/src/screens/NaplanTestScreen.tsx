@@ -7,7 +7,8 @@ import type {
   NaplanStimulus,
   NaplanTest,
 } from '../types/naplan';
-import { AppHeader } from '../components/AppHeader';
+import type { ChildProfile } from '../types/curriculum';
+import { ScreenShell } from '../components/ScreenShell';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon } from '../components/illustrations/icons';
@@ -38,6 +39,7 @@ interface Step {
  */
 export function NaplanTestScreen({
   test,
+  child,
   onFinish,
   onExit,
   onHome,
@@ -46,6 +48,8 @@ export function NaplanTestScreen({
   onSignOut,
 }: {
   test: NaplanTest;
+  /** Active child profile, shown in the sticky header. */
+  child?: ChildProfile | null;
   onFinish: (result: NaplanResult) => void;
   onExit: () => void;
   onHome: () => void;
@@ -61,15 +65,15 @@ export function NaplanTestScreen({
   const [mode, setMode] = useState<NaplanMode>('practice');
   const [index, setIndex] = useState(0);
   /** Bumped each time practice mode loops back to the start of the item pool
-   * — reshuffles so a repeat lap doesn't just replay the exact same order. */
+   *, reshuffles so a repeat lap doesn't just replay the exact same order. */
   const [lap, setLap] = useState(0);
 
   const flatItems = useMemo(() => orderedItems(test), [test]);
 
   /**
    * Timed mode keeps the real section structure (and its locks) so it feels
-   * like the actual test. Practice mode is a flat, continuous pool — no
-   * locked sections, since the whole point is free, repeatable practice —
+   * like the actual test. Practice mode is a flat, continuous pool, no
+   * locked sections, since the whole point is free, repeatable practice,
    * that loops (reshuffled) once the student reaches the end, so it only
    * stops when they tap "End practice".
    */
@@ -207,7 +211,7 @@ export function NaplanTestScreen({
       setIndex(index + 1);
     } else if (mode === 'practice') {
       // Continuous practice: loop back to a reshuffled pass instead of
-      // ending — practice only stops when the student taps "End practice".
+      // ending, practice only stops when the student taps "End practice".
       setIndex(0);
       setLap((l) => l + 1);
     } else {
@@ -285,7 +289,7 @@ export function NaplanTestScreen({
   const pct = result && result.total > 0 ? Math.round((result.correct / result.total) * 100) : 0;
   const isPerfect = !!result && !isWriting && result.total > 0 && result.correct === result.total;
   const descriptor =
-    pct >= 80 ? 'Strong — keep it up!' : pct >= 50 ? 'Developing — good progress!' : 'Getting started — keep practising!';
+    pct >= 80 ? 'Strong, keep it up!' : pct >= 50 ? 'Developing, good progress!' : 'Getting started, keep practising!';
 
   const resultIcon: 'quill' | 'burst' | 'sprout' = isWriting ? 'quill' : pct >= 80 ? 'burst' : 'sprout';
   const resultTint = isWriting ? palette.berry : pct >= 80 ? palette.sunny : pct >= 50 ? palette.teal : palette.slate;
@@ -295,7 +299,7 @@ export function NaplanTestScreen({
   // Practice sessions can end mid-lap (via "End practice") or run several
   // laps, so the review/breakdown below is built from what was actually
   // attempted rather than the full (possibly looped) `steps` list. Timed
-  // tests keep the fixed section list — a skipped item there is a real 0.
+  // tests keep the fixed section list, a skipped item there is a real 0.
   const reviewItems = useMemo(() => {
     if (!result || isWriting) return [];
     if (mode === 'practice') {
@@ -317,9 +321,14 @@ export function NaplanTestScreen({
   }, [result, reviewItems, isWriting]);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <AppHeader active="NaplanTest" onHome={onHome} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
-
+    <ScreenShell
+      active="NaplanTest"
+      child={child}
+      onHome={onHome}
+      onProgress={onProgress}
+      onSetup={onSetup}
+      onSignOut={onSignOut}
+    >
       {phase === 'intro' && (
         <View style={styles.pad}>
           <View style={styles.iconTextRow}>
@@ -355,7 +364,7 @@ export function NaplanTestScreen({
               <View style={styles.iconTextRow}>
                 <Icon name="lock" tint={palette.ink} size={16} />
                 <Text style={styles.introLine}>
-                  {test.sections.filter((s) => s.locked).length > 0 ? 'Some sections lock — no going back' : 'One section'}
+                  {test.sections.filter((s) => s.locked).length > 0 ? 'Some sections lock, no going back' : 'One section'}
                 </Text>
               </View>
             </View>
@@ -438,7 +447,7 @@ export function NaplanTestScreen({
             onPress={finishTest}
           />
           <Text style={styles.wordHint}>
-            Aim for a full text — real NAPLAN writing needs paragraphs and detail.
+            Aim for a full text, real NAPLAN writing needs paragraphs and detail.
           </Text>
         </View>
       )}
@@ -608,7 +617,7 @@ export function NaplanTestScreen({
               <Text style={styles.gateTitle}>{test.sections[gateSection].title}</Text>
             </View>
             <Text style={styles.gateBody}>
-              This section is locked — once you continue you can't return to the
+              This section is locked, once you continue you can't return to the
               previous section to change your answers. Ready?
             </Text>
             <PrimaryButton
@@ -636,7 +645,7 @@ export function NaplanTestScreen({
           </View>
           <Text style={styles.rubricIntro}>
             Tick the check-list items you think you did. This is your own
-            reflection — it never becomes an official mark.
+            reflection, it never becomes an official mark.
           </Text>
           <View style={styles.rubricCard}>
             {WRITING_RUBRIC.map((r) => {
@@ -762,7 +771,7 @@ export function NaplanTestScreen({
           )}
 
           <Text style={styles.indicative}>
-            Indicative result for practice only — not an official NAPLAN score.
+            Indicative result for practice only, not an official NAPLAN score.
           </Text>
 
           <PrimaryButton tone="coral" label="Back to NAPLAN hub" onPress={onExit} />
@@ -774,7 +783,7 @@ export function NaplanTestScreen({
           </Pressable>
         </View>
       )}
-    </ScrollView>
+    </ScreenShell>
   );
 }
 

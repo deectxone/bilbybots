@@ -1,7 +1,7 @@
 import type { NaplanItem } from '../../types/naplan';
 
 /**
- * Sample NAPLAN-style NUMERACY items (original — never ACARA items).
+ * Sample NAPLAN-style NUMERACY items (original, never ACARA items).
  * Tagged with the AC v9.0 maths strand each question leans on, so results can
  * show a per-skill breakdown. Tool flags model the Y7/9 calculator section.
  */
@@ -23,7 +23,7 @@ export const NUMERACY_ITEMS: NaplanItem[] = [
     domain: 'numeracy',
     year: '3',
     itemType: 'mcq',
-    prompt: '"Half past three" is the same as —',
+    prompt: '"Half past three" is the same as',
     options: ['3:30', '4:30', '3:00', '2:30'],
     answer: '3:30',
     skill: 'measurement',
@@ -368,7 +368,7 @@ export const NUMERACY_ITEMS: NaplanItem[] = [
     domain: 'numeracy',
     year: '5',
     itemType: 'mcq',
-    prompt: 'An angle that measures exactly 90° is called a —',
+    prompt: 'An angle that measures exactly 90° is called a',
     options: ['Right angle', 'Acute angle', 'Obtuse angle', 'Straight angle'],
     answer: 'Right angle',
     skill: 'space',
@@ -436,7 +436,7 @@ export const NUMERACY_ITEMS: NaplanItem[] = [
     domain: 'numeracy',
     year: '7',
     itemType: 'mcq',
-    prompt: 'The mean (average) of 5, 7, 9 and 11 is —',
+    prompt: 'The mean (average) of 5, 7, 9 and 11 is',
     options: ['8', '7', '9', '10'],
     answer: '8',
     skill: 'statistics & probability',
@@ -814,7 +814,7 @@ export const NUMERACY_ITEMS: NaplanItem[] = [
     domain: 'numeracy',
     year: '9',
     itemType: 'mcq',
-    prompt: 'The median of the data set 12, 15, 9, 22, 18 is —',
+    prompt: 'The median of the data set 12, 15, 9, 22, 18 is',
     options: ['15', '12', '18', '22'],
     answer: '15',
     skill: 'statistics & probability',

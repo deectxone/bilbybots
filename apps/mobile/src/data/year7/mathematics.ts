@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 7 Mathematics — full topic bank.
+ * Year 7 Mathematics, full topic bank.
  * Source of truth for scope: docs/content/year-7-10/mathematics.md (AC v9.0).
  * Every topic carries its AC9M7xxx content-description code and a rendered
  * `diagram` per illustration slot (see src/components/illustrations/diagrams.tsx)
@@ -20,7 +20,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A perfect square is what you get when you multiply a whole number by itself — 16 = 4 × 4. The square root of a perfect square is the whole number you started with, so √16 = 4.',
+        'A perfect square is what you get when you multiply a whole number by itself, 16 = 4 × 4. The square root of a perfect square is the whole number you started with, so √16 = 4.',
         'Squares and square roots undo each other like pressing rewind: square 7 to get 49, then square-root 49 to get back to 7. This pair is handy for real problems, like finding the side length of a square from its area.',
       ],
       illustrations: [
@@ -68,7 +68,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Any natural number can be broken into a unique product of prime numbers — this is its prime factorisation. 24 = 2 × 2 × 2 × 3, which we write with exponent notation as 2³ × 3.',
+        'Any natural number can be broken into a unique product of prime numbers, this is its prime factorisation. 24 = 2 × 2 × 2 × 3, which we write with exponent notation as 2³ × 3.',
         'Exponent notation counts how many times a number is multiplied by itself: 2³ means 2 × 2 × 2. Using exponents keeps big factorisations short and neat.',
       ],
       illustrations: [
@@ -111,7 +111,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Every digit has a value based on its place — 4 207 means 4 thousands, 2 hundreds, 0 tens and 7 ones. With powers of ten we write this as 4 × 10³ + 2 × 10² + 0 × 10¹ + 7 × 10⁰.',
+        'Every digit has a value based on its place, 4 207 means 4 thousands, 2 hundreds, 0 tens and 7 ones. With powers of ten we write this as 4 × 10³ + 2 × 10² + 0 × 10¹ + 7 × 10⁰.',
         'The place-value system works because each place is 10 times bigger than the one to its right: 10⁰ = 1, 10¹ = 10, 10² = 100 and so on.',
       ],
       illustrations: [
@@ -146,7 +146,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'The same amount can wear three different costumes: 0.5, 1/2 and 50% all mean exactly the same thing. Being fluent at swapping between fraction, decimal and percentage is a genuine superpower.',
-        'Putting rational numbers on a number line in their simplest form — like 3/4 = 0.75 — makes comparing and ordering them easy.',
+        'Putting rational numbers on a number line in their simplest form, like 3/4 = 0.75, makes comparing and ordering them easy.',
       ],
       illustrations: [
         {
@@ -199,7 +199,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Rounding is cutting a number to a chosen accuracy: 3.75 rounds to 3.8 to one decimal place. Which accuracy is "right" depends on the situation — money needs cents, a survey might only need the nearest whole.',
+        'Rounding is cutting a number to a chosen accuracy: 3.75 rounds to 3.8 to one decimal place. Which accuracy is "right" depends on the situation, money needs cents, a survey might only need the nearest whole.',
         'Estimation is rounding before you calculate, to check your exact answer is reasonable. If 19.9 × 4.1 should be about 80, an answer of 8 or 800 is a red flag.',
       ],
       illustrations: [
@@ -278,7 +278,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
   },
   {
     id: 'Y7-MAT-NN07',
-    title: 'Integers — comparing, ordering, adding & subtracting',
+    title: 'Integers, comparing, ordering, adding & subtracting',
     year: '7',
     subject: 'mathematics',
     strand: 'Number',
@@ -286,7 +286,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Integers are whole numbers and their negatives. Adding a negative moves left on the number line; subtracting a negative moves right — so 6 − (−2) = 6 + 2 = 8.',
+        'Integers are whole numbers and their negatives. Adding a negative moves left on the number line; subtracting a negative moves right, so 6 − (−2) = 6 + 2 = 8.',
         'When comparing, the further left a number sits on the number line, the smaller it is: −6 < −1 even though 6 is bigger than 1.',
       ],
       illustrations: [
@@ -333,7 +333,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A ratio compares quantities using the same units, written like 2 : 3. If a ratio is 2 red marbles for every 3 blue, it describes the relationship — not the actual count.',
+        'A ratio compares quantities using the same units, written like 2 : 3. If a ratio is 2 red marbles for every 3 blue, it describes the relationship, not the actual count.',
         'Ratios simplify like fractions: 6 : 4 simplifies to 3 : 2 by dividing both sides by 2. To share a total in a ratio, add the parts, then split the total proportionally.',
       ],
       illustrations: [
@@ -368,7 +368,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Modelling turns a real problem into maths: decide what to calculate, pick the strategy, solve it, then check the answer makes sense in the real world.',
-        'Percentages power everyday money maths — a 25% off sale means paying 75% of the price, and 10% of a bill is a handy starting point for tips and GST-style calculations.',
+        'Percentages power everyday money maths, a 25% off sale means paying 75% of the price, and 10% of a bill is a handy starting point for tips and GST-style calculations.',
       ],
       illustrations: [
         {
@@ -415,7 +415,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A formula is a rule using variables that links quantities — area A = l × w uses variables for length and width. Substituting means replacing the variables with real numbers and calculating.',
+        'A formula is a rule using variables that links quantities, area A = l × w uses variables for length and width. Substituting means replacing the variables with real numbers and calculating.',
         'Pick the right formula for the job: perimeter P = 2(l + w) for a fence, area A = l × w for turf, distance d = s × t for a road trip.',
       ],
       illustrations: [
@@ -454,7 +454,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'An expression is a phrase in maths made of constants (numbers), variables (letters like n or x), operations and brackets — "three more than double a number" becomes 2n + 3.',
+        'An expression is a phrase in maths made of constants (numbers), variables (letters like n or x), operations and brackets, "three more than double a number" becomes 2n + 3.',
         'Brackets change the order: "the sum of x and 5, doubled" is 2(x + 5), not 2x + 5. Translating words into algebra is all about reading the sentence structure carefully.',
       ],
       illustrations: [
@@ -501,7 +501,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'An equation is a balance: whatever is on the left equals whatever is on the right. To solve, undo the operations in reverse order — subtract before adding back, divide before multiplying back.',
+        'An equation is a balance: whatever is on the left equals whatever is on the right. To solve, undo the operations in reverse order, subtract before adding back, divide before multiplying back.',
         'Verifying means substituting your solution back into the original equation to check that both sides really are equal.',
       ],
       illustrations: [
@@ -549,7 +549,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Graphs of functions show how two variables connect. On a distance–time graph, a steeper line means moving faster, a flat line means stopped, and the shape of the line tells the whole story of the trip.',
-        'Reading authentic data graphs — phone plans, temperatures, growth — lets you describe the relationship: increasing, decreasing, constant, or changing speed.',
+        'Reading authentic data graphs, phone plans, temperatures, growth, lets you describe the relationship: increasing, decreasing, constant, or changing speed.',
       ],
       illustrations: [
         {
@@ -644,7 +644,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Formulas can hold several variables — the area of a rectangle uses two (l and w). Changing one variable systematically shows how it drives the result, something spreadsheets and graphing tools make instant.',
+        'Formulas can hold several variables, the area of a rectangle uses two (l and w). Changing one variable systematically shows how it drives the result, something spreadsheets and graphing tools make instant.',
         'Doubling one variable does not always double the answer: double the side length of a square and the area quadruples, because area involves squaring.',
       ],
       illustrations: [
@@ -685,7 +685,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A triangle is half of a rectangle with the same base and height, so area = ½ × base × height. A parallelogram is a rectangle that has been pushed sideways, so area = base × height.',
-        'Height is always measured at right angles to the base — not along the slanted side.',
+        'Height is always measured at right angles to the base, not along the slanted side.',
       ],
       illustrations: [
         {
@@ -753,7 +753,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'π (pi) is the special number that connects a circle’s diameter to its circumference: C = π × d. Since the diameter is double the radius, C = 2πr too.',
-        'π is about 3.14 — slightly bigger than 3. No matter the circle’s size, the circumference is always a bit more than 3 times the diameter.',
+        'π is about 3.14, slightly bigger than 3. No matter the circle’s size, the circumference is always a bit more than 3 times the diameter.',
       ],
       illustrations: [
         {
@@ -796,7 +796,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
       ],
       illustrations: [
         {
-          brief: 'Angles on a straight line adding to 180° — 120° and 60°',
+          brief: 'Angles on a straight line adding to 180°, 120° and 60°',
           ready: true,
           diagram: { kind: 'angle-diagram', style: 'straight', angles: [120, 60] },
         },
@@ -831,11 +831,11 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'The three interior angles of any triangle add to exactly 180°. Knowing two angles instantly gives you the third.',
-        'Any polygon can be sliced into triangles from one vertex — a quadrilateral makes 2 triangles (2 × 180 = 360°), a pentagon makes 3 (540°). The pattern for n sides is (n − 2) × 180°.',
+        'Any polygon can be sliced into triangles from one vertex, a quadrilateral makes 2 triangles (2 × 180 = 360°), a pentagon makes 3 (540°). The pattern for n sides is (n − 2) × 180°.',
       ],
       illustrations: [
         {
-          brief: 'Three angles — 60°, 80° and 40° — totalling 180°',
+          brief: 'Three angles, 60°, 80° and 40°, totalling 180°',
           ready: true,
           diagram: { kind: 'angle-diagram', style: 'straight', angles: [60, 80, 40] },
         },
@@ -955,7 +955,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Triangles are classified by sides (equilateral 3 equal, isosceles 2 equal, scalene 0 equal) and by angles (acute, right, obtuse). Quadrilaterals have their own family tree: squares, rectangles, rhombuses, parallelograms, trapeziums and kites.',
-        'A shape can have two names at once — a square is also a rectangle (4 right angles) and also a rhombus (4 equal sides). Classification is about which properties you focus on.',
+        'A shape can have two names at once, a square is also a rectangle (4 right angles) and also a rhombus (4 equal sides). Classification is about which properties you focus on.',
       ],
       illustrations: [
         {
@@ -1050,7 +1050,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'An algorithm is a step-by-step recipe with decisions. A shape-sorting algorithm asks questions like "Does it have 4 sides?" and branches to a different class for each answer.',
-        'Describing how the algorithm works means explaining each decision and why the ordering of questions matters — the first question splits the shapes in the most useful way.',
+        'Describing how the algorithm works means explaining each decision and why the ordering of questions matters, the first question splits the shapes in the most useful way.',
       ],
       illustrations: [
         {
@@ -1093,7 +1093,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Central tendency summarises a data set with one typical value: the mean (average), median (middle when sorted) and mode (most common), plus the range (spread).',
-        'Choose the right one for the data. The median resists outliers (a $1 million mansion barely moves it), while the mean gets pulled by extreme values — that is why house prices are reported with the median.',
+        'Choose the right one for the data. The median resists outliers (a $1 million mansion barely moves it), while the mean gets pulled by extreme values, that is why house prices are reported with the median.',
       ],
       illustrations: [
         {
@@ -1265,7 +1265,7 @@ export const YEAR7_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A single trial is just a glimpse of chance. Run a coin 200 times and heads will land close to 100 — the law of large numbers says more trials push observed results toward the predicted probability.',
+        'A single trial is just a glimpse of chance. Run a coin 200 times and heads will land close to 100, the law of large numbers says more trials push observed results toward the predicted probability.',
         'Digital simulations let you run thousands of trials in seconds. The difference between predicted and observed is expected, and explaining why it shrinks with more trials is the whole point.',
       ],
       illustrations: [

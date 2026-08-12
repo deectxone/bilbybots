@@ -2,7 +2,7 @@ import Svg, { Circle, Ellipse, Line, Path, Polygon, Rect, Text as SvgText } from
 import { palette } from '../../theme/colors';
 
 /**
- * BilbyBots' vector pictogram set — flat, geometric, palette-only shapes
+ * BilbyBots' vector pictogram set, flat, geometric, palette-only shapes
  * (never emoji). Every `icon-scene` illustration composes from this set so
  * the app reads as one consistent illustrated world. See AGENTS.md
  * "Illustration style reference" before adding a new name here.
@@ -26,7 +26,7 @@ const SZ = 24;
 
 /**
  * Icons render at their natural 24px. `size` lets callers inline a scaled
- * copy next to text (e.g. mode buttons) without duplicating artwork — the
+ * copy next to text (e.g. mode buttons) without duplicating artwork, the
  * shared Frame reads the current requested size for the whole subtree.
  */
 let iconSize = SZ;

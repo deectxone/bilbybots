@@ -11,9 +11,9 @@ export const YEAR3_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Our local community — the town or suburb where we live — is always growing and changing: new houses, shops, roads and parks appear, and old buildings find new uses.',
+        'Our local community, the town or suburb where we live, is always growing and changing: new houses, shops, roads and parks appear, and old buildings find new uses.',
         'Every change has a cause (the reason it happened, like more families moving in) and an effect (what happens because of it, like a new school being built).',
-        'People from many different backgrounds help build our community — building homes, growing food, teaching, baking and lending a hand when someone needs it.',
+        'People from many different backgrounds help build our community, building homes, growing food, teaching, baking and lending a hand when someone needs it.',
       ],
       illustrations: [
         {
@@ -51,9 +51,9 @@ export const YEAR3_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        "Australia has special symbols that stand for our country: the Australian flag, our national colours of green and gold, the golden wattle flower, and our animal emblems — the kangaroo and the emu.",
+        "Australia has special symbols that stand for our country: the Australian flag, our national colours of green and gold, the golden wattle flower, and our animal emblems, the kangaroo and the emu.",
         'We also have special days when we come together to celebrate or remember, like Australia Day, ANZAC Day and NAIDOC Week, each marking something important about who we are.',
-        'The different people, places and stories across our nation make Australia\u2019s identity rich and varied — and each one of us is a part of it.',
+        'The different people, places and stories across our nation make Australia\u2019s identity rich and varied, and each one of us is a part of it.',
       ],
       illustrations: [
         {
@@ -91,8 +91,8 @@ export const YEAR3_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        "Australia is made of six states — New South Wales, Victoria, Queensland, South Australia, Western Australia and Tasmania — and two mainland territories, the Northern Territory and the Australian Capital Territory.",
-        'Before that, and still today, Australia is also home to many First Nations Countries/Places — the traditional lands cared for by Aboriginal and Torres Strait Islander peoples.',
+        "Australia is made of six states, New South Wales, Victoria, Queensland, South Australia, Western Australia and Tasmania, and two mainland territories, the Northern Territory and the Australian Capital Territory.",
+        'Before that, and still today, Australia is also home to many First Nations Countries/Places, the traditional lands cared for by Aboriginal and Torres Strait Islander peoples.',
         'Our close neighbours include New Zealand across the Tasman Sea, Papua New Guinea to the north and Indonesia to our north-west, some just a short flight away.',
       ],
       illustrations: [
@@ -132,7 +132,7 @@ export const YEAR3_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'For Aboriginal and Torres Strait Islander peoples, Country/Place is much more than land — it is home, and it is connected to family, stories, culture and identity.',
+        'For Aboriginal and Torres Strait Islander peoples, Country/Place is much more than land, it is home, and it is connected to family, stories, culture and identity.',
         'This interconnection is shown in many ways: seasonal calendars that track when foods are ready, Dreaming stories that carry knowledge, and art, dance and song that share what Country means.',
         'People care for Country by taking only what is needed and keeping places healthy, so the connection continues for future generations.',
       ],
@@ -173,7 +173,7 @@ export const YEAR3_HASS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Every place has natural features (like rivers, mountains and beaches), managed features (like farms and parks people look after) and constructed features (like houses, bridges and roads people build).',
-        'When we compare Australia with a neighbour like New Zealand or Indonesia, we find similarities — both have beaches, farms and towns — and differences, like different mountains, weather and ways of building.',
+        'When we compare Australia with a neighbour like New Zealand or Indonesia, we find similarities, both have beaches, farms and towns, and differences, like different mountains, weather and ways of building.',
         'Noticing what is the same and what is different helps us understand and respect how people live in other places.',
       ],
       illustrations: [
@@ -213,7 +213,7 @@ export const YEAR3_HASS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Rules are made by the people in charge of a place: your family at home, your teacher at school, and the government for the whole country.',
-        'Rules keep us safe and make sure everyone is treated fairly — that is why we have rules about crossing the road, taking turns and sharing.',
+        'Rules keep us safe and make sure everyone is treated fairly, that is why we have rules about crossing the road, taking turns and sharing.',
         'When rules are not followed, there are consequences: not wearing a helmet means you are less safe, and ignoring a game\u2019s rules means no one can play fairly.',
       ],
       illustrations: [
@@ -253,8 +253,8 @@ export const YEAR3_HASS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'A community is a group of people who share a place, like your school, your neighbourhood or your sporting team.',
-        'People participate because helping out makes communities stronger, fairer and more fun for everyone — by volunteering, joining clubs, caring for the environment or having a say.',
-        'You can participate too: clean up a park, join a team, help a neighbour or share your ideas at school — every little contribution counts.',
+        'People participate because helping out makes communities stronger, fairer and more fun for everyone, by volunteering, joining clubs, caring for the environment or having a say.',
+        'You can participate too: clean up a park, join a team, help a neighbour or share your ideas at school, every little contribution counts.',
       ],
       illustrations: [
         {

@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 2 Mathematics — full topic bank.
+ * Year 2 Mathematics, full topic bank.
  * Source of truth for scope: docs/content/year-2/mathematics.md (AC v9.0).
  * Every topic here carries its AC9M2xxx content-description code and a
  * rendered `diagram` per illustration slot (see
@@ -20,7 +20,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Big numbers are everywhere — you can count all the way to 1000!',
+        'Big numbers are everywhere, you can count all the way to 1000!',
         'In 356, the 3 means 3 hundreds, the 5 means 5 tens, and the 6 means 6 ones.',
         'Place value is the secret code that tells you what each digit is really worth.',
       ],
@@ -60,7 +60,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'You can break a number into friendlier pieces — 352 is the same as 300 + 50 + 2.',
+        'You can break a number into friendlier pieces, 352 is the same as 300 + 50 + 2.',
         'Zero is a sneaky placeholder: in 205 there are no tens, so zero holds their spot.',
         'Splitting numbers apart and putting them back together makes you a number hero.',
       ],
@@ -101,7 +101,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'A half is one of two equal pieces, a quarter is one of four, and an eighth is one of eight.',
-        'Two quarters make a half, and two eighths make a quarter — the pieces just need to be equal.',
+        'Two quarters make a half, and two eighths make a quarter, the pieces just need to be equal.',
         'Cutting pizzas and cakes into fair shares is one of the tastiest maths jobs around.',
       ],
       illustrations: [
@@ -125,7 +125,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
         { id: 'Y2-MAT-NN03-q2', type: 'mcq', prompt: 'How many eighths make a whole?', options: ['4', '6', '8'], answer: '8', difficulty: 1 },
         { id: 'Y2-MAT-NN03-q3', type: 'short', prompt: 'How many eighths make a quarter?', answer: '2', difficulty: 2 },
         { id: 'Y2-MAT-NN03-q4', type: 'mcq', prompt: 'Which piece is the biggest?', options: ['A half', 'A quarter', 'An eighth'], answer: 'A half', difficulty: 1 },
-        { id: 'Y2-MAT-NN03-q5', type: 'mcq', prompt: 'A pizza cut into 8 equal slices — each slice is...', options: ['An eighth', 'A quarter', 'A half'], answer: 'An eighth', difficulty: 1 },
+        { id: 'Y2-MAT-NN03-q5', type: 'mcq', prompt: 'A pizza cut into 8 equal slices, each slice is...', options: ['An eighth', 'A quarter', 'A half'], answer: 'An eighth', difficulty: 1 },
         { id: 'Y2-MAT-NN03-q6', type: 'short', prompt: 'How many eighths are the same as one half?', answer: '4', difficulty: 2 },
       ],
     },
@@ -140,9 +140,9 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Add when things come together, take away when they leave — you can use your fingers, tens frames or a number line.',
+        'Add when things come together, take away when they leave, you can use your fingers, tens frames or a number line.',
         '36 + 24 is easier when you add the tens first (30 + 20 = 50), then the ones (6 + 4 = 10), and put them together: 60.',
-        'Every answer you check makes your maths brain stronger — give it a go!',
+        'Every answer you check makes your maths brain stronger, give it a go!',
       ],
       illustrations: [
         {
@@ -180,8 +180,8 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Multiplication is fast counting in equal groups — 3 groups of 4 is 3 × 4 = 12.',
-        'Division shares things out fairly — if 12 apples are shared between 3 friends, each gets 4.',
+        'Multiplication is fast counting in equal groups, 3 groups of 4 is 3 × 4 = 12.',
+        'Division shares things out fairly, if 12 apples are shared between 3 friends, each gets 4.',
         'Groups of dots are the perfect way to see both at once.',
       ],
       illustrations: [
@@ -203,8 +203,8 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
       questions: [
         { id: 'Y2-MAT-NN05-q1', type: 'mcq', prompt: '3 groups of 4 is...', options: ['7', '12', '15'], answer: '12', difficulty: 1 },
         { id: 'Y2-MAT-NN05-q2', type: 'short', prompt: '2 × 6 = ?', answer: '12', difficulty: 1 },
-        { id: 'Y2-MAT-NN05-q3', type: 'mcq', prompt: '12 apples shared between 3 friends — each gets...', options: ['3', '4', '6'], answer: '4', difficulty: 2 },
-        { id: 'Y2-MAT-NN05-q4', type: 'short', prompt: '10 dots in 2 equal groups — how many in each?', answer: '5', difficulty: 1 },
+        { id: 'Y2-MAT-NN05-q3', type: 'mcq', prompt: '12 apples shared between 3 friends, each gets...', options: ['3', '4', '6'], answer: '4', difficulty: 2 },
+        { id: 'Y2-MAT-NN05-q4', type: 'short', prompt: '10 dots in 2 equal groups, how many in each?', answer: '5', difficulty: 1 },
         { id: 'Y2-MAT-NN05-q5', type: 'mcq', prompt: 'Which is the same as 4 groups of 5?', options: ['4 + 5', '4 × 5', '5 − 4'], answer: '4 × 5', difficulty: 2 },
         { id: 'Y2-MAT-NN05-q6', type: 'short', prompt: '20 ÷ 4 = ?', answer: '5', difficulty: 3 },
       ],
@@ -220,7 +220,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Real problems can be turned into maths — like working out how many cupcakes to bake for the party.',
+        'Real problems can be turned into maths, like working out how many cupcakes to bake for the party.',
         'Read carefully, choose the right operation, then check your answer makes sense.',
         'You are already a problem-solving superhero.',
       ],
@@ -244,7 +244,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
         { id: 'Y2-MAT-NN06-q1', type: 'mcq', prompt: 'Sam has 5 stickers and gets 4 more. How many now?', options: ['9', '1', '20'], answer: '9', difficulty: 1 },
         { id: 'Y2-MAT-NN06-q2', type: 'mcq', prompt: 'A box holds 6 cupcakes. There are 2 boxes. How many cupcakes?', options: ['8', '12', '4'], answer: '12', difficulty: 2 },
         { id: 'Y2-MAT-NN06-q3', type: 'short', prompt: 'There are 9 kids and 3 join in. How many kids now?', answer: '12', difficulty: 1 },
-        { id: 'Y2-MAT-NN06-q4', type: 'mcq', prompt: '10 biscuits shared between 5 friends — each gets...', options: ['5', '2', '10'], answer: '2', difficulty: 2 },
+        { id: 'Y2-MAT-NN06-q4', type: 'mcq', prompt: '10 biscuits shared between 5 friends, each gets...', options: ['5', '2', '10'], answer: '2', difficulty: 2 },
         { id: 'Y2-MAT-NN06-q5', type: 'mcq', prompt: 'To find how many apples are in 4 bags of 5, you...', options: ['Add 4 + 5', 'Multiply 4 × 5', 'Subtract 5 − 4'], answer: 'Multiply 4 × 5', difficulty: 2 },
         { id: 'Y2-MAT-NN06-q6', type: 'short', prompt: 'Mia finds 6 shells, drops 2, then finds 3 more. How many shells does she have?', answer: '7', difficulty: 3 },
       ],
@@ -260,7 +260,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'A pattern repeats a rule — add the same number each time and you can predict what comes next.',
+        'A pattern repeats a rule, add the same number each time and you can predict what comes next.',
         '2, 4, 6, 8, 10 grows by adding 2 every step.',
         'Spotting the rule means you can skip ahead without counting everything.',
       ],
@@ -300,7 +300,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Addition facts are tiny number sentences you can say in a snap — like 7 + 8 = 15.',
+        'Addition facts are tiny number sentences you can say in a snap, like 7 + 8 = 15.',
         'Knowing your facts to 20 makes bigger maths much faster.',
         'Practise a little each day and they will stick like glue.',
       ],
@@ -340,7 +340,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Counting in twos — 2, 4, 6, 8, 10 — is the fastest way to count socks and shoes.',
+        'Counting in twos, 2, 4, 6, 8, 10, is the fastest way to count socks and shoes.',
         'Multiplying by 2 doubles a number: 2 × 7 = 14 is just 7 twice.',
         'Know your twos up to 20 and you will zip through double problems.',
       ],
@@ -380,7 +380,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Before rulers, people measured with anything handy — paperclips, blocks or hand spans.',
+        'Before rulers, people measured with anything handy, paperclips, blocks or hand spans.',
         'The desk is 9 blocks long because it takes 9 blocks laid end to end.',
         'Picking one unit and keeping it the same makes your measuring fair and easy to compare.',
       ],
@@ -402,7 +402,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
       compactCount: 4,
       questions: [
         { id: 'Y2-MAT-ME01-q1', type: 'short', prompt: 'The desk is 9 blocks long and the chair is 4 blocks long. How many more blocks long is the desk?', answer: '5', difficulty: 2 },
-        { id: 'Y2-MAT-ME01-q2', type: 'mcq', prompt: 'Which is longer — a desk 9 blocks long or a door 12 blocks long?', options: ['Desk', 'Door'], answer: 'Door', difficulty: 1 },
+        { id: 'Y2-MAT-ME01-q2', type: 'mcq', prompt: 'Which is longer, a desk 9 blocks long or a door 12 blocks long?', options: ['Desk', 'Door'], answer: 'Door', difficulty: 1 },
         { id: 'Y2-MAT-ME01-q3', type: 'mcq', prompt: 'For a fair comparison, you should use...', options: ['The same unit for both', 'Different units', 'Bigger units'], answer: 'The same unit for both', difficulty: 2 },
         { id: 'Y2-MAT-ME01-q4', type: 'short', prompt: 'A pencil measures 6 paperclips. Two pencils end to end measure how many paperclips?', answer: '12', difficulty: 2 },
         { id: 'Y2-MAT-ME01-q5', type: 'mcq', prompt: 'Which informal unit is likely the biggest?', options: ['A paperclip', 'A hand span', 'A block'], answer: 'A hand span', difficulty: 3 },
@@ -420,7 +420,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Shapes can be cut into fair pieces too — fold a square in half and you get two equal parts.',
+        'Shapes can be cut into fair pieces too, fold a square in half and you get two equal parts.',
         'Half of 8 dots is 4 dots, and half of 10 is 5.',
         'Fractions of shapes and amounts are everywhere, from sharing fruit to cutting sandwiches.',
       ],
@@ -445,7 +445,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
         { id: 'Y2-MAT-ME02-q2', type: 'short', prompt: 'What is half of 8?', answer: '4', difficulty: 1 },
         { id: 'Y2-MAT-ME02-q3', type: 'mcq', prompt: 'A pizza is cut into 4 equal slices and you eat 1. What fraction did you eat?', options: ['1/4', '1/2', '3/4'], answer: '1/4', difficulty: 2 },
         { id: 'Y2-MAT-ME02-q4', type: 'short', prompt: 'What is half of 10?', answer: '5', difficulty: 1 },
-        { id: 'Y2-MAT-ME02-q5', type: 'mcq', prompt: 'Which shows a fair half — a shape cut into equal or unequal parts?', options: ['Equal parts', 'Unequal parts'], answer: 'Equal parts', difficulty: 2 },
+        { id: 'Y2-MAT-ME02-q5', type: 'mcq', prompt: 'Which shows a fair half, a shape cut into equal or unequal parts?', options: ['Equal parts', 'Unequal parts'], answer: 'Equal parts', difficulty: 2 },
         { id: 'Y2-MAT-ME02-q6', type: 'mcq', prompt: 'Half of 6 cookies is how many?', options: ['2', '3', '6'], answer: '3', difficulty: 1 },
       ],
     },
@@ -460,7 +460,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'A calendar is a map of the year — 12 months, 52 weeks, and 7 days in every week.',
+        'A calendar is a map of the year, 12 months, 52 weeks, and 7 days in every week.',
         'To find the days between dates, hop forward day by day on the calendar.',
         'Planning your birthday or a special trip is so much easier with a calendar.',
       ],
@@ -542,7 +542,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
       body: [
         'A turn can be a quarter, a half, three-quarters, or all the way around.',
         'A quarter turn is like turning from facing the front to facing the side.',
-        'Four quarter turns make one full turn — spin all the way back to where you started!',
+        'Four quarter turns make one full turn, spin all the way back to where you started!',
       ],
       illustrations: [
         {
@@ -580,9 +580,9 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Shapes are named by their sides — a triangle has 3, a square has 4, and a pentagon has 5.',
+        'Shapes are named by their sides, a triangle has 3, a square has 4, and a pentagon has 5.',
         'A rectangle has 4 sides and 4 corners, with opposite sides the same length.',
-        'Look closely and count the sides — you are a shape detective.',
+        'Look closely and count the sides, you are a shape detective.',
       ],
       illustrations: [
         {
@@ -620,7 +620,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'A map is a bird\'s-eye view — you look down and see where everything is.',
+        'A map is a bird\'s-eye view, you look down and see where everything is.',
         'To follow a pathway, read the clues: go forward, turn left, turn right, stop at the flag.',
         'Planning your route on a map makes you a real explorer.',
       ],
@@ -661,7 +661,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'A survey asks a question and collects everyone\'s answers.',
-        'Then you tally the answers and pop them into a table — one mark for each vote.',
+        'Then you tally the answers and pop them into a table, one mark for each vote.',
         'Your table makes it easy to see which pet is the class favourite.',
       ],
       illustrations: [
@@ -700,7 +700,7 @@ export const YEAR2_MATHEMATICS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 8,
       body: [
-        'Data can be shown in different ways — picture graphs, dot plots and bar charts all tell the same story.',
+        'Data can be shown in different ways, picture graphs, dot plots and bar charts all tell the same story.',
         'Some displays use one dot or picture for each thing counted.',
         'Pick the display that makes your data easiest to read.',
       ],

@@ -136,7 +136,7 @@ export default function App() {
     setScreen('Home');
   };
 
-  /** Guest mode: no account — a demo child + sample lesson to preview the app. */
+  /** Guest mode: no account, a demo child + sample lesson to preview the app. */
   const enterGuestMode = () => {
     const demoChild: ChildProfile = {
       id: 'guest-demo',
@@ -173,7 +173,7 @@ export default function App() {
 
   // Google OAuth gate: wait for both local persistence and the auth session
   // to resolve before showing anything, then require a sign-in (guest "skip"
-  // is available until real auth config exists — see SignInScreen).
+  // is available until real auth config exists, see SignInScreen).
   if (!hydrated || !authReady) {
     return (
       <View style={{ flex: 1, backgroundColor: palette.cream, alignItems: 'center', justifyContent: 'center' }}>
@@ -187,7 +187,7 @@ export default function App() {
       return (
         <View style={{ flex: 1 }}>
           <StatusBar style="dark" />
-          <LegalScreen doc={legalDoc} onHome={() => setLegalDoc(null)} onProgress={() => setLegalDoc(null)} onSetup={() => setLegalDoc(null)} onSignOut={() => setLegalDoc(null)} />
+          <LegalScreen child={child} doc={legalDoc} onHome={() => setLegalDoc(null)} onProgress={() => setLegalDoc(null)} onSetup={() => setLegalDoc(null)} onSignOut={() => setLegalDoc(null)} />
         </View>
       );
     }
@@ -208,6 +208,7 @@ export default function App() {
       <StatusBar style="dark" />
       {legalDoc ? (
         <LegalScreen
+          child={child}
           doc={legalDoc}
           onHome={goHome}
           onProgress={goProgress}
@@ -309,6 +310,7 @@ export default function App() {
       {screen === 'NaplanTest' && activeNaplan && (
         <NaplanTestScreen
           test={activeNaplan.test}
+          child={child}
           onFinish={(result) => {
             if (guest) {
               exitGuest();

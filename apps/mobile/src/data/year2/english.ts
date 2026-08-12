@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 2 English — full topic bank.
+ * Year 2 English, full topic bank.
  * Source of truth for scope: docs/content/year-1-5/english.md (AC v9.0,
  * strands Language/Literature/Literacy). Every topic carries its AC9E2xxx
  * content-description code. Each lesson is original authored content (we
@@ -9,7 +9,7 @@ import type { Topic } from '../../types/curriculum';
  * 6 questions (nominal pace) / 4 (compact pace), per
  * docs/specs/adaptive-pacing.md's depth-compression model. Every illustration
  * slot renders a real vector `diagram` (see
- * src/components/illustrations/diagrams.tsx) — icon-scene scenes for English,
+ * src/components/illustrations/diagrams.tsx), icon-scene scenes for English,
  * never emoji.
  */
 export const YEAR2_ENGLISH_TOPICS: Topic[] = [
@@ -60,7 +60,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'When a story makes you smile, you can say why with words like "favourite" and "because".',
-        '"I love the sleepy bear because he is so funny!" — that is an opinion with a reason.',
+        '"I love the sleepy bear because he is so funny!", that is an opinion with a reason.',
         'Giving a reason makes your opinion stronger and helps others understand you.',
       ],
       illustrations: [
@@ -102,7 +102,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
         {
           brief: 'Flowchart of a story: beginning, middle and end',
           ready: true,
-          diagram: { kind: 'flowchart', steps: [{ text: 'Beginning — meet the characters' }, { text: 'Middle — something happens' }, { text: 'End — how it wraps up' }] },
+          diagram: { kind: 'flowchart', steps: [{ text: 'Beginning, meet the characters' }, { text: 'Middle, something happens' }, { text: 'End, how it wraps up' }] },
         },
         {
           brief: 'A story, a recipe and a report as three different text shapes',
@@ -135,7 +135,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'Pronouns like he, she, it and they are word-helpers that stop us repeating names.',
-        '"Ben fed the dog. He loved it." — here "he" means Ben and "it" means the dog.',
+        '"Ben fed the dog. He loved it.", here "he" means Ben and "it" means the dog.',
         'Sometimes we can even leave a word out because the reader can guess it, and the text stays smooth.',
       ],
       illustrations: [
@@ -279,7 +279,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Pictures are not just for pretty — they add meaning and sometimes multiply it.',
+        'Pictures are not just for pretty, they add meaning and sometimes multiply it.',
         'A picture can show you what a strange new word looks like, or add a surprise that the words never mention.',
         'Looking closely at pictures makes you a super reader.',
       ],
@@ -333,7 +333,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y2-ENG-LA09-q1', type: 'mcq', prompt: 'Which words belong to a "doctor" topic?', options: ['stethoscope, bandage', 'tractor, paddock', 'telescope, planet'], answer: 'stethoscope, bandage', difficulty: 1 },
         { id: 'Y2-ENG-LA09-q2', type: 'mcq', prompt: 'For a story about space, which words fit best?', options: ['rocket, planet', 'pizza, plate', 'pencil, ruler'], answer: 'rocket, planet', difficulty: 1 },
         { id: 'Y2-ENG-LA09-q3', type: 'mcq', prompt: 'Choosing a strong, exact word instead of a boring one helps readers…', options: ['picture the topic better', 'run faster', 'forget the topic'], answer: 'picture the topic better', difficulty: 2 },
-        { id: 'Y2-ENG-LA09-q4', type: 'short', prompt: 'Which word is more exact for "went" in a space story — "zoomed" or "walked"?', answer: 'zoomed', difficulty: 1 },
+        { id: 'Y2-ENG-LA09-q4', type: 'short', prompt: 'Which word is more exact for "went" in a space story, "zoomed" or "walked"?', answer: 'zoomed', difficulty: 1 },
         { id: 'Y2-ENG-LA09-q5', type: 'mcq', prompt: 'A report about the ocean should mostly use words like…', options: ['waves, tide, fish', 'school, desk, bell', 'engine, brake, wheel'], answer: 'waves, tide, fish', difficulty: 1 },
         { id: 'Y2-ENG-LA09-q6', type: 'mcq', prompt: '"Experiment with vocabulary" means…', options: ['trying different word choices to see which fits best', 'throwing words in the bin', 'never changing a word'], answer: 'trying different word choices to see which fits best', difficulty: 3 },
       ],
@@ -387,7 +387,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
       body: [
         'Stories come from all over the world, and they are precious gifts.',
         'Australia\'s First Nations peoples are the world\'s oldest continuing cultures, and their stories often share deep knowledge about Country and caring for the land.',
-        'Characters in stories from different places may live in very different settings — snowy lands, deserts or rainforests — but all of them can be brave and kind.',
+        'Characters in stories from different places may live in very different settings, snowy lands, deserts or rainforests, but all of them can be brave and kind.',
       ],
       illustrations: [
         {
@@ -421,7 +421,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'Stories are made of features: characters (who is in it), settings (where it happens) and the events that happen along the way.',
-        'When you say what you like, give a reason — "I love the dragon because she is funny."',
+        'When you say what you like, give a reason, "I love the dragon because she is funny."',
         'Knowing the features helps you talk about any story you read.',
       ],
       illustrations: [
@@ -471,7 +471,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
       nominalCount: 6,
       compactCount: 4,
       questions: [
-        { id: 'Y2-ENG-LE03-q1', type: 'mcq', prompt: '"The enormous, grumpy giant" — which words describe the giant?', options: ['enormous, grumpy', 'the giant', 'the'], answer: 'enormous, grumpy', difficulty: 1 },
+        { id: 'Y2-ENG-LE03-q1', type: 'mcq', prompt: '"The enormous, grumpy giant", which words describe the giant?', options: ['enormous, grumpy', 'the giant', 'the'], answer: 'enormous, grumpy', difficulty: 1 },
         { id: 'Y2-ENG-LE03-q2', type: 'mcq', prompt: '"The peaceful forest" sounds…', options: ['quiet and calm', 'noisy and wild', 'very cold'], answer: 'quiet and calm', difficulty: 2 },
         { id: 'Y2-ENG-LE03-q3', type: 'mcq', prompt: '"The bustling city" is full of…', options: ['busy people and noise', 'silence', 'snow'], answer: 'busy people and noise', difficulty: 3 },
         { id: 'Y2-ENG-LE03-q4', type: 'short', prompt: 'Which word in "the tiny, fierce mouse" tells you the mouse is bold?', answer: 'fierce', difficulty: 2 },
@@ -492,7 +492,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
       body: [
         'Poems, chants and songs love patterns of sound.',
         'Rhyming words end the same way (cat, hat), and rhythm is the beat you can clap along to.',
-        'Listen for the bounce — you can even make up your own pattern!',
+        'Listen for the bounce, you can even make up your own pattern!',
       ],
       illustrations: [
         {
@@ -525,7 +525,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'You can become the author! Take a story you love and change something — a new character, a different ending, or a surprise twist.',
+        'You can become the author! Take a story you love and change something, a new character, a different ending, or a surprise twist.',
         'When you adapt a story, you keep what works and add your own brave ideas.',
         'Then read your story again and make it even better.',
       ],
@@ -580,7 +580,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y2-ENG-LY01-q1', type: 'mcq', prompt: 'A story about space and an information book about space both tell us…', options: ['about space, in different ways', 'nothing at all', 'only about pizza'], answer: 'about space, in different ways', difficulty: 1 },
         { id: 'Y2-ENG-LY01-q2', type: 'mcq', prompt: 'An information text about spiders would mostly give…', options: ['facts like legs and webs', 'a made-up wizard', 'only songs'], answer: 'facts like legs and webs', difficulty: 1 },
         { id: 'Y2-ENG-LY01-q3', type: 'mcq', prompt: 'A story about a spider might give…', options: ['a character with feelings and adventures', 'only the words "legs" and "web"', 'a weather forecast'], answer: 'a character with feelings and adventures', difficulty: 2 },
-        { id: 'Y2-ENG-LY01-q4', type: 'short', prompt: 'If you want facts about sharks, which text helps most — a story or an information book?', answer: 'an information book', difficulty: 1 },
+        { id: 'Y2-ENG-LY01-q4', type: 'short', prompt: 'If you want facts about sharks, which text helps most, a story or an information book?', answer: 'an information book', difficulty: 1 },
         { id: 'Y2-ENG-LY01-q5', type: 'mcq', prompt: 'Two texts about the same topic can still be different because of their…', options: ['purpose and how they tell it', 'page colour always', 'font size only'], answer: 'purpose and how they tell it', difficulty: 2 },
         { id: 'Y2-ENG-LY01-q6', type: 'mcq', prompt: 'A poster, a song and a story can all be about the ocean. They are…', options: ['different text types with the same topic', 'exactly the same text', 'all reports'], answer: 'different text types with the same topic', difficulty: 2 },
       ],
@@ -597,7 +597,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'Being a good talker is about listening too!',
-        'Look at the speaker, show you are listening, and build on their ideas — "Great idea! What if we add…?"',
+        'Look at the speaker, show you are listening, and build on their ideas, "Great idea! What if we add…?"',
         'When you give instructions, say the steps clearly and in order.',
       ],
       illustrations: [
@@ -614,7 +614,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
       questions: [
         { id: 'Y2-ENG-LY02-q1', type: 'mcq', prompt: 'When a friend is speaking, a good listener…', options: ['looks and listens carefully', 'talks over them', 'walks away'], answer: 'looks and listens carefully', difficulty: 1 },
         { id: 'Y2-ENG-LY02-q2', type: 'mcq', prompt: 'To "extend" a friend\'s idea means to…', options: ['build on it and add more', 'copy it and say nothing', 'forget it'], answer: 'build on it and add more', difficulty: 2 },
-        { id: 'Y2-ENG-LY02-q3', type: 'mcq', prompt: 'Which sentence extends someone\'s idea?', options: ['"That is a great idea — what if we add a tunnel?"', '"No."', '"Whatever."'], answer: '"That is a great idea — what if we add a tunnel?"', difficulty: 2 },
+        { id: 'Y2-ENG-LY02-q3', type: 'mcq', prompt: 'Which sentence extends someone\'s idea?', options: ['"That is a great idea, what if we add a tunnel?"', '"No."', '"Whatever."'], answer: '"That is a great idea, what if we add a tunnel?"', difficulty: 2 },
         { id: 'Y2-ENG-LY02-q4', type: 'short', prompt: 'To give clear instructions, put the steps in the right…', answer: 'order', difficulty: 1 },
         { id: 'Y2-ENG-LY02-q5', type: 'mcq', prompt: 'Which instruction is clearest?', options: ['"First, press the green button, then wait."', '"Do the thing."', '"Maybe press something."'], answer: '"First, press the green button, then wait."', difficulty: 1 },
         { id: 'Y2-ENG-LY02-q6', type: 'mcq', prompt: 'If you disagree with a friend\'s idea, the kind way is to…', options: ['say your different idea politely', 'shout over them', 'stop talking forever'], answer: 'say your different idea politely', difficulty: 2 },
@@ -631,7 +631,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Every text has a purpose — why it was made — and an audience — who it is for.',
+        'Every text has a purpose, why it was made, and an audience, who it is for.',
         'A letter to your grandma uses different words than a note to a friend.',
         'Asking "Who is this for?" and "Why?" helps you understand any text.',
       ],
@@ -666,7 +666,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Fluent readers read in smooth phrases, not word by word — like a bouncy ball rolling along.',
+        'Fluent readers read in smooth phrases, not word by word, like a bouncy ball rolling along.',
         'If a sentence sounds wrong, good readers stop, re-read and fix it.',
         'The more you practise, the smoother and braver your reading gets!',
       ],
@@ -738,7 +738,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
       body: [
         'You can write texts for people you know!',
         'A get-well card for a friend or a poster for the classroom both need a clear start, good ideas and tidy punctuation.',
-        'After you write, read it again and make it even better — that is editing.',
+        'After you write, read it again and make it even better, that is editing.',
       ],
       illustrations: [
         {
@@ -876,7 +876,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Some sounds are spelled with two letters — digraphs like "ai" in rain and "ee" in bee.',
+        'Some sounds are spelled with two letters, digraphs like "ai" in rain and "ee" in bee.',
         'Some letters are silent, like the "k" in "knife".',
         'When you meet a new word, look for the letter team that makes each sound.',
       ],
@@ -884,7 +884,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
         {
           brief: 'Grapheme cards showing the digraphs "ai", "ee" and the silent "k"',
           ready: true,
-          diagram: { kind: 'icon-scene', items: [{ icon: 'bookmark', label: '"ai" in rain' }, { icon: 'bookmark', label: '"ee" in bee' }, { icon: 'bookmark', label: '"kn" — "k" is silent' }], caption: 'Letter teams make one sound' },
+          diagram: { kind: 'icon-scene', items: [{ icon: 'bookmark', label: '"ai" in rain' }, { icon: 'bookmark', label: '"ee" in bee' }, { icon: 'bookmark', label: '"kn", "k" is silent' }], caption: 'Letter teams make one sound' },
         },
       ],
     },
@@ -894,7 +894,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
       questions: [
         { id: 'Y2-ENG-LY10-q1', type: 'mcq', prompt: 'Which two letters make the /ee/ sound in "bee"?', options: ['ee', 'be', 'bb'], answer: 'ee', difficulty: 1 },
         { id: 'Y2-ENG-LY10-q2', type: 'mcq', prompt: 'In "rain", which two letters make the long "ai" sound?', options: ['ai', 'ra', 'in'], answer: 'ai', difficulty: 2 },
-        { id: 'Y2-ENG-LY10-q3', type: 'mcq', prompt: 'In "knife", the "k" is…', options: ['silent — we say "nife"', 'said loudly', 'the loudest sound'], answer: 'silent — we say "nife"', difficulty: 2 },
+        { id: 'Y2-ENG-LY10-q3', type: 'mcq', prompt: 'In "knife", the "k" is…', options: ['silent, we say "nife"', 'said loudly', 'the loudest sound'], answer: 'silent, we say "nife"', difficulty: 2 },
         { id: 'Y2-ENG-LY10-q4', type: 'short', prompt: 'What sound does the "k" make in the word "knee"?', answer: 'no sound (silent)', difficulty: 2 },
         { id: 'Y2-ENG-LY10-q5', type: 'mcq', prompt: 'Which word has a silent letter?', options: ['lamb', 'hand', 'sand'], answer: 'lamb', difficulty: 2 },
         { id: 'Y2-ENG-LY10-q6', type: 'mcq', prompt: 'A digraph is…', options: ['two letters that make one sound', 'three letters that make two sounds', 'a very long word'], answer: 'two letters that make one sound', difficulty: 2 },
@@ -911,7 +911,7 @@ export const YEAR2_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Some words are tricky because they do not sound the way they look — like "said", "was" and "people".',
+        'Some words are tricky because they do not sound the way they look, like "said", "was" and "people".',
         'You can learn these heart words by sight and practise them little and often.',
         'Knowing spelling patterns helps too, so you can work out how to write tricky words.',
       ],

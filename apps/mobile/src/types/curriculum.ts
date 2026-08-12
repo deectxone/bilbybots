@@ -31,7 +31,7 @@ export interface CurriculumCode {
 
 /**
  * A vector diagram the app can render itself (no external asset needed).
- * `params` is a discriminated union keyed by `kind` — see
+ * `params` is a discriminated union keyed by `kind`, see
  * `src/components/illustrations/diagrams.tsx` for the renderer per kind.
  */
 export type DiagramSpec =
@@ -89,7 +89,7 @@ export interface Assignment {
 }
 
 export interface Topic {
-  /** e.g. Y6-MAT-NN01 — same id as the topic index docs */
+  /** e.g. Y6-MAT-NN01, same id as the topic index docs */
   id: string;
   title: string;
   year: YearLevel;

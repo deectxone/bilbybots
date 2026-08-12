@@ -1,7 +1,7 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 1 Science — full topic bank.
+ * Year 1 Science, full topic bank.
  * Source of truth for scope: docs/content/year-1-5/science.md (AC v9.0;
  * strands Science understanding / Science as a human endeavour / Science
  * inquiry). Every topic carries its AC9S1xxx content-description code and a
@@ -25,9 +25,9 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'All living things — like you, a dog, a fish and a tree — need water, food and air to live and grow.',
+        'All living things, like you, a dog, a fish and a tree, need water, food and air to live and grow.',
         'Every creature has a home that gives it what it needs: a fish has water to swim in, a bird has a nest, and a tree gets light from the sun.',
-        'When a living thing has everything it needs, it stays healthy and strong — just like you with your lunch and a good drink of water.',
+        'When a living thing has everything it needs, it stays healthy and strong, just like you with your lunch and a good drink of water.',
       ],
       illustrations: [
         { brief: 'Water, food, air and shelter shown as the four needs of living things', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'droplet', label: 'Water' }, { icon: 'bowl', label: 'Food' }, { icon: 'sun', label: 'Air and light' }, { icon: 'house', label: 'Shelter' }], caption: 'Every living thing needs water, food, air and shelter' } },
@@ -57,12 +57,12 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Every day the sun rises in the morning and sets at night — that is how we get daytime and night-time.',
+        'Every day the sun rises in the morning and sets at night, that is how we get daytime and night-time.',
         'Through the year, the seasons change: summer is hot, winter is cooler, and the weather, trees and animals change with them.',
         'For tens of thousands of years, First Nations Australians have watched the seasons closely to know when to hunt, fish and gather food.',
       ],
       illustrations: [
-        { brief: 'A day flowing from morning, to bright day, to night', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Morning — sun rises' }, { text: 'Day — bright and warm' }, { text: 'Night — sun sets, stars out' }] } },
+        { brief: 'A day flowing from morning, to bright day, to night', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Morning, sun rises' }, { text: 'Day, bright and warm' }, { text: 'Night, sun sets, stars out' }] } },
         { brief: 'A thermometer showing a hot summer day', ready: true, diagram: { kind: 'thermometer', min: 0, max: 40, value: 32, unit: '°C' } },
       ],
     },
@@ -74,7 +74,7 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
         { id: 'Y1-SCI-U02-q2', type: 'mcq', prompt: 'What do we usually see in the sky at night?', options: ['Stars in the dark sky', 'The bright hot sun', 'Rainbows every night'], answer: 'Stars in the dark sky', difficulty: 1 },
         { id: 'Y1-SCI-U02-q3', type: 'mcq', prompt: 'In Australia, which season is usually the hottest?', options: ['Summer', 'Winter', 'Autumn'], answer: 'Summer', difficulty: 1 },
         { id: 'Y1-SCI-U02-q4', type: 'mcq', prompt: 'In winter, the weather is usually…', options: ['Cooler', 'The hottest of the year', 'Exactly like summer'], answer: 'Cooler', difficulty: 1 },
-        { id: 'Y1-SCI-U02-q5', type: 'short', prompt: 'Which part of the day is dark — morning or night?', answer: 'night', difficulty: 1 },
+        { id: 'Y1-SCI-U02-q5', type: 'short', prompt: 'Which part of the day is dark, morning or night?', answer: 'night', difficulty: 1 },
         { id: 'Y1-SCI-U02-q6', type: 'mcq', prompt: 'When the sun is highest and brightest, it is usually…', options: ['The middle of the day', 'Midnight', 'Very early morning'], answer: 'The middle of the day', difficulty: 2 },
       ],
     },
@@ -89,12 +89,12 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'A push sends something away from you, and a pull brings it closer — like pushing a swing or pulling the door open.',
+        'A push sends something away from you, and a pull brings it closer, like pushing a swing or pulling the door open.',
         'A strong push moves a ball further than a soft push, and the direction you push or pull changes where things go.',
         'Look at your toy, think, and you can predict what will happen: push hard and it zooms, pull gently and it rolls back.',
       ],
       illustrations: [
-        { brief: 'Push moves a thing away and pull brings it closer', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Push — moves away' }, { text: 'Pull — comes closer' }, { text: 'Strong push — moves far' }] } },
+        { brief: 'Push moves a thing away and pull brings it closer', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Push, moves away' }, { text: 'Pull, comes closer' }, { text: 'Strong push, moves far' }] } },
         { brief: 'How far a ball rolls after a soft, medium and strong push', ready: true, diagram: { kind: 'bar-compare', unit: 'steps', items: [{ label: 'Soft push', value: 2 }, { label: 'Medium push', value: 5 }, { label: 'Strong push', value: 9 }] } },
       ],
     },
@@ -122,9 +122,9 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Science is all around you — bakers measure ingredients, gardeners watch the weather, and farmers watch the seasons to decide when to plant.',
+        'Science is all around you, bakers measure ingredients, gardeners watch the weather, and farmers watch the seasons to decide when to plant.',
         'When you notice a pattern, you can predict what comes next: if dark clouds gather, rain is probably on its way.',
-        'Noticing patterns and using them to predict is one of the cleverest things you can do — you are thinking like a scientist!',
+        'Noticing patterns and using them to predict is one of the cleverest things you can do, you are thinking like a scientist!',
       ],
       illustrations: [
         { brief: 'A baker, a gardener and a weather-watcher each using science in daily life', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'bowl', label: 'Baking measures' }, { icon: 'sprout', label: 'Planting by season' }, { icon: 'raincloud', label: 'Watching weather' }], caption: 'People use science every single day' } },
@@ -156,7 +156,7 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 9,
       body: [
         'A scientist starts with a question like "What will happen if I give the plant more water?"',
-        'A prediction is your best guess, made from what you already know — not a random wild guess.',
+        'A prediction is your best guess, made from what you already know, not a random wild guess.',
         'Ask what, why and what-if questions, then test them to find out for real!',
       ],
       illustrations: [
@@ -201,7 +201,7 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
       compactCount: 4,
       questions: [
         { id: 'Y1-SCI-I02-q1', type: 'mcq', prompt: 'In science, you should taste things only when…', options: ['A teacher says it is safe', 'No one is looking', 'They smell nice'], answer: 'A teacher says it is safe', difficulty: 1 },
-        { id: 'Y1-SCI-I02-q2', type: 'mcq', prompt: 'Touching something very hot in an experiment is…', options: ['Unsafe — ask a grown-up', 'The best way to test', 'Fine if you are quick'], answer: 'Unsafe — ask a grown-up', difficulty: 1 },
+        { id: 'Y1-SCI-I02-q2', type: 'mcq', prompt: 'Touching something very hot in an experiment is…', options: ['Unsafe, ask a grown-up', 'The best way to test', 'Fine if you are quick'], answer: 'Unsafe, ask a grown-up', difficulty: 1 },
         { id: 'Y1-SCI-I02-q3', type: 'mcq', prompt: 'Following the steps of an experiment helps you…', options: ['Stay safe and get a fair result', 'Finish faster and make a mess', 'Skip the learning'], answer: 'Stay safe and get a fair result', difficulty: 2 },
         { id: 'Y1-SCI-I02-q4', type: 'mcq', prompt: 'An experiment needs you to push hard. The safe thing is to…', options: ['Ask a grown-up to help', 'Push as hard as you can alone', 'Close your eyes and push'], answer: 'Ask a grown-up to help', difficulty: 1 },
         { id: 'Y1-SCI-I02-q5', type: 'mcq', prompt: 'Which is a safe way to look closely at something small?', options: ['Use a magnifier', 'Put it in your mouth', 'Hold it right against your eye'], answer: 'Use a magnifier', difficulty: 1 },
@@ -219,7 +219,7 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Observing means looking, listening and noticing very carefully — not just a quick peek.',
+        'Observing means looking, listening and noticing very carefully, not just a quick peek.',
         'Scientists record what they see with drawings, tallies or simple charts so nothing is forgotten.',
         'Tools like rulers, hand lenses and cameras help you measure and capture your observations.',
       ],
@@ -251,7 +251,7 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Sorting things into groups helps you spot patterns — all the round leaves in one pile and all the long leaves in another.',
+        'Sorting things into groups helps you spot patterns, all the round leaves in one pile and all the long leaves in another.',
         'Putting your counts into a table or a picture makes the pattern easy to see.',
         'When you sort and order your data, hidden patterns pop out like magic!',
       ],
@@ -283,7 +283,7 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'After a test, compare your prediction with what you really saw — they may match, or you may learn something new.',
+        'After a test, compare your prediction with what you really saw, they may match, or you may learn something new.',
         'Thinking about fairness means keeping the test the same for everyone, like giving each plant the same light and water.',
         'Ending with a brand-new question is a sign you are a brilliant scientist!',
       ],
@@ -315,7 +315,7 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 9,
       body: [
-        'Scientists share what they found so others can learn too — with drawings, labels and clear sentences.',
+        'Scientists share what they found so others can learn too, with drawings, labels and clear sentences.',
         'Using science words like observe, predict and result makes your sharing clear and clever.',
         'A picture with labels can tell a whole story about what you discovered.',
       ],
@@ -333,7 +333,7 @@ export const YEAR1_SCIENCE_TOPICS: Topic[] = [
         { id: 'Y1-SCI-I06-q3', type: 'mcq', prompt: 'A labelled drawing of your experiment helps others…', options: ['See what you observed', 'Hear a loud sound', 'Smell the flower'], answer: 'See what you observed', difficulty: 1 },
         { id: 'Y1-SCI-I06-q4', type: 'mcq', prompt: 'What is the best way to tell the class what you found?', options: ['Use clear words and show your result', 'Shout the answer', 'Say "guess what" and walk away'], answer: 'Use clear words and show your result', difficulty: 2 },
         { id: 'Y1-SCI-I06-q5', type: 'mcq', prompt: 'To explain your experiment, you could write…', options: ['A clear sentence with science words', 'Nothing at all', 'Only a messy scribble'], answer: 'A clear sentence with science words', difficulty: 1 },
-        { id: 'Y1-SCI-I06-q6', type: 'short', prompt: 'Which science word means guessing what will happen before a test — predict or observe?', answer: 'predict', difficulty: 2 },
+        { id: 'Y1-SCI-I06-q6', type: 'short', prompt: 'Which science word means guessing what will happen before a test, predict or observe?', answer: 'predict', difficulty: 2 },
       ],
     },
   },

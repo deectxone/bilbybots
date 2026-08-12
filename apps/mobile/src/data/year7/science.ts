@@ -1,12 +1,12 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 7 Science — full topic bank.
+ * Year 7 Science, full topic bank.
  * Source of truth: docs/content/year-7-10/science.md (AC v9.0; strands Science
  * Understanding / Human Endeavour / Inquiry; codes verified against ACARA v9.0
  * and the QCAA Years 7–10 Science sequence).
  * Each `AC9S7I02` topic carries `sensitivity: true` per the primary-school
- * convention — it touches Country/Place research-permission awareness, pending
+ * convention, it touches Country/Place research-permission awareness, pending
  * a First Nations protocol review before release.
  */
 export const YEAR7_SCIENCE_TOPICS: Topic[] = [
@@ -21,8 +21,8 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'There are millions of different living things, so scientists sort them into groups by shared features. Classification turns chaos into order — every living thing belongs to a kingdom, then smaller and smaller groups (phylum, class, order, family, genus, species).',
-        "A dichotomous key is a set of 'either/or' questions that leads you to an organism's name — like a choose-your-own-adventure for identifying a plant or animal.",
+        'There are millions of different living things, so scientists sort them into groups by shared features. Classification turns chaos into order, every living thing belongs to a kingdom, then smaller and smaller groups (phylum, class, order, family, genus, species).',
+        "A dichotomous key is a set of 'either/or' questions that leads you to an organism's name, like a choose-your-own-adventure for identifying a plant or animal.",
       ],
       illustrations: [
         { brief: 'Kingdom-to-species classification funnel', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Kingdom' }, { text: 'Phylum' }, { text: 'Class' }, { text: 'Order' }, { text: 'Family' }, { text: 'Genus' }, { text: 'Species' }] } },
@@ -53,7 +53,7 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A food web shows who eats what in an ecosystem, and how matter and energy flow between living things. Energy starts with the Sun, is captured by producers (plants), and moves through consumers as they feed.',
-        'Abiotic factors (sunlight, water, temperature) and biotic factors (predators, competition) affect population size. Remove or add one species and the whole web can wobble — that is why introduced species are so damaging.',
+        'Abiotic factors (sunlight, water, temperature) and biotic factors (predators, competition) affect population size. Remove or add one species and the whole web can wobble, that is why introduced species are so damaging.',
       ],
       illustrations: [
         { brief: 'A food web diagram: grass → insects → birds/frogs → hawk', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Sun' }, { text: 'Grass (producer)' }, { text: 'Insects' }, { text: 'Frogs + birds' }, { text: 'Hawk' }] } },
@@ -84,7 +84,7 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         "The Earth, Sun and Moon move in repeating patterns. Earth's tilt causes the seasons, the Moon's orbit around Earth gives us lunar phases, and the Moon's gravity pulling on Earth's oceans gives us tides.",
-        "When the Sun, Earth and Moon line up just right, we get eclipses — the Moon blocking the Sun (solar) or Earth's shadow falling on the Moon (lunar). These cycles are so regular we can predict them exactly.",
+        "When the Sun, Earth and Moon line up just right, we get eclipses, the Moon blocking the Sun (solar) or Earth's shadow falling on the Moon (lunar). These cycles are so regular we can predict them exactly.",
       ],
       illustrations: [
         { brief: 'Earth–Moon–Sun positions for phases, tides and eclipses', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'sun', label: 'Sun' }, { icon: 'orbit', label: 'Moon orbits Earth' }, { icon: 'globe', label: 'Earth' }], caption: 'Orbits line up to cause eclipses and tides' } },
@@ -115,7 +115,7 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A force is a push or a pull. Balanced forces leave an object still or moving at a steady speed; unbalanced forces make it speed up, slow down or change direction.',
-        "Gravity pulls everything toward Earth's centre. Heavier (more massive) objects need a bigger force to change their motion — that is why pushing a loaded trolley is harder than pushing an empty one.",
+        "Gravity pulls everything toward Earth's centre. Heavier (more massive) objects need a bigger force to change their motion, that is why pushing a loaded trolley is harder than pushing an empty one.",
       ],
       illustrations: [
         { brief: 'Balanced vs unbalanced forces on a tug-of-war rope', ready: true, diagram: { kind: 'balance-scale', left: 'Team A 500N', right: 'Team B 500N', balanced: true } },
@@ -176,7 +176,7 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A pure substance is made of only one kind of matter (like pure water or pure salt). A mixture is two or more substances mixed together but not chemically joined — like sea water, air or a salad.',
+        'A pure substance is made of only one kind of matter (like pure water or pure salt). A mixture is two or more substances mixed together but not chemically joined, like sea water, air or a salad.',
         'Mixtures can be separated using differences in their properties: filtering separates solid from liquid, evaporation recovers dissolved solids, and distillation separates liquids with different boiling points.',
       ],
       illustrations: [
@@ -208,7 +208,7 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Scientific knowledge is not fixed — it changes as new evidence arrives or new technologies reveal things we could not see before. Ideas are refined, revised or sometimes replaced.',
+        'Scientific knowledge is not fixed, it changes as new evidence arrives or new technologies reveal things we could not see before. Ideas are refined, revised or sometimes replaced.',
         'Different perspectives also matter: scientists from different backgrounds and cultures bring different questions and ways of seeing, which can lead to new understanding.',
       ],
       illustrations: [
@@ -238,7 +238,7 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Science is done by people — from school students to professional researchers at universities, CSIRO and other institutions. These organisations support research, keep records and share findings.',
+        'Science is done by people, from school students to professional researchers at universities, CSIRO and other institutions. These organisations support research, keep records and share findings.',
         'Scientific knowledge builds up over time as many people contribute. Recognising who did the work and how institutions support it is part of how science stays honest and reliable.',
       ],
       illustrations: [
@@ -269,7 +269,7 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Scientific responses to real problems raise ethical, environmental, social and economic questions. Desalination plants turn seawater into drinking water but can affect marine life; laboratory-grown meat may help the environment but raises questions about cost and food choices.',
-        'Science does not just discover things — it helps society decide how to live. Asking who is helped, who is affected and what it costs is part of judging any scientific solution.',
+        'Science does not just discover things, it helps society decide how to live. Asking who is helped, who is affected and what it costs is part of judging any scientific solution.',
       ],
       illustrations: [
         { brief: 'Considerations wheel: ethical, environmental, social, economic', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Ethical' }, { text: 'Environmental' }, { text: 'Social' }, { text: 'Economic' }] } },
@@ -329,8 +329,8 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Science starts with a good question. An investigable question is one you can answer by collecting evidence — like "How does the height of a ramp affect how far a ball rolls?" not "What is the best sport?".',
-        'Before you test, you make a prediction or hypothesis — a reasoned guess about what you expect, based on what you already know. "If the ramp is higher, then the ball will roll further because it has more energy."',
+        'Science starts with a good question. An investigable question is one you can answer by collecting evidence, like "How does the height of a ramp affect how far a ball rolls?" not "What is the best sport?".',
+        'Before you test, you make a prediction or hypothesis, a reasoned guess about what you expect, based on what you already know. "If the ramp is higher, then the ball will roll further because it has more energy."',
       ],
       illustrations: [
         { brief: 'Ramp-height investigation hypothesis diagram', ready: true, diagram: { kind: 'bar-compare', unit: 'distance', items: [{ label: 'Low ramp', value: 3 }, { label: 'Medium ramp', value: 6 }, { label: 'High ramp', value: 9 }] } },
@@ -391,7 +391,7 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Precision means measuring carefully and recording data the right way. You choose equipment that fits the job — a stopwatch for time, a ruler for length, a measuring cylinder for volume — and read it at eye level.',
+        'Precision means measuring carefully and recording data the right way. You choose equipment that fits the job, a stopwatch for time, a ruler for length, a measuring cylinder for volume, and read it at eye level.',
         'Digital tools (like data loggers or spreadsheets) can record values accurately and automatically. Recording with correct units and decimals makes data useful for others.',
       ],
       illustrations: [
@@ -453,8 +453,8 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Analysing data means looking for patterns, trends and relationships. A pattern might be "the higher the ramp, the further the ball rolled" — the trend in the measurements tells the story.',
-        'You also check for outliers — a measurement that is way out of line with the others. Outliers may be mistakes, or they may be clues, but you must not just ignore them.',
+        'Analysing data means looking for patterns, trends and relationships. A pattern might be "the higher the ramp, the further the ball rolled", the trend in the measurements tells the story.',
+        'You also check for outliers, a measurement that is way out of line with the others. Outliers may be mistakes, or they may be clues, but you must not just ignore them.',
       ],
       illustrations: [
         { brief: 'A dot plot with one clear outlier marked', ready: true, diagram: { kind: 'dot-plot', values: [4, 5, 4, 6, 5, 5, 12], unit: 'distance (m)' } },
@@ -484,7 +484,7 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Evaluating means checking your work honestly. Look for possible sources of error in the method — misreading equipment, changing two variables, a shaky technique — and for unanswered questions.',
+        'Evaluating means checking your work honestly. Look for possible sources of error in the method, misreading equipment, changing two variables, a shaky technique, and for unanswered questions.',
         'A good conclusion explains what the evidence shows and whether it really supports the claim. If the method had flaws, the conclusion is weaker, and you should say so.',
       ],
       illustrations: [
@@ -514,8 +514,8 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A scientific argument supports a conclusion with evidence — not just opinion. You weigh the evidence, check the source, and decide whether a claim is reasonable.',
-        'When using secondary data (someone else\u2019s research), you should consider ethical issues and cultural protocols — cite sources properly and respect knowledges that are shared with conditions.',
+        'A scientific argument supports a conclusion with evidence, not just opinion. You weigh the evidence, check the source, and decide whether a claim is reasonable.',
+        'When using secondary data (someone else\u2019s research), you should consider ethical issues and cultural protocols, cite sources properly and respect knowledges that are shared with conditions.',
       ],
       illustrations: [
         { brief: 'Claim → evidence → reasoning structure', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Claim' }, { text: 'Evidence' }, { text: 'Reasoning' }, { text: 'Conclusion' }] } },
@@ -544,7 +544,7 @@ export const YEAR7_SCIENCE_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Scientists share their ideas in reports, graphs, talks and articles. Good science communication picks the right language and text features for the audience — a report for a teacher differs from a poster for classmates.',
+        'Scientists share their ideas in reports, graphs, talks and articles. Good science communication picks the right language and text features for the audience, a report for a teacher differs from a poster for classmates.',
         'Digital tools help you create and share: slides, infographics, videos and blogs. The goal is always to be clear and honest about what was found and what it means.',
       ],
       illustrations: [

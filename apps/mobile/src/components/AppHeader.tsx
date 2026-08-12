@@ -1,22 +1,33 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { palette, radius, spacing } from '../theme/colors';
 import type { RootScreen } from '../navigation/types';
+import type { ChildProfile } from '../types/curriculum';
 import { BilbyLogo } from './BilbyLogo';
 import { Icon, type IconName } from './illustrations/icons';
 
 /**
  * Reachable from every post-onboarding screen so a child (or a parent
  * looking over their shoulder) is never more than one tap from "my week"
- * or "my progress" — regardless of how deep they navigated into a lesson.
+ * or "my progress", regardless of how deep they navigated into a lesson.
+ *
+ * Rendered OUTSIDE each screen's ScrollView so it stays fixed/sticky at the
+ * top while content scrolls underneath. Shows the active child's profile
+ * (name + Year) when one is set.
  */
 export function AppHeader({
   active,
+  child,
+  isGuest = false,
   onHome,
   onProgress,
   onSetup,
   onSignOut,
 }: {
   active: RootScreen;
+  /** Active child profile (name + Year shown in the header when present). */
+  child?: ChildProfile | null;
+  /** Guest preview session — label the chip as a guest instead. */
+  isGuest?: boolean;
   onHome: () => void;
   onProgress: () => void;
   /** Opens Setup (edit profile / reset data). Hidden when not provided. */
@@ -27,6 +38,17 @@ export function AppHeader({
   return (
     <View style={styles.bar}>
       <BilbyLogo markSize={26} textSize={15} />
+      <View style={styles.childWrap}>
+        {child && (
+          <View style={styles.childChip} accessibilityLabel={`${isGuest ? 'Guest' : child.name}, Year ${child.year}`}>
+            <Icon name="paw" tint={palette.grape} size={13} />
+            <Text style={styles.childText}>
+              {isGuest ? 'Guest' : child.name}
+              <Text style={styles.childYear}> · Year {child.year}</Text>
+            </Text>
+          </View>
+        )}
+      </View>
       <View style={styles.actions}>
         <NavButton icon="house" label="Home" active={active === 'WeekPlan'} onPress={onHome} />
         <NavButton icon="trophy" label="Progress" active={active === 'Progress'} onPress={onProgress} />
@@ -87,11 +109,29 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    gap: spacing.sm,
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.lg,
     paddingBottom: spacing.md,
     backgroundColor: palette.cream,
+    borderBottomWidth: 1,
+    borderBottomColor: palette.grape + '22',
+    zIndex: 20,
   },
+  childWrap: { flex: 1, alignItems: 'center' },
+  childChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+    backgroundColor: palette.white,
+    borderWidth: 1.5,
+    borderColor: palette.grape + '44',
+    borderRadius: radius.pill,
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.md,
+  },
+  childText: { fontSize: 13, fontWeight: '800', color: palette.ink },
+  childYear: { fontWeight: '700', color: palette.slate },
   actions: { flexDirection: 'row', gap: spacing.sm, alignItems: 'center' },
   navBtn: {
     flexDirection: 'row',

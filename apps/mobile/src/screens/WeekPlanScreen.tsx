@@ -4,7 +4,7 @@ import type { ChildProfile, Topic } from '../types/curriculum';
 import { buildWeekPlan } from '../data/content';
 import { TopicCard } from '../components/TopicCard';
 import { BadgeChip } from '../components/BadgeChip';
-import { AppHeader } from '../components/AppHeader';
+import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
 import { palette, radius, spacing, gradients } from '../theme/colors';
 import { subjectById } from '../data/subjects';
@@ -37,7 +37,7 @@ export function WeekPlanScreen({
   const completedThisWeek = topics.filter((t) => done.has(t.id)).length;
 
   // Label the plan by what's actually shown this week, not just the first
-  // subject the parent happened to toggle — those can disagree once more
+  // subject the parent happened to toggle, those can disagree once more
   // than one subject is selected.
   const shownSubjects = [...new Set(topics.map((t) => t.subject))];
   const planLabel =
@@ -46,9 +46,14 @@ export function WeekPlanScreen({
       : subjectById(child.subjects[0]).label;
 
   return (
-    <ScrollView contentContainerStyle={styles.container} style={styles.scroll}>
-      <AppHeader active="WeekPlan" onHome={onHome} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
-
+    <ScreenShell
+      active="WeekPlan"
+      child={child}
+      onHome={onHome}
+      onProgress={onProgress}
+      onSetup={onSetup}
+      onSignOut={onSignOut}
+    >
       <LinearGradient
         colors={[...gradients.hero]}
         start={{ x: 0, y: 0 }}
@@ -83,7 +88,7 @@ export function WeekPlanScreen({
           </View>
         ))
       )}
-    </ScrollView>
+    </ScreenShell>
   );
 }
 

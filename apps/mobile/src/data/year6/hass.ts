@@ -1,12 +1,12 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 6 HASS — full knowledge-strand topic bank (History, Geography, Civics
+ * Year 6 HASS, full knowledge-strand topic bank (History, Geography, Civics
  * & Citizenship, Economics & Business). Source of truth:
  * docs/content/year-6/hass.md (AC v9.0). Skills CDs (AC9HS6S01–S07) are
  * woven into these knowledge units per the source doc, not authored
  * separately.
- * `Y6-HASS-HI02` carries `sensitivity: true` — it touches First Nations
+ * `Y6-HASS-HI02` carries `sensitivity: true`, it touches First Nations
  * Australians' experiences and is written to established, general facts
  * only, pending a community-protocol review before release (see AGENTS.md
  * child-safety/accuracy constraints).
@@ -23,7 +23,7 @@ export const YEAR6_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Before 1901, Australia was six separate British colonies, each with its own laws and even its own money. On 1 January 1901, they joined together as one nation — Federation — under a new Constitution.',
+        'Before 1901, Australia was six separate British colonies, each with its own laws and even its own money. On 1 January 1901, they joined together as one nation, Federation, under a new Constitution.',
         'The Constitution set up Australia\'s system of government: a Parliament that makes laws, with power shared between the new national government and the states.',
       ],
       illustrations: [
@@ -54,7 +54,7 @@ export const YEAR6_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        "Who could vote and be counted as a citizen changed a great deal across the 20th century. Women won the right to vote in federal elections in 1902 — one of the earliest countries in the world to grant this — though at the time this right was not extended equally to all women.",
+        "Who could vote and be counted as a citizen changed a great deal across the 20th century. Women won the right to vote in federal elections in 1902, one of the earliest countries in the world to grant this, though at the time this right was not extended equally to all women.",
         'First Nations Australians faced a long struggle for equal citizenship rights: they were not included in the official national population count until a 1967 referendum changed the Constitution, and voting rights for First Nations Australians in federal elections were only fully secured in the 1960s. Migrants arriving throughout the century also reshaped who called Australia home.',
       ],
       illustrations: [
@@ -96,8 +96,8 @@ export const YEAR6_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Since Federation, millions of people have migrated to Australia seeking safety, jobs, family reunions or a fresh start — including large waves of migration from Europe after World War II and, more recently, from across the Asia region.',
-        'Each wave of migration has changed Australian society — its food, languages, festivals and neighbourhoods all carry the stories of the people who moved here.',
+        'Since Federation, millions of people have migrated to Australia seeking safety, jobs, family reunions or a fresh start, including large waves of migration from Europe after World War II and, more recently, from across the Asia region.',
+        'Each wave of migration has changed Australian society, its food, languages, festivals and neighbourhoods all carry the stories of the people who moved here.',
       ],
       illustrations: [
         { brief: 'A migration journey map with a "stories wall" of families', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'suitcase', label: 'Pack up' }, { icon: 'ship', label: 'Journey' }, { icon: 'house', label: 'New home' }], caption: 'Migration journeys that shaped modern Australia' } },
@@ -109,7 +109,7 @@ export const YEAR6_HASS_TOPICS: Topic[] = [
       questions: [
         { id: 'Y6-HASS-HI03-q1', type: 'mcq', prompt: 'Migration to Australia since Federation has mainly been driven by people seeking…', options: ['Safety, jobs and a fresh start', 'Nothing in particular', 'Only tourism'], answer: 'Safety, jobs and a fresh start', difficulty: 1 },
         { id: 'Y6-HASS-HI03-q2', type: 'mcq', prompt: 'A large wave of migration to Australia occurred after…', options: ['World War II', 'The invention of the internet', 'The first Olympic Games'], answer: 'World War II', difficulty: 2 },
-        { id: 'Y6-HASS-HI03-q3', type: 'mcq', prompt: 'More recent migration to Australia has increasingly come from…', options: ['The Asia region', 'Nowhere — migration has stopped', 'Only one country'], answer: 'The Asia region', difficulty: 2 },
+        { id: 'Y6-HASS-HI03-q3', type: 'mcq', prompt: 'More recent migration to Australia has increasingly come from…', options: ['The Asia region', 'Nowhere, migration has stopped', 'Only one country'], answer: 'The Asia region', difficulty: 2 },
         { id: 'Y6-HASS-HI03-q4', type: 'mcq', prompt: 'Migration has changed Australian society by influencing…', options: ['Food, languages and festivals', 'Nothing about daily life', 'Only sport'], answer: 'Food, languages and festivals', difficulty: 1 },
         { id: 'Y6-HASS-HI03-q5', type: 'mcq', prompt: 'A family migration case study is useful for understanding…', options: ['Real motivations and effects behind migration', 'Only statistics with no stories', 'Nothing historical'], answer: 'Real motivations and effects behind migration', difficulty: 2 },
         { id: 'Y6-HASS-HI03-q6', type: 'mcq', prompt: 'Migration stories are typically shaped by…', options: ["People's personal reasons for moving", 'Random chance only', 'A single shared reason for everyone'], answer: "People's personal reasons for moving", difficulty: 2 },
@@ -127,8 +127,8 @@ export const YEAR6_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'The Asia region is enormous and incredibly diverse — from the snowy Himalayas to tropical islands to megacities of tens of millions of people — and it sits just to the north of Australia.',
-        "Understanding a region's location means being able to describe it relative to somewhere else — Indonesia, for example, is Australia's nearest neighbour to the north.",
+        'The Asia region is enormous and incredibly diverse, from the snowy Himalayas to tropical islands to megacities of tens of millions of people, and it sits just to the north of Australia.',
+        "Understanding a region's location means being able to describe it relative to somewhere else, Indonesia, for example, is Australia's nearest neighbour to the north.",
       ],
       illustrations: [
         { brief: 'A big Asia map with Australia beside it', ready: true, diagram: { kind: 'quadrant-grid', range: 5, points: [{ x: 0, y: -2, label: 'Australia' }, { x: 1, y: 3, label: 'Asia region' }] } },
@@ -157,7 +157,7 @@ export const YEAR6_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Australia is connected to the rest of the world in countless ways — the food we export, the holidays we take, the products we import, and the families that span multiple countries.',
+        'Australia is connected to the rest of the world in countless ways, the food we export, the holidays we take, the products we import, and the families that span multiple countries.',
         'These connections change people and places on both ends: a mining export can create jobs here, while affecting the environment or economy somewhere else.',
       ],
       illustrations: [
@@ -168,7 +168,7 @@ export const YEAR6_HASS_TOPICS: Topic[] = [
       nominalCount: 6,
       compactCount: 4,
       questions: [
-        { id: 'Y6-HASS-GE02-q1', type: 'mcq', prompt: 'An example of an interconnection between Australia and another country is…', options: ['Exporting food', 'A closed border with no trade at all', 'Nothing — Australia is isolated'], answer: 'Exporting food', difficulty: 1 },
+        { id: 'Y6-HASS-GE02-q1', type: 'mcq', prompt: 'An example of an interconnection between Australia and another country is…', options: ['Exporting food', 'A closed border with no trade at all', 'Nothing, Australia is isolated'], answer: 'Exporting food', difficulty: 1 },
         { id: 'Y6-HASS-GE02-q2', type: 'mcq', prompt: 'A mining export can affect…', options: ['Both jobs in Australia and the environment elsewhere', 'Nothing outside the mine', 'Only the weather'], answer: 'Both jobs in Australia and the environment elsewhere', difficulty: 2 },
         { id: 'Y6-HASS-GE02-q3', type: 'mcq', prompt: 'Families with relatives overseas are an example of…', options: ['A family/social interconnection', 'A type of export', 'A government policy'], answer: 'A family/social interconnection', difficulty: 2 },
         { id: 'Y6-HASS-GE02-q4', type: 'mcq', prompt: 'Tourism is a type of interconnection because it involves…', options: ['People, money and culture moving between countries', 'Nothing crossing borders', 'Only maps'], answer: 'People, money and culture moving between countries', difficulty: 2 },
@@ -188,14 +188,14 @@ export const YEAR6_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        "Australia's system of government has three parts: Parliament (makes laws), the Executive (puts laws into action) and the Judiciary (interprets laws and settles disputes) — a structure borrowed from Britain's Westminster system.",
-        'Underneath these institutions sit shared democratic values — like fairness, equality and freedom of speech — that guide how decisions are made.',
+        "Australia's system of government has three parts: Parliament (makes laws), the Executive (puts laws into action) and the Judiciary (interprets laws and settles disputes), a structure borrowed from Britain's Westminster system.",
+        'Underneath these institutions sit shared democratic values, like fairness, equality and freedom of speech, that guide how decisions are made.',
       ],
       illustrations: [
         {
           brief: 'Parliament House cutaway: Parliament / Executive / Judiciary',
           ready: true,
-          diagram: { kind: 'flowchart', steps: [{ text: 'Parliament — makes laws' }, { text: 'Executive — carries out laws' }, { text: 'Judiciary — interprets laws' }] },
+          diagram: { kind: 'flowchart', steps: [{ text: 'Parliament, makes laws' }, { text: 'Executive, carries out laws' }, { text: 'Judiciary, interprets laws' }] },
         },
       ],
     },
@@ -223,10 +223,10 @@ export const YEAR6_HASS_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Australia has three levels of government, like a layered cake: Federal (defence, immigration), State/Territory (schools, hospitals, police), and Local (parks, rubbish collection, libraries).',
-        'Each level is responsible for different services — knowing who runs what helps you understand who to ask when something needs fixing.',
+        'Each level is responsible for different services, knowing who runs what helps you understand who to ask when something needs fixing.',
       ],
       illustrations: [
-        { brief: 'A three-layer cake diagram labelled with each level\'s services', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Federal — defence, immigration' }, { text: 'State/Territory — schools, hospitals' }, { text: 'Local — parks, rubbish collection' }] } },
+        { brief: 'A three-layer cake diagram labelled with each level\'s services', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Federal, defence, immigration' }, { text: 'State/Territory, schools, hospitals' }, { text: 'Local, parks, rubbish collection' }] } },
       ],
     },
     assignment: {
@@ -253,7 +253,7 @@ export const YEAR6_HASS_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Lots of things influence what we choose to buy — advertising, price, what our friends have, and how good the quality is. Noticing these influences helps you make more informed choices.',
+        'Lots of things influence what we choose to buy, advertising, price, what our friends have, and how good the quality is. Noticing these influences helps you make more informed choices.',
         'A simple save/spend/give plan for pocket money is one strategy for making thoughtful financial choices instead of spending everything right away.',
       ],
       illustrations: [

@@ -1,11 +1,11 @@
 import type { Topic } from '../../types/curriculum';
 
 /**
- * Year 6 English — full topic bank.
+ * Year 6 English, full topic bank.
  * Source of truth for scope: docs/content/year-6/english.md (AC v9.0,
  * strands Language/Literature/Literacy). Every topic carries its AC9E6xxx
  * content-description code (docs/specs/curriculum-research.md §4: cite
- * codes, author original lessons — never bulk-copy syllabus text).
+ * codes, author original lessons, never bulk-copy syllabus text).
  * Each assignment carries 6 questions (nominal pace) / 4 (compact pace),
  * per docs/specs/adaptive-pacing.md's depth-compression model.
  */
@@ -22,7 +22,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Language changes depending on who you are talking to. You would text a friend "omw!" but write "I am on my way" to your principal.',
-        'The more formal the situation, the more careful and complete our words become — think of it like a thermometer sliding from casual to formal.',
+        'The more formal the situation, the more careful and complete our words become, think of it like a thermometer sliding from casual to formal.',
       ],
       illustrations: [
         { brief: 'Two phone conversations side by side: mates vs principal', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'chat-bubble', label: '"omw!"' }, { icon: 'envelope', label: '"I am on my way."' }], caption: 'Same message, different formality' } },
@@ -85,7 +85,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
         'Knowing the stages helps you both read faster (you know what is coming) and write better (you know what to include).',
       ],
       illustrations: [
-        { brief: 'A narrative mountain: orientation → complication → climax → resolution', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Orientation — who, where, when' }, { text: 'Complication — the problem' }, { text: 'Climax — the turning point' }, { text: 'Resolution — how it ends' }] } },
+        { brief: 'A narrative mountain: orientation → complication → climax → resolution', ready: true, diagram: { kind: 'flowchart', steps: [{ text: 'Orientation, who, where, when' }, { text: 'Complication, the problem' }, { text: 'Climax, the turning point' }, { text: 'Resolution, how it ends' }] } },
       ],
     },
     assignment: {
@@ -111,7 +111,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Cohesion is the glue that holds a text together — repeating a key word on purpose, or using related words (dog… puppy… it… the animal) so ideas link smoothly.',
+        'Cohesion is the glue that holds a text together, repeating a key word on purpose, or using related words (dog… puppy… it… the animal) so ideas link smoothly.',
         'Without cohesion, writing feels like disconnected sentences bumping into each other.',
       ],
       illustrations: [
@@ -127,7 +127,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
         { id: 'Y6-ENG-LA04-q3', type: 'mcq', prompt: 'Repeating a key term on purpose across paragraphs is an example of…', options: ['Cohesion', 'A spelling mistake', 'A comma splice'], answer: 'Cohesion', difficulty: 2 },
         { id: 'Y6-ENG-LA04-q4', type: 'mcq', prompt: 'Which pair of words are related (word associations) with "ocean"?', options: ['Waves, tide', 'Pencil, desk', 'Guitar, drum'], answer: 'Waves, tide', difficulty: 1 },
         { id: 'Y6-ENG-LA04-q5', type: 'mcq', prompt: 'Writing without cohesion tends to feel…', options: ['Smooth and connected', 'Disconnected and choppy', 'Exactly the same'], answer: 'Disconnected and choppy', difficulty: 2 },
-        { id: 'Y6-ENG-LA04-q6', type: 'mcq', prompt: '"The storm arrived. It flooded the street." — what does "it" refer back to?', options: ['The street', 'The storm', 'Nothing'], answer: 'The storm', difficulty: 2 },
+        { id: 'Y6-ENG-LA04-q6', type: 'mcq', prompt: '"The storm arrived. It flooded the street.", what does "it" refer back to?', options: ['The street', 'The storm', 'Nothing'], answer: 'The storm', difficulty: 2 },
       ],
     },
   },
@@ -141,7 +141,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'An embedded clause is tucked inside a sentence to add extra detail — "The dog, which was soaked from the rain, shook itself dry."',
+        'An embedded clause is tucked inside a sentence to add extra detail, "The dog, which was soaked from the rain, shook itself dry."',
         'Embedding clauses lets you combine short, choppy sentences into one elegant, information-rich sentence.',
       ],
       illustrations: [
@@ -171,7 +171,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        '"Walked" is fine, but "trudged", "sprinted" or "tiptoed" paint a much clearer picture — strong verbs do more work than a verb plus an adverb.',
+        '"Walked" is fine, but "trudged", "sprinted" or "tiptoed" paint a much clearer picture, strong verbs do more work than a verb plus an adverb.',
         'Keep your tense consistent through a piece of writing (all past, or all present) so readers never get confused about when things are happening.',
       ],
       illustrations: [
@@ -201,7 +201,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Pictures, maps, tables and graphs are not just decoration — a good diagram can explain something faster than a paragraph of words.',
+        'Pictures, maps, tables and graphs are not just decoration, a good diagram can explain something faster than a paragraph of words.',
         'When reading, ask: what does this visual add that the words alone do not?',
       ],
       illustrations: [
@@ -232,7 +232,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'A simile compares using "like" or "as" (brave as a lion). A metaphor says one thing IS another (he is a lion in battle). Personification gives human traits to objects (the wind howled).',
-        'Hyperbole is deliberate exaggeration ("I have told you a million times!") — writers use these devices to make ideas feel bigger and more vivid.',
+        'Hyperbole is deliberate exaggeration ("I have told you a million times!"), writers use these devices to make ideas feel bigger and more vivid.',
       ],
       illustrations: [
         { brief: 'Idioms shown literally vs figuratively for comic contrast', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'cat', label: 'Literal cats' }, { icon: 'raincloud', label: '"raining cats and dogs"' }], caption: 'Idioms are not meant literally' } },
@@ -262,7 +262,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 10,
       body: [
         'Commas separate items in a list (apples, pears, and mangoes), split a dependent clause from the main sentence (After the bell rang, we went outside), and set off dialogue ("Stop," she said).',
-        'A missing comma can change meaning entirely — "Let’s eat, Grandpa" vs "Let’s eat Grandpa" is the classic warning!',
+        'A missing comma can change meaning entirely, "Let’s eat, Grandpa" vs "Let’s eat Grandpa" is the classic warning!',
       ],
       illustrations: [
         { brief: 'Stop-and-go signposts marking where commas belong in a sentence', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'stop-sign', label: '"After the bell rang,"' }, { icon: 'go-circle', label: '"we went outside."' }], caption: 'A comma is a small pause sign' } },
@@ -292,8 +292,8 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        "Stories come from everywhere — First Nations Australian storytellers, and authors across Australia and the world. A story's context (when, where, and who wrote it) shapes how characters act and what events mean.",
-        'When you respond to a story, connect what happens to the world it came from — a character’s choices often make more sense once you know their context.',
+        "Stories come from everywhere, First Nations Australian storytellers, and authors across Australia and the world. A story's context (when, where, and who wrote it) shapes how characters act and what events mean.",
+        'When you respond to a story, connect what happens to the world it came from, a character’s choices often make more sense once you know their context.',
       ],
       illustrations: [
         { brief: 'A "context postcard" linking a story to its time, place and culture', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'book', label: 'Story' }, { icon: 'map', label: 'Where' }, { icon: 'clock', label: 'When' }, { icon: 'people', label: 'Who' }], caption: 'Context shapes a story’s meaning' } },
@@ -322,7 +322,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'Two stories about the same topic — like two versions of Cinderella — can share a plot but differ hugely in setting, character or message.',
+        'Two stories about the same topic, like two versions of Cinderella, can share a plot but differ hugely in setting, character or message.',
         'Comparing texts sharpens your thinking: what did each author choose to keep, change, or add?',
       ],
       illustrations: [
@@ -352,7 +352,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'An author’s style is like a fingerprint — the sentence rhythm, word choices and humour that make their writing recognisable even without a name on the cover.',
+        'An author’s style is like a fingerprint, the sentence rhythm, word choices and humour that make their writing recognisable even without a name on the cover.',
         'One author might write short, punchy sentences full of jokes; another might write long, flowing, descriptive ones.',
       ],
       illustrations: [
@@ -383,7 +383,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
       learnTimeMin: 12,
       body: [
         'Poets use sound on purpose: rhyme (cat/hat), rhythm (a beat you can tap), alliteration (slippery, silver snake) and onomatopoeia (crash, buzz, sizzle).',
-        'Imagery is language that paints a picture in your mind — "the storm clawed at the windows" makes you feel the wind, not just read about it.',
+        'Imagery is language that paints a picture in your mind, "the storm clawed at the windows" makes you feel the wind, not just read about it.',
       ],
       illustrations: [
         { brief: 'A stormy sea poem with sound-words and imagery hotspots highlighted', ready: true, diagram: { kind: 'icon-scene', items: [{ icon: 'wave', label: '"crash!"' }, { icon: 'wind', label: '"howl"' }, { icon: 'bolt', label: '"sizzle"' }], caption: 'Sound words make a poem felt, not just read' } },
@@ -394,7 +394,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
       compactCount: 4,
       questions: [
         { id: 'Y6-ENG-LE04-q1', type: 'mcq', prompt: '"Buzz" and "sizzle" are examples of…', options: ['Rhyme', 'Onomatopoeia', 'A metaphor'], answer: 'Onomatopoeia', difficulty: 1 },
-        { id: 'Y6-ENG-LE04-q2', type: 'mcq', prompt: '"Slippery, silver snake" repeats the same starting sound — this is…', options: ['Alliteration', 'A simile', 'A comma splice'], answer: 'Alliteration', difficulty: 1 },
+        { id: 'Y6-ENG-LE04-q2', type: 'mcq', prompt: '"Slippery, silver snake" repeats the same starting sound, this is…', options: ['Alliteration', 'A simile', 'A comma splice'], answer: 'Alliteration', difficulty: 1 },
         { id: 'Y6-ENG-LE04-q3', type: 'mcq', prompt: '"Cat" and "hat" at the end of two lines is an example of…', options: ['Rhyme', 'Onomatopoeia', 'Personification'], answer: 'Rhyme', difficulty: 1 },
         { id: 'Y6-ENG-LE04-q4', type: 'mcq', prompt: 'Imagery in a poem is language that…', options: ['Paints a picture in the reader\'s mind', 'Only lists facts', 'Avoids description entirely'], answer: 'Paints a picture in the reader\'s mind', difficulty: 2 },
         { id: 'Y6-ENG-LE04-q5', type: 'mcq', prompt: 'A beat you can tap along to while reading a poem is its…', options: ['Rhythm', 'Rhyme', 'Font'], answer: 'Rhythm', difficulty: 2 },
@@ -412,7 +412,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'You can borrow a plot structure, setting or character type from a story you love — then twist it into something new and yours.',
+        'You can borrow a plot structure, setting or character type from a story you love, then twist it into something new and yours.',
         'A storyboard planner (beginning, problem, events, ending) helps organise ideas before you start writing full sentences.',
       ],
       illustrations: [
@@ -447,7 +447,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A newspaper front page from 1990 looks and reads very differently from one today — texts reflect the time, place and audience they were made for.',
+        'A newspaper front page from 1990 looks and reads very differently from one today, texts reflect the time, place and audience they were made for.',
         'Comparing an old ad to a new one reveals how values and expectations change over time.',
       ],
       illustrations: [
@@ -507,7 +507,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'Every text choice serves a purpose — a persuasive advert uses bold colours and emotive words to convince you; an info-text uses headings and diagrams to help you find facts fast.',
+        'Every text choice serves a purpose, a persuasive advert uses bold colours and emotive words to convince you; an info-text uses headings and diagrams to help you find facts fast.',
         'Ask: who is this text for, and how do its structure and language work to influence or inform that audience?',
       ],
       illustrations: [
@@ -529,7 +529,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y6-ENG-LY04',
-    title: 'Reading with strategy — selecting & navigating texts',
+    title: 'Reading with strategy, selecting & navigating texts',
     year: '6',
     subject: 'english',
     strand: 'Literacy',
@@ -537,7 +537,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'A table of contents, glossary, headings and subheadings are a map for a text — use them to jump straight to the information you need instead of reading everything.',
+        'A table of contents, glossary, headings and subheadings are a map for a text, use them to jump straight to the information you need instead of reading everything.',
         'Good readers choose their reading strategy (skim, scan, read closely) based on their purpose.',
       ],
       illustrations: [
@@ -601,8 +601,8 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 14,
       body: [
-        'Writing is a process: plan, draft, revise, edit, then publish — each stage has a job, and skipping straight to "final" rarely produces your best work.',
-        'A multimodal text combines words with images, layout or sound — think a picture book, a slideshow, or an illustrated report.',
+        'Writing is a process: plan, draft, revise, edit, then publish, each stage has a job, and skipping straight to "final" rarely produces your best work.',
+        'A multimodal text combines words with images, layout or sound, think a picture book, a slideshow, or an illustrated report.',
       ],
       illustrations: [
         {
@@ -635,7 +635,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        'A great spoken presentation is planned like writing — organise your ideas, then rehearse how you will say them: pitch, tone, pace and volume all carry meaning.',
+        'A great spoken presentation is planned like writing, organise your ideas, then rehearse how you will say them: pitch, tone, pace and volume all carry meaning.',
         'Visual or digital features (slides, props) should support what you are saying, not distract from it.',
       ],
       illustrations: [
@@ -665,7 +665,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 10,
       body: [
-        'By Year 6, words get trickier — "ph" makes an "f" sound (phone), "ough" can sound many ways (though, through, tough). Knowing these patterns helps you decode unfamiliar words.',
+        'By Year 6, words get trickier, "ph" makes an "f" sound (phone), "ough" can sound many ways (though, through, tough). Knowing these patterns helps you decode unfamiliar words.',
         'The same knowledge works in reverse for spelling: hearing a sound and knowing which letters usually represent it.',
       ],
       illustrations: [
@@ -687,7 +687,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
   },
   {
     id: 'Y6-ENG-LY09',
-    title: 'Spelling — word origins & word-building',
+    title: 'Spelling, word origins & word-building',
     year: '6',
     subject: 'english',
     strand: 'Literacy',
@@ -695,7 +695,7 @@ export const YEAR6_ENGLISH_TOPICS: Topic[] = [
     learn: {
       learnTimeMin: 12,
       body: [
-        "Many English words are built from Latin or Greek roots — 'aqua' means water (aquarium, aquatic), 'photo' means light (photograph, photosynthesis).",
+        "Many English words are built from Latin or Greek roots, 'aqua' means water (aquarium, aquatic), 'photo' means light (photograph, photosynthesis).",
         'Prefixes and suffixes attach to base words to change their meaning (un + happy = unhappy) or their word type (happy + ness = happiness).',
       ],
       illustrations: [

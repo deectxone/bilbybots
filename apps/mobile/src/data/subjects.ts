@@ -8,7 +8,7 @@ import type { IconName } from '../components/illustrations/icons';
 export const SUBJECTS: ReadonlyArray<{
   id: SubjectId;
   label: string;
-  /** Themed vector pictogram (never emoji) — see components/illustrations/icons.tsx. */
+  /** Themed vector pictogram (never emoji), see components/illustrations/icons.tsx. */
   icon: IconName;
   tagline: string;
 }> = [
