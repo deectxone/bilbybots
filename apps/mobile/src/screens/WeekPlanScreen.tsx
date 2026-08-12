@@ -1,10 +1,10 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import type { ChildProfile, Topic } from '../types/curriculum';
 import { buildPlan, schoolWeekFromDate } from '../planner';
 import { TopicCard } from '../components/TopicCard';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
-import { chrome, palette, spacing, type } from '../theme/colors';
+import { chrome, palette, radius, spacing, type } from '../theme/colors';
 import { subjectById } from '../data/subjects';
 
 /**
@@ -45,13 +45,23 @@ export function WeekPlanScreen({
   const completedThisWeek = topics.filter((t) => done.has(t.id)).length;
   const compact = plan.compactedSubjects.length > 0 || Boolean(child.replanned);
 
-  // Label the plan by what's actually shown this week, not just the first
-  // subject the parent happened to toggle, those can disagree once more
-  // than one subject is selected.
-  const shownSubjects = [...new Set(topics.map((t) => t.subject))];
+  // All topics scheduled before this week — used for the "revise a past
+  // lesson" suggestion when the current week has no new lessons.
+  const pastTopics = plan.weeks
+    .filter((w) => w.week < currentWeek)
+    .flatMap((w) => w.entries.map((e) => e.topic));
+
+  const revise = () => {
+    if (pastTopics.length === 0) return;
+    const pick = pastTopics[Math.floor(Math.random() * pastTopics.length)];
+    onOpenTopic(pick, pick.assignment.nominalCount);
+  };
+
+  // The plan label reflects every subject the parent selected, so a week with
+  // a single lesson still reads as the child's full schedule.
   const planLabel =
-    shownSubjects.length > 0
-      ? shownSubjects.map((s) => subjectById(s).label).join(' + ')
+    child.subjects.length > 0
+      ? child.subjects.map((s) => subjectById(s).label).join(' + ')
       : subjectById(child.subjects[0]).label;
 
   return (
@@ -82,22 +92,45 @@ export function WeekPlanScreen({
       {topics.length === 0 ? (
         <View style={styles.empty}>
           <Icon name="book" tint={chrome.primary} size={30} />
-          <Text style={styles.emptyTitle}>Your plan is being prepared</Text>
+          <Text style={styles.emptyTitle}>No new lessons this week</Text>
           <Text style={styles.emptyBody}>
-            Year {child.year} lessons for the chosen subjects are being finalised.
-            Years 1–10 are available now.
+            Your {planLabel} plan is still on track — next lessons are coming
+            up. Pick any subject below to revise a past lesson.
           </Text>
+          <View style={styles.subjectRow}>
+            {child.subjects.map((s) => (
+              <View key={s} style={styles.subjectChip}>
+                <Icon name={subjectById(s).icon} tint={chrome.primary} size={14} />
+                <Text style={styles.subjectChipText}>{subjectById(s).label}</Text>
+              </View>
+            ))}
+          </View>
+          {pastTopics.length > 0 && (
+            <Pressable
+              onPress={revise}
+              accessibilityRole="button"
+              accessibilityLabel="Revise a past lesson"
+              style={({ pressed }) => [styles.reviseBtn, pressed && styles.pressed]}
+            >
+              <Text style={styles.reviseBtnText}>Revise a past lesson</Text>
+            </Pressable>
+          )}
         </View>
       ) : (
-        topics.map((topic) => (
-          <View key={topic.id} style={styles.topicWrap}>
-            <TopicCard
-              topic={topic}
-              completed={done.has(topic.id)}
-              onPress={() => onOpenTopic(topic, entries.find((e) => e.topic.id === topic.id)?.questionCount)}
-            />
-          </View>
-        ))
+        <>
+          <Text style={styles.weekSummary}>
+            {completedThisWeek} of {topics.length} lessons done
+          </Text>
+          {topics.map((topic) => (
+            <View key={topic.id} style={styles.topicWrap}>
+              <TopicCard
+                topic={topic}
+                completed={done.has(topic.id)}
+                onPress={() => onOpenTopic(topic, entries.find((e) => e.topic.id === topic.id)?.questionCount)}
+              />
+            </View>
+          ))}
+        </>
       )}
     </ScreenShell>
   );
@@ -119,6 +152,42 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xl,
   },
   topicWrap: { marginBottom: spacing.md, marginHorizontal: spacing.xl },
+  weekSummary: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: palette.slate,
+    marginBottom: spacing.md,
+    paddingHorizontal: spacing.xl,
+  },
+  subjectRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    marginTop: spacing.md,
+    marginBottom: spacing.sm,
+  },
+  subjectChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+    backgroundColor: palette.white,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: chrome.primary + '44',
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.md,
+  },
+  subjectChipText: { fontSize: 13, fontWeight: '700', color: palette.ink },
+  reviseBtn: {
+    marginTop: spacing.md,
+    backgroundColor: chrome.primary,
+    borderRadius: radius.pill,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.lg,
+  },
+  reviseBtnText: { color: palette.white, fontSize: 14, fontWeight: '800' },
+  pressed: { opacity: 0.85, transform: [{ scale: 0.99 }] },
   empty: {
     marginHorizontal: spacing.xl,
     backgroundColor: palette.white,

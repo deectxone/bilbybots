@@ -203,11 +203,14 @@ export async function loadSupabaseTopicBank(): Promise<SupabaseContentResult> {
   }
 
   const [curriculumRes, topicRes, lessonRes, questionRes, assignmentRes] = await Promise.all([
-    supabase.from('curriculum').select('code, strand, state_mapping'),
-    supabase.from('topic').select('*'),
-    supabase.from('lesson').select('*'),
-    supabase.from('question').select('*'),
-    supabase.from('assignment').select('*'),
+    supabase.from('curriculum').select('code, strand, state_mapping').limit(100000),
+    supabase.from('topic').select('*').limit(100000),
+    supabase.from('lesson').select('*').limit(100000),
+    // PostgREST defaults to a 1000-row cap per request; the question bank is
+    // ~4200 rows, so an un-capped select would silently drop most of them and
+    // leave lessons with empty assignments.
+    supabase.from('question').select('*').limit(100000),
+    supabase.from('assignment').select('*').limit(100000),
   ]);
 
   const failed = [curriculumRes, topicRes, lessonRes, questionRes, assignmentRes].find(
