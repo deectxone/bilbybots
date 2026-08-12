@@ -5,8 +5,9 @@ import { IllustrationFrame } from '../components/IllustrationFrame';
 import { BadgeChip } from '../components/BadgeChip';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { AppHeader } from '../components/AppHeader';
-import { palette, radius, spacing, subjectColor } from '../theme/colors';
+import { palette, radius, spacing, subjectColor, type } from '../theme/colors';
 import { subjectById } from '../data/subjects';
+import { Icon } from '../components/illustrations/icons';
 
 const NUMERIC_ANSWER = /^-?\d+(\.\d+)?$/;
 
@@ -70,7 +71,7 @@ export function LessonScreen({
       </Pressable>
 
       <Text style={[styles.subject, { color: palette[subjectColor[topic.subject] ?? 'sky'] }]}>
-        {subject.emoji} {subject.label} · Year {child.year}
+        {subject.label} · Year {child.year}
       </Text>
       <Text style={styles.title}>{topic.title}</Text>
       <Text style={styles.meta}>{topic.cd.map((c) => c.ac).join(' · ')}</Text>
@@ -86,13 +87,14 @@ export function LessonScreen({
             <IllustrationFrame key={i} slot={slot} index={i} />
           ))}
           <View style={styles.reviewNote}>
+            <Icon name="clock" tint={palette.teal} size={16} />
             <Text style={styles.reviewNoteText}>
-              Focus 👍 {topic.learn.learnTimeMin} min lesson · built for {child.name}
+              Focus · {topic.learn.learnTimeMin} min lesson · built for {child.name}
             </Text>
           </View>
           <PrimaryButton
             tone="teal"
-            label="Ready! Let's practise 🚀"
+            label="Ready to practise"
             onPress={() => setPhase('practise')}
           />
         </View>
@@ -124,6 +126,9 @@ export function LessonScreen({
                       return (
                         <Pressable
                           key={o}
+                          accessibilityRole="radio"
+                          accessibilityState={{ checked: selected }}
+                          accessibilityLabel={`${q.prompt} — ${o}`}
                           onPress={() => {
                             setChecked(false);
                             setAnswers((a) => ({ ...a, [q.id]: o }));
@@ -153,6 +158,7 @@ export function LessonScreen({
                 ) : (
                   <View>
                     <TextInput
+                      accessibilityLabel={`${q.prompt} — type your answer`}
                       style={[
                         styles.answerInput,
                         checked && (questionCorrect ? styles.answerInputGood : styles.answerInputBad),
@@ -184,7 +190,7 @@ export function LessonScreen({
           {checked && (
             <View style={[styles.result, allCorrect ? styles.resultGood : styles.resultBad]}>
               <Text style={styles.resultTitle}>
-                {allCorrect ? 'Nailed it! 🎉' : 'Almost — have another go 🐾'}
+                {allCorrect ? 'Nailed it!' : 'Almost — have another go'}
               </Text>
               <Text style={styles.resultScore}>
                 {score}/{topic.assignment.questions.length} correct
@@ -194,8 +200,8 @@ export function LessonScreen({
               </View>
               {allCorrect && (
                 <PrimaryButton
-                  tone="sunny"
-                  label="Claim my badge! ⭐"
+                  tone="berry"
+                  label="Claim my badge"
                   onPress={() => {
                     setEarned(true);
                     setPhase('reward');
@@ -211,26 +217,22 @@ export function LessonScreen({
       {phase === 'reward' && (
         <View style={styles.section}>
           <View style={styles.rewardCard}>
-            <Text style={styles.rewardEmoji}>🏅</Text>
+            <View style={styles.rewardMedal}>
+              <Icon name="trophy" tint={palette.sunny} size={34} />
+            </View>
             <Text style={styles.rewardTitle}>Badge earned!</Text>
             <BadgeChip label={`${subject.label} star of the week`} earned />
 
             <View style={styles.advanceBox}>
-              <Text style={styles.advanceTitle}>🔓 Advance level unlocked!</Text>
+              <Text style={styles.advanceTitle}>Advance level unlocked</Text>
               <Text style={styles.advanceText}>
-                You finished early! Try the bonus challenge for extra rewards.
+                You finished early! Bonus challenges are coming soon — your star
+                badge is saved either way.
               </Text>
             </View>
 
             <PrimaryButton
               tone="grape"
-              label="Start bonus challenge ✨"
-              onPress={() => {
-                /* Phase-2: advance-level assignment flow */
-              }}
-            />
-            <PrimaryButton
-              tone="teal"
               label="Back to my week"
               onPress={onBack}
             />
@@ -249,17 +251,20 @@ const styles = StyleSheet.create({
   back: { fontSize: 14, fontWeight: '700', color: palette.slate, marginBottom: spacing.md },
   subject: { fontSize: 13, fontWeight: '800', textTransform: 'uppercase' },
   title: { fontSize: 26, fontWeight: '900', color: palette.ink, marginTop: spacing.xs },
-  meta: { fontSize: 11, color: palette.slate, marginTop: spacing.xs },
+  meta: { fontSize: 12, color: palette.slate, marginTop: spacing.xs },
   section: { marginTop: spacing.lg },
   sectionTitle: { fontSize: 18, fontWeight: '800', color: palette.ink, marginBottom: spacing.md },
   para: { fontSize: 17, lineHeight: 26, color: palette.ink, marginBottom: spacing.md },
   reviewNote: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
     backgroundColor: palette.sky + '22',
     borderRadius: radius.md,
     padding: spacing.md,
     marginBottom: spacing.lg,
   },
-  reviewNoteText: { fontSize: 13, color: palette.ink, fontWeight: '600' },
+  reviewNoteText: { fontSize: 13, color: palette.ink, fontWeight: '600', flex: 1 },
   question: { marginBottom: spacing.lg },
   qPromptRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: spacing.sm, marginBottom: spacing.sm },
   qPrompt: { flex: 1, fontSize: 16, fontWeight: '700', color: palette.ink },
@@ -316,7 +321,14 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: palette.sunny,
   },
-  rewardEmoji: { fontSize: 48 },
+  rewardMedal: {
+    width: 76,
+    height: 76,
+    borderRadius: radius.pill,
+    backgroundColor: palette.grape + '22',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   rewardTitle: { fontSize: 24, fontWeight: '900', color: palette.ink },
   advanceBox: {
     backgroundColor: palette.grape + '22',

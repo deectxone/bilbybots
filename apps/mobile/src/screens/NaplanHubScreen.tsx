@@ -6,7 +6,7 @@ import type { NaplanDomain, NaplanResult, NaplanYear } from '../types/naplan';
 import { AppHeader } from '../components/AppHeader';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon } from '../components/illustrations/icons';
-import { palette, radius, spacing } from '../theme/colors';
+import { palette, radius, spacing, gradients } from '../theme/colors';
 import {
   nextNaplanYear,
   NAPLAN_DOMAINS,
@@ -56,7 +56,7 @@ export function NaplanHubScreen({
       <AppHeader active="NaplanHub" onHome={onHome} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
 
       <LinearGradient
-        colors={[palette.coral, palette.berry]}
+        colors={[...gradients.hero]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={styles.hero}
@@ -124,7 +124,7 @@ export function NaplanHubScreen({
                 <Text style={styles.meta}>
                   {domain.id === 'writing'
                     ? '1 text · rubric marked'
-                    : `Sample ${itemCount} items · ${test.durationMin} min`}
+                    : `${itemCount} practice items · ${test.durationMin} min`}
                 </Text>
                 {best !== null && <BadgeChip label={`Best ${best}%`} earned />}
               </View>
@@ -135,8 +135,8 @@ export function NaplanHubScreen({
 
       <Text style={styles.note}>
         Official NAPLAN has {year === '3' ? '36–52' : '42–52'} items per domain —
-        these are short sample tests while the full item bank is built. Scores
-        are indicative, not official NAPLAN results.
+        these practice tests are shorter, with results indicative only. They are
+        original NAPLAN-style questions, not official NAPLAN material.
       </Text>
     </ScrollView>
   );
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
   yearPillRec: { borderColor: palette.coral },
   yearText: { fontSize: 14, fontWeight: '900', color: palette.ink },
   yearTextOn: { color: palette.white },
-  yearRec: { fontSize: 9, fontWeight: '800', color: palette.coral, textTransform: 'uppercase', marginTop: 2 },
+  yearRec: { fontSize: 12, fontWeight: '800', color: palette.coral, textTransform: 'uppercase', marginTop: 2 },
   yearRecOn: { color: palette.white, opacity: 0.85 },
   card: {
     flexDirection: 'row',

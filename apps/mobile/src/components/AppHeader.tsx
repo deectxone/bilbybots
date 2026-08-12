@@ -33,19 +33,23 @@ export function AppHeader({
         {onSetup && (
           <Pressable
             onPress={onSetup}
-            accessibilityLabel="Setup"
+            accessibilityRole="button"
+            accessibilityLabel="Settings"
+            hitSlop={8}
             style={({ pressed }) => [styles.setupBtn, pressed && styles.pressed]}
           >
-            <Icon name="cog" tint={active === 'Setup' ? palette.white : palette.ink} size={17} />
+            <Icon name="cog" tint={palette.ink} size={18} />
           </Pressable>
         )}
         {onSignOut && (
           <Pressable
             onPress={onSignOut}
+            accessibilityRole="button"
             accessibilityLabel="Sign out"
+            hitSlop={8}
             style={({ pressed }) => [styles.setupBtn, pressed && styles.pressed]}
           >
-            <Icon name="lock" tint={palette.slate} size={17} />
+            <Icon name="lock" tint={palette.ink} size={18} />
           </Pressable>
         )}
       </View>
@@ -67,6 +71,9 @@ function NavButton({
   return (
     <Pressable
       onPress={onPress}
+      accessibilityRole="button"
+      accessibilityState={{ selected: active }}
+      accessibilityLabel={label}
       style={({ pressed }) => [styles.navBtn, active && styles.navBtnActive, pressed && styles.pressed]}
     >
       <Icon name={icon} tint={active ? palette.white : palette.ink} size={15} />
@@ -85,21 +92,22 @@ const styles = StyleSheet.create({
     paddingBottom: spacing.md,
     backgroundColor: palette.cream,
   },
-  actions: { flexDirection: 'row', gap: spacing.sm },
+  actions: { flexDirection: 'row', gap: spacing.sm, alignItems: 'center' },
   navBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.xs,
     borderRadius: radius.pill,
-    paddingVertical: spacing.xs,
+    paddingVertical: spacing.sm,
     paddingHorizontal: spacing.md,
     backgroundColor: palette.white,
     borderWidth: 2,
     borderColor: palette.sky + '55',
+    minHeight: 40,
   },
   setupBtn: {
-    width: 34,
-    height: 34,
+    width: 40,
+    height: 40,
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
@@ -107,7 +115,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: palette.sky + '55',
   },
-  navBtnActive: { backgroundColor: palette.teal, borderColor: palette.teal },
+  navBtnActive: { backgroundColor: palette.grape, borderColor: palette.grape },
   pressed: { opacity: 0.7 },
   navLabel: { fontSize: 12, fontWeight: '800', color: palette.ink },
   navLabelActive: { color: palette.white },

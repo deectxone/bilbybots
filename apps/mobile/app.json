@@ -22,7 +22,13 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "name": "BilbyBots",
+      "lang": "en-AU",
+      "shortName": "BilbyBots",
+      "themeColor": "#5B21B6",
+      "backgroundColor": "#FBF7EE",
+      "description": "A smarter weekly learning plan for Australian students in Years 1–10, aligned to the Australian Curriculum with NAPLAN-style practice."
     },
     "plugins": [
       "expo-web-browser",

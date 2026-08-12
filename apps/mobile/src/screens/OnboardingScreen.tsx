@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { palette, radius, spacing } from '../theme/colors';
+import { palette, radius, spacing, gradients } from '../theme/colors';
 import { BilbyLogo } from '../components/BilbyLogo';
 import { Icon } from '../components/illustrations/icons';
 import { YEAR_LEVELS, type ChildProfile, type YearLevel } from '../types/curriculum';
@@ -21,12 +21,14 @@ export function OnboardingScreen({
   onCancel,
   onReset,
   onSignOut,
+  onOpenDoc,
 }: {
   initial?: ChildProfile;
   onDone: (child: ChildProfile) => void;
   onCancel?: () => void;
   onReset?: () => void;
   onSignOut?: () => void;
+  onOpenDoc?: (doc: 'privacy' | 'terms' | 'contact') => void;
 }) {
   const editing = Boolean(initial);
   const [name, setName] = useState(initial?.name ?? '');
@@ -58,7 +60,7 @@ export function OnboardingScreen({
   return (
     <ScrollView contentContainerStyle={styles.container} style={styles.scroll}>
       <LinearGradient
-        colors={[palette.teal, palette.sky]}
+        colors={[...gradients.heroAlt]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={styles.hero}
@@ -77,6 +79,7 @@ export function OnboardingScreen({
         onChangeText={setName}
         placeholder="e.g. Mia"
         placeholderTextColor={palette.slate}
+        accessibilityLabel="Child's name"
       />
 
       <Text style={styles.label}>School year</Text>
@@ -87,6 +90,9 @@ export function OnboardingScreen({
             <Pressable
               key={y}
               onPress={() => setYear(y)}
+              accessibilityRole="button"
+              accessibilityState={{ selected }}
+              accessibilityLabel={y === 'K' ? 'Kindergarten' : `Year ${y}`}
               style={[styles.yearPill, selected && styles.yearPillSelected]}
             >
               <Text style={[styles.yearText, selected && styles.yearTextSelected]}>
@@ -105,6 +111,9 @@ export function OnboardingScreen({
             <Pressable
               key={s.id}
               onPress={() => setStateId(s.id)}
+              accessibilityRole="button"
+              accessibilityState={{ selected }}
+              accessibilityLabel={s.label}
               style={[styles.statePill, selected && styles.statePillSelected]}
             >
               <Text style={[styles.stateText, selected && styles.stateTextSelected]}>
@@ -120,7 +129,7 @@ export function OnboardingScreen({
         {SUBJECTS.map((subj) => {
           const on = subjects.includes(subj.id);
           return (
-            <Pressable key={subj.id} onPress={() => toggleSubject(subj.id)} style={[styles.subjectRow, on && styles.subjectRowOn]}>
+            <Pressable key={subj.id} onPress={() => toggleSubject(subj.id)} accessibilityRole="checkbox" accessibilityState={{ checked: on }} accessibilityLabel={`${subj.label}: ${subj.tagline}`} style={[styles.subjectRow, on && styles.subjectRowOn]}>
               <View style={[styles.subjectIcon, { borderColor: on ? palette.teal : palette.sky }]}>
                 <Icon name={subj.icon} tint={on ? palette.teal : palette.slate} size={22} />
               </View>
@@ -146,6 +155,19 @@ export function OnboardingScreen({
         <Pressable onPress={onCancel} hitSlop={12} style={styles.backRow}>
           <Text style={styles.backText}>← Back, keep current plan</Text>
         </Pressable>
+      )}
+
+      {editing && onOpenDoc && (
+        <View style={styles.legalLinks}>
+          <Text style={styles.legalLinksLabel}>Legal</Text>
+          <View style={styles.legalLinksRow}>
+            {(['privacy', 'terms', 'contact'] as const).map((doc) => (
+              <Pressable key={doc} onPress={() => onOpenDoc(doc)} hitSlop={8} accessibilityRole="link">
+                <Text style={styles.legalLink}>{doc === 'privacy' ? 'Privacy' : doc === 'terms' ? 'Terms' : 'Contact'}</Text>
+              </Pressable>
+            ))}
+          </View>
+        </View>
       )}
 
       {editing && onSignOut && (
@@ -294,5 +316,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   signOutBtnText: { fontSize: 15, fontWeight: '900', color: palette.slate },
+  legalLinks: {
+    marginTop: spacing.xl,
+    borderTopWidth: 2,
+    borderTopColor: palette.grape + '33',
+    paddingTop: spacing.lg,
+  },
+  legalLinksLabel: { fontSize: 13, fontWeight: '800', color: palette.ink, textTransform: 'uppercase', marginBottom: spacing.sm },
+  legalLinksRow: { flexDirection: 'row', gap: spacing.md },
+  legalLink: { fontSize: 14, fontWeight: '700', color: palette.grape },
   pressed: { opacity: 0.7 },
 });

@@ -346,7 +346,7 @@ export function NaplanTestScreen({
             <View style={styles.introCard}>
               <View style={styles.iconTextRow}>
                 <Icon name="clipboard" tint={palette.ink} size={16} />
-                <Text style={styles.introLine}>{steps.length} sample items</Text>
+                <Text style={styles.introLine}>{steps.length} practice items</Text>
               </View>
               <View style={styles.iconTextRow}>
                 <Icon name="timer" tint={palette.ink} size={16} />
@@ -926,7 +926,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.lg,
   },
   resultTitle: { fontSize: 22, fontWeight: '900', color: palette.ink },
-  resultPct: { fontSize: 34, fontWeight: '900', color: palette.teal },
+  resultPct: { fontSize: 34, fontWeight: '900', color: palette.brand },
   resultMeta: { fontSize: 14, color: palette.slate, fontWeight: '600' },
   sectionTitle: { fontSize: 16, fontWeight: '800', color: palette.ink, marginTop: spacing.xl, marginBottom: spacing.md },
   skillCard: {
@@ -955,5 +955,5 @@ const styles = StyleSheet.create({
   reviewAnswer: { fontSize: 13, color: palette.slate, marginTop: spacing.xs, marginLeft: 26 },
   reviewAnswerOk: { color: palette.teal, fontWeight: '700' },
   reviewAnswerBad: { color: palette.coral, fontWeight: '700' },
-  indicative: { fontSize: 11, color: palette.slate, textAlign: 'center', marginVertical: spacing.lg },
+  indicative: { fontSize: 12, color: palette.slate, textAlign: 'center', marginVertical: spacing.lg },
 });

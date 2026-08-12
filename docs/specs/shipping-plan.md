@@ -58,7 +58,7 @@ workstream, execute, tick the boxes.
 
 - [ ] A1. Add identity to `apps/mobile/app.json` (name, slug, orientation, primary color) per D1–D3 defaults (no native fields required for web).
 - [ ] A2. Add app icon + splash PNGs to `apps/mobile/assets/` (from `BilbyLogoMark`, sizes: icon 1024×1024, splash 1284×2778 / 2732×2732 for iOS, 1080×2400 for Android). Wire `expo-splash-screen` + `app.json` `icon`/`splash`.
-- [ ] A3. Configure `dist/` export: confirm `npx expo export --platform web` output, note the `.well-known` and asset-prefix options (`--output-dir`, `EXPO_PUBLIC_*` env for any public keys).
+- [x] A3. Configure `dist/` export: confirm `npx expo export --platform web` output, note the `.well-known` and asset-prefix options (`--output-dir`, `EXPO_PUBLIC_*` env for any public keys). **Done:** `build:web` also runs `scripts/seo.mjs` (SEO head injection) + ships `robots.txt`/`sitemap.xml`/`og-image.jpg` from `public/`.
 - [ ] A4. Deploy: push `dist/` to Vercel (framework preset "Other" / static) or Netlify. Add a simple deploy script or CI (`eas build`/GH Action) that runs typecheck → export → deploy. **Config ready:** root `vercel.json` + `package.json`, `apps/mobile/scripts/vercel-env.sh`, `.vercelignore`. See `docs/specs/vercel-deploy.md`.
 - [ ] A5. Smoke-test: onboarding → weekly plan → lesson → NAPLAN hub/test → close & reopen browser (persistence survives). Verify AsyncStorage uses `localStorage`.
 - [ ] A6. Verify HTTPS + mobile-width rendering (react-native-web).

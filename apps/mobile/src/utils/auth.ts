@@ -25,6 +25,14 @@ export function makeRedirectUri(): string {
   return AuthSession.makeRedirectUri({ scheme: 'bilbybots', path: 'auth/callback' });
 }
 
+/** Bare origin for the current web page, e.g. `https://bilbybots.com`. */
+function getWebOrigin(): string {
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return window.location.origin;
+  }
+  return process.env.EXPO_PUBLIC_SITE_URL?.replace(/\/+$/, '') ?? 'https://bilbybots.com';
+}
+
 export type SignInResult =
   | { ok: true }
   | { ok: false; error: string };
@@ -38,9 +46,12 @@ export async function signInWithGoogle(): Promise<SignInResult> {
   const redirectTo = makeRedirectUri();
 
   if (Platform.OS === 'web') {
+    // Web: redirect back to the bare origin so the static site always serves
+    // index.html (no reliance on an SPA deep-link rewrite). supabase-js picks
+    // the session up from the URL via `detectSessionInUrl`.
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo },
+      options: { redirectTo: getWebOrigin() },
     });
     if (error) return { ok: false, error: error.message };
     return { ok: true };

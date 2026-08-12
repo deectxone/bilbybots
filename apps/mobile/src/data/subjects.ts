@@ -10,35 +10,30 @@ export const SUBJECTS: ReadonlyArray<{
   label: string;
   /** Themed vector pictogram (never emoji) — see components/illustrations/icons.tsx. */
   icon: IconName;
-  emoji: string;
   tagline: string;
 }> = [
   {
     id: 'mathematics',
     label: 'Mathematics',
     icon: 'calc',
-    emoji: '🔢',
     tagline: 'Numbers, shapes, data and puzzles',
   },
   {
     id: 'english',
     label: 'English',
     icon: 'book',
-    emoji: '📚',
     tagline: 'Reading, writing, talking and imagining',
   },
   {
     id: 'science',
     label: 'Science',
     icon: 'microscope',
-    emoji: '🔬',
     tagline: 'Explore our world and how it works',
   },
   {
     id: 'hass',
     label: 'HASS',
     icon: 'map',
-    emoji: '🗺️',
     tagline: 'History, people, places and big ideas',
   },
 ];

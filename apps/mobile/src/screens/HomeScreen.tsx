@@ -4,7 +4,7 @@ import type { ChildProfile } from '../types/curriculum';
 import { AppHeader } from '../components/AppHeader';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon } from '../components/illustrations/icons';
-import { palette, radius, spacing } from '../theme/colors';
+import { palette, radius, spacing, type, gradients } from '../theme/colors';
 import { nextNaplanYear, NAPLAN_YEARS } from '../data/naplan/tests';
 import { subjectById } from '../data/subjects';
 
@@ -39,7 +39,7 @@ export function HomeScreen({
       <AppHeader active="Home" onHome={() => {}} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
 
       <LinearGradient
-        colors={[palette.grape, palette.berry]}
+        colors={[...gradients.hero]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={styles.hero}
@@ -53,7 +53,7 @@ export function HomeScreen({
             <Text style={styles.sub}>
               {child
                 ? `Year ${child.year} · ${planSubjects}`
-                : 'Your little learner gets a plan + NAPLAN practice in one place'}
+                : 'A smarter weekly plan and NAPLAN practice in one place'}
             </Text>
           </View>
         </View>
@@ -68,6 +68,8 @@ export function HomeScreen({
 
       <Pressable
         onPress={onOpenWeekPlan}
+        accessibilityRole="button"
+        accessibilityLabel="Open my weekly plan"
         style={({ pressed }) => [styles.track, pressed && styles.pressed]}
       >
         <View style={[styles.trackAccent, { backgroundColor: palette.teal }]} />
@@ -89,6 +91,8 @@ export function HomeScreen({
 
       <Pressable
         onPress={onOpenNaplan}
+        accessibilityRole="button"
+        accessibilityLabel="Open NAPLAN practice"
         style={({ pressed }) => [styles.track, pressed && styles.pressed]}
       >
         <View style={[styles.trackAccent, { backgroundColor: palette.coral }]} />
@@ -137,11 +141,11 @@ const styles = StyleSheet.create({
     opacity: 0.95,
   },
   heroText: { flex: 1 },
-  greeting: { fontSize: 26, fontWeight: '900', color: palette.white },
-  sub: { fontSize: 14, color: palette.white, opacity: 0.9, marginTop: spacing.xs },
+  greeting: { fontSize: type.display, fontWeight: '900', color: palette.white },
+  sub: { fontSize: 14, color: palette.white, opacity: 0.95, marginTop: spacing.xs },
   coverageRow: { flexDirection: 'row', marginTop: spacing.lg },
   section: {
-    fontSize: 20,
+    fontSize: type.h2,
     fontWeight: '800',
     color: palette.ink,
     marginTop: spacing.xl,
@@ -174,14 +178,15 @@ const styles = StyleSheet.create({
   },
   trackText: { flex: 1 },
   trackTitle: { fontSize: 18, fontWeight: '900', color: palette.ink },
-  trackSub: { fontSize: 13, color: palette.slate, marginTop: spacing.xs, lineHeight: 18 },
+  trackSub: { fontSize: 14, color: palette.slate, marginTop: spacing.xs, lineHeight: 20 },
   chevron: { fontSize: 28, color: palette.slate },
   pressed: { transform: [{ scale: 0.99 }], opacity: 0.9 },
   footnote: {
-    fontSize: 11,
+    fontSize: type.caption,
     color: palette.slate,
     textAlign: 'center',
     marginTop: spacing.xl,
     paddingHorizontal: spacing.xl,
+    lineHeight: 18,
   },
 });

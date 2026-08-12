@@ -147,7 +147,7 @@ function PlaceValue({ spec }: { spec: Extract<DiagramSpec, { kind: 'place-value'
           <SvgText
             x={x0 + i * boxW + (boxW - 4) / 2}
             y={y + 50}
-            fontSize={8}
+            fontSize={11}
             fill={palette.slate}
             textAnchor="middle"
           >
@@ -171,7 +171,7 @@ function Thermometer({ spec }: { spec: Extract<DiagramSpec, { kind: 'thermometer
       <Rect x={cx - 6} y={fillY} width={12} height={bottom - fillY} rx={6} fill={spec.value < 0 ? palette.sky : palette.coral} />
       <Circle cx={cx} cy={bottom + 8} r={11} fill={spec.value < 0 ? palette.sky : palette.coral} stroke={palette.ink} strokeWidth={2} />
       <Line x1={cx - 6} y1={top + (bottom - top) / 2} x2={cx + 18} y2={top + (bottom - top) / 2} stroke={palette.slate} strokeWidth={1} />
-      <SvgText x={cx + 22} y={top + (bottom - top) / 2 + 4} fontSize={10} fill={palette.slate}>0{spec.unit}</SvgText>
+      <SvgText x={cx + 22} y={top + (bottom - top) / 2 + 4} fontSize={12} fill={palette.slate}>0{spec.unit}</SvgText>
       <SvgText x={cx} y={top - 4} fontSize={13} fontWeight="900" fill={palette.ink} textAnchor="middle">
         {spec.value}{spec.unit}
       </SvgText>
@@ -197,7 +197,7 @@ function BarCompare({ spec }: { spec: Extract<DiagramSpec, { kind: 'bar-compare'
               {item.value}
               {spec.unit ?? ''}
             </SvgText>
-            <SvgText x={x + 16} y={baseline + 14} fontSize={10} fill={palette.slate} textAnchor="middle">
+            <SvgText x={x + 16} y={baseline + 14} fontSize={12} fill={palette.slate} textAnchor="middle">
               {item.label}
             </SvgText>
           </G>
@@ -543,7 +543,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  iconLabel: { fontSize: 10, fontWeight: '700', color: palette.ink, marginTop: 4, textAlign: 'center' },
+  iconLabel: { fontSize: 12, fontWeight: '700', color: palette.ink, marginTop: 4, textAlign: 'center' },
   iconConnector: { fontSize: 22, fontWeight: '900', color: palette.slate, marginHorizontal: 2 },
   iconCaption: { fontSize: 12, fontWeight: '700', color: palette.ink, marginTop: 10, textAlign: 'center' },
 });

@@ -24,6 +24,8 @@ import {
 import { getCurrentSession, onAuthStateChange } from './src/utils/supabase';
 import { signOut } from './src/utils/auth';
 import { SignInScreen } from './src/screens/SignInScreen';
+import { LegalScreen, type LegalDoc } from './src/screens/LegalScreen';
+import { PRIVACY_DOC, TERMS_DOC, CONTACT_DOC } from './src/data/legal';
 import { palette } from './src/theme/colors';
 
 /**
@@ -54,6 +56,7 @@ export default function App() {
   const [session, setSession] = useState<{ email?: string } | null>(null);
   const [authReady, setAuthReady] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const [legalDoc, setLegalDoc] = useState<LegalDoc | null>(null);
 
   const hydratedRef = useRef(false);
 
@@ -96,10 +99,22 @@ export default function App() {
     savePersistedState(state);
   }, [child, completedTopicIds, earnedBadges, naplanResults, hydrated]);
 
-  const goHome = () => setScreen('Home');
-  const goProgress = () => setScreen(child ? 'Progress' : 'Onboarding');
-  const goNaplanHub = () => setScreen('NaplanHub');
-  const goSetup = () => setScreen('Setup');
+  const goHome = () => {
+    setLegalDoc(null);
+    setScreen('Home');
+  };
+  const goProgress = () => {
+    setLegalDoc(null);
+    setScreen(child ? 'Progress' : 'Onboarding');
+  };
+  const goNaplanHub = () => {
+    setLegalDoc(null);
+    setScreen('NaplanHub');
+  };
+  const goSetup = () => {
+    setLegalDoc(null);
+    setScreen('Setup');
+  };
 
   const resetAll = async () => {
     await clearPersistedState();
@@ -130,10 +145,21 @@ export default function App() {
   }
 
   if (!session) {
+    if (legalDoc) {
+      return (
+        <View style={{ flex: 1 }}>
+          <StatusBar style="dark" />
+          <LegalScreen doc={legalDoc} onHome={() => setLegalDoc(null)} onProgress={() => setLegalDoc(null)} onSetup={() => setLegalDoc(null)} onSignOut={() => setLegalDoc(null)} />
+        </View>
+      );
+    }
     return (
       <View style={{ flex: 1 }}>
         <StatusBar style="dark" />
-        <SignInScreen onSignedIn={() => setScreen('Home')} />
+        <SignInScreen
+          onSignedIn={() => setScreen('Home')}
+          onOpenDoc={(doc) => setLegalDoc(doc === 'privacy' ? PRIVACY_DOC : doc === 'terms' ? TERMS_DOC : CONTACT_DOC)}
+        />
       </View>
     );
   }
@@ -141,6 +167,16 @@ export default function App() {
   return (
     <View style={{ flex: 1 }}>
       <StatusBar style="dark" />
+      {legalDoc ? (
+        <LegalScreen
+          doc={legalDoc}
+          onHome={goHome}
+          onProgress={goProgress}
+          onSetup={goSetup}
+          onSignOut={handleSignOut}
+        />
+      ) : (
+        <>
       {screen === 'Onboarding' && (
         <OnboardingScreen
           onDone={(c) => {
@@ -159,6 +195,7 @@ export default function App() {
           onCancel={goHome}
           onReset={resetAll}
           onSignOut={handleSignOut}
+          onOpenDoc={(doc) => setLegalDoc(doc === 'privacy' ? PRIVACY_DOC : doc === 'terms' ? TERMS_DOC : CONTACT_DOC)}
         />
       )}
       {screen === 'Home' && (
@@ -240,6 +277,8 @@ export default function App() {
           onSetup={goSetup}
           onSignOut={handleSignOut}
         />
+      )}
+        </>
       )}
       <BilbyMascot />
     </View>

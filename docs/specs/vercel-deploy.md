@@ -3,17 +3,20 @@
 **Status:** Ready — all config files committed. This walks through pushing the
 web app to Vercel from this repo.
 
-The web app is a **static export** (`expo export --platform web` → `apps/mobile/dist`).
-Vercel serves it with an SPA rewrite so deep links (e.g. the Google auth callback
-`/auth/callback`) load the app.
+The web app is a **static export** (`expo export --platform web` → `apps/mobile/dist`)
+followed by an **SEO pass** (`node scripts/seo.mjs`) that injects the full head —
+title, description, Open Graph, Twitter, canonical + JSON-LD — and ships
+`robots.txt`, `sitemap.xml` and an `og-image.jpg` from `apps/mobile/public/`.
 
 ## Files that make this work
 
 | File | Purpose |
 |---|---|
-| `vercel.json` (repo root) | Build + install command, output dir, SPA rewrite for auth deep links |
+| `vercel.json` (repo root) | Build + install command, output dir, SPA rewrite for deep links |
 | `package.json` (repo root) | `build` script → runs `expo export --platform web` in `apps/mobile` |
-| `apps/mobile/package.json` | `build:web` script (`expo export --platform web`) |
+| `apps/mobile/package.json` | `build:web` = `expo export --platform web && node scripts/seo.mjs` |
+| `apps/mobile/scripts/seo.mjs` | Injects SEO meta into `dist/index.html` after export |
+| `apps/mobile/public/` | `robots.txt`, `sitemap.xml`, `og-image.jpg` copied into `dist/` |
 | `apps/mobile/scripts/vercel-env.sh` | Copies `.env` values into Vercel env vars |
 | `.vercelignore` (repo root) | Excludes node_modules, `.env*`, native dirs, dist from upload |
 | `.env` / `.env.example` (gitignored) | Build-time secrets, set on Vercel below |

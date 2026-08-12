@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5B21B6"/>
+      <stop offset="0.5" stop-color="#8A6FCB"/>
+      <stop offset="1" stop-color="#C9578A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g transform="translate(600 190)">
+    <ellipse cx="-36" cy="-48" rx="24" ry="38" fill="#FBF7EE" transform="rotate(-22 -36 -48)"/>
+    <ellipse cx="36" cy="-48" rx="24" ry="38" fill="#FBF7EE" transform="rotate(22 36 -48)"/>
+    <circle cx="0" cy="0" r="58" fill="#FBF7EE"/>
+    <circle cx="-19" cy="-10" r="9.5" fill="#22263B"/>
+    <circle cx="19" cy="-10" r="9.5" fill="#22263B"/>
+    <ellipse cx="0" cy="12" rx="7.5" ry="5.8" fill="#22263B"/>
+    <path d="M -13 26 Q 0 36 13 26" stroke="#22263B" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="600" y="430" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900" fill="#FFFFFF" text-anchor="middle">BilbyBots</text>
+  <text x="600" y="500" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#FBF7EE" text-anchor="middle">A smarter weekly learning plan for Australian kids</text>
+  <text x="600" y="560" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#FBF7EE" opacity="0.85" text-anchor="middle">Years 1–10 · Australian Curriculum · NAPLAN-style practice</text>
+</svg>

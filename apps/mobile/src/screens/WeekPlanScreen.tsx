@@ -5,7 +5,8 @@ import { buildWeekPlan } from '../data/content';
 import { TopicCard } from '../components/TopicCard';
 import { BadgeChip } from '../components/BadgeChip';
 import { AppHeader } from '../components/AppHeader';
-import { palette, radius, spacing } from '../theme/colors';
+import { Icon } from '../components/illustrations/icons';
+import { palette, radius, spacing, gradients } from '../theme/colors';
 import { subjectById } from '../data/subjects';
 
 /**
@@ -49,12 +50,12 @@ export function WeekPlanScreen({
       <AppHeader active="WeekPlan" onHome={onHome} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
 
       <LinearGradient
-        colors={[palette.grape, palette.berry]}
+        colors={[...gradients.hero]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={styles.hero}
       >
-        <Text style={styles.greeting}>G'day, {child.name}! 🦘</Text>
+        <Text style={styles.greeting}>G'day, {child.name}!</Text>
         <Text style={styles.sub}>
           Year {child.year} · {planLabel} plan · Term 1
         </Text>
@@ -64,14 +65,15 @@ export function WeekPlanScreen({
         </View>
       </LinearGradient>
 
-      <Text style={styles.section}>This week 🎯</Text>
+      <Text style={styles.section}>This week</Text>
 
       {topics.length === 0 ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyTitle}>Content lands soon 🚀</Text>
+          <Icon name="book" tint={palette.grape} size={30} />
+          <Text style={styles.emptyTitle}>Your plan is being prepared</Text>
           <Text style={styles.emptyBody}>
-            Year {child.year} lessons for the chosen subjects aren't published yet —
-            Years 1–10 are ready today.
+            Year {child.year} lessons for the chosen subjects are being finalised.
+            Years 1–10 are available now.
           </Text>
         </View>
       ) : (

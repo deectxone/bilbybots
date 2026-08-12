@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import type { IllustrationSlot } from '../types/curriculum';
 import { palette, radius, spacing } from '../theme/colors';
 import { DiagramView } from './illustrations/diagrams';
+import { Icon } from './illustrations/icons';
 
 /**
  * Renders the topic's vector diagram when one is authored (`slot.diagram`).
@@ -32,10 +33,10 @@ export function IllustrationFrame({
 
   return (
     <View style={[styles.frame, { backgroundColor: tint + '33', borderColor: tint }]}>
-      <Text style={styles.emoji}>{'🖼️'}</Text>
+      <Icon name="pen" tint={palette.slate} size={26} />
       <Text style={styles.brief}>{slot.brief}</Text>
       <Text style={[styles.state, { color: slot.ready ? palette.teal : palette.slate }]}>
-        {slot.ready ? 'illustration ready' : 'illustration pending'}
+        {slot.ready ? 'Illustration ready' : 'Illustration coming soon'}
       </Text>
     </View>
   );
@@ -49,12 +50,12 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     minHeight: 120,
     justifyContent: 'center',
+    alignItems: 'center',
     gap: spacing.sm,
     marginVertical: spacing.sm,
   },
-  diagramFrame: { borderStyle: 'solid', padding: spacing.sm },
+  diagramFrame: { borderStyle: 'solid', padding: spacing.sm, alignItems: 'stretch' },
   diagramCaption: { fontSize: 12, color: palette.slate, fontWeight: '600', textAlign: 'center' },
-  emoji: { fontSize: 24 },
-  brief: { fontSize: 14, color: palette.ink, fontWeight: '600' },
+  brief: { fontSize: 14, color: palette.ink, fontWeight: '600', textAlign: 'center' },
   state: { fontSize: 11, textTransform: 'uppercase', fontWeight: '700' },
 });
