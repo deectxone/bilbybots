@@ -128,11 +128,16 @@ create table if not exists public.curriculum (
   learning_area text not null,
   strand text,
   sub_strand text,
-  cd_text text not null,
+  cd_text text,
   elaborations jsonb not null default '[]'::jsonb,
   achievement_standard_id text,
   state_mapping jsonb not null default '{}'::jsonb
 );
+
+-- cd_text is nullable: authored CD text is added later (see src/data/ingest.ts,
+-- CurriculumRow.cd_text). The seed inserts NULL here, so relax NOT NULL if this
+-- table was created earlier with the stricter definition.
+alter table public.curriculum alter column cd_text drop not null;
 
 alter table public.curriculum enable row level security;
 

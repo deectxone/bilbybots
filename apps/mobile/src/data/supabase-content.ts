@@ -1,0 +1,218 @@
+import type { Topic, SubjectId, YearLevel } from '../types/curriculum';
+import { supabase } from '../utils/supabase';
+
+/**
+ * Supabase content reader: loads the curriculum content tables (curriculum /
+ * topic / lesson / question / assignment) that `npm run seed:generate` seeded
+ * and maps them back onto the app's `Topic` shape (the inverse of
+ * `src/data/ingest.ts`). This is the client-side counterpart to the ingest
+ * pipeline so the app can read curriculum content from Supabase instead of the
+ * bundled TS topic banks.
+ *
+ * Content tables are read-only for the app (RLS grants `select` to
+ * `authenticated`), so a signed-in session is required — see
+ * `supabase/migrations/20260812000200_full_schema.sql`.
+ *
+ * NOTE: Topic ids here are the deterministic uuids produced by the ingest
+ * pipeline (e.g. uuidFromKey('topic:Y6-MAT-NN01')), not the author-facing
+ * 'Y6-MAT-NN01' keys. Switching a child's progress to this source therefore
+ * changes the `completedTopicIds` key space.
+ */
+
+interface CurriculumRow {
+  code: string;
+  strand: string | null;
+  state_mapping: Record<string, string> | null;
+}
+
+interface TopicRow {
+  id: string;
+  curriculum_codes: string[];
+  title: string;
+  learning_area: string;
+  nominal_questions: number;
+  min_depth_questions: number;
+}
+
+interface LessonRow {
+  id: string;
+  topic_id: string;
+  body_json: {
+    body: string[];
+    illustrations: unknown[];
+    learnTimeMin: number;
+  };
+}
+
+interface QuestionRow {
+  id: string;
+  prompt: string;
+  type: string;
+  options: unknown;
+  answer: string | null;
+  difficulty: number;
+}
+
+interface AssignmentRow {
+  id: string;
+  topic_id: string;
+  questions_meta: {
+    nominalCount: number;
+    compactCount: number;
+    questionIds: string[];
+  };
+}
+
+const LEARNING_AREA_TO_SUBJECT: Record<string, SubjectId> = {
+  Mathematics: 'mathematics',
+  English: 'english',
+  Science: 'science',
+  HASS: 'hass',
+};
+
+const YEAR_LOOKUP: Record<string, true> = {
+  K: true,
+  '1': true,
+  '2': true,
+  '3': true,
+  '4': true,
+  '5': true,
+  '6': true,
+  '7': true,
+  '8': true,
+  '9': true,
+  '10': true,
+};
+
+/**
+ * Derive the year level from an AC v9.0 content-description code, e.g.
+ * AC9M6N01 -> '6', AC9HS6K01 -> '6', AC9HH7K01 -> '7', AC9M10A01 -> '10'.
+ * Returns null for codes that don't carry a year.
+ */
+export function yearFromCode(code: string): YearLevel | null {
+  const match = /^AC9(?:M|E|S|HS|HH)(\d+)/i.exec(code);
+  if (!match || !(match[1] in YEAR_LOOKUP)) return null;
+  return match[1] as YearLevel;
+}
+
+export interface ContentRows {
+  curriculum: CurriculumRow[];
+  topics: TopicRow[];
+  lessons: LessonRow[];
+  questions: QuestionRow[];
+  assignments: AssignmentRow[];
+}
+
+/**
+ * Pure mapping from seeded content rows back to app `Topic`s. Exported for
+ * tests; `loadSupabaseTopicBank` fetches the rows then delegates here.
+ */
+export function mapContentRows(rows: ContentRows): Topic[] {
+  const curriculumByCode = new Map(rows.curriculum.map((c) => [c.code, c]));
+  const lessonByTopicId = new Map(rows.lessons.map((l) => [l.topic_id, l]));
+  const questionById = new Map(rows.questions.map((q) => [q.id, q]));
+  const assignmentByTopicId = new Map(rows.assignments.map((a) => [a.topic_id, a]));
+
+  return rows.topics.flatMap((row) => {
+    const subject = LEARNING_AREA_TO_SUBJECT[row.learning_area];
+    const year = row.curriculum_codes.map(yearFromCode).find((y): y is YearLevel => y !== null);
+    if (!subject || !year) return [];
+
+    const cd = row.curriculum_codes.map((code) => {
+      const c = curriculumByCode.get(code);
+      return { ac: code, state: c?.state_mapping ?? undefined };
+    });
+
+    const lesson = lessonByTopicId.get(row.id);
+    const assignmentRow = assignmentByTopicId.get(row.id);
+    const questionIds = assignmentRow?.questions_meta.questionIds ?? [];
+    const assignmentQuestions = questionIds
+      .map((id) => questionById.get(id))
+      .filter((q): q is QuestionRow => Boolean(q))
+      .map((q) => ({
+        id: q.id,
+        type: (['mcq', 'short', 'ordering'].includes(q.type) ? q.type : 'short') as Topic['assignment']['questions'][number]['type'],
+        prompt: q.prompt,
+        options: (q.options as string[] | null) ?? undefined,
+        answer: q.answer ?? '',
+        difficulty: (q.difficulty as 1 | 2 | 3) ?? 1,
+      }));
+
+    return [
+      {
+        id: row.id,
+        title: row.title,
+        year,
+        subject,
+        strand: curriculumByCode.get(row.curriculum_codes[0])?.strand ?? '',
+        cd,
+        learn: lesson
+          ? {
+              body: lesson.body_json.body ?? [],
+              illustrations: (lesson.body_json.illustrations ?? []) as Topic['learn']['illustrations'],
+              learnTimeMin: lesson.body_json.learnTimeMin ?? 10,
+            }
+          : { body: [], illustrations: [], learnTimeMin: 10 },
+        assignment: {
+          questions: assignmentQuestions,
+          nominalCount: assignmentRow?.questions_meta.nominalCount ?? row.nominal_questions,
+          compactCount: assignmentRow?.questions_meta.compactCount ?? row.min_depth_questions,
+        },
+      },
+    ];
+  });
+}
+
+let cachedTopics: Topic[] | null = null;
+
+export interface SupabaseContentResult {
+  topics: Topic[];
+  /** Human-readable error, e.g. missing session / not configured / fetch failure. */
+  error?: string;
+}
+
+/** Load the full content bank from Supabase. Cached after first success. */
+export async function loadSupabaseTopicBank(): Promise<SupabaseContentResult> {
+  if (cachedTopics) return { topics: cachedTopics };
+
+  if (!supabase) {
+    return { topics: [], error: 'Supabase is not configured.' };
+  }
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+  if (!session) {
+    return { topics: [], error: 'Sign in to load curriculum content.' };
+  }
+
+  const [curriculumRes, topicRes, lessonRes, questionRes, assignmentRes] = await Promise.all([
+    supabase.from('curriculum').select('code, strand, state_mapping'),
+    supabase.from('topic').select('*'),
+    supabase.from('lesson').select('*'),
+    supabase.from('question').select('*'),
+    supabase.from('assignment').select('*'),
+  ]);
+
+  const failed = [curriculumRes, topicRes, lessonRes, questionRes, assignmentRes].find(
+    (r) => r.error
+  );
+  if (failed) {
+    return { topics: [], error: failed.error?.message ?? 'Failed to load curriculum content.' };
+  }
+
+  const topics = mapContentRows({
+    curriculum: (curriculumRes.data ?? []) as CurriculumRow[],
+    topics: (topicRes.data ?? []) as TopicRow[],
+    lessons: (lessonRes.data ?? []) as LessonRow[],
+    questions: (questionRes.data ?? []) as QuestionRow[],
+    assignments: (assignmentRes.data ?? []) as AssignmentRow[],
+  });
+
+  cachedTopics = topics;
+  return { topics };
+}
+
+/** Drop the cache (e.g. after sign-out or a content re-seed). */
+export function clearSupabaseTopicBankCache(): void {
+  cachedTopics = null;
+}

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { allYearTopics } from './content';
-import { buildIngestRows, generateSeedSql, uuidFromKey } from './ingest';
+import { buildIngestRows, generateSeedFiles, generateSeedSql, uuidFromKey } from './ingest';
 
 describe('curriculum ingestion coverage', () => {
   const allTopics = allYearTopics();
@@ -55,5 +55,23 @@ describe('curriculum ingestion coverage', () => {
     expect(sql).toContain('BEGIN;');
     expect(sql).toContain('COMMIT;');
     for (const t of rows.topics) expect(sql).toContain(t.id);
+  });
+
+  it('generates browser-runnable per-table files in dependency order', () => {
+    const files = generateSeedFiles(rows);
+    expect(files.map((f) => f.name)).toEqual([
+      'curriculum.sql',
+      'topic.sql',
+      ...files.filter((f) => f.name.startsWith('lesson-')).map((f) => f.name),
+      ...files.filter((f) => f.name.startsWith('question-')).map((f) => f.name),
+      ...files.filter((f) => f.name.startsWith('assignment-')).map((f) => f.name),
+    ]);
+    for (const file of files) {
+      expect(file.content).toContain('BEGIN;');
+      expect(file.content).toContain('COMMIT;');
+      expect(file.content).toContain('ON CONFLICT (id) DO NOTHING');
+    }
+    const combined = generateSeedSql(rows);
+    expect(files.flatMap((f) => f.content).join('\n')).not.toBe(combined);
   });
 });

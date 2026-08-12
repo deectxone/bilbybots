@@ -8,8 +8,10 @@ import { palette, spacing } from '../theme/colors';
  * towards the page colour (`assets/hero/park-hero-light.jpg`, derived
  * from `park-hero.png`), and the overlay below fades it out under the copy so
  * the headline stays readable (dark text on a soft fade at the bottom, a
- * light brand scrim up top for the logo). To swap the photo, replace
- * `park-hero.png` and regenerate `park-hero-light.jpg`.
+ * light brand scrim up top for the logo). The middle band keeps a translucent
+ * cream scrim (never fully transparent) so the small print — the sub-headline
+ * and welcome card — always has enough contrast over the photo. To swap the
+ * photo, replace `park-hero.png` and regenerate `park-hero-light.jpg`.
  */
 export function HeroPark({ children }: { children: React.ReactNode }) {
   return (
@@ -22,8 +24,8 @@ export function HeroPark({ children }: { children: React.ReactNode }) {
         accessibilityLabel="Kids having fun with books and tablets on a sunny walk through the park"
       >
         <LinearGradient
-          colors={[`${palette.cream}ef`, `${palette.cream}00`, `${palette.cream}eb`]}
-          locations={[0, 0.38, 1]}
+          colors={[`${palette.cream}f2`, `${palette.cream}8c`, `${palette.cream}f0`]}
+          locations={[0, 0.5, 1]}
           style={StyleSheet.absoluteFill}
         />
         <View style={styles.content}>{children}</View>
@@ -33,14 +35,14 @@ export function HeroPark({ children }: { children: React.ReactNode }) {
 }
 
 const styles = StyleSheet.create({
-  wrap: { height: 500, width: '100%' },
+  wrap: { height: 560, width: '100%' },
   bg: { flex: 1 },
   bgImage: { resizeMode: 'cover' },
   content: {
     flex: 1,
     justifyContent: 'space-between',
     paddingHorizontal: spacing.xl,
-    paddingTop: spacing.lg,
+    paddingTop: spacing.md,
     paddingBottom: spacing.xl,
   },
 });

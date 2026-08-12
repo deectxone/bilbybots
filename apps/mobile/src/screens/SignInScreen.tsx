@@ -69,7 +69,6 @@ export function SignInScreen({
       <AppHeader onHome={() => {}} />
       <ScrollView contentContainerStyle={styles.root} style={styles.scroll} bounces={false}>
         <HeroPark>
-          <View style={styles.heroSpacer} />
           <View style={styles.heroText}>
             <Text style={styles.headline}>
               A smarter weekly plan for {'\n'}
@@ -80,57 +79,57 @@ export function SignInScreen({
               lessons, badges and practice that fit their school year.
             </Text>
           </View>
+
+          <View style={styles.welcome}>
+            <Text style={styles.welcomeEyebrow}>Parent sign-in</Text>
+            <Text style={styles.welcomeTitle}>Welcome</Text>
+            <Text style={styles.welcomeBody}>
+              Sign in with Google to set up your family's learning plans and keep
+              progress safe in your account.
+            </Text>
+
+            {isAuthConfigured ? (
+              <>
+                <PrimaryButton
+                  disabled={busy}
+                  tone="header"
+                  label={busy ? 'Opening Google…' : 'Sign in with Google'}
+                  onPress={go}
+                />
+                <Pressable
+                  onPress={onGuest}
+                  hitSlop={12}
+                  accessibilityRole="button"
+                  accessibilityLabel="Continue without signing in"
+                  style={styles.skip}
+                >
+                  <Text style={styles.skipText}>Continue without signing in</Text>
+                </Pressable>
+              </>
+            ) : (
+              <View style={styles.notice}>
+                <Icon name="cog" tint={palette.slate} size={20} />
+                <Text style={styles.noticeText}>
+                  Sign-in is being set up for this release. You can still explore the
+                  app as a guest for now.
+                </Text>
+                <Pressable
+                  onPress={onGuest}
+                  accessibilityRole="button"
+                  accessibilityLabel="Explore as a guest"
+                  style={({ pressed }) => [styles.guestBtn, pressed && styles.pressed]}
+                >
+                  <Text style={styles.guestBtnText}>Explore as a guest</Text>
+                </Pressable>
+              </View>
+            )}
+
+            {busy && <ActivityIndicator style={{ marginTop: spacing.lg }} color={palette.grape} />}
+            {error && <Text style={styles.error}>{error}</Text>}
+          </View>
         </HeroPark>
 
         <ResponsiveColumn>
-      <View style={styles.card}>
-        <Text style={styles.cardEyebrow}>Parent sign-in</Text>
-        <Text style={styles.cardTitle}>Welcome</Text>
-        <Text style={styles.cardBody}>
-          Sign in with Google to set up your family's learning plans and keep
-          progress safe in your account.
-        </Text>
-
-        {isAuthConfigured ? (
-          <>
-            <PrimaryButton
-              disabled={busy}
-              tone="berry"
-              label={busy ? 'Opening Google…' : 'Sign in with Google'}
-              onPress={go}
-            />
-            <Pressable
-              onPress={onGuest}
-              hitSlop={12}
-              accessibilityRole="button"
-              accessibilityLabel="Continue without signing in"
-              style={styles.skip}
-            >
-              <Text style={styles.skipText}>Continue without signing in</Text>
-            </Pressable>
-          </>
-        ) : (
-          <View style={styles.notice}>
-            <Icon name="cog" tint={palette.slate} size={20} />
-            <Text style={styles.noticeText}>
-              Sign-in is being set up for this release. You can still explore the
-              app as a guest for now.
-            </Text>
-            <Pressable
-              onPress={onGuest}
-              accessibilityRole="button"
-              accessibilityLabel="Explore as a guest"
-              style={({ pressed }) => [styles.guestBtn, pressed && styles.pressed]}
-            >
-              <Text style={styles.guestBtnText}>Explore as a guest</Text>
-            </Pressable>
-          </View>
-        )}
-
-        {busy && <ActivityIndicator style={{ marginTop: spacing.lg }} color={palette.grape} />}
-        {error && <Text style={styles.error}>{error}</Text>}
-      </View>
-
       <View style={styles.features}>
         {features.map((f) => (
           <View key={f.title} style={styles.feature}>
@@ -188,7 +187,6 @@ const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: palette.cream },
   scroll: { flex: 1, backgroundColor: palette.cream },
   root: { paddingBottom: spacing.xl * 2, flexGrow: 1 },
-  heroSpacer: { flex: 1 },
   heroText: { alignItems: 'center', marginTop: spacing.sm },
   headline: {
     fontSize: type.h1 + 14,
@@ -197,7 +195,7 @@ const styles = StyleSheet.create({
     color: palette.ink,
     textAlign: 'center',
   },
-  headlineAccent: { color: palette.grape },
+  headlineAccent: { color: palette.header },
   sub: {
     color: palette.ink,
     fontSize: type.body,
@@ -205,29 +203,31 @@ const styles = StyleSheet.create({
     marginTop: spacing.md,
     textAlign: 'center',
     maxWidth: 420,
-    opacity: 0.85,
+    opacity: 1,
   },
-  card: {
-    marginHorizontal: spacing.xl,
-    marginTop: -spacing.xl,
-    backgroundColor: palette.white,
-    borderRadius: radius.lg,
-    padding: spacing.xl,
-    shadowColor: palette.ink,
-    shadowOpacity: 0.12,
-    shadowOffset: { width: 0, height: 8 },
-    shadowRadius: 18,
-    elevation: 5,
+  welcome: {
+    alignSelf: 'center',
+    width: '100%',
+    maxWidth: 480,
+    alignItems: 'stretch',
   },
-  cardEyebrow: {
+  welcomeEyebrow: {
     fontSize: type.caption,
     fontWeight: '800',
     color: palette.berry,
     textTransform: 'uppercase',
     letterSpacing: 1,
+    textAlign: 'center',
   },
-  cardTitle: { fontSize: type.h1, fontWeight: '900', color: palette.ink, marginTop: spacing.xs },
-  cardBody: { fontSize: 14, color: palette.slate, lineHeight: 22, marginTop: spacing.sm, marginBottom: spacing.lg },
+  welcomeTitle: { fontSize: type.h1, fontWeight: '900', color: palette.ink, marginTop: spacing.xs, textAlign: 'center' },
+  welcomeBody: {
+    fontSize: 14,
+    color: palette.ink,
+    lineHeight: 22,
+    marginTop: spacing.sm,
+    marginBottom: spacing.lg,
+    textAlign: 'center',
+  },
   skip: { alignItems: 'center', marginTop: spacing.lg },
   skipText: { color: palette.slate, fontSize: 14, fontWeight: '700' },
   notice: {
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: spacing.md,
-    backgroundColor: palette.white,
+    backgroundColor: palette.white + 'd9',
     borderRadius: radius.md,
     padding: spacing.md,
   },
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.xs,
     borderRadius: radius.pill,
-    backgroundColor: palette.white,
+    backgroundColor: palette.white + 'd9',
     borderWidth: 1.5,
     borderColor: palette.teal + '44',
     paddingVertical: spacing.sm,
