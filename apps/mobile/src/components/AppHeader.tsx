@@ -8,10 +8,10 @@ import { Icon, type IconName } from './illustrations/icons';
 /**
  * Sticky header (rendered OUTSIDE each screen's ScrollView).
  *
- * IXL/Khan-inspired: a quiet top bar with a clear primary nav (Home /
- * Progress) as plain labelled tabs with a subtle active underline, the active
- * child's profile as a compact chip (avatar initial + name + Year), and
- * Settings / Sign out as quiet secondary actions. No mascot clutter.
+ * IXL/Khan-inspired and sized for the 520px app column: logo on the left,
+ * Home / Progress as plain labelled tabs, a compact avatar chip for the
+ * active child (name + Year), and Settings / Sign out as quiet actions.
+ * No mascot clutter.
  */
 export function AppHeader({
   active,
@@ -37,7 +37,7 @@ export function AppHeader({
   const profileName = isGuest ? 'Guest' : child?.name;
   return (
     <View style={styles.bar}>
-      <BilbyLogo markSize={24} textSize={14} />
+      <BilbyLogo markSize={22} textSize={13} />
 
       <View style={styles.nav}>
         <Tab label="Home" active={active === 'WeekPlan'} onPress={onHome} />
@@ -112,10 +112,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: spacing.sm,
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.md,
-    paddingBottom: spacing.md,
-    backgroundColor: palette.cream,
+    paddingHorizontal: spacing.md,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.sm,
+    backgroundColor: palette.white,
     borderBottomWidth: 1,
     borderBottomColor: palette.grape + '22',
     zIndex: 20,
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xs,
     alignSelf: 'stretch',
   },
-  tabLabel: { fontSize: 14, fontWeight: '700', color: palette.slate },
+  tabLabel: { fontSize: 13, fontWeight: '700', color: palette.slate },
   tabLabelActive: { color: palette.ink, fontWeight: '800' },
   tabUnderline: {
     marginTop: spacing.xs,
@@ -151,24 +151,24 @@ const styles = StyleSheet.create({
     marginRight: spacing.xs,
   },
   childAvatar: {
-    width: 28,
-    height: 28,
+    width: 26,
+    height: 26,
     borderRadius: radius.pill,
     backgroundColor: palette.grape,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  childAvatarText: { color: palette.white, fontSize: 13, fontWeight: '900' },
-  childMeta: { maxWidth: 84 },
-  childName: { fontSize: 12, fontWeight: '800', color: palette.ink },
-  childYear: { fontSize: 10, fontWeight: '700', color: palette.slate, textTransform: 'uppercase' },
+  childAvatarText: { color: palette.white, fontSize: 12, fontWeight: '900' },
+  childMeta: { maxWidth: 76 },
+  childName: { fontSize: 11, fontWeight: '800', color: palette.ink },
+  childYear: { fontSize: 9, fontWeight: '700', color: palette.slate, textTransform: 'uppercase' },
   iconBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    gap: 3,
     paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.sm,
+    paddingHorizontal: spacing.xs,
   },
-  iconBtnLabel: { fontSize: 12, fontWeight: '700', color: palette.slate },
+  iconBtnLabel: { fontSize: 11, fontWeight: '700', color: palette.slate },
   pressed: { opacity: 0.6 },
 });

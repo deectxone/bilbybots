@@ -26,6 +26,7 @@ import { getCurrentSession, onAuthStateChange } from './src/utils/supabase';
 import { signOut } from './src/utils/auth';
 import { pullState, pushState } from './src/utils/sync';
 import { SignInScreen } from './src/screens/SignInScreen';
+import { AppFrame } from './src/components/AppFrame';
 import { LegalScreen, type LegalDoc } from './src/screens/LegalScreen';
 import { PRIVACY_DOC, TERMS_DOC, CONTACT_DOC } from './src/data/legal';
 import { palette } from './src/theme/colors';
@@ -235,37 +236,44 @@ export default function App() {
   // is available until real auth config exists, see SignInScreen).
   if (!hydrated || !authReady) {
     return (
-      <View style={{ flex: 1, backgroundColor: palette.cream, alignItems: 'center', justifyContent: 'center' }}>
-        <BilbyLogo markSize={64} textSize={32} />
-      </View>
+      <AppFrame>
+        <View style={{ flex: 1, backgroundColor: palette.cream, alignItems: 'center', justifyContent: 'center' }}>
+          <BilbyLogo markSize={64} textSize={32} />
+        </View>
+      </AppFrame>
     );
   }
 
   if (!session) {
     if (legalDoc) {
       return (
-        <View style={{ flex: 1 }}>
-          <StatusBar style="dark" />
-          <LegalScreen child={child} doc={legalDoc} onHome={() => setLegalDoc(null)} onProgress={() => setLegalDoc(null)} onSetup={() => setLegalDoc(null)} onSignOut={() => setLegalDoc(null)} />
-        </View>
+        <AppFrame>
+          <View style={{ flex: 1 }}>
+            <StatusBar style="dark" />
+            <LegalScreen child={child} doc={legalDoc} onHome={() => setLegalDoc(null)} onProgress={() => setLegalDoc(null)} onSetup={() => setLegalDoc(null)} onSignOut={() => setLegalDoc(null)} />
+          </View>
+        </AppFrame>
       );
     }
     return (
-      <View style={{ flex: 1 }}>
-        <StatusBar style="dark" />
-        <SignInScreen
-          onSignedIn={() => setScreen('Home')}
-          onGuest={enterGuestMode}
-          onOpenDoc={(doc) => setLegalDoc(doc === 'privacy' ? PRIVACY_DOC : doc === 'terms' ? TERMS_DOC : CONTACT_DOC)}
-        />
-      </View>
+      <AppFrame>
+        <View style={{ flex: 1 }}>
+          <StatusBar style="dark" />
+          <SignInScreen
+            onSignedIn={() => setScreen('Home')}
+            onGuest={enterGuestMode}
+            onOpenDoc={(doc) => setLegalDoc(doc === 'privacy' ? PRIVACY_DOC : doc === 'terms' ? TERMS_DOC : CONTACT_DOC)}
+          />
+        </View>
+      </AppFrame>
     );
   }
 
   return (
-    <View style={{ flex: 1 }}>
-      <StatusBar style="dark" />
-      {legalDoc ? (
+    <AppFrame>
+      <View style={{ flex: 1 }}>
+        <StatusBar style="dark" />
+        {legalDoc ? (
         <LegalScreen
           child={child}
           doc={legalDoc}
@@ -389,6 +397,7 @@ export default function App() {
         </>
       )}
       <BilbyMascot />
-    </View>
+      </View>
+    </AppFrame>
   );
 }
