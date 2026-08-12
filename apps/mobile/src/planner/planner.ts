@@ -38,35 +38,54 @@ export function buildPlan(input: PlanInput): PlanSnapshot {
     .filter((s) => s.topics.length > 0);
 
   // --- Placement (spec §4 Steps 2–3) ---
-  // Topic j of subject s has an ideal week `floor(j * R / K_s)`. Place each
-  // topic into the latest available week (capacity < max) at or before its
-  // ideal, never before the previous topic of the same subject, so subjects
-  // interleave across the whole remainder instead of packing into the earliest
-  // weeks, and weekly load stays <= max when feasible.
-  const weeks: Topic[][] = Array.from({ length: R }, () => []);
+  // Topic j of subject s has an ideal week `floor(j * R / K_s)`. Assigning each
+  // subject independently leaves sparse weeks (a single-topic week 29 of 40).
+  // Instead, merge every topic's ideal week into one ordered list (stable by
+  // subject order, so each subject keeps its authored order), then place each
+  // topic into the earliest available week (capacity < max) at or after its
+  // ideal. Subjects interleave within the same weeks, giving every week a
+  // balanced mix while preserving per-subject order and <= max weekly load.
+  const slots: { subject: SubjectId; topic: Topic; ideal: number }[] = [];
   for (const { subject, topics } of streams) {
     const K = topics.length;
-    let last = 0;
-    for (let j = 0; j < K; j++) {
-      const ideal = Math.min(Math.floor((j * R) / K), R - 1);
-      let w = -1;
-      for (let i = ideal; i >= last; i--) {
-        if (weeks[i].length < config.maxTopicsPerWeek) {
-          w = i;
-          break;
-        }
+    topics.forEach((topic, j) => {
+      slots.push({ subject, topic, ideal: Math.min(Math.floor((j * R) / K), R - 1) });
+    });
+  }
+  const subjectRank = new Map(config.subjectOrder.map((s, i) => [s, i]));
+  slots.sort((a, b) => a.ideal - b.ideal || (subjectRank.get(a.subject) ?? 0) - (subjectRank.get(b.subject) ?? 0));
+
+  const weeks: Topic[][] = Array.from({ length: R }, () => []);
+  for (const slot of slots) {
+    let w = -1;
+    for (let i = slot.ideal; i < R; i++) {
+      if (weeks[i].length < config.maxTopicsPerWeek) {
+        w = i;
+        break;
       }
-      if (w === -1) {
-        for (let i = last; i < R; i++) {
-          if (weeks[i].length < config.maxTopicsPerWeek) {
-            w = i;
-            break;
-          }
-        }
-        if (w === -1) w = R - 1; // workload can't fit: spill into the last week
-      }
-      weeks[w].push(topics[j]);
-      last = w;
+    }
+    if (w === -1) w = R - 1; // workload can't fit: spill into the last week
+    weeks[w].push(slot.topic);
+  }
+
+  // The ideal-pace spread can leave isolated empty weeks (topics cluster on
+  // some weeks, none on others). Backfill: for each empty week, pull the last
+  // topic of the previous non-empty week into it. Moving forward never breaks
+  // per-subject order, and it keeps every week live so the plan never shows a
+  // blank "this week".
+  for (let w = 1; w < R; w++) {
+    if (weeks[w].length > 0) continue;
+    let src = w - 1;
+    while (src >= 0 && weeks[src].length <= 1) src--;
+    if (src >= 0 && weeks[w - 1].length >= 2) {
+      const topic = weeks[src].pop()!;
+      weeks[w].push(topic);
+    } else if (src === w - 1 && weeks[src].length === 1) {
+      // single topic week with an empty week after it: move it forward so both
+      // weeks stay populated (subject order is preserved since it only moves
+      // one slot ahead of its own subject).
+      const topic = weeks[src].pop()!;
+      weeks[w].push(topic);
     }
   }
 
