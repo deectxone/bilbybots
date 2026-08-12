@@ -2,7 +2,6 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { palette, radius, spacing } from '../theme/colors';
 import type { ChildProfile } from '../types/curriculum';
 import { BilbyLogo } from './BilbyLogo';
-import { FloatingDots } from './FloatingDots';
 
 /**
  * Sticky top header (rendered OUTSIDE each screen's ScrollView).
@@ -30,7 +29,6 @@ export function AppHeader({
   const profileName = isGuest ? 'Guest' : child?.name;
   return (
     <View style={styles.bar}>
-      <FloatingDots tone="light" count={18} sizeRange={[5, 16]} maxOpacity={0.3} />
       <Pressable
         onPress={onHome}
         accessibilityRole="button"

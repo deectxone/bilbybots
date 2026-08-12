@@ -4,7 +4,6 @@ import type { ChildProfile } from '../types/curriculum';
 import type { RootScreen } from '../navigation/types';
 import { AppHeader } from './AppHeader';
 import { AppFooter } from './AppFooter';
-import { FloatingDots } from './FloatingDots';
 import { SlimBar } from './SlimBar';
 import { ResponsiveColumn } from './ResponsiveColumn';
 
@@ -45,7 +44,6 @@ export function ScreenShell({
   return (
     <View style={styles.root}>
       <AppHeader child={child} isGuest={isGuest} onHome={onHome} onProfilePress={onSetup} />
-      <FloatingDots tone="dark" count={42} sizeRange={[6, 30]} maxOpacity={0.14} />
       <ScrollView
         contentContainerStyle={[styles.content, contentContainerStyle]}
         style={[styles.scroll, style]}
