@@ -2,6 +2,9 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { palette, radius, spacing } from '../theme/colors';
 import { Icon, type IconName } from './illustrations/icons';
 
+/** Tones light enough that ink text reads better than white. */
+const LIGHT_TONES = new Set<keyof typeof palette>(['sunny', 'lime', 'cream', 'white']);
+
 export function PrimaryButton({
   label,
   tone = 'teal',
@@ -16,6 +19,8 @@ export function PrimaryButton({
   /** Optional themed pictogram shown before the label (never emoji). */
   icon?: IconName;
 }) {
+  const light = LIGHT_TONES.has(tone);
+  const fg = light ? palette.ink : palette.white;
   return (
     <Pressable
       disabled={disabled}
@@ -31,10 +36,10 @@ export function PrimaryButton({
     >
       {icon && (
         <View style={styles.iconWrap}>
-          <Icon name={icon} tint={palette.white} size={18} />
+          <Icon name={icon} tint={fg} size={18} />
         </View>
       )}
-      <Text style={styles.label}>{label}</Text>
+      <Text style={[styles.label, { color: fg }]}>{label}</Text>
     </Pressable>
   );
 }
@@ -56,5 +61,5 @@ const styles = StyleSheet.create({
   iconWrap: { marginRight: spacing.sm },
   pressed: { transform: [{ scale: 0.97 }] },
   disabled: { opacity: 0.4 },
-  label: { color: palette.white, fontSize: 17, fontWeight: '800' },
+  label: { fontSize: 17, fontWeight: '800' },
 });

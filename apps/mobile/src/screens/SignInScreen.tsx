@@ -4,17 +4,15 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { palette, radius, spacing, type, gradients } from '../theme/colors';
 import { BilbyLogo } from '../components/BilbyLogo';
 import { PrimaryButton } from '../components/PrimaryButton';
-import { Icon } from '../components/illustrations/icons';
+import { Icon, type IconName } from '../components/illustrations/icons';
+import { SignInHero } from '../components/illustrations/SignInHero';
 import { isAuthConfigured } from '../utils/supabase';
 import { signInWithGoogle } from '../utils/auth';
 
 /**
- * Google sign-in gate. Shown at launch when there's no Supabase session.
- * A parent signs in with their Google account; the family + child profiles
- * then live under that account (Supabase Auth + RLS).
- *
- * Footer links open in-app legal pages (Privacy, Terms, Contact) so the
- * sign-in screen doubles as a finished public landing for the product.
+ * Google sign-in gate — styled as the product landing page (HiBob/ELMO
+ * inspired): hero visual, headline, feature rows, trust chips, CTA and a
+ * legal footer. Footer links open in-app legal pages.
  */
 export function SignInScreen({
   onSignedIn,
@@ -39,6 +37,29 @@ export function SignInScreen({
     }
   };
 
+  const features: { icon: IconName; title: string; body: string }[] = [
+    {
+      icon: 'map',
+      title: 'A weekly plan, built for your child',
+      body: 'Lessons and practice arranged week by week, aligned to your child\u2019s school year.',
+    },
+    {
+      icon: 'book',
+      title: 'Aligned to the Australian Curriculum',
+      body: 'Every topic maps to ACARA v9.0 content descriptions — NSW first, then QLD, VIC, WA.',
+    },
+    {
+      icon: 'brain',
+      title: 'NAPLAN-style practice',
+      body: 'Original timed practice in the real NAPLAN format for Years 3, 5, 7 and 9.',
+    },
+    {
+      icon: 'lock',
+      title: 'Safe and parent-managed',
+      body: 'A parent controls each child profile and every piece of saved data.',
+    },
+  ];
+
   return (
     <ScrollView contentContainerStyle={styles.root} style={styles.scroll} bounces={false}>
       <LinearGradient
@@ -47,31 +68,28 @@ export function SignInScreen({
         end={{ x: 1, y: 1 }}
         style={styles.hero}
       >
-        <View style={styles.heroInner}>
-          <BilbyLogo markSize={80} textSize={42} tone="light" />
-          <Text style={styles.tagline}>A smarter weekly plan for your little learner</Text>
-          <View style={styles.trustRow}>
-            <View style={styles.trustChip}>
-              <Icon name="check-box" tint={palette.white} size={14} />
-              <Text style={styles.trustText}>Years 1–10</Text>
-            </View>
-            <View style={styles.trustChip}>
-              <Icon name="map" tint={palette.white} size={14} />
-              <Text style={styles.trustText}>Australian Curriculum</Text>
-            </View>
-            <View style={styles.trustChip}>
-              <Icon name="lock" tint={palette.white} size={14} />
-              <Text style={styles.trustText}>Parent-managed</Text>
-            </View>
-          </View>
+        <View style={styles.heroTop}>
+          <BilbyLogo markSize={40} textSize={22} tone="light" />
+        </View>
+        <SignInHero size={320} />
+        <View style={styles.heroText}>
+          <Text style={styles.headline}>
+            A smarter weekly plan for {'\n'}
+            <Text style={styles.headlineAccent}>every young learner</Text>
+          </Text>
+          <Text style={styles.sub}>
+            BilbyBots helps Australian kids in Years 1–10 stay on track — with
+            lessons, badges and practice that fit their school year.
+          </Text>
         </View>
       </LinearGradient>
 
       <View style={styles.card}>
-        <Text style={styles.title}>Welcome, parent</Text>
-        <Text style={styles.body}>
-          Sign in with Google to set up your family's learning plans, keep
-          progress in your account, and see how your child is tracking.
+        <Text style={styles.cardEyebrow}>Parent sign-in</Text>
+        <Text style={styles.cardTitle}>Welcome</Text>
+        <Text style={styles.cardBody}>
+          Sign in with Google to set up your family's learning plans and keep
+          progress safe in your account.
         </Text>
 
         {isAuthConfigured ? (
@@ -115,6 +133,35 @@ export function SignInScreen({
         {error && <Text style={styles.error}>{error}</Text>}
       </View>
 
+      <View style={styles.features}>
+        {features.map((f) => (
+          <View key={f.title} style={styles.feature}>
+            <View style={styles.featureIcon}>
+              <Icon name={f.icon} tint={palette.grape} size={20} />
+            </View>
+            <View style={styles.featureText}>
+              <Text style={styles.featureTitle}>{f.title}</Text>
+              <Text style={styles.featureBody}>{f.body}</Text>
+            </View>
+          </View>
+        ))}
+      </View>
+
+      <View style={styles.trustRow}>
+        <View style={styles.trustChip}>
+          <Icon name="check-box" tint={palette.teal} size={14} />
+          <Text style={styles.trustText}>Years 1–10</Text>
+        </View>
+        <View style={styles.trustChip}>
+          <Icon name="map" tint={palette.teal} size={14} />
+          <Text style={styles.trustText}>Australian Curriculum</Text>
+        </View>
+        <View style={styles.trustChip}>
+          <Icon name="lock" tint={palette.teal} size={14} />
+          <Text style={styles.trustText}>Parent-managed</Text>
+        </View>
+      </View>
+
       <View style={styles.legalRow}>
         <Pressable onPress={() => onOpenDoc('privacy')} hitSlop={8} accessibilityRole="link">
           <Text style={styles.legalLink}>Privacy</Text>
@@ -130,9 +177,8 @@ export function SignInScreen({
       </View>
 
       <Text style={styles.footnote}>
-        Built for Australian families · content aligned to the Australian
-        Curriculum (ACARA v9.0). Practice questions are original, NAPLAN-style
-        items — not official NAPLAN tests.
+        Practice questions are original, NAPLAN-style items — not official NAPLAN
+        tests, and no ACARA affiliation.
       </Text>
     </ScrollView>
   );
@@ -141,32 +187,29 @@ export function SignInScreen({
 const styles = StyleSheet.create({
   scroll: { backgroundColor: palette.cream },
   root: { paddingBottom: spacing.xl * 2, flexGrow: 1 },
-  hero: { paddingTop: spacing.xl * 3, paddingBottom: spacing.xl * 2 },
-  heroInner: { alignItems: 'center', paddingHorizontal: spacing.xl },
-  tagline: {
+  hero: { paddingTop: spacing.lg, paddingBottom: spacing.xl, alignItems: 'center' },
+  heroTop: { alignSelf: 'flex-start', paddingHorizontal: spacing.xl, paddingBottom: spacing.sm },
+  heroText: { alignItems: 'center', paddingHorizontal: spacing.xl, marginTop: spacing.sm },
+  headline: {
+    fontSize: type.h1 + 6,
+    lineHeight: 38,
+    fontWeight: '900',
+    color: palette.white,
+    textAlign: 'center',
+  },
+  headlineAccent: { color: palette.sunny },
+  sub: {
     color: palette.white,
     fontSize: type.body,
-    fontWeight: '600',
+    lineHeight: 23,
     marginTop: spacing.md,
     textAlign: 'center',
-    maxWidth: 360,
+    maxWidth: 420,
+    opacity: 0.95,
   },
-  trustRow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: spacing.sm, marginTop: spacing.xl },
-  trustChip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.xs,
-    borderRadius: radius.pill,
-    backgroundColor: palette.white + '22',
-    borderWidth: 1,
-    borderColor: palette.white + '55',
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.md,
-  },
-  trustText: { color: palette.white, fontSize: 13, fontWeight: '700' },
   card: {
     marginHorizontal: spacing.xl,
-    marginTop: -spacing.lg,
+    marginTop: -spacing.xl,
     backgroundColor: palette.white,
     borderRadius: radius.lg,
     padding: spacing.xl,
@@ -176,8 +219,15 @@ const styles = StyleSheet.create({
     shadowRadius: 18,
     elevation: 5,
   },
-  title: { fontSize: type.h1, fontWeight: '900', color: palette.ink },
-  body: { fontSize: 14, color: palette.slate, lineHeight: 22, marginTop: spacing.sm, marginBottom: spacing.lg },
+  cardEyebrow: {
+    fontSize: type.caption,
+    fontWeight: '800',
+    color: palette.berry,
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+  },
+  cardTitle: { fontSize: type.h1, fontWeight: '900', color: palette.ink, marginTop: spacing.xs },
+  cardBody: { fontSize: 14, color: palette.slate, lineHeight: 22, marginTop: spacing.sm, marginBottom: spacing.lg },
   skip: { alignItems: 'center', marginTop: spacing.lg },
   skipText: { color: palette.slate, fontSize: 14, fontWeight: '700' },
   notice: {
@@ -201,6 +251,46 @@ const styles = StyleSheet.create({
   guestBtnText: { color: palette.white, fontSize: 15, fontWeight: '800' },
   pressed: { opacity: 0.8 },
   error: { color: palette.coral, fontSize: 13, fontWeight: '700', marginTop: spacing.md, textAlign: 'center' },
+  features: { paddingHorizontal: spacing.xl, marginTop: spacing.xl, gap: spacing.md },
+  feature: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: spacing.md,
+    backgroundColor: palette.white,
+    borderRadius: radius.md,
+    padding: spacing.md,
+  },
+  featureIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: radius.sm,
+    backgroundColor: palette.grape + '1a',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  featureText: { flex: 1 },
+  featureTitle: { fontSize: 15, fontWeight: '800', color: palette.ink },
+  featureBody: { fontSize: 13, color: palette.slate, lineHeight: 19, marginTop: 2 },
+  trustRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    marginTop: spacing.xl,
+    paddingHorizontal: spacing.xl,
+  },
+  trustChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+    borderRadius: radius.pill,
+    backgroundColor: palette.white,
+    borderWidth: 1.5,
+    borderColor: palette.teal + '44',
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
+  },
+  trustText: { color: palette.ink, fontSize: 13, fontWeight: '700' },
   legalRow: {
     flexDirection: 'row',
     justifyContent: 'center',
