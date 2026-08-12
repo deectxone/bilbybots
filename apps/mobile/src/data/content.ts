@@ -139,6 +139,11 @@ export function hasYearContent(year: string): boolean {
   return isYearBank(year) && Object.values(bankByYear[year]!).some((b) => b.length > 0);
 }
 
+/** Every authored topic across all years/subjects (curriculum ingestion source). */
+export function allYearTopics(): Topic[] {
+  return Object.values(bankByYear).flatMap((subjects) => Object.values(subjects).flat());
+}
+
 /** Legacy alias used by callers keyed to Year 6 only. */
 export function fullYear6Bank(subject: SubjectId): Topic[] {
   return fullYearBank('6', subject);

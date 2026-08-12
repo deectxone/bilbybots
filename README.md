@@ -28,6 +28,9 @@ year's syllabus into the remaining weeks** so 100% of topics are still covered
 - **Weekly plan** track: plan → lesson → topic completion
 - **Adaptive-pacing planner** — deterministic weekly plans with a 100%-coverage
   validator and depth compaction for late joiners (`src/planner/`, unit-tested)
+- **Curriculum ingestion** — authored TS topic banks seeded into Supabase
+  (`curriculum`/`topic`/`lesson`/`question`) via `npm run seed:generate`,
+  with coverage tests
 - **NAPLAN-style practice** (Years 3/5/7/9): reading, writing, language
   conventions and numeracy runners with original items
 - **Contact form** backed by a Supabase table

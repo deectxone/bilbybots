@@ -11,7 +11,7 @@
 - [x] **NAPLAN practice facade**: original Y3/5/7/9 items across reading, writing, conventions, numeracy
 - [x] **Public repo**: README, GitHub description, licensing note
 
-**Current focus (Phase 1):** curriculum ingestion pipeline, content review/expansion, then soft-launch. Adaptive-pacing planner core + expo-router navigation are now implemented.
+**Current focus (Phase 1):** content review/expansion, then soft-launch. Adaptive-pacing planner, expo-router navigation and the curriculum ingestion pipeline are now implemented.
 
 ## Phase 0 — Foundations (research & spec) — complete
 - [x] Curriculum feasibility research (ACARA v9.0, NESA & states, licensing)
@@ -36,7 +36,9 @@
    - [x] Planner wire-up (facade `buildWeekPlan`) + AsyncStorage persistence + Setup screen
    - [x] Real navigation (expo-router — file-based routes, auth gate, OAuth callback route, deep links)
    - [ ] SQLite offline cache (`expo-sqlite` — not started)
-1. **Curriculum ingestion pipeline** (MRAC JSON + Excel → Postgres) with coverage tests (seed from the Year‑6 topic indexes). Content tables exist in the schema but are empty; lessons still ship as TS data.
+1. **Curriculum ingestion pipeline** (MRAC JSON + Excel → Postgres) with coverage tests (seed from the Year‑6 topic indexes).
+   - [x] TS topic banks → Postgres seed (`npm run seed:generate` → `supabase/seed/curriculum-seed.sql`, gitignored): 714 CDs, 708 topics, 708 lessons, 4248 questions + assignments, with ingestion coverage tests (`src/data/ingest.test.ts`)
+   - [ ] Seed CD text/elaborations from the official MRAC JSON/Excel source once licensed content is structured
 2. **Backend** on Supabase (Postgres + RLS + storage):
    - [x] Auth, full schema + RLS, children + progress sync (live)
    - [ ] plans (`plan_snapshot`/`plan_week`), badges (`child_badge`), subscriptions wired into the app (tables exist, unused)

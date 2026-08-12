@@ -42,3 +42,6 @@ yarn-error.*
 
 # Source hero image (9MB) — only the processed park-hero-light.jpg is used
 assets/hero/park-hero.png
+
+# Generated curriculum seed (recreate with npm run seed:generate)
+supabase/seed/
