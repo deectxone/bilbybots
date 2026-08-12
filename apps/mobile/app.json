@@ -22,7 +22,7 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png",
+      "favicon": "./assets/favicon-64.png",
       "name": "BilbyBots",
       "lang": "en-AU",
       "shortName": "BilbyBots",

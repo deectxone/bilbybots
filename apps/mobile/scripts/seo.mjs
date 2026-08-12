@@ -23,6 +23,8 @@ const SITE = 'https://bilbybots.com';
 const meta = `
   <meta name="description" content="BilbyBots gives Australian students in Years 1–10 a smarter weekly learning plan aligned to the Australian Curriculum, with NAPLAN-style practice. Sign in with Google to get started." />
   <link rel="canonical" href="${SITE}/" />
+  <link rel="icon" type="image/png" sizes="64x64" href="${SITE}/favicon-64.png" />
+  <link rel="apple-touch-icon" href="${SITE}/favicon-64.png" />
   <meta name="theme-color" content="#5B21B6" />
   <meta name="robots" content="index, follow" />
 
@@ -80,7 +82,7 @@ if (!existsSync(indexHtml)) {
 }
 
 // Verify public/ assets landed in dist/.
-for (const asset of ['robots.txt', 'sitemap.xml', 'og-image.jpg']) {
+for (const asset of ['robots.txt', 'sitemap.xml', 'og-image.jpg', 'favicon-64.png']) {
   const p = join(dist, asset);
   console.log(`[seo] ${existsSync(p) ? 'OK  ' : 'MISS'} ${asset}`);
   if (!existsSync(p)) fail(`${asset} missing from dist/ — did Expo copy the public/ folder?`);
