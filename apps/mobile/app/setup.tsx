@@ -24,7 +24,6 @@ export default function SetupRoute() {
         await signOutUser();
         router.replace('/sign-in');
       }}
-      onOpenDoc={(doc) => router.push(`/legal/${doc}`)}
     />
   );
 }

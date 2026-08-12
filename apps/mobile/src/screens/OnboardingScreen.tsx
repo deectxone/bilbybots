@@ -37,14 +37,12 @@ export function OnboardingScreen({
   onCancel,
   onReset,
   onSignOut,
-  onOpenDoc,
 }: {
   initial?: ChildProfile;
   onDone: (child: ChildProfile) => void;
   onCancel?: () => void;
   onReset?: () => void;
   onSignOut?: () => void;
-  onOpenDoc?: (doc: 'privacy' | 'terms' | 'contact') => void;
 }) {
   const editing = Boolean(initial);
   const [name, setName] = useState(initial?.name ?? '');
@@ -232,19 +230,6 @@ export function OnboardingScreen({
         <Pressable onPress={onCancel} hitSlop={12} style={styles.backRow}>
           <Text style={styles.backText}>← Back, keep current plan</Text>
         </Pressable>
-      )}
-
-      {editing && onOpenDoc && (
-        <View style={styles.legalLinks}>
-          <Text style={styles.legalLinksLabel}>Legal</Text>
-          <View style={styles.legalLinksRow}>
-            {(['privacy', 'terms', 'contact'] as const).map((doc) => (
-              <Pressable key={doc} onPress={() => onOpenDoc(doc)} hitSlop={8} accessibilityRole="link">
-                <Text style={styles.legalLink}>{doc === 'privacy' ? 'Privacy' : doc === 'terms' ? 'Terms' : 'Contact'}</Text>
-              </Pressable>
-            ))}
-          </View>
-        </View>
       )}
 
       {editing && onSignOut && (
@@ -462,14 +447,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   signOutBtnText: { fontSize: 15, fontWeight: '900', color: palette.slate },
-  legalLinks: {
-    marginTop: spacing.xl,
-    borderTopWidth: 2,
-    borderTopColor: chrome.primary + '33',
-    paddingTop: spacing.lg,
-  },
-  legalLinksLabel: { fontSize: 13, fontWeight: '800', color: palette.ink, textTransform: 'uppercase', marginBottom: spacing.sm },
-  legalLinksRow: { flexDirection: 'row', gap: spacing.md },
-  legalLink: { fontSize: 14, fontWeight: '700', color: chrome.primary },
   pressed: { opacity: 0.7 },
 });
