@@ -1,0 +1,24 @@
+# Node
+node_modules/
+*.log
+.DS_Store
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Native
+ios/
+android/
+
+# Supabase generated types
+supabase/.temp/
+
+# Misc
+*.tsbuildinfo

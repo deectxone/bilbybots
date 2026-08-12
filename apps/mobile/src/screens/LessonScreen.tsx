@@ -1,0 +1,329 @@
+import { useState } from 'react';
+import { ScrollView, StyleSheet, Text, View, Pressable, TextInput } from 'react-native';
+import type { ChildProfile, Topic } from '../types/curriculum';
+import { IllustrationFrame } from '../components/IllustrationFrame';
+import { BadgeChip } from '../components/BadgeChip';
+import { PrimaryButton } from '../components/PrimaryButton';
+import { AppHeader } from '../components/AppHeader';
+import { palette, radius, spacing, subjectColor } from '../theme/colors';
+import { subjectById } from '../data/subjects';
+
+const NUMERIC_ANSWER = /^-?\d+(\.\d+)?$/;
+
+/**
+ * Kids type numbers with or without thousands separators (spaces or commas,
+ * e.g. "600405" / "600 405" / "600,405") — all should count as correct.
+ * Non-numeric answers keep exact (trimmed, case-insensitive) matching so
+ * spacing stays meaningful for word answers.
+ */
+function isAnswerCorrect(given: string, expected: string): boolean {
+  const norm = (s: string) => s.trim().toLowerCase();
+  const stripSeparators = (s: string) => s.replace(/[\s,]/g, '');
+
+  const givenDigits = stripSeparators(given);
+  const expectedDigits = stripSeparators(expected);
+  if (NUMERIC_ANSWER.test(givenDigits) && NUMERIC_ANSWER.test(expectedDigits)) {
+    return givenDigits === expectedDigits;
+  }
+  return norm(given) === norm(expected);
+}
+
+/**
+ * Learn-first lesson facade: explain → illustrate → practise → reward.
+ * Phase 1 is text + illustration slots; Phase 2 adds the AI-video player
+ * fed from `docs/content/year-6/video-prompts`.
+ */
+export function LessonScreen({
+  child,
+  topic,
+  onBack,
+  onHome,
+  onProgress,
+  onSetup,
+  onTopicCompleted,
+  onSignOut,
+}: {
+  child: ChildProfile;
+  topic: Topic;
+  onBack: () => void;
+  onHome: () => void;
+  onProgress: () => void;
+  onSetup: () => void;
+  onTopicCompleted: (topic: Topic) => void;
+  onSignOut?: () => void;
+}) {
+  const subject = subjectById(topic.subject);
+  const [phase, setPhase] = useState<'learn' | 'practise' | 'reward'>('learn');
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [checked, setChecked] = useState(false);
+  const [earned, setEarned] = useState(false);
+
+  const score = topic.assignment.questions.filter((q) => isAnswerCorrect(answers[q.id] ?? '', q.answer)).length;
+  const allCorrect = checked && topic.assignment.questions.length > 0 && score === topic.assignment.questions.length;
+
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <AppHeader active="Lesson" onHome={onHome} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
+      <View style={styles.content}>
+      <Pressable onPress={onBack} hitSlop={12} style={styles.backWrap}>
+        <Text style={styles.back}>‹ Back to my week</Text>
+      </Pressable>
+
+      <Text style={[styles.subject, { color: palette[subjectColor[topic.subject] ?? 'sky'] }]}>
+        {subject.emoji} {subject.label} · Year {child.year}
+      </Text>
+      <Text style={styles.title}>{topic.title}</Text>
+      <Text style={styles.meta}>{topic.cd.map((c) => c.ac).join(' · ')}</Text>
+
+      {phase === 'learn' && (
+        <View style={styles.section}>
+          {topic.learn.body.map((p, i) => (
+            <Text key={i} style={styles.para}>
+              {p}
+            </Text>
+          ))}
+          {topic.learn.illustrations.map((slot, i) => (
+            <IllustrationFrame key={i} slot={slot} index={i} />
+          ))}
+          <View style={styles.reviewNote}>
+            <Text style={styles.reviewNoteText}>
+              Focus 👍 {topic.learn.learnTimeMin} min lesson · built for {child.name}
+            </Text>
+          </View>
+          <PrimaryButton
+            tone="teal"
+            label="Ready! Let's practise 🚀"
+            onPress={() => setPhase('practise')}
+          />
+        </View>
+      )}
+
+      {phase === 'practise' && (
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Your quick check</Text>
+          {topic.assignment.questions.map((q, qi) => {
+            const questionCorrect = checked && isAnswerCorrect(answers[q.id] ?? '', q.answer);
+            return (
+              <View key={q.id} style={styles.question}>
+                <View style={styles.qPromptRow}>
+                  <Text style={styles.qPrompt}>
+                    {qi + 1}. {q.prompt}
+                  </Text>
+                  {checked && (
+                    <Text style={[styles.qMark, questionCorrect ? styles.qMarkGood : styles.qMarkBad]}>
+                      {questionCorrect ? '✓' : '✗'}
+                    </Text>
+                  )}
+                </View>
+                {q.type === 'mcq' && q.options ? (
+                  <View style={styles.optionList}>
+                    {q.options.map((o) => {
+                      const selected = answers[q.id] === o;
+                      const isCorrectOption = isAnswerCorrect(o, q.answer);
+                      const showFeedback = checked && (selected || isCorrectOption);
+                      return (
+                        <Pressable
+                          key={o}
+                          onPress={() => {
+                            setChecked(false);
+                            setAnswers((a) => ({ ...a, [q.id]: o }));
+                          }}
+                          style={[
+                            styles.option,
+                            selected && styles.optionSelected,
+                            showFeedback && (isCorrectOption ? styles.optionGood : styles.optionBad),
+                          ]}
+                        >
+                          <Text
+                            style={[
+                              styles.optionText,
+                              selected && styles.optionTextSelected,
+                              showFeedback && styles.optionTextFeedback,
+                            ]}
+                          >
+                            {o}
+                          </Text>
+                          {showFeedback && (
+                            <Text style={styles.optionMark}>{isCorrectOption ? '✓' : '✗'}</Text>
+                          )}
+                        </Pressable>
+                      );
+                    })}
+                  </View>
+                ) : (
+                  <View>
+                    <TextInput
+                      style={[
+                        styles.answerInput,
+                        checked && (questionCorrect ? styles.answerInputGood : styles.answerInputBad),
+                      ]}
+                      value={answers[q.id] ?? ''}
+                      onChangeText={(t) => {
+                        setChecked(false);
+                        setAnswers((a) => ({ ...a, [q.id]: t }));
+                      }}
+                      placeholder="Type your answer"
+                      placeholderTextColor={palette.slate}
+                    />
+                    {checked && !questionCorrect && (
+                      <Text style={styles.correctAnswerHint}>Correct answer: {q.answer}</Text>
+                    )}
+                  </View>
+                )}
+              </View>
+            );
+          })}
+
+          <PrimaryButton
+            tone="berry"
+            label={checked ? 'Check again' : 'Check my answers'}
+            disabled={topic.assignment.questions.some((q) => !answers[q.id])}
+            onPress={() => setChecked(true)}
+          />
+
+          {checked && (
+            <View style={[styles.result, allCorrect ? styles.resultGood : styles.resultBad]}>
+              <Text style={styles.resultTitle}>
+                {allCorrect ? 'Nailed it! 🎉' : 'Almost — have another go 🐾'}
+              </Text>
+              <Text style={styles.resultScore}>
+                {score}/{topic.assignment.questions.length} correct
+              </Text>
+              <View style={styles.badgeRow}>
+                {allCorrect && <BadgeChip label="Perfect score!" earned />}
+              </View>
+              {allCorrect && (
+                <PrimaryButton
+                  tone="sunny"
+                  label="Claim my badge! ⭐"
+                  onPress={() => {
+                    setEarned(true);
+                    setPhase('reward');
+                    onTopicCompleted(topic);
+                  }}
+                />
+              )}
+            </View>
+          )}
+        </View>
+      )}
+
+      {phase === 'reward' && (
+        <View style={styles.section}>
+          <View style={styles.rewardCard}>
+            <Text style={styles.rewardEmoji}>🏅</Text>
+            <Text style={styles.rewardTitle}>Badge earned!</Text>
+            <BadgeChip label={`${subject.label} star of the week`} earned />
+
+            <View style={styles.advanceBox}>
+              <Text style={styles.advanceTitle}>🔓 Advance level unlocked!</Text>
+              <Text style={styles.advanceText}>
+                You finished early! Try the bonus challenge for extra rewards.
+              </Text>
+            </View>
+
+            <PrimaryButton
+              tone="grape"
+              label="Start bonus challenge ✨"
+              onPress={() => {
+                /* Phase-2: advance-level assignment flow */
+              }}
+            />
+            <PrimaryButton
+              tone="teal"
+              label="Back to my week"
+              onPress={onBack}
+            />
+          </View>
+        </View>
+      )}
+      </View>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { backgroundColor: palette.cream, flexGrow: 1, paddingBottom: spacing.xl },
+  content: { paddingHorizontal: spacing.xl },
+  backWrap: { marginTop: spacing.xs },
+  back: { fontSize: 14, fontWeight: '700', color: palette.slate, marginBottom: spacing.md },
+  subject: { fontSize: 13, fontWeight: '800', textTransform: 'uppercase' },
+  title: { fontSize: 26, fontWeight: '900', color: palette.ink, marginTop: spacing.xs },
+  meta: { fontSize: 11, color: palette.slate, marginTop: spacing.xs },
+  section: { marginTop: spacing.lg },
+  sectionTitle: { fontSize: 18, fontWeight: '800', color: palette.ink, marginBottom: spacing.md },
+  para: { fontSize: 17, lineHeight: 26, color: palette.ink, marginBottom: spacing.md },
+  reviewNote: {
+    backgroundColor: palette.sky + '22',
+    borderRadius: radius.md,
+    padding: spacing.md,
+    marginBottom: spacing.lg,
+  },
+  reviewNoteText: { fontSize: 13, color: palette.ink, fontWeight: '600' },
+  question: { marginBottom: spacing.lg },
+  qPromptRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: spacing.sm, marginBottom: spacing.sm },
+  qPrompt: { flex: 1, fontSize: 16, fontWeight: '700', color: palette.ink },
+  qMark: { fontSize: 18, fontWeight: '900' },
+  qMarkGood: { color: palette.teal },
+  qMarkBad: { color: palette.coral },
+  optionList: { gap: spacing.sm },
+  option: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderWidth: 2,
+    borderColor: palette.sky,
+    backgroundColor: palette.white,
+    borderRadius: radius.md,
+    padding: spacing.md,
+  },
+  optionSelected: { backgroundColor: palette.teal, borderColor: palette.teal },
+  optionGood: { backgroundColor: palette.lime + '33', borderColor: palette.teal },
+  optionBad: { backgroundColor: palette.coral + '22', borderColor: palette.coral },
+  optionText: { fontSize: 15, color: palette.ink, fontWeight: '600', flexShrink: 1 },
+  optionTextSelected: { color: palette.white },
+  optionTextFeedback: { color: palette.ink },
+  optionMark: { fontSize: 18, fontWeight: '900' },
+  answerInput: {
+    backgroundColor: palette.white,
+    borderWidth: 2,
+    borderColor: palette.sky,
+    borderRadius: radius.md,
+    padding: spacing.md,
+    fontSize: 16,
+    color: palette.ink,
+  },
+  answerInputGood: { borderColor: palette.teal, backgroundColor: palette.lime + '22' },
+  answerInputBad: { borderColor: palette.coral, backgroundColor: palette.coral + '15' },
+  correctAnswerHint: { fontSize: 13, fontWeight: '700', color: palette.coral, marginTop: spacing.xs },
+  result: {
+    borderRadius: radius.lg,
+    padding: spacing.lg,
+    marginTop: spacing.lg,
+    gap: spacing.md,
+  },
+  resultGood: { backgroundColor: palette.lime + '44' },
+  resultBad: { backgroundColor: palette.coral + '22' },
+  resultTitle: { fontSize: 18, fontWeight: '900', color: palette.ink },
+  resultScore: { fontSize: 15, fontWeight: '800', color: palette.ink },
+  badgeRow: { flexDirection: 'row', gap: spacing.sm, flexWrap: 'wrap' },
+  rewardCard: {
+    backgroundColor: palette.white,
+    borderRadius: radius.lg,
+    padding: spacing.xl,
+    alignItems: 'center',
+    gap: spacing.md,
+    borderWidth: 3,
+    borderColor: palette.sunny,
+  },
+  rewardEmoji: { fontSize: 48 },
+  rewardTitle: { fontSize: 24, fontWeight: '900', color: palette.ink },
+  advanceBox: {
+    backgroundColor: palette.grape + '22',
+    borderRadius: radius.md,
+    padding: spacing.md,
+    width: '100%',
+  },
+  advanceTitle: { fontSize: 16, fontWeight: '800', color: palette.ink },
+  advanceText: { fontSize: 14, color: palette.ink, marginTop: spacing.xs },
+});

@@ -1,0 +1,247 @@
+import { useEffect, useRef, useState } from 'react';
+import { View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import type { ChildProfile, Topic } from './src/types/curriculum';
+import type { NaplanDomain, NaplanResult, NaplanTest, NaplanYear } from './src/types/naplan';
+import type { RootScreen } from './src/navigation/types';
+import { OnboardingScreen } from './src/screens/OnboardingScreen';
+import { HomeScreen } from './src/screens/HomeScreen';
+import { WeekPlanScreen } from './src/screens/WeekPlanScreen';
+import { LessonScreen } from './src/screens/LessonScreen';
+import { ProgressScreen } from './src/screens/ProgressScreen';
+import { NaplanHubScreen } from './src/screens/NaplanHubScreen';
+import { NaplanTestScreen } from './src/screens/NaplanTestScreen';
+import { BilbyMascot } from './src/components/BilbyMascot';
+import { BilbyLogo } from './src/components/BilbyLogo';
+import { buildNaplanTest } from './src/data/naplan/tests';
+import {
+  clearPersistedState,
+  emptyPersistedState,
+  loadPersistedState,
+  savePersistedState,
+  type PersistedAppState,
+} from './src/utils/persistence';
+import { getCurrentSession, onAuthStateChange } from './src/utils/supabase';
+import { signOut } from './src/utils/auth';
+import { SignInScreen } from './src/screens/SignInScreen';
+import { palette } from './src/theme/colors';
+
+/**
+ * BilbyBots mobile app (Expo/React Native + web via react-native-web).
+ *
+ * Facade root: a typed mini-navigator until a router is pulled in.
+ * The real flow (docs/specs/product-spec.md):
+ *   Google OAuth → family → child profile → planner snapshot → home.
+ *
+ * Home hosts the two learning tracks: the weekly plan and NAPLAN practice.
+ * Progress (completed topics, badges, NAPLAN results) lives here, not
+ * per-screen state, so "Home" and "Progress" are reachable from anywhere
+ * without losing it.
+ *
+ * Persistence: the profile, completed topics, badges and NAPLAN results are
+ * hydrated from AsyncStorage on launch (a small splash while that resolves)
+ * and auto-saved on every change. "Setup" (gear in the header) edits the
+ * profile or resets all saved data.
+ */
+export default function App() {
+  const [screen, setScreen] = useState<RootScreen>('Home');
+  const [child, setChild] = useState<ChildProfile | null>(null);
+  const [activeTopic, setActiveTopic] = useState<Topic | null>(null);
+  const [activeNaplan, setActiveNaplan] = useState<{ year: NaplanYear; domain: NaplanDomain; test: NaplanTest } | null>(null);
+  const [completedTopicIds, setCompletedTopicIds] = useState<string[]>([]);
+  const [earnedBadges, setEarnedBadges] = useState<string[]>([]);
+  const [naplanResults, setNaplanResults] = useState<NaplanResult[]>([]);
+  const [session, setSession] = useState<{ email?: string } | null>(null);
+  const [authReady, setAuthReady] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
+
+  const hydratedRef = useRef(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadPersistedState().then((state) => {
+      if (cancelled) return;
+      setChild(state.child);
+      setCompletedTopicIds(state.completedTopicIds);
+      setEarnedBadges(state.earnedBadges);
+      setNaplanResults(state.naplanResults);
+      hydratedRef.current = true;
+      setHydrated(true);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Google auth session: hydrate once, then track sign-in/out.
+  useEffect(() => {
+    let unsub: (() => void) | undefined;
+    getCurrentSession().then((s) => {
+      setSession(s ? { email: s.user.email } : null);
+      setAuthReady(true);
+    });
+    unsub = onAuthStateChange((s) => setSession(s ? { email: s.user.email } : null));
+    return () => unsub?.();
+  }, []);
+
+  useEffect(() => {
+    if (!hydratedRef.current) return;
+    const state: PersistedAppState = {
+      version: 1,
+      child,
+      completedTopicIds,
+      earnedBadges,
+      naplanResults,
+    };
+    savePersistedState(state);
+  }, [child, completedTopicIds, earnedBadges, naplanResults, hydrated]);
+
+  const goHome = () => setScreen('Home');
+  const goProgress = () => setScreen(child ? 'Progress' : 'Onboarding');
+  const goNaplanHub = () => setScreen('NaplanHub');
+  const goSetup = () => setScreen('Setup');
+
+  const resetAll = async () => {
+    await clearPersistedState();
+    setChild(null);
+    setActiveTopic(null);
+    setActiveNaplan(null);
+    setCompletedTopicIds([]);
+    setEarnedBadges([]);
+    setNaplanResults([]);
+    setScreen('Home');
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    setSession(null);
+    setScreen('Home');
+  };
+
+  // Google OAuth gate: wait for both local persistence and the auth session
+  // to resolve before showing anything, then require a sign-in (guest "skip"
+  // is available until real auth config exists — see SignInScreen).
+  if (!hydrated || !authReady) {
+    return (
+      <View style={{ flex: 1, backgroundColor: palette.cream, alignItems: 'center', justifyContent: 'center' }}>
+        <BilbyLogo markSize={64} textSize={32} />
+      </View>
+    );
+  }
+
+  if (!session) {
+    return (
+      <View style={{ flex: 1 }}>
+        <StatusBar style="dark" />
+        <SignInScreen onSignedIn={() => setScreen('Home')} />
+      </View>
+    );
+  }
+
+  return (
+    <View style={{ flex: 1 }}>
+      <StatusBar style="dark" />
+      {screen === 'Onboarding' && (
+        <OnboardingScreen
+          onDone={(c) => {
+            setChild(c);
+            setScreen('WeekPlan');
+          }}
+        />
+      )}
+      {screen === 'Setup' && (
+        <OnboardingScreen
+          initial={child ?? undefined}
+          onDone={(c) => {
+            setChild(c);
+            setScreen('Home');
+          }}
+          onCancel={goHome}
+          onReset={resetAll}
+          onSignOut={handleSignOut}
+        />
+      )}
+      {screen === 'Home' && (
+        <HomeScreen
+          child={child}
+          onOpenWeekPlan={() => setScreen(child ? 'WeekPlan' : 'Onboarding')}
+          onOpenNaplan={goNaplanHub}
+          onProgress={goProgress}
+          onSetup={goSetup}
+          onSignOut={handleSignOut}
+        />
+      )}
+      {screen === 'WeekPlan' && child && (
+        <WeekPlanScreen
+          child={child}
+          completedTopicIds={completedTopicIds}
+          onOpenTopic={(t) => {
+            setActiveTopic(t);
+            setScreen('Lesson');
+          }}
+          onHome={goHome}
+          onProgress={goProgress}
+          onSetup={goSetup}
+          onSignOut={handleSignOut}
+        />
+      )}
+      {screen === 'Lesson' && child && activeTopic && (
+        <LessonScreen
+          child={child}
+          topic={activeTopic}
+          onBack={() => setScreen('WeekPlan')}
+          onHome={goHome}
+          onProgress={goProgress}
+          onSetup={goSetup}
+          onSignOut={handleSignOut}
+          onTopicCompleted={(topic) => {
+            setCompletedTopicIds((ids) => (ids.includes(topic.id) ? ids : [...ids, topic.id]));
+            const badge = `${topic.title} star`;
+            setEarnedBadges((badges) => (badges.includes(badge) ? badges : [...badges, badge]));
+          }}
+        />
+      )}
+      {screen === 'Progress' && child && (
+        <ProgressScreen
+          child={child}
+          completedTopicIds={completedTopicIds}
+          earnedBadges={earnedBadges}
+          onHome={goHome}
+          onSetup={goSetup}
+          onSignOut={handleSignOut}
+        />
+      )}
+      {screen === 'NaplanHub' && (
+        <NaplanHubScreen
+          child={child}
+          results={naplanResults}
+          onOpenTest={(year, domain) => {
+            const test = buildNaplanTest(year, domain);
+            setActiveNaplan({ year, domain, test });
+            setScreen('NaplanTest');
+          }}
+          onHome={goHome}
+          onProgress={goProgress}
+          onSetup={goSetup}
+          onSignOut={handleSignOut}
+        />
+      )}
+      {screen === 'NaplanTest' && activeNaplan && (
+        <NaplanTestScreen
+          test={activeNaplan.test}
+          onFinish={(result) => {
+            setNaplanResults((results) => [result, ...results]);
+            const badge = `${result.domain} practice star`;
+            setEarnedBadges((badges) => (badges.includes(badge) ? badges : [...badges, badge]));
+          }}
+          onExit={goNaplanHub}
+          onHome={goHome}
+          onProgress={goProgress}
+          onSetup={goSetup}
+          onSignOut={handleSignOut}
+        />
+      )}
+      <BilbyMascot />
+    </View>
+  );
+}

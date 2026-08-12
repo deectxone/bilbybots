@@ -1,0 +1,187 @@
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import type { ChildProfile } from '../types/curriculum';
+import { AppHeader } from '../components/AppHeader';
+import { BadgeChip } from '../components/BadgeChip';
+import { Icon } from '../components/illustrations/icons';
+import { palette, radius, spacing } from '../theme/colors';
+import { nextNaplanYear, NAPLAN_YEARS } from '../data/naplan/tests';
+import { subjectById } from '../data/subjects';
+
+/**
+ * The landing/home screen — the app opens here, before any profile is built.
+ * It hosts the two learning tracks side by side:
+ *   1. The weekly plan (learn-first lessons, badges, 100% coverage). Needs a
+ *      child profile, so without one it steps into onboarding first.
+ *   2. NAPLAN practice (original NAPLAN-style tests for Years 3/5/7/9) —
+ *      usable immediately via the hub's year picker.
+ */
+export function HomeScreen({
+  child,
+  onOpenWeekPlan,
+  onOpenNaplan,
+  onProgress,
+  onSetup,
+  onSignOut,
+}: {
+  child: ChildProfile | null;
+  onOpenWeekPlan: () => void;
+  onOpenNaplan: () => void;
+  onProgress: () => void;
+  onSetup: () => void;
+  onSignOut?: () => void;
+}) {
+  const naplanNext = child ? nextNaplanYear(child.year) : null;
+  const planSubjects = child ? child.subjects.map((s) => subjectById(s).label).join(' + ') : '';
+
+  return (
+    <ScrollView contentContainerStyle={styles.container} style={styles.scroll}>
+      <AppHeader active="Home" onHome={() => {}} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
+
+      <LinearGradient
+        colors={[palette.grape, palette.berry]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.hero}
+      >
+        <View style={styles.heroRow}>
+          <View style={styles.heroBadge}>
+            <Icon name="paw" tint={palette.white} size={30} />
+          </View>
+          <View style={styles.heroText}>
+            <Text style={styles.greeting}>{child ? `G'day, ${child.name}!` : "G'day!"}</Text>
+            <Text style={styles.sub}>
+              {child
+                ? `Year ${child.year} · ${planSubjects}`
+                : 'Your little learner gets a plan + NAPLAN practice in one place'}
+            </Text>
+          </View>
+        </View>
+        {child ? (
+          <View style={styles.coverageRow}>
+            <BadgeChip label="100% coverage tracked" />
+          </View>
+        ) : null}
+      </LinearGradient>
+
+      <Text style={styles.section}>Choose a track</Text>
+
+      <Pressable
+        onPress={onOpenWeekPlan}
+        style={({ pressed }) => [styles.track, pressed && styles.pressed]}
+      >
+        <View style={[styles.trackAccent, { backgroundColor: palette.teal }]} />
+        <View style={styles.trackBody}>
+          <View style={[styles.iconChip, { borderColor: palette.teal }]}>
+            <Icon name="map" tint={palette.teal} />
+          </View>
+          <View style={styles.trackText}>
+            <Text style={styles.trackTitle}>My weekly plan</Text>
+            <Text style={styles.trackSub}>
+              {child
+                ? `Learn-first lessons, badges and your coverage % for Year ${child.year}`
+                : 'Set up a child profile, then get a weekly plan, badges and 100% coverage'}
+            </Text>
+          </View>
+          <Text style={styles.chevron}>›</Text>
+        </View>
+      </Pressable>
+
+      <Pressable
+        onPress={onOpenNaplan}
+        style={({ pressed }) => [styles.track, pressed && styles.pressed]}
+      >
+        <View style={[styles.trackAccent, { backgroundColor: palette.coral }]} />
+        <View style={styles.trackBody}>
+          <View style={[styles.iconChip, { borderColor: palette.coral }]}>
+            <Icon name="brain" tint={palette.coral} />
+          </View>
+          <View style={styles.trackText}>
+            <Text style={styles.trackTitle}>NAPLAN practice</Text>
+            <Text style={styles.trackSub}>
+              {naplanNext
+                ? child && naplanNext === child.year
+                  ? `Timed practice tests for Year ${naplanNext} · Reading, Writing, Conventions, Numeracy`
+                  : `Timed practice tests for Year ${naplanNext} — the next NAPLAN for ${child!.name}`
+                : `Practice tests for Years ${NAPLAN_YEARS.join(', ')} — pick a year to start`}
+            </Text>
+          </View>
+          <Text style={styles.chevron}>›</Text>
+        </View>
+      </Pressable>
+
+      <Text style={styles.footnote}>
+        All questions are original, NAPLAN-style items — not official NAPLAN
+        questions, and no ACARA affiliation.
+      </Text>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  scroll: { backgroundColor: palette.cream },
+  container: { paddingBottom: spacing.xl * 2, flexGrow: 1 },
+  hero: {
+    marginHorizontal: spacing.xl,
+    borderRadius: radius.lg,
+    padding: spacing.xl,
+  },
+  heroRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
+  heroBadge: {
+    width: 54,
+    height: 54,
+    borderRadius: radius.pill,
+    backgroundColor: palette.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+    opacity: 0.95,
+  },
+  heroText: { flex: 1 },
+  greeting: { fontSize: 26, fontWeight: '900', color: palette.white },
+  sub: { fontSize: 14, color: palette.white, opacity: 0.9, marginTop: spacing.xs },
+  coverageRow: { flexDirection: 'row', marginTop: spacing.lg },
+  section: {
+    fontSize: 20,
+    fontWeight: '800',
+    color: palette.ink,
+    marginTop: spacing.xl,
+    marginBottom: spacing.md,
+    paddingHorizontal: spacing.xl,
+  },
+  track: {
+    flexDirection: 'row',
+    backgroundColor: palette.white,
+    borderRadius: radius.lg,
+    overflow: 'hidden',
+    marginHorizontal: spacing.xl,
+    marginBottom: spacing.md,
+    shadowColor: palette.ink,
+    shadowOpacity: 0.08,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 10,
+    elevation: 3,
+  },
+  trackAccent: { width: 10 },
+  trackBody: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: spacing.md, padding: spacing.lg },
+  iconChip: {
+    width: 52,
+    height: 52,
+    borderRadius: radius.md,
+    borderWidth: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: palette.white,
+  },
+  trackText: { flex: 1 },
+  trackTitle: { fontSize: 18, fontWeight: '900', color: palette.ink },
+  trackSub: { fontSize: 13, color: palette.slate, marginTop: spacing.xs, lineHeight: 18 },
+  chevron: { fontSize: 28, color: palette.slate },
+  pressed: { transform: [{ scale: 0.99 }], opacity: 0.9 },
+  footnote: {
+    fontSize: 11,
+    color: palette.slate,
+    textAlign: 'center',
+    marginTop: spacing.xl,
+    paddingHorizontal: spacing.xl,
+  },
+});
