@@ -4,7 +4,7 @@ import type { NaplanResult } from '../types/naplan';
 import { ScreenShell } from '../components/ScreenShell';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon, type IconName } from '../components/illustrations/icons';
-import { palette, radius, spacing, subjectColor, type } from '../theme/colors';
+import { chrome, palette, radius, spacing, subjectColor, type } from '../theme/colors';
 import { subjectById } from '../data/subjects';
 import { fullYearBank } from '../data/content';
 import { buildPlan, schoolTermFromDate, schoolWeekFromDate } from '../planner';
@@ -156,7 +156,7 @@ export function ProgressScreen({
       <Text style={styles.section}>Badges earned</Text>
       {earnedBadges.length === 0 ? (
         <View style={styles.emptyBadges}>
-          <Icon name="trophy" tint={palette.grape} size={28} />
+          <Icon name="trophy" tint={chrome.primary} size={28} />
           <Text style={styles.emptyText}>No badges yet, finish a lesson to earn your first one!</Text>
         </View>
       ) : (
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
   heroEyebrow: {
     fontSize: type.caption,
     fontWeight: '800',
-    color: palette.berry,
+    color: chrome.accent,
     textTransform: 'uppercase',
     letterSpacing: 1,
   },
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     height: 132,
     borderRadius: 66,
     borderWidth: 10,
-    borderColor: palette.teal,
+    borderColor: chrome.primary,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: palette.white,
@@ -239,19 +239,19 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     padding: spacing.lg,
     borderWidth: 1,
-    borderColor: palette.grape + '22',
+    borderColor: chrome.primary + '22',
   },
   weekHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   weekTitle: { fontSize: 16, fontWeight: '900', color: palette.ink },
   weekBody: { fontSize: 13, color: palette.slate, marginTop: 2 },
   weekPctChip: {
-    backgroundColor: palette.grape + '1a',
+    backgroundColor: chrome.primary + '1a',
     borderRadius: radius.pill,
     paddingVertical: spacing.xs,
     paddingHorizontal: spacing.sm,
   },
-  weekPct: { fontSize: 14, fontWeight: '900', color: palette.grape },
-  weekLink: { fontSize: 13, fontWeight: '800', color: palette.grape, marginTop: spacing.md },
+  weekPct: { fontSize: 14, fontWeight: '900', color: chrome.primary },
+  weekLink: { fontSize: 13, fontWeight: '800', color: chrome.primary, marginTop: spacing.md },
   subjectCard: {
     marginHorizontal: spacing.xl,
     backgroundColor: palette.white,
@@ -277,11 +277,11 @@ const styles = StyleSheet.create({
   track: {
     height: 12,
     borderRadius: radius.pill,
-    backgroundColor: palette.sky + '22',
+    backgroundColor: chrome.primary + '22',
     marginTop: spacing.sm,
     overflow: 'hidden',
   },
-  fill: { height: '100%', borderRadius: radius.pill, backgroundColor: palette.teal },
+  fill: { height: '100%', borderRadius: radius.pill, backgroundColor: chrome.primary },
   pct: { fontSize: 12, color: palette.slate, marginTop: spacing.xs, fontWeight: '600' },
   emptyBadges: {
     marginHorizontal: spacing.xl,
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     padding: spacing.lg,
     borderWidth: 2,
-    borderColor: palette.grape + '44',
+    borderColor: chrome.primary + '44',
     borderStyle: 'dashed',
     alignItems: 'center',
     gap: spacing.sm,

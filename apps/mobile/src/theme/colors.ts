@@ -32,6 +32,25 @@ export const gradients = {
   hero: ['#7C35FF', '#FF4D67'] as const,
   heroAlt: ['#4E148C', '#14B8A6'] as const,
   accent: ['#FF4D67', '#FFB84D'] as const,
+  /** Header-anchored brand gradient (AppHeader band → its accent), used for
+   * any hero/chrome band that should read as one brand with the header. */
+  brand: ['#61032A', '#CB1345'] as const,
+} as const;
+
+/**
+ * Header-anchored interactive tokens. Every button, selected pill, input
+ * border, checkbox and link uses this family — built from the AppHeader band
+ * (`palette.header`) and the header logo's sunny accent — so the whole app
+ * reads as one brand instead of a per-field rainbow. `subjectColor` remains
+ * the only per-area colouring, and only for content labelling.
+ */
+export const chrome = {
+  /** Primary interactive colour (matches the AppHeader band). */
+  primary: palette.header,
+  /** Secondary accent derived from the header band (header accent). */
+  accent: palette.headerAccent,
+  /** Header-logo accent (white + sunny wordmark) for highlights/badges. */
+  highlight: palette.sunny,
 } as const;
 
 /** Per-subject accent so kids recognise a learning area at a glance. */

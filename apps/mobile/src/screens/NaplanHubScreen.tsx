@@ -6,7 +6,7 @@ import type { NaplanDomain, NaplanResult, NaplanYear } from '../types/naplan';
 import { ScreenShell } from '../components/ScreenShell';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon } from '../components/illustrations/icons';
-import { palette, radius, spacing, gradients } from '../theme/colors';
+import { chrome, palette, radius, spacing, gradients } from '../theme/colors';
 import {
   nextNaplanYear,
   NAPLAN_DOMAINS,
@@ -61,7 +61,7 @@ export function NaplanHubScreen({
       onSignOut={onSignOut}
     >
       <LinearGradient
-        colors={[...gradients.hero]}
+        colors={[...gradients.brand]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={styles.hero}
@@ -114,25 +114,20 @@ export function NaplanHubScreen({
             onPress={() => onOpenTest(year, domain.id)}
             style={({ pressed }) => [styles.card, pressed && styles.pressed]}
           >
-            <View style={[styles.cardAccent, { backgroundColor: palette[domain.accent] }]} />
+            <View style={[styles.iconChip, { backgroundColor: palette[domain.accent] + '26' }]}>
+              <Icon name={domain.icon} tint={palette[domain.accent]} size={24} />
+            </View>
             <View style={styles.cardBody}>
               <View style={styles.cardTop}>
-                <View style={[styles.iconChip, { borderColor: palette[domain.accent] }]}>
-                  <Icon name={domain.icon} tint={palette[domain.accent]} />
-                </View>
-                <View style={styles.cardText}>
-                  <Text style={styles.cardTitle}>{domain.label}</Text>
-                  <Text style={styles.cardSub}>{domain.tagline}</Text>
-                </View>
-              </View>
-              <View style={styles.metaRow}>
-                <Text style={styles.meta}>
-                  {domain.id === 'writing'
-                    ? '1 text · rubric marked'
-                    : `${itemCount} practice items · ${test.durationMin} min`}
-                </Text>
+                <Text style={styles.cardTitle}>{domain.label}</Text>
                 {best !== null && <BadgeChip label={`Best ${best}%`} earned />}
               </View>
+              <Text style={styles.cardSub}>{domain.tagline}</Text>
+              <Text style={styles.meta}>
+                {domain.id === 'writing'
+                  ? '1 text · rubric marked'
+                  : `${itemCount} practice items · ${test.durationMin} min`}
+              </Text>
             </View>
           </Pressable>
         );
@@ -193,48 +188,50 @@ const styles = StyleSheet.create({
   yearPill: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: palette.white,
+    backgroundColor: chrome.primary + '0d',
     borderRadius: radius.pill,
     borderWidth: 2,
-    borderColor: palette.sky,
+    borderColor: chrome.primary + '55',
     paddingVertical: spacing.sm,
   },
-  yearPillOn: { backgroundColor: palette.teal, borderColor: palette.teal },
-  yearPillRec: { borderColor: palette.coral },
+  yearPillOn: { backgroundColor: chrome.primary, borderColor: chrome.primary },
+  yearPillRec: { borderColor: chrome.accent },
   yearText: { fontSize: 14, fontWeight: '900', color: palette.ink },
   yearTextOn: { color: palette.white },
-  yearRec: { fontSize: 12, fontWeight: '800', color: palette.coral, textTransform: 'uppercase', marginTop: 2 },
+  yearRec: { fontSize: 12, fontWeight: '800', color: chrome.highlight, textTransform: 'uppercase', marginTop: 2 },
   yearRecOn: { color: palette.white, opacity: 0.85 },
   card: {
     flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: palette.white,
-    borderRadius: radius.lg,
-    overflow: 'hidden',
+    borderRadius: radius.pill,
     marginHorizontal: spacing.xl,
     marginBottom: spacing.md,
+    padding: spacing.md,
     shadowColor: palette.ink,
     shadowOpacity: 0.08,
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 10,
     elevation: 3,
   },
-  cardAccent: { width: 10 },
-  cardBody: { flex: 1, padding: spacing.lg },
-  cardTop: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
   iconChip: {
-    width: 48,
-    height: 48,
-    borderRadius: radius.md,
-    borderWidth: 2,
+    width: 52,
+    height: 52,
+    borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: palette.white,
+    marginRight: spacing.md,
   },
-  cardText: { flex: 1 },
+  cardBody: { flex: 1 },
+  cardTop: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
   cardTitle: { fontSize: 17, fontWeight: '900', color: palette.ink },
-  cardSub: { fontSize: 13, color: palette.slate, marginTop: spacing.xs },
-  metaRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: spacing.md },
-  meta: { fontSize: 12, color: palette.slate, fontWeight: '600' },
+  cardSub: { fontSize: 13, color: palette.slate, marginTop: 2 },
+  meta: { fontSize: 12, color: palette.slate, fontWeight: '600', marginTop: spacing.xs },
   pressed: { transform: [{ scale: 0.99 }], opacity: 0.9 },
   note: {
     fontSize: 11,

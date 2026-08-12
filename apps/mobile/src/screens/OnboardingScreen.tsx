@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
-import { palette, radius, spacing, type } from '../theme/colors';
+import { chrome, palette, radius, spacing, type } from '../theme/colors';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
 import { BilbyLogoMark } from '../components/BilbyLogo';
@@ -9,25 +9,16 @@ import { YEAR_LEVELS, type ChildProfile, type YearLevel } from '../types/curricu
 import { STATES, SUBJECTS } from '../data/subjects';
 import { PrimaryButton } from '../components/PrimaryButton';
 
-const FIELD_ACCENTS = {
-  name: palette.sky,
-  year: palette.teal,
-  state: palette.grape,
-  week: palette.sunny,
-} as const;
-
 function FieldLabel({
-  accent,
   children,
   first = false,
 }: {
-  accent: string;
   children: React.ReactNode;
   first?: boolean;
 }) {
   return (
     <View style={[styles.labelRow, first && styles.labelRowFirst]}>
-      <View style={[styles.labelDot, { backgroundColor: accent }]} />
+      <View style={styles.labelDot} />
       <Text style={styles.label}>{children}</Text>
     </View>
   );
@@ -97,7 +88,7 @@ export function OnboardingScreen({
       <View style={styles.heading}>
         <View style={styles.headingRow}>
           <View style={styles.headingMascot}>
-            <BilbyLogoMark size={44} tone="dark" />
+            <BilbyLogoMark size={40} tone="light" />
           </View>
           <View style={styles.headingText}>
             <Text style={styles.eyebrow}>{editing ? 'Settings' : 'Welcome'}</Text>
@@ -114,9 +105,9 @@ export function OnboardingScreen({
       </View>
 
       <View style={styles.form}>
-      <FieldLabel accent={FIELD_ACCENTS.name} first>Child's name</FieldLabel>
+      <FieldLabel first>Child's name</FieldLabel>
       <View style={styles.inputWrap}>
-        <Icon name="pen" tint={FIELD_ACCENTS.name} size={18} />
+        <Icon name="pen" tint={chrome.accent} size={18} />
         <TextInput
           style={styles.input}
           value={name}
@@ -127,7 +118,7 @@ export function OnboardingScreen({
         />
       </View>
 
-      <FieldLabel accent={FIELD_ACCENTS.year}>School year</FieldLabel>
+      <FieldLabel>School year</FieldLabel>
       <View style={styles.yearGrid}>
         {YEAR_LEVELS.map((y) => {
           const selected = y === year;
@@ -148,7 +139,7 @@ export function OnboardingScreen({
         })}
       </View>
 
-      <FieldLabel accent={FIELD_ACCENTS.state}>State (curriculum)</FieldLabel>
+      <FieldLabel>State (curriculum)</FieldLabel>
       <View style={styles.stateRow}>
         {STATES.slice(0, 4).map((s) => {
           const selected = s.id === stateId;
@@ -169,7 +160,7 @@ export function OnboardingScreen({
         })}
       </View>
 
-      <FieldLabel accent={FIELD_ACCENTS.week}>Joined in school week</FieldLabel>
+      <FieldLabel>Joined in school week</FieldLabel>
       <View style={styles.weekRow}>
         <Pressable
           onPress={() => setJoinWeek((w) => Math.max(1, w - 1))}
@@ -200,7 +191,7 @@ export function OnboardingScreen({
           accessibilityState={{ checked: replanned }}
           style={[styles.replanRow, replanned && styles.replanRowOn]}
         >
-          <Icon name={replanned ? 'check-box' : 'box'} size={22} tint={replanned ? palette.grape : palette.slate} />
+          <Icon name={replanned ? 'check-box' : 'box'} size={26} tint={replanned ? chrome.primary : palette.slate} />
           <View style={{ flex: 1 }}>
             <Text style={styles.replanTitle}>Re-plan from now</Text>
             <Text style={styles.replanBody}>
@@ -210,20 +201,20 @@ export function OnboardingScreen({
         </Pressable>
       )}
 
-      <FieldLabel accent={palette.teal}>Subjects in this plan</FieldLabel>
+      <FieldLabel>Subjects in this plan</FieldLabel>
       <View style={styles.subjectList}>
         {SUBJECTS.map((subj) => {
           const on = subjects.includes(subj.id);
           return (
             <Pressable key={subj.id} onPress={() => toggleSubject(subj.id)} accessibilityRole="checkbox" accessibilityState={{ checked: on }} accessibilityLabel={`${subj.label}: ${subj.tagline}`} style={[styles.subjectRow, on && styles.subjectRowOn]}>
-              <View style={[styles.subjectIcon, { borderColor: on ? palette.teal : palette.sky }]}>
-                <Icon name={subj.icon} tint={on ? palette.teal : palette.slate} size={22} />
+              <View style={[styles.subjectIcon, { borderColor: on ? chrome.primary : chrome.primary + '55' }]}>
+                <Icon name={subj.icon} tint={on ? chrome.primary : palette.slate} size={22} />
               </View>
               <View style={{ flex: 1 }}>
                 <Text style={styles.subjectTitle}>{subj.label}</Text>
                 <Text style={styles.subjectSub}>{subj.tagline}</Text>
               </View>
-              <Icon name={on ? 'check-box' : 'box'} size={22} tint={on ? palette.teal : palette.slate} />
+              <Icon name={on ? 'check-box' : 'box'} size={24} tint={on ? chrome.primary : palette.slate} />
             </Pressable>
           );
         })}
@@ -231,7 +222,7 @@ export function OnboardingScreen({
 
       <PrimaryButton
         disabled={!canSubmit}
-        tone="coral"
+        tone="header"
         label={editing ? 'Save changes' : `Create ${name.trim() || 'child'}'s plan`}
         icon="rocket"
         onPress={submit}
@@ -304,10 +295,8 @@ const styles = StyleSheet.create({
   headingMascot: {
     width: 64,
     height: 64,
-    borderRadius: radius.md,
-    backgroundColor: palette.grape + '1a',
-    borderWidth: 2,
-    borderColor: palette.grape + '33',
+    borderRadius: radius.pill,
+    backgroundColor: chrome.primary,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -315,7 +304,7 @@ const styles = StyleSheet.create({
   eyebrow: {
     fontSize: type.label,
     fontWeight: '800',
-    color: palette.grape,
+    color: chrome.accent,
     textTransform: 'uppercase',
     letterSpacing: 1.2,
     marginBottom: 2,
@@ -340,16 +329,16 @@ const styles = StyleSheet.create({
   },
   labelRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginTop: spacing.lg, marginBottom: spacing.sm },
   labelRowFirst: { marginTop: 0 },
-  labelDot: { width: 8, height: 8, borderRadius: 4 },
+  labelDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: chrome.accent },
   label: { fontSize: 13, fontWeight: '800', color: palette.ink, textTransform: 'uppercase', letterSpacing: 0.4 },
   inputWrap: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.sm,
-    backgroundColor: palette.sky + '14',
-    borderRadius: radius.md,
+    backgroundColor: palette.white,
+    borderRadius: radius.pill,
     borderWidth: 2,
-    borderColor: palette.sky + '66',
+    borderColor: chrome.primary + '66',
     paddingHorizontal: spacing.md,
   },
   input: {
@@ -363,13 +352,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
     borderRadius: radius.pill,
-    backgroundColor: palette.sky + '14',
+    backgroundColor: chrome.primary + '14',
     borderWidth: 2,
-    borderColor: palette.sky + '55',
+    borderColor: chrome.primary + '55',
     minWidth: 52,
     alignItems: 'center',
   },
-  yearPillSelected: { backgroundColor: palette.teal, borderColor: palette.teal },
+  yearPillSelected: { backgroundColor: chrome.primary, borderColor: chrome.primary },
   yearText: { fontSize: 15, fontWeight: '800', color: palette.ink },
   yearTextSelected: { color: palette.white },
   stateRow: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
@@ -379,19 +368,19 @@ const styles = StyleSheet.create({
     height: 46,
     borderRadius: radius.pill,
     borderWidth: 2,
-    borderColor: palette.grape,
-    backgroundColor: palette.grape + '14',
+    borderColor: chrome.primary,
+    backgroundColor: chrome.primary + '14',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  weekBtnText: { fontSize: 24, fontWeight: '900', color: palette.grape, lineHeight: 28 },
+  weekBtnText: { fontSize: 24, fontWeight: '900', color: chrome.primary, lineHeight: 28 },
   weekValue: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: palette.sunny + '22',
+    backgroundColor: chrome.primary + '14',
     borderWidth: 2,
-    borderColor: palette.sunny + '88',
-    borderRadius: radius.md,
+    borderColor: chrome.primary + '88',
+    borderRadius: radius.pill,
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.md,
   },
@@ -401,25 +390,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.md,
-    backgroundColor: palette.grape + '0d',
-    borderRadius: radius.md,
+    backgroundColor: chrome.primary + '0d',
+    borderRadius: radius.pill,
     borderWidth: 2,
-    borderColor: palette.grape + '33',
+    borderColor: chrome.primary + '33',
     padding: spacing.md,
     marginTop: spacing.lg,
   },
-  replanRowOn: { backgroundColor: palette.grape + '1a', borderColor: palette.grape },
+  replanRowOn: { backgroundColor: chrome.primary + '1a', borderColor: chrome.primary },
   replanTitle: { fontSize: 15, fontWeight: '800', color: palette.ink },
   replanBody: { fontSize: 12, color: palette.slate, lineHeight: 18, marginTop: 2 },
   statePill: {
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
-    borderRadius: radius.md,
-    backgroundColor: palette.grape + '14',
+    borderRadius: radius.pill,
+    backgroundColor: chrome.primary + '14',
     borderWidth: 2,
-    borderColor: palette.grape + '55',
+    borderColor: chrome.primary + '55',
   },
-  statePillSelected: { backgroundColor: palette.grape, borderColor: palette.grape },
+  statePillSelected: { backgroundColor: chrome.primary, borderColor: chrome.primary },
   stateText: { fontSize: 13, fontWeight: '700', color: palette.ink },
   stateTextSelected: { color: palette.white },
   subjectList: { gap: spacing.sm, marginBottom: spacing.lg },
@@ -427,17 +416,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.md,
-    backgroundColor: palette.sky + '0d',
-    borderRadius: radius.md,
+    backgroundColor: chrome.primary + '0d',
+    borderRadius: radius.pill,
     borderWidth: 2,
-    borderColor: palette.sky + '44',
+    borderColor: chrome.primary + '44',
     padding: spacing.md,
   },
-  subjectRowOn: { backgroundColor: palette.teal + '0d', borderColor: palette.teal, borderWidth: 2 },
+  subjectRowOn: { backgroundColor: chrome.primary + '14', borderColor: chrome.primary, borderWidth: 2 },
   subjectIcon: {
     width: 40,
     height: 40,
-    borderRadius: radius.sm,
+    borderRadius: radius.pill,
     borderWidth: 2,
     alignItems: 'center',
     justifyContent: 'center',
@@ -476,11 +465,11 @@ const styles = StyleSheet.create({
   legalLinks: {
     marginTop: spacing.xl,
     borderTopWidth: 2,
-    borderTopColor: palette.grape + '33',
+    borderTopColor: chrome.primary + '33',
     paddingTop: spacing.lg,
   },
   legalLinksLabel: { fontSize: 13, fontWeight: '800', color: palette.ink, textTransform: 'uppercase', marginBottom: spacing.sm },
   legalLinksRow: { flexDirection: 'row', gap: spacing.md },
-  legalLink: { fontSize: 14, fontWeight: '700', color: palette.grape },
+  legalLink: { fontSize: 14, fontWeight: '700', color: chrome.primary },
   pressed: { opacity: 0.7 },
 });

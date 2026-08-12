@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { palette, radius, spacing, type } from '../theme/colors';
+import { chrome, palette, radius, spacing, type } from '../theme/colors';
 import { AppHeader } from '../components/AppHeader';
+import { AppFooter } from '../components/AppFooter';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { Icon, type IconName } from '../components/illustrations/icons';
 import { HeroPark } from '../components/HeroPark';
@@ -12,18 +13,16 @@ import { signInWithGoogle } from '../utils/auth';
 /**
  * Google sign-in gate, styled as the product landing page: a photographic
  * hero band (kids learning in a sunny park), headline, feature rows, trust
- * chips, CTA and a legal footer. Uses the same universal dark header as every
- * other screen.
+ * chips, CTA and the universal AppFooter. Uses the same dark header and
+ * footer as every other screen.
  */
 export function SignInScreen({
   onSignedIn,
   onGuest,
-  onOpenDoc,
 }: {
   onSignedIn: () => void;
   /** Explore without an account, sample lesson + one practice test, then sign-up prompt. */
   onGuest: () => void;
-  onOpenDoc: (doc: 'privacy' | 'terms' | 'contact') => void;
 }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -124,7 +123,7 @@ export function SignInScreen({
               </View>
             )}
 
-            {busy && <ActivityIndicator style={{ marginTop: spacing.lg }} color={palette.grape} />}
+            {busy && <ActivityIndicator style={{ marginTop: spacing.lg }} color={chrome.primary} />}
             {error && <Text style={styles.error}>{error}</Text>}
           </View>
         </HeroPark>
@@ -134,7 +133,7 @@ export function SignInScreen({
         {features.map((f) => (
           <View key={f.title} style={styles.feature}>
             <View style={styles.featureIcon}>
-              <Icon name={f.icon} tint={palette.grape} size={20} />
+              <Icon name={f.icon} tint={chrome.primary} size={20} />
             </View>
             <View style={styles.featureText}>
               <Text style={styles.featureTitle}>{f.title}</Text>
@@ -146,38 +145,21 @@ export function SignInScreen({
 
       <View style={styles.trustRow}>
         <View style={styles.trustChip}>
-          <Icon name="check-box" tint={palette.teal} size={14} />
+          <Icon name="check-box" tint={chrome.primary} size={14} />
           <Text style={styles.trustText}>Years 1–10</Text>
         </View>
         <View style={styles.trustChip}>
-          <Icon name="map" tint={palette.teal} size={14} />
+          <Icon name="map" tint={chrome.primary} size={14} />
           <Text style={styles.trustText}>Australian Curriculum</Text>
         </View>
         <View style={styles.trustChip}>
-          <Icon name="lock" tint={palette.teal} size={14} />
+          <Icon name="lock" tint={chrome.primary} size={14} />
           <Text style={styles.trustText}>Parent-managed</Text>
         </View>
       </View>
-
-      <View style={styles.legalRow}>
-        <Pressable onPress={() => onOpenDoc('privacy')} hitSlop={8} accessibilityRole="link">
-          <Text style={styles.legalLink}>Privacy</Text>
-        </Pressable>
-        <Text style={styles.legalDot}>·</Text>
-        <Pressable onPress={() => onOpenDoc('terms')} hitSlop={8} accessibilityRole="link">
-          <Text style={styles.legalLink}>Terms</Text>
-        </Pressable>
-        <Text style={styles.legalDot}>·</Text>
-        <Pressable onPress={() => onOpenDoc('contact')} hitSlop={8} accessibilityRole="link">
-          <Text style={styles.legalLink}>Contact</Text>
-        </Pressable>
-      </View>
-
-      <Text style={styles.footnote}>
-        Practice questions are original, NAPLAN-style items, not official NAPLAN
-        tests, and no ACARA affiliation.
-      </Text>
         </ResponsiveColumn>
+
+        <AppFooter />
       </ScrollView>
     </View>
   );
@@ -214,7 +196,7 @@ const styles = StyleSheet.create({
   welcomeEyebrow: {
     fontSize: type.caption,
     fontWeight: '800',
-    color: palette.berry,
+    color: chrome.accent,
     textTransform: 'uppercase',
     letterSpacing: 1,
     textAlign: 'center',
@@ -233,17 +215,17 @@ const styles = StyleSheet.create({
   notice: {
     alignItems: 'flex-start',
     gap: spacing.sm,
-    backgroundColor: palette.grape + '14',
+    backgroundColor: chrome.primary + '14',
     borderRadius: radius.md,
     padding: spacing.md,
     borderWidth: 2,
-    borderColor: palette.grape + '33',
+    borderColor: chrome.primary + '33',
   },
   noticeText: { flex: 1, fontSize: 13, color: palette.ink, lineHeight: 19 },
   guestBtn: {
     alignSelf: 'stretch',
     marginTop: spacing.xs,
-    backgroundColor: palette.grape,
+    backgroundColor: chrome.primary,
     borderRadius: radius.pill,
     paddingVertical: spacing.md,
     alignItems: 'center',
@@ -263,8 +245,8 @@ const styles = StyleSheet.create({
   featureIcon: {
     width: 44,
     height: 44,
-    borderRadius: radius.sm,
-    backgroundColor: palette.grape + '1a',
+    borderRadius: radius.pill,
+    backgroundColor: chrome.primary + '14',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -286,26 +268,9 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     backgroundColor: palette.white + 'd9',
     borderWidth: 1.5,
-    borderColor: palette.teal + '44',
+    borderColor: chrome.primary + '44',
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.md,
   },
   trustText: { color: palette.ink, fontSize: 13, fontWeight: '700' },
-  legalRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: spacing.sm,
-    marginTop: spacing.xl,
-  },
-  legalDot: { color: palette.slate, fontSize: 14 },
-  legalLink: { color: palette.grape, fontSize: 14, fontWeight: '700' },
-  footnote: {
-    fontSize: type.caption,
-    color: palette.slate,
-    textAlign: 'center',
-    marginTop: spacing.lg,
-    paddingHorizontal: spacing.xl,
-    lineHeight: 18,
-  },
 });

@@ -703,14 +703,14 @@ export function Icon({ name, tint = palette.ink, size = SZ }: { name: IconName; 
     case 'check-box':
       return (
         <Frame>
-          <Rect x={4} y={4} width={16} height={16} rx={3} fill={palette.teal} />
-          <Path d="M8 12.5l2.5 2.5L16 9.5" fill="none" stroke={palette.white} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+          <Circle cx={12} cy={12} r={8.5} fill={tint} />
+          <Path d="M8 12.5l2.5 2.5L16 9.5" fill="none" stroke={palette.white} strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" />
         </Frame>
       );
     case 'box':
       return (
         <Frame>
-          <Rect x={4} y={4} width={16} height={16} rx={3} fill="none" stroke={tint} strokeWidth={1.6} />
+          <Circle cx={12} cy={12} r={8} fill="none" stroke={tint} strokeWidth={1.8} />
         </Frame>
       );
     case 'cog':

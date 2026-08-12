@@ -4,7 +4,7 @@ import { buildPlan, schoolWeekFromDate } from '../planner';
 import { TopicCard } from '../components/TopicCard';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
-import { palette, spacing, type } from '../theme/colors';
+import { chrome, palette, spacing, type } from '../theme/colors';
 import { subjectById } from '../data/subjects';
 
 /**
@@ -81,7 +81,7 @@ export function WeekPlanScreen({
 
       {topics.length === 0 ? (
         <View style={styles.empty}>
-          <Icon name="book" tint={palette.grape} size={30} />
+          <Icon name="book" tint={chrome.primary} size={30} />
           <Text style={styles.emptyTitle}>Your plan is being prepared</Text>
           <Text style={styles.emptyBody}>
             Year {child.year} lessons for the chosen subjects are being finalised.
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     padding: spacing.xl,
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: palette.sky,
+    borderColor: chrome.primary + '55',
   },
   emptyTitle: { fontSize: 18, fontWeight: '800', color: palette.ink },
   emptyBody: { fontSize: 14, color: palette.slate, textAlign: 'center', marginTop: spacing.sm },

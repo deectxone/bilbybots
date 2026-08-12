@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import type { ChildProfile } from '../types/curriculum';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon, type IconName } from '../components/illustrations/icons';
-import { palette, radius, spacing, type } from '../theme/colors';
+import { chrome, palette, radius, spacing, type } from '../theme/colors';
 import { nextNaplanYear, NAPLAN_YEARS } from '../data/naplan/tests';
 import { subjectById } from '../data/subjects';
 
@@ -83,7 +83,7 @@ export function HomeScreen({
 
       <TrackCard
         icon="map"
-        accent={palette.teal}
+        accent={chrome.primary}
         title="My weekly plan"
         body={
           child
@@ -95,7 +95,7 @@ export function HomeScreen({
 
       <TrackCard
         icon="brain"
-        accent={palette.coral}
+        accent={chrome.primary}
         title="NAPLAN practice"
         body={
           naplanNext
@@ -106,11 +106,6 @@ export function HomeScreen({
         }
         onPress={onOpenNaplan}
       />
-
-      <Text style={styles.footnote}>
-        All questions are original, NAPLAN-style items, not official NAPLAN
-        questions, and no ACARA affiliation.
-      </Text>
     </ScreenShell>
   );
 }
@@ -154,17 +149,17 @@ const styles = StyleSheet.create({
     gap: spacing.md,
     marginHorizontal: spacing.xl,
     marginTop: spacing.lg,
-    backgroundColor: palette.grape + '1a',
-    borderRadius: radius.md,
+    backgroundColor: chrome.primary + '1a',
+    borderRadius: radius.lg,
     borderWidth: 1.5,
-    borderColor: palette.grape + '44',
+    borderColor: chrome.primary + '44',
     padding: spacing.md,
   },
   guestBannerText: { flex: 1 },
   guestBannerTitle: { fontSize: 14, fontWeight: '800', color: palette.ink },
   guestBannerBody: { fontSize: 12, color: palette.slate, lineHeight: 17, marginTop: 2 },
   guestCta: {
-    backgroundColor: palette.grape,
+    backgroundColor: chrome.primary,
     borderRadius: radius.pill,
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.md,
@@ -186,9 +181,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.md,
     backgroundColor: palette.white,
-    borderRadius: radius.lg,
+    borderRadius: radius.pill,
     borderWidth: 1,
-    borderColor: palette.grape + '22',
+    borderColor: chrome.primary + '22',
     marginHorizontal: spacing.xl,
     marginBottom: spacing.md,
     padding: spacing.lg,
@@ -196,7 +191,7 @@ const styles = StyleSheet.create({
   iconChip: {
     width: 56,
     height: 56,
-    borderRadius: radius.md,
+    borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -205,12 +200,4 @@ const styles = StyleSheet.create({
   trackSub: { fontSize: 14, color: palette.slate, marginTop: spacing.xs, lineHeight: 20 },
   chevron: { fontSize: 26, color: palette.slate },
   pressed: { transform: [{ scale: 0.99 }], opacity: 0.9 },
-  footnote: {
-    fontSize: type.caption,
-    color: palette.slate,
-    textAlign: 'center',
-    marginTop: spacing.xl,
-    paddingHorizontal: spacing.xl,
-    lineHeight: 18,
-  },
 });

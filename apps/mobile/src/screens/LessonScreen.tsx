@@ -5,7 +5,7 @@ import { IllustrationFrame } from '../components/IllustrationFrame';
 import { BadgeChip } from '../components/BadgeChip';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { ScreenShell } from '../components/ScreenShell';
-import { palette, radius, spacing, subjectColor, type } from '../theme/colors';
+import { chrome, palette, radius, spacing, subjectColor, type } from '../theme/colors';
 import { subjectById } from '../data/subjects';
 import { Icon } from '../components/illustrations/icons';
 import { isAnswerCorrect as sharedIsAnswerCorrect } from '../utils/answer-matching';
@@ -96,13 +96,13 @@ export function LessonScreen({
             <IllustrationFrame key={i} slot={slot} index={i} />
           ))}
           <View style={styles.reviewNote}>
-            <Icon name="clock" tint={palette.teal} size={16} />
+            <Icon name="clock" tint={chrome.primary} size={16} />
             <Text style={styles.reviewNoteText}>
               Focus · {topic.learn.learnTimeMin} min lesson · built for {child.name}
             </Text>
           </View>
           <PrimaryButton
-            tone="teal"
+            tone="header"
             label="Ready to practise"
             onPress={() => setPhase('practise')}
           />
@@ -190,7 +190,7 @@ export function LessonScreen({
           })}
 
           <PrimaryButton
-            tone="berry"
+            tone="header"
             label={checked ? 'Check again' : 'Check my answers'}
             disabled={practiseQuestions.some((q) => !answers[q.id])}
             onPress={() => setChecked(true)}
@@ -209,7 +209,7 @@ export function LessonScreen({
               </View>
               {allCorrect && (
                 <PrimaryButton
-                  tone="berry"
+                  tone="header"
                   label={isGuest ? 'Create account to save your star' : 'Claim my badge'}
                   onPress={() => {
                     if (isGuest) {
@@ -245,7 +245,7 @@ export function LessonScreen({
             </View>
 
             <PrimaryButton
-              tone="grape"
+              tone="header"
               label="Back to my week"
               onPress={onBack}
             />
@@ -272,8 +272,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.sm,
-    backgroundColor: palette.sky + '22',
-    borderRadius: radius.md,
+    backgroundColor: chrome.primary + '0d',
+    borderRadius: radius.pill,
     padding: spacing.md,
     marginBottom: spacing.lg,
   },
@@ -290,12 +290,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     borderWidth: 2,
-    borderColor: palette.sky,
+    borderColor: chrome.primary + '55',
     backgroundColor: palette.white,
-    borderRadius: radius.md,
-    padding: spacing.md,
+    borderRadius: radius.pill,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
   },
-  optionSelected: { backgroundColor: palette.teal, borderColor: palette.teal },
+  optionSelected: { backgroundColor: chrome.primary, borderColor: chrome.primary },
   optionGood: { backgroundColor: palette.lime + '33', borderColor: palette.teal },
   optionBad: { backgroundColor: palette.coral + '22', borderColor: palette.coral },
   optionText: { fontSize: 15, color: palette.ink, fontWeight: '600', flexShrink: 1 },
@@ -305,9 +306,10 @@ const styles = StyleSheet.create({
   answerInput: {
     backgroundColor: palette.white,
     borderWidth: 2,
-    borderColor: palette.sky,
-    borderRadius: radius.md,
-    padding: spacing.md,
+    borderColor: chrome.primary + '66',
+    borderRadius: radius.pill,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.md,
     fontSize: 16,
     color: palette.ink,
   },
@@ -338,14 +340,14 @@ const styles = StyleSheet.create({
     width: 76,
     height: 76,
     borderRadius: radius.pill,
-    backgroundColor: palette.grape + '22',
+    backgroundColor: chrome.primary + '14',
     alignItems: 'center',
     justifyContent: 'center',
   },
   rewardTitle: { fontSize: 24, fontWeight: '900', color: palette.ink },
   advanceBox: {
-    backgroundColor: palette.grape + '22',
-    borderRadius: radius.md,
+    backgroundColor: chrome.primary + '14',
+    borderRadius: radius.lg,
     padding: spacing.md,
     width: '100%',
   },

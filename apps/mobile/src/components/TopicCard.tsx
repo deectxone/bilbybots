@@ -22,12 +22,11 @@ export function TopicCard({
       onPress={() => onPress?.(topic)}
       style={({ pressed }) => [styles.card, completed && styles.cardDone, pressed && styles.pressed]}
     >
-      <View style={[styles.accentBar, { backgroundColor: palette[accent] }]} />
+      <View style={[styles.subjectIcon, { backgroundColor: palette[accent] + '26' }]}>
+        <Icon name={subject.icon} tint={palette[accent]} size={24} />
+      </View>
       <View style={styles.body}>
         <View style={styles.subjectRow}>
-          <View style={[styles.subjectBadge, { backgroundColor: palette[accent] + '26' }]}>
-            <Icon name={subject.icon} tint={palette[accent]} size={14} />
-          </View>
           <Text style={[styles.subject, { color: palette[accent] }]}>{subject.label}</Text>
           {completed && (
             <View style={styles.doneChip}>
@@ -57,9 +56,12 @@ export function TopicCard({
 const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: palette.white,
-    borderRadius: radius.lg,
-    overflow: 'hidden',
+    borderRadius: radius.pill,
+    borderWidth: 1.5,
+    borderColor: palette.ink + '0d',
+    padding: spacing.md,
     shadowColor: palette.ink,
     shadowOpacity: 0.08,
     shadowOffset: { width: 0, height: 4 },
@@ -68,16 +70,16 @@ const styles = StyleSheet.create({
   },
   cardDone: { opacity: 0.85 },
   pressed: { transform: [{ scale: 0.98 }] },
-  accentBar: { width: 8 },
-  body: { flex: 1, padding: spacing.md },
-  subjectRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
-  subjectBadge: {
-    width: 26,
-    height: 26,
+  subjectIcon: {
+    width: 52,
+    height: 52,
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: spacing.md,
   },
+  body: { flex: 1 },
+  subjectRow: { flexDirection: 'row', alignItems: 'center' },
   subject: { fontSize: 12, fontWeight: '800', textTransform: 'uppercase' },
   doneChip: {
     marginLeft: 'auto',
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.xs,
   },
   doneChipText: { fontSize: 12, fontWeight: '800', color: palette.ink },
-  title: { fontSize: 17, fontWeight: '800', color: palette.ink, marginTop: spacing.sm },
+  title: { fontSize: 17, fontWeight: '800', color: palette.ink, marginTop: spacing.xs },
   meta: { fontSize: 12, color: palette.slate, marginTop: spacing.xs },
   slotRow: { flexDirection: 'row', gap: spacing.md, marginTop: spacing.sm },
   slot: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },

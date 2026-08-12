@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { palette, radius, spacing } from '../theme/colors';
+import { chrome, palette, radius, spacing } from '../theme/colors';
 import { PrimaryButton } from './PrimaryButton';
 import { getCurrentSession } from '../utils/supabase';
 import { submitContactMessage } from '../utils/contact';
@@ -74,7 +74,7 @@ export function ContactForm() {
 
       <PrimaryButton
         disabled={!canSubmit}
-        tone="teal"
+        tone="header"
         label={busy ? 'Sending…' : 'Send message'}
         icon="envelope"
         onPress={submit}
@@ -107,17 +107,20 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: palette.white,
-    borderRadius: radius.md,
-    padding: spacing.md,
+    borderRadius: radius.pill,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
     fontSize: 16,
     color: palette.ink,
     borderWidth: 2,
-    borderColor: palette.sky,
+    borderColor: chrome.primary + '66',
   },
   message: {
     minHeight: 120,
     lineHeight: 22,
     marginBottom: spacing.sm,
+    borderRadius: radius.lg,
+    textAlignVertical: 'top',
   },
   success: {
     fontSize: 13,

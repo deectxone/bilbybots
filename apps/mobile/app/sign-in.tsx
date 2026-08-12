@@ -15,7 +15,6 @@ export default function SignInRoute() {
         enterGuest();
         router.replace('/lesson');
       }}
-      onOpenDoc={(doc) => router.push(`/legal/${doc}`)}
     />
   );
 }

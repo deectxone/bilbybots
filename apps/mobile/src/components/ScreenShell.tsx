@@ -3,6 +3,7 @@ import { palette } from '../theme/colors';
 import type { ChildProfile } from '../types/curriculum';
 import type { RootScreen } from '../navigation/types';
 import { AppHeader } from './AppHeader';
+import { AppFooter } from './AppFooter';
 import { SlimBar } from './SlimBar';
 import { ResponsiveColumn } from './ResponsiveColumn';
 
@@ -12,6 +13,9 @@ import { ResponsiveColumn } from './ResponsiveColumn';
  *   - SlimBar: non-sticky utility row (Settings / Sign out), rendered at the
  *     top of the scroll content so it scrolls away with the page.
  *   - ScrollView: the screen body.
+ *   - AppFooter: universal dark footer (Privacy / Terms / Contact us + note)
+ *     at the bottom of the scroll content, pushed to the bottom of short
+ *     pages via flexGrow so it reads consistently on every screen.
  */
 export function ScreenShell({
   active,
@@ -48,6 +52,7 @@ export function ScreenShell({
         <ResponsiveColumn>
           {children}
         </ResponsiveColumn>
+        <AppFooter />
       </ScrollView>
     </View>
   );

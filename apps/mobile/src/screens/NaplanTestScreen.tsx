@@ -12,7 +12,7 @@ import { ScreenShell } from '../components/ScreenShell';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon } from '../components/illustrations/icons';
-import { palette, radius, spacing } from '../theme/colors';
+import { chrome, palette, radius, spacing } from '../theme/colors';
 import {
   naplanDomainMeta,
   naplanPromptById,
@@ -292,7 +292,7 @@ export function NaplanTestScreen({
     pct >= 80 ? 'Strong, keep it up!' : pct >= 50 ? 'Developing, good progress!' : 'Getting started, keep practising!';
 
   const resultIcon: 'quill' | 'burst' | 'sprout' = isWriting ? 'quill' : pct >= 80 ? 'burst' : 'sprout';
-  const resultTint = isWriting ? palette.berry : pct >= 80 ? palette.sunny : pct >= 50 ? palette.teal : palette.slate;
+  const resultTint = isWriting ? chrome.accent : pct >= 80 ? palette.sunny : pct >= 50 ? palette.teal : palette.slate;
   const textType = prompt?.textType === 'persuasive' ? 'Persuasive writing' : 'Narrative writing';
   const textTypeIcon: 'chat-bubble' | 'pen' = prompt?.textType === 'persuasive' ? 'chat-bubble' : 'pen';
 
@@ -342,7 +342,7 @@ export function NaplanTestScreen({
           {isWriting ? (
             <View style={styles.introCard}>
               <View style={styles.iconTextRow}>
-                <Icon name={textTypeIcon} tint={palette.berry} size={16} />
+                <Icon name={textTypeIcon} tint={chrome.accent} size={16} />
                 <Text style={styles.introPromptTitle}>{textType}</Text>
               </View>
               <Text style={styles.introPrompt}>{prompt?.text}</Text>
@@ -377,7 +377,7 @@ export function NaplanTestScreen({
               style={[styles.modeBtn, mode === 'practice' && styles.modeBtnOn]}
             >
               <View style={[styles.iconTextRow, styles.modeBtnInner]}>
-                <Icon name="sprout" tint={mode === 'practice' ? palette.white : palette.teal} size={18} />
+                <Icon name="sprout" tint={mode === 'practice' ? palette.white : chrome.accent} size={18} />
                 <Text style={[styles.modeText, mode === 'practice' && styles.modeTextOn]}>Practice</Text>
               </View>
               <Text style={[styles.modeSub, mode === 'practice' && styles.modeTextOn]}>Instant feedback</Text>
@@ -387,7 +387,7 @@ export function NaplanTestScreen({
               style={[styles.modeBtn, mode === 'timed' && styles.modeBtnOn]}
             >
               <View style={[styles.iconTextRow, styles.modeBtnInner]}>
-                <Icon name="timer" tint={mode === 'timed' ? palette.white : palette.ink} size={18} />
+                <Icon name="timer" tint={mode === 'timed' ? palette.white : chrome.accent} size={18} />
                 <Text style={[styles.modeText, mode === 'timed' && styles.modeTextOn]}>Timed</Text>
               </View>
               <Text style={[styles.modeSub, mode === 'timed' && styles.modeTextOn]}>Real test feel</Text>
@@ -395,7 +395,7 @@ export function NaplanTestScreen({
           </View>
 
           <PrimaryButton
-            tone={meta.accent}
+            tone="header"
             label="Start test"
             icon="rocket"
             onPress={() => {
@@ -422,7 +422,7 @@ export function NaplanTestScreen({
           )}
 
           <View style={styles.sectionChip}>
-            <Icon name={textTypeIcon} tint={palette.grape} size={14} />
+            <Icon name={textTypeIcon} tint={chrome.primary} size={14} />
             <Text style={styles.sectionChipText}>{textType}</Text>
           </View>
           <View style={styles.stimulus}>
@@ -441,7 +441,7 @@ export function NaplanTestScreen({
           />
 
           <PrimaryButton
-            tone="berry"
+            tone="header"
             label={`Finish writing (${text.trim().split(/\s+/).filter(Boolean).length} words)`}
             disabled={text.trim().split(/\s+/).filter(Boolean).length < 10}
             onPress={finishTest}
@@ -484,7 +484,7 @@ export function NaplanTestScreen({
           {step.isFirst && (
             <View style={styles.sectionChip}>
               {test.sections[step.sectionIdx].locked && (
-                <Icon name="lock" tint={palette.grape} size={13} />
+                <Icon name="lock" tint={chrome.primary} size={13} />
               )}
               <Text style={styles.sectionChipText}>{test.sections[step.sectionIdx].title}</Text>
             </View>
@@ -588,7 +588,7 @@ export function NaplanTestScreen({
                   <Icon
                     name="flag"
                     size={15}
-                    tint={flagged.has(currentItem.id) ? palette.berry : palette.slate}
+                    tint={flagged.has(currentItem.id) ? chrome.accent : palette.slate}
                   />
                   <Text style={[styles.flagText, flagged.has(currentItem.id) && styles.flagTextOn]}>
                     {flagged.has(currentItem.id) ? 'Flagged' : 'Flag'}
@@ -596,10 +596,10 @@ export function NaplanTestScreen({
                 </View>
               </Pressable>
               {inPractice && !itemChecked ? (
-                <PrimaryButton tone="sky" label="Submit" disabled={!answered} onPress={submitCurrent} />
+                <PrimaryButton tone="header" label="Submit" disabled={!answered} onPress={submitCurrent} />
               ) : (
                 <PrimaryButton
-                  tone="teal"
+                  tone="header"
                   label={mode === 'timed' && index === steps.length - 1 ? 'Finish test' : 'Next →'}
                   onPress={next}
                 />
@@ -613,7 +613,7 @@ export function NaplanTestScreen({
         <View style={styles.pad}>
           <View style={styles.gateCard}>
             <View style={[styles.iconTextRow, styles.gateTitleRow]}>
-              <Icon name="lock" tint={palette.berry} size={22} />
+              <Icon name="lock" tint={chrome.accent} size={22} />
               <Text style={styles.gateTitle}>{test.sections[gateSection].title}</Text>
             </View>
             <Text style={styles.gateBody}>
@@ -621,7 +621,7 @@ export function NaplanTestScreen({
               previous section to change your answers. Ready?
             </Text>
             <PrimaryButton
-              tone="berry"
+              tone="header"
               label="Continue"
               onPress={() => {
                 setGateSection(null);
@@ -629,7 +629,7 @@ export function NaplanTestScreen({
               }}
             />
             <PrimaryButton
-              tone="sky"
+              tone="header"
               label="Go back and check"
               onPress={() => setGateSection(null)}
             />
@@ -664,14 +664,14 @@ export function NaplanTestScreen({
                   style={[styles.rubricRow, on && styles.rubricRowOn]}
                 >
                   <View style={styles.iconTextRow}>
-                    <Icon name={on ? 'check-box' : 'box'} size={20} tint={on ? palette.teal : palette.slate} />
+                    <Icon name={on ? 'check-box' : 'box'} size={24} tint={on ? chrome.primary : palette.slate} />
                     <Text style={[styles.rubricRowText, on && styles.rubricRowTextOn]}>{r.label}</Text>
                   </View>
                 </Pressable>
               );
             })}
           </View>
-          <PrimaryButton tone="coral" label="See my result" onPress={finishTest} />
+          <PrimaryButton tone="header" label="See my result" onPress={finishTest} />
         </View>
       )}
 
@@ -679,7 +679,7 @@ export function NaplanTestScreen({
         <View style={styles.pad}>
           {isWriting ? (
             <View style={styles.resultCard}>
-              <Icon name="quill" tint={palette.berry} size={46} />
+              <Icon name="quill" tint={chrome.accent} size={46} />
               <Text style={styles.resultTitle}>Writing complete!</Text>
               <Text style={styles.resultMeta}>
                 {result.rubric?.length ?? 0}/{result.total} check-list items · {result.answers.writing ? String(result.answers.writing).trim().split(/\s+/).filter(Boolean).length : 0} words
@@ -708,8 +708,8 @@ export function NaplanTestScreen({
                 <View key={r.id} style={styles.iconTextRow}>
                   <Icon
                     name={result.rubric?.includes(r.id) ? 'check-box' : 'box'}
-                    size={18}
-                    tint={result.rubric?.includes(r.id) ? palette.teal : palette.slate}
+                    size={20}
+                    tint={result.rubric?.includes(r.id) ? chrome.primary : palette.slate}
                   />
                   <Text style={styles.rubricLine}>{r.label}</Text>
                 </View>
@@ -774,7 +774,7 @@ export function NaplanTestScreen({
             Indicative result for practice only, not an official NAPLAN score.
           </Text>
 
-          <PrimaryButton tone="coral" label="Back to NAPLAN hub" onPress={onExit} />
+          <PrimaryButton tone="header" label="Back to NAPLAN hub" onPress={onExit} />
           <Pressable onPress={onHome} hitSlop={12} style={{ marginTop: spacing.md, alignItems: 'center' }}>
             <View style={styles.iconTextRow}>
               <Icon name="house" tint={palette.slate} size={16} />
@@ -796,7 +796,7 @@ const styles = StyleSheet.create({
     backgroundColor: palette.white,
     borderRadius: radius.lg,
     borderWidth: 2,
-    borderColor: palette.sky,
+    borderColor: chrome.primary + '33',
     padding: spacing.lg,
     marginTop: spacing.lg,
     gap: spacing.sm,
@@ -809,13 +809,13 @@ const styles = StyleSheet.create({
   modeRow: { flexDirection: 'row', gap: spacing.md, marginBottom: spacing.lg },
   modeBtn: {
     flex: 1,
-    backgroundColor: palette.white,
-    borderRadius: radius.md,
+    backgroundColor: chrome.primary + '0d',
+    borderRadius: radius.pill,
     borderWidth: 2,
-    borderColor: palette.sky,
+    borderColor: chrome.primary + '55',
     padding: spacing.md,
   },
-  modeBtnOn: { backgroundColor: palette.teal, borderColor: palette.teal },
+  modeBtnOn: { backgroundColor: chrome.primary, borderColor: chrome.primary },
   modeBtnInner: { marginBottom: spacing.xs },
   modeText: { fontSize: 16, fontWeight: '900', color: palette.ink },
   modeSub: { fontSize: 12, color: palette.slate, marginTop: spacing.xs },
@@ -825,16 +825,16 @@ const styles = StyleSheet.create({
   timer: { fontSize: 16, fontWeight: '900', color: palette.ink },
   timerWarn: { color: palette.coral },
   progress: { fontSize: 14, fontWeight: '700', color: palette.slate },
-  endPracticeText: { fontSize: 13, fontWeight: '800', color: palette.berry },
-  progressTrack: { height: 8, borderRadius: radius.pill, backgroundColor: palette.sky + '33', marginTop: spacing.sm, overflow: 'hidden' },
-  progressFill: { height: '100%', borderRadius: radius.pill, backgroundColor: palette.teal },
+  endPracticeText: { fontSize: 13, fontWeight: '800', color: chrome.accent },
+  progressTrack: { height: 8, borderRadius: radius.pill, backgroundColor: chrome.primary + '22', marginTop: spacing.sm, overflow: 'hidden' },
+  progressFill: { height: '100%', borderRadius: radius.pill, backgroundColor: chrome.primary },
   iconTextRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   sectionChip: {
     alignSelf: 'flex-start',
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.xs,
-    backgroundColor: palette.grape + '22',
+    backgroundColor: chrome.primary + '14',
     borderRadius: radius.pill,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
@@ -842,10 +842,10 @@ const styles = StyleSheet.create({
   },
   sectionChipText: { fontSize: 12, fontWeight: '800', color: palette.ink },
   stimulus: {
-    backgroundColor: palette.grape + '1a',
-    borderColor: palette.grape,
+    backgroundColor: chrome.primary + '0d',
+    borderColor: chrome.primary + '55',
     borderWidth: 2,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     padding: spacing.md,
     marginTop: spacing.md,
   },
@@ -869,12 +869,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     borderWidth: 2,
-    borderColor: palette.sky,
+    borderColor: chrome.primary + '55',
     backgroundColor: palette.white,
-    borderRadius: radius.md,
-    padding: spacing.md,
+    borderRadius: radius.pill,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
   },
-  optionSelected: { backgroundColor: palette.teal, borderColor: palette.teal },
+  optionSelected: { backgroundColor: chrome.primary, borderColor: chrome.primary },
   optionGood: { backgroundColor: palette.lime + '33', borderColor: palette.teal },
   optionBad: { backgroundColor: palette.coral + '22', borderColor: palette.coral },
   optionText: { fontSize: 15, color: palette.ink, fontWeight: '600', flexShrink: 1 },
@@ -885,38 +886,39 @@ const styles = StyleSheet.create({
   textInput: {
     backgroundColor: palette.white,
     borderWidth: 2,
-    borderColor: palette.sky,
-    borderRadius: radius.md,
-    padding: spacing.md,
+    borderColor: chrome.primary + '66',
+    borderRadius: radius.pill,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.md,
     fontSize: 16,
     color: palette.ink,
     marginBottom: spacing.md,
   },
   inputGood: { borderColor: palette.teal, backgroundColor: palette.lime + '22' },
   inputBad: { borderColor: palette.coral, backgroundColor: palette.coral + '15' },
-  writingInput: { minHeight: 220, marginTop: spacing.md, lineHeight: 24 },
+  writingInput: { minHeight: 220, marginTop: spacing.md, lineHeight: 24, borderRadius: radius.lg, textAlignVertical: 'top' },
   wordHint: { fontSize: 12, color: palette.slate, textAlign: 'center', marginTop: spacing.md },
   rubricIntro: { fontSize: 14, color: palette.slate, lineHeight: 20, marginTop: spacing.md },
   rubricCard: { gap: spacing.sm, marginTop: spacing.lg, marginBottom: spacing.lg },
   rubricRow: {
-    backgroundColor: palette.white,
-    borderRadius: radius.md,
+    backgroundColor: chrome.primary + '0d',
+    borderRadius: radius.pill,
     borderWidth: 2,
-    borderColor: palette.sky,
+    borderColor: chrome.primary + '55',
     padding: spacing.md,
   },
-  rubricRowOn: { backgroundColor: palette.lime + '33', borderColor: palette.teal },
+  rubricRowOn: { backgroundColor: chrome.primary + '14', borderColor: chrome.primary },
   rubricRowText: { fontSize: 15, color: palette.ink, fontWeight: '600' },
   rubricRowTextOn: { color: palette.ink },
   actions: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: spacing.md, marginTop: spacing.lg },
   flagBtn: { paddingVertical: spacing.sm, paddingHorizontal: spacing.md },
   flagText: { fontSize: 14, fontWeight: '700', color: palette.slate },
-  flagTextOn: { color: palette.berry },
+  flagTextOn: { color: chrome.accent },
   gateCard: {
     backgroundColor: palette.white,
     borderRadius: radius.lg,
     borderWidth: 3,
-    borderColor: palette.coral,
+    borderColor: chrome.primary,
     padding: spacing.xl,
     gap: spacing.md,
     marginTop: spacing.xl,
@@ -935,7 +937,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.lg,
   },
   resultTitle: { fontSize: 22, fontWeight: '900', color: palette.ink },
-  resultPct: { fontSize: 34, fontWeight: '900', color: palette.brand },
+  resultPct: { fontSize: 34, fontWeight: '900', color: chrome.primary },
   resultMeta: { fontSize: 14, color: palette.slate, fontWeight: '600' },
   sectionTitle: { fontSize: 16, fontWeight: '800', color: palette.ink, marginTop: spacing.xl, marginBottom: spacing.md },
   skillCard: {
@@ -946,8 +948,8 @@ const styles = StyleSheet.create({
   },
   skillLabel: { fontSize: 14, fontWeight: '800', color: palette.ink, textTransform: 'capitalize' },
   rubricLine: { fontSize: 14, color: palette.ink },
-  track: { height: 10, borderRadius: radius.pill, backgroundColor: palette.sky + '22', marginTop: spacing.sm, overflow: 'hidden' },
-  fill: { height: '100%', borderRadius: radius.pill, backgroundColor: palette.teal },
+  track: { height: 10, borderRadius: radius.pill, backgroundColor: chrome.primary + '22', marginTop: spacing.sm, overflow: 'hidden' },
+  fill: { height: '100%', borderRadius: radius.pill, backgroundColor: chrome.primary },
   skillPct: { fontSize: 12, color: palette.slate, marginTop: spacing.xs, fontWeight: '600' },
   badgeRow: { flexDirection: 'row', gap: spacing.sm, flexWrap: 'wrap', justifyContent: 'center' },
   reviewRow: {
