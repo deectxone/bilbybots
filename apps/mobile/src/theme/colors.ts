@@ -22,7 +22,7 @@ export const palette = {
   grape: '#8A6FCB',
   brand: '#5B21B6',
   brandDeep: '#3B0F8F',
-  cream: '#FBF7EE',
+  cream: '#FAF7F1',
   ink: '#22263B',
   slate: '#4B5563',
   white: '#FFFFFF',
