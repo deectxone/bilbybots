@@ -3,10 +3,35 @@ import { StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
 import { palette, radius, spacing, type } from '../theme/colors';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
+import { BilbyLogoMark } from '../components/BilbyLogo';
 import { DEFAULT_PLANNER_CONFIG } from '../planner';
 import { YEAR_LEVELS, type ChildProfile, type YearLevel } from '../types/curriculum';
 import { STATES, SUBJECTS } from '../data/subjects';
 import { PrimaryButton } from '../components/PrimaryButton';
+
+const FIELD_ACCENTS = {
+  name: palette.sky,
+  year: palette.teal,
+  state: palette.grape,
+  week: palette.sunny,
+} as const;
+
+function FieldLabel({
+  accent,
+  children,
+  first = false,
+}: {
+  accent: string;
+  children: React.ReactNode;
+  first?: boolean;
+}) {
+  return (
+    <View style={[styles.labelRow, first && styles.labelRowFirst]}>
+      <View style={[styles.labelDot, { backgroundColor: accent }]} />
+      <Text style={styles.label}>{children}</Text>
+    </View>
+  );
+}
 
 /**
  * Child-profile form. Two modes:
@@ -70,23 +95,39 @@ export function OnboardingScreen({
       onSignOut={onSignOut}
     >
       <View style={styles.heading}>
-        <Text style={styles.title}>
-          {editing ? `Setup — ${initial!.name}'s plan` : "G'day! Meet your learning buddy."}
-        </Text>
+        <View style={styles.headingRow}>
+          <View style={styles.headingMascot}>
+            <BilbyLogoMark size={44} tone="dark" />
+          </View>
+          <View style={styles.headingText}>
+            <Text style={styles.eyebrow}>{editing ? 'Settings' : 'Welcome'}</Text>
+            <Text style={styles.title}>
+              {editing ? `Setup — ${initial!.name}'s plan` : "G'day! Meet your learning buddy."}
+            </Text>
+            <Text style={styles.headingSub}>
+              {editing
+                ? 'Tweak the plan, subjects and pacing for your child.'
+                : "A learning plan made just for your child — it takes a minute."}
+            </Text>
+          </View>
+        </View>
       </View>
 
       <View style={styles.form}>
-      <Text style={styles.label}>Child's name</Text>
-      <TextInput
-        style={styles.input}
-        value={name}
-        onChangeText={setName}
-        placeholder="e.g. Mia"
-        placeholderTextColor={palette.slate}
-        accessibilityLabel="Child's name"
-      />
+      <FieldLabel accent={FIELD_ACCENTS.name} first>Child's name</FieldLabel>
+      <View style={styles.inputWrap}>
+        <Icon name="pen" tint={FIELD_ACCENTS.name} size={18} />
+        <TextInput
+          style={styles.input}
+          value={name}
+          onChangeText={setName}
+          placeholder="e.g. Mia"
+          placeholderTextColor={palette.slate}
+          accessibilityLabel="Child's name"
+        />
+      </View>
 
-      <Text style={styles.label}>School year</Text>
+      <FieldLabel accent={FIELD_ACCENTS.year}>School year</FieldLabel>
       <View style={styles.yearGrid}>
         {YEAR_LEVELS.map((y) => {
           const selected = y === year;
@@ -107,7 +148,7 @@ export function OnboardingScreen({
         })}
       </View>
 
-      <Text style={styles.label}>State (curriculum)</Text>
+      <FieldLabel accent={FIELD_ACCENTS.state}>State (curriculum)</FieldLabel>
       <View style={styles.stateRow}>
         {STATES.slice(0, 4).map((s) => {
           const selected = s.id === stateId;
@@ -128,7 +169,7 @@ export function OnboardingScreen({
         })}
       </View>
 
-      <Text style={styles.label}>Joined in school week</Text>
+      <FieldLabel accent={FIELD_ACCENTS.week}>Joined in school week</FieldLabel>
       <View style={styles.weekRow}>
         <Pressable
           onPress={() => setJoinWeek((w) => Math.max(1, w - 1))}
@@ -169,7 +210,7 @@ export function OnboardingScreen({
         </Pressable>
       )}
 
-      <Text style={styles.label}>Subjects in this plan</Text>
+      <FieldLabel accent={palette.teal}>Subjects in this plan</FieldLabel>
       <View style={styles.subjectList}>
         {SUBJECTS.map((subj) => {
           const on = subjects.includes(subj.id);
@@ -258,11 +299,36 @@ export function OnboardingScreen({
 }
 
 const styles = StyleSheet.create({
-  heading: { paddingHorizontal: spacing.lg, marginTop: spacing.lg, marginBottom: spacing.md },
+  heading: { paddingHorizontal: spacing.lg, marginTop: spacing.lg, marginBottom: spacing.lg },
+  headingRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
+  headingMascot: {
+    width: 64,
+    height: 64,
+    borderRadius: radius.md,
+    backgroundColor: palette.grape + '1a',
+    borderWidth: 2,
+    borderColor: palette.grape + '33',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headingText: { flex: 1 },
+  eyebrow: {
+    fontSize: type.label,
+    fontWeight: '800',
+    color: palette.grape,
+    textTransform: 'uppercase',
+    letterSpacing: 1.2,
+    marginBottom: 2,
+  },
   title: { fontSize: type.h1, fontWeight: '900', color: palette.ink },
+  headingSub: {
+    fontSize: type.bodySmall,
+    color: palette.slate,
+    marginTop: spacing.xs,
+    lineHeight: 18,
+  },
   form: {
     marginHorizontal: spacing.lg,
-    marginTop: -spacing.lg,
     backgroundColor: palette.white,
     borderRadius: radius.lg,
     padding: spacing.lg,
@@ -272,24 +338,34 @@ const styles = StyleSheet.create({
     shadowRadius: 14,
     elevation: 4,
   },
-  label: { fontSize: 13, fontWeight: '800', color: palette.ink, textTransform: 'uppercase', marginTop: spacing.lg, marginBottom: spacing.sm },
-  input: {
-    backgroundColor: palette.white,
+  labelRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginTop: spacing.lg, marginBottom: spacing.sm },
+  labelRowFirst: { marginTop: 0 },
+  labelDot: { width: 8, height: 8, borderRadius: 4 },
+  label: { fontSize: 13, fontWeight: '800', color: palette.ink, textTransform: 'uppercase', letterSpacing: 0.4 },
+  inputWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    backgroundColor: palette.sky + '14',
     borderRadius: radius.md,
-    padding: spacing.md,
+    borderWidth: 2,
+    borderColor: palette.sky + '66',
+    paddingHorizontal: spacing.md,
+  },
+  input: {
+    flex: 1,
+    paddingVertical: spacing.md,
     fontSize: 17,
     color: palette.ink,
-    borderWidth: 2,
-    borderColor: palette.sky,
   },
   yearGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
   yearPill: {
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
     borderRadius: radius.pill,
-    backgroundColor: palette.white,
+    backgroundColor: palette.sky + '14',
     borderWidth: 2,
-    borderColor: palette.sky,
+    borderColor: palette.sky + '55',
     minWidth: 52,
     alignItems: 'center',
   },
@@ -304,35 +380,44 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     borderWidth: 2,
     borderColor: palette.grape,
-    backgroundColor: palette.white,
+    backgroundColor: palette.grape + '14',
     alignItems: 'center',
     justifyContent: 'center',
   },
   weekBtnText: { fontSize: 24, fontWeight: '900', color: palette.grape, lineHeight: 28 },
-  weekValue: { flex: 1, alignItems: 'center' },
+  weekValue: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: palette.sunny + '22',
+    borderWidth: 2,
+    borderColor: palette.sunny + '88',
+    borderRadius: radius.md,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
+  },
   weekValueText: { fontSize: 17, fontWeight: '900', color: palette.ink },
   weekValueSub: { fontSize: 12, color: palette.slate, marginTop: 2 },
   replanRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.md,
-    backgroundColor: palette.white,
+    backgroundColor: palette.grape + '0d',
     borderRadius: radius.md,
     borderWidth: 2,
     borderColor: palette.grape + '33',
     padding: spacing.md,
     marginTop: spacing.lg,
   },
-  replanRowOn: { borderColor: palette.grape },
+  replanRowOn: { backgroundColor: palette.grape + '1a', borderColor: palette.grape },
   replanTitle: { fontSize: 15, fontWeight: '800', color: palette.ink },
   replanBody: { fontSize: 12, color: palette.slate, lineHeight: 18, marginTop: 2 },
   statePill: {
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
     borderRadius: radius.md,
-    backgroundColor: palette.white,
+    backgroundColor: palette.grape + '14',
     borderWidth: 2,
-    borderColor: palette.grape + '66',
+    borderColor: palette.grape + '55',
   },
   statePillSelected: { backgroundColor: palette.grape, borderColor: palette.grape },
   stateText: { fontSize: 13, fontWeight: '700', color: palette.ink },
@@ -342,13 +427,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.md,
-    backgroundColor: palette.white,
+    backgroundColor: palette.sky + '0d',
     borderRadius: radius.md,
     borderWidth: 2,
-    borderColor: palette.sky + '66',
+    borderColor: palette.sky + '44',
     padding: spacing.md,
   },
-  subjectRowOn: { borderColor: palette.teal, borderWidth: 2 },
+  subjectRowOn: { backgroundColor: palette.teal + '0d', borderColor: palette.teal, borderWidth: 2 },
   subjectIcon: {
     width: 40,
     height: 40,
