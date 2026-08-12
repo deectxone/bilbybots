@@ -6,9 +6,10 @@ import { BilbyLogo } from './BilbyLogo';
 /**
  * Sticky top header (rendered OUTSIDE each screen's ScrollView).
  *
- * Deliberately minimal: the BilbyBots logo (tapping it goes home) and the
- * active child's profile (name + Year). Settings / Sign out live in the slim
- * non-sticky bar below (see ScreenShell), so the top stays calm.
+ * Deliberately minimal and calm: a dark maroon band with the BilbyBots logo
+ * in light (tapping it goes home) and the active child's profile (name +
+ * Year). Settings / Sign out live in the slim non-sticky bar below (see
+ * ScreenShell), so the top stays quiet.
  */
 export function AppHeader({
   child,
@@ -32,19 +33,19 @@ export function AppHeader({
         hitSlop={8}
         style={({ pressed }) => [styles.logoWrap, pressed && styles.pressed]}
       >
-        <BilbyLogo markSize={28} textSize={18} />
+        <BilbyLogo markSize={30} textSize={19} tone="light" />
       </Pressable>
 
       {child && (
         <View style={styles.profile} accessibilityLabel={`${profileName}, Year ${child.year}`}>
-          <View style={styles.avatar}>
-            <Text style={styles.avatarText}>{profileName?.charAt(0).toUpperCase()}</Text>
-          </View>
           <View style={styles.meta}>
             <Text style={styles.name} numberOfLines={1}>
               {profileName}
             </Text>
             <Text style={styles.year}>Year {child.year}</Text>
+          </View>
+          <View style={styles.avatar}>
+            <Text style={styles.avatarText}>{profileName?.charAt(0).toUpperCase()}</Text>
           </View>
         </View>
       )}
@@ -60,24 +61,28 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.sm,
     paddingBottom: spacing.sm,
-    backgroundColor: palette.white,
-    borderBottomWidth: 1,
-    borderBottomColor: palette.grape + '22',
+    backgroundColor: palette.header,
     zIndex: 20,
   },
   logoWrap: { paddingVertical: spacing.xs },
   profile: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  meta: { alignItems: 'flex-end' },
+  name: { fontSize: 15, fontWeight: '800', color: palette.white },
+  year: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: palette.white,
+    opacity: 0.7,
+    textTransform: 'uppercase',
+  },
   avatar: {
     width: 34,
     height: 34,
     borderRadius: radius.pill,
-    backgroundColor: palette.grape,
+    backgroundColor: palette.headerAccent,
     alignItems: 'center',
     justifyContent: 'center',
   },
   avatarText: { color: palette.white, fontSize: 15, fontWeight: '900' },
-  meta: { alignItems: 'flex-end' },
-  name: { fontSize: 15, fontWeight: '800', color: palette.ink },
-  year: { fontSize: 11, fontWeight: '700', color: palette.slate, textTransform: 'uppercase' },
   pressed: { opacity: 0.6 },
 });

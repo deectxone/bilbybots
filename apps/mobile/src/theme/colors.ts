@@ -17,6 +17,8 @@ export const palette = {
   brand: '#4E148C',
   brandDeep: '#3A0D6B',
   blue: '#1C4CF6',
+  header: '#61032A',
+  headerAccent: '#CB1345',
   cream: '#F7F7F8',
   ink: '#1C1C1C',
   slate: '#5A5F66',

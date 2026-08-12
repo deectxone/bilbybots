@@ -7,26 +7,30 @@ import { palette } from '../theme/colors';
  * so it renders crisp at any size, a 24px header mark and a 72px onboarding
  * hero mark are the same component, just scaled.
  */
-export function BilbyLogoMark({ size = 32 }: { size?: number }) {
+export function BilbyLogoMark({ size = 32, tone = 'dark' }: { size?: number; tone?: 'dark' | 'light' }) {
+  const main = tone === 'light' ? palette.white : palette.grape;
+  const inner = tone === 'light' ? palette.white + 'cc' : palette.berry;
+  const face = tone === 'light' ? palette.white + '33' : palette.cream;
+  const features = tone === 'light' ? palette.white : palette.ink;
   return (
     <Svg width={size} height={size} viewBox="0 0 100 100">
       {/* ears */}
-      <Ellipse cx={24} cy={26} rx={15} ry={24} fill={palette.grape} transform="rotate(-22 24 26)" />
-      <Ellipse cx={76} cy={26} rx={15} ry={24} fill={palette.grape} transform="rotate(22 76 26)" />
-      <Ellipse cx={24} cy={28} rx={7} ry={14} fill={palette.berry} transform="rotate(-22 24 28)" />
-      <Ellipse cx={76} cy={28} rx={7} ry={14} fill={palette.berry} transform="rotate(22 76 28)" />
+      <Ellipse cx={24} cy={26} rx={15} ry={24} fill={main} transform="rotate(-22 24 26)" />
+      <Ellipse cx={76} cy={26} rx={15} ry={24} fill={main} transform="rotate(22 76 26)" />
+      <Ellipse cx={24} cy={28} rx={7} ry={14} fill={inner} transform="rotate(-22 24 28)" />
+      <Ellipse cx={76} cy={28} rx={7} ry={14} fill={inner} transform="rotate(22 76 28)" />
       {/* head */}
-      <Circle cx={50} cy={58} r={36} fill={palette.grape} />
-      <Ellipse cx={50} cy={70} rx={19} ry={14} fill={palette.cream} />
+      <Circle cx={50} cy={58} r={36} fill={main} />
+      <Ellipse cx={50} cy={70} rx={19} ry={14} fill={face} />
       {/* eyes */}
-      <Circle cx={38} cy={54} r={6.5} fill={palette.ink} />
-      <Circle cx={62} cy={54} r={6.5} fill={palette.ink} />
+      <Circle cx={38} cy={54} r={6.5} fill={features} />
+      <Circle cx={62} cy={54} r={6.5} fill={features} />
       <Circle cx={40} cy={51.8} r={1.9} fill={palette.white} />
       <Circle cx={64} cy={51.8} r={1.9} fill={palette.white} />
       {/* nose */}
-      <Ellipse cx={50} cy={68} rx={5} ry={3.8} fill={palette.ink} />
+      <Ellipse cx={50} cy={68} rx={5} ry={3.8} fill={features} />
       {/* smile */}
-      <Path d="M 42 76 Q 50 82 58 76" stroke={palette.ink} strokeWidth={2.2} fill="none" strokeLinecap="round" />
+      <Path d="M 42 76 Q 50 82 58 76" stroke={features} strokeWidth={2.2} fill="none" strokeLinecap="round" />
     </Svg>
   );
 }
@@ -45,7 +49,7 @@ export function BilbyLogo({
   const accent = tone === 'light' ? palette.sunny : palette.grape;
   return (
     <View style={styles.row}>
-      <BilbyLogoMark size={markSize} />
+      <BilbyLogoMark size={markSize} tone={tone} />
       <Text style={[styles.word, { fontSize: textSize, color: primary }]}>
         Bilby<Text style={{ color: accent }}>Bots</Text>
       </Text>
