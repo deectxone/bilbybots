@@ -11,7 +11,7 @@
 - [x] **NAPLAN practice facade**: original Y3/5/7/9 items across reading, writing, conventions, numeracy
 - [x] **Public repo**: README, GitHub description, licensing note
 
-**Current focus (Phase 1):** real navigation, curriculum ingestion pipeline, content review/expansion, then soft-launch. Adaptive-pacing planner core is now implemented and tested.
+**Current focus (Phase 1):** curriculum ingestion pipeline, content review/expansion, then soft-launch. Adaptive-pacing planner core + expo-router navigation are now implemented.
 
 ## Phase 0 — Foundations (research & spec) — complete
 - [x] Curriculum feasibility research (ACARA v9.0, NESA & states, licensing)
@@ -34,7 +34,7 @@
 0. **Extend scaffold → app:**
    - [x] Google OAuth (Supabase) — live on web + native
    - [x] Planner wire-up (facade `buildWeekPlan`) + AsyncStorage persistence + Setup screen
-   - [ ] Real navigation (still a state-switch mini-nav in `App.tsx`; no router yet)
+   - [x] Real navigation (expo-router — file-based routes, auth gate, OAuth callback route, deep links)
    - [ ] SQLite offline cache (`expo-sqlite` — not started)
 1. **Curriculum ingestion pipeline** (MRAC JSON + Excel → Postgres) with coverage tests (seed from the Year‑6 topic indexes). Content tables exist in the schema but are empty; lessons still ship as TS data.
 2. **Backend** on Supabase (Postgres + RLS + storage):
