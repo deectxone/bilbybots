@@ -1,6 +1,19 @@
 # BilbyBots — Roadmap
 
-## Phase 0 — Foundations (research & spec) ◄ current
+## Progress so far (updated Aug 2026)
+
+**Shipped since this roadmap was written:**
+
+- [x] **Google Auth live** (Supabase OAuth) on web + native deep-link; production redirect fixed via `EXPO_PUBLIC_SITE_URL`
+- [x] **Supabase backend foundation**: full schema + RLS (`apps/mobile/supabase/migrations/`), contact form backed by `contact_messages`
+- [x] **Account sync**: family / child / progress mirror to Supabase (`src/utils/sync.ts`) — pull on sign-in, debounced idempotent push
+- [x] **Web deployment**: static export on Vercel at `bilbybots.com` (custom domain)
+- [x] **NAPLAN practice facade**: original Y3/5/7/9 items across reading, writing, conventions, numeracy
+- [x] **Public repo**: README, GitHub description, licensing note
+
+**Current focus (Phase 1):** real navigation + adaptive-pacing planner, curriculum ingestion pipeline, content review/expansion, then soft-launch.
+
+## Phase 0 — Foundations (research & spec) — complete
 - [x] Curriculum feasibility research (ACARA v9.0, NESA & states, licensing)
 - [x] Product spec, adaptive-pacing spec, architecture, this roadmap
 - [x] K–10 scope confirmed (Years 7–10 subject structure mapped)
@@ -18,24 +31,35 @@
 ## Phase 1 — MVP (target: 3–4 months from green light)
 **Scope:** English + Maths, Years 1–6, AC v9.0 / NSW 2022 outcomes. Web + iOS + Android via React/Expo. Google Auth. Lite + Pro billing. Badges/streaks + basic advance-level. Adaptive pacing for late joins.
 
-0. **Extend scaffold → app:** add Google OAuth (Supabase), planner wire-up, real navigation, SQLite offline cache.
-1. **Curriculum ingestion pipeline** (MRAC JSON + Excel → Postgres) with coverage tests (seed from the Year‑6 topic indexes).
-2. **Backend** on Supabase (Postgres + RLS + storage): auth, children, plans, progress, badges, subscriptions.
-3. **Planner** implementing `adaptive-pacing.md`; validator tests for 100% coverage.
+0. **Extend scaffold → app:**
+   - [x] Google OAuth (Supabase) — live on web + native
+   - [x] Planner wire-up (facade `buildWeekPlan`) + AsyncStorage persistence + Setup screen
+   - [ ] Real navigation (still a state-switch mini-nav in `App.tsx`; no router yet)
+   - [ ] SQLite offline cache (`expo-sqlite` — not started)
+1. **Curriculum ingestion pipeline** (MRAC JSON + Excel → Postgres) with coverage tests (seed from the Year‑6 topic indexes). Content tables exist in the schema but are empty; lessons still ship as TS data.
+2. **Backend** on Supabase (Postgres + RLS + storage):
+   - [x] Auth, full schema + RLS, children + progress sync (live)
+   - [ ] plans (`plan_snapshot`/`plan_week`), badges (`child_badge`), subscriptions wired into the app (tables exist, unused)
+   - [ ] Object storage for media
+3. [ ] **Planner** implementing `adaptive-pacing.md`; validator tests for 100% coverage (currently a facade week-plan builder).
 4. **Content authoring** foundation: Year‑6 English + Maths + Science + HASS topics authored (✓ facade-quality, see Phase 0); still needed — human curriculum review/sign-off, richer question banks per topic (currently 2–5 of the spec'd 6–8), template-driven authoring tooling. Expand to other years afterwards.
-5. **Client MVP:** completion of the facade into a real app (planner-driven weekly plan, learn-first reader, assignment runner, badges, parent dashboard with coverage %).
-6. **Offline cache + sync** for the current week (SQLite on device).
-7. **Soft-launch:** small NSW parent pilot cohort; measure completion, accuracy, retention.
+5. [ ] **Client MVP:** completion of the facade into a real app (planner-driven weekly plan, learn-first reader, assignment runner, badges, parent dashboard with coverage %).
+6. **Offline cache + sync** for the current week:
+   - [x] On-device AsyncStorage persistence + Supabase pull/push for child/progress
+   - [ ] SQLite on device (`expo-sqlite`)
+7. [ ] **Soft-launch:** small NSW parent pilot cohort; measure completion, accuracy, retention.
 
 ## Phase 2 — Content expansion & video (4–6 months)
-- Science + HASS (Years 1–6).
+- Science + HASS (Years 1–6). Facade topic banks exist in `src/data/year*/` for most years; pending: full deep-content coverage, curriculum review/sign-off.
 - Deep-content expansion to full-year coverage for all six years across English/Maths/Science/HASS.
 - **AI-generated video lessons** driven by `docs/content/year-6/video-prompts/` — Google Flow (Nano Banana stills + Gemini Omni Flash / Veo 3.1) for pilots, then the Gemini API batch job queue for scale; human accuracy review (`ready` gate) before release.
-- K–10 expansion: author English/Maths/Science/History topic sets for Years 7–10 (same planner).
+- K–10 expansion: author English/Maths/Science/History topic sets for Years 7–10 (same planner). Facade topic banks for Y7–10 already scaffolded in `src/data/`.
 - Parent progress reports (PDF) + advanced insights.
 - QLD / VIC / WA state packs via curriculum mapping tables.
 - Advance-level depth (honours) content for all subjects.
-- **NAPLAN practice module** (`naplan-test-spec.md`): Phase 2a = numeracy + conventions of language (Y3/5, original items, timed + practice mode); Phase 2b = reading stimulus bank + writing rubric (all of Y3/5/7/9), Y7/9 NC/calculator numeracy.
+- **NAPLAN practice module** (`naplan-test-spec.md`):
+  - [x] Original-item facade for all four domains (reading, writing, conventions, numeracy) on Y3/5/7/9 with timed + practice modes
+  - [ ] Phase 2a = expanded numeracy + conventions item banks; Phase 2b = reading stimulus bank + writing rubric depth, Y7/9 NC/calculator numeracy
 
 ## Phase 3 — Scale & polish
 - Analytics layer (ClickHouse/OLAP replica) for parent dashboards & product telemetry.
