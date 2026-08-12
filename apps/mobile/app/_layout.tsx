@@ -6,6 +6,7 @@ import { AppFrame } from '../src/components/AppFrame';
 import { BilbyLogo } from '../src/components/BilbyLogo';
 import { BilbyMascot } from '../src/components/BilbyMascot';
 import { palette } from '../src/theme/colors';
+import '../src/theme/web.css';
 
 function Splash() {
   return (

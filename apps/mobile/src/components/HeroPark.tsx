@@ -35,8 +35,8 @@ export function HeroPark({ children }: { children: React.ReactNode }) {
 }
 
 const styles = StyleSheet.create({
-  wrap: { height: 560, width: '100%' },
-  bg: { flex: 1 },
+  wrap: { flex: 1, minHeight: 560, width: '100%' },
+  bg: { flex: 1, width: '100%', height: '100%' },
   bgImage: { resizeMode: 'cover' },
   content: {
     flex: 1,

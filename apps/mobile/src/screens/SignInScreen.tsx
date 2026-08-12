@@ -3,6 +3,7 @@ import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from
 import { chrome, palette, radius, spacing, type } from '../theme/colors';
 import { AppHeader } from '../components/AppHeader';
 import { AppFooter } from '../components/AppFooter';
+import { FloatingDots } from '../components/FloatingDots';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { Icon, type IconName } from '../components/illustrations/icons';
 import { HeroPark } from '../components/HeroPark';
@@ -66,6 +67,7 @@ export function SignInScreen({
   return (
     <View style={styles.screen}>
       <AppHeader onHome={() => {}} />
+      <FloatingDots tone="dark" count={36} sizeRange={[6, 26]} maxOpacity={0.12} />
       <ScrollView contentContainerStyle={styles.root} style={styles.scroll} bounces={false}>
         <HeroPark>
           <View style={styles.heroText}>
@@ -166,8 +168,8 @@ export function SignInScreen({
 }
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: palette.cream },
-  scroll: { flex: 1, backgroundColor: palette.cream },
+  screen: { flex: 1, backgroundColor: palette.cream, zIndex: 0 },
+  scroll: { flex: 1 },
   root: { paddingBottom: spacing.xl * 2, flexGrow: 1 },
   heroText: { alignItems: 'center', marginTop: spacing.sm },
   headline: {
@@ -236,10 +238,10 @@ const styles = StyleSheet.create({
   features: { paddingHorizontal: spacing.xl, marginTop: spacing.xl, gap: spacing.md },
   feature: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     gap: spacing.md,
     backgroundColor: palette.white + 'd9',
-    borderRadius: radius.md,
+    borderRadius: radius.pill,
     padding: spacing.md,
   },
   featureIcon: {

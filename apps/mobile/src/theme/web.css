@@ -1,0 +1,12 @@
+/*
+ * Full-bleed web reset. Expo's default web template omits `body { margin: 0 }`,
+ * so the browser's default 8px body margin insets the app and leaves a visible
+ * frame around every screen (header band, hero photo, footer) on all sides.
+ * This resets it so the app background truly spans the whole viewport.
+ * Web-only: Expo automatically ignores global stylesheets on native.
+ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
