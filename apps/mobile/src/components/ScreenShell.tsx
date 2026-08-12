@@ -39,13 +39,13 @@ export function ScreenShell({
 }) {
   return (
     <View style={styles.root}>
-      <AppHeader child={child} isGuest={isGuest} onHome={onHome} />
+      <AppHeader child={child} isGuest={isGuest} onHome={onHome} onProfilePress={onSetup} />
       <ScrollView
         contentContainerStyle={[styles.content, contentContainerStyle]}
         style={[styles.scroll, style]}
       >
         <ResponsiveColumn>
-          <SlimBar onSetup={onSetup} onSignOut={onSignOut} />
+          <SlimBar onSignOut={onSignOut} />
           {children}
         </ResponsiveColumn>
       </ScrollView>

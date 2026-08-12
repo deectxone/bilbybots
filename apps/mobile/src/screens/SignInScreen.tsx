@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { palette, radius, spacing, type } from '../theme/colors';
-import { BilbyLogo } from '../components/BilbyLogo';
+import { AppHeader } from '../components/AppHeader';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { Icon, type IconName } from '../components/illustrations/icons';
 import { HeroPark } from '../components/HeroPark';
@@ -10,9 +10,10 @@ import { isAuthConfigured } from '../utils/supabase';
 import { signInWithGoogle } from '../utils/auth';
 
 /**
- * Google sign-in gate, styled as the product landing page (HiBob/ELMO
- * inspired): hero visual, headline, feature rows, trust chips, CTA and a
- * legal footer. Footer links open in-app legal pages.
+ * Google sign-in gate, styled as the product landing page: a photographic
+ * hero band (kids learning in a sunny park), headline, feature rows, trust
+ * chips, CTA and a legal footer. Uses the same universal dark header as every
+ * other screen.
  */
 export function SignInScreen({
   onSignedIn,
@@ -65,9 +66,7 @@ export function SignInScreen({
 
   return (
     <View style={styles.screen}>
-      <View style={styles.stickyHeader}>
-        <BilbyLogo markSize={40} textSize={22} tone="dark" />
-      </View>
+      <AppHeader onHome={() => {}} />
       <ScrollView contentContainerStyle={styles.root} style={styles.scroll} bounces={false}>
         <ResponsiveColumn>
         <HeroPark>
@@ -189,16 +188,6 @@ const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: palette.cream },
   scroll: { flex: 1, backgroundColor: palette.cream },
   root: { paddingBottom: spacing.xl * 2, flexGrow: 1 },
-  stickyHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: spacing.xl,
-    paddingVertical: spacing.md,
-    backgroundColor: palette.cream,
-    borderBottomWidth: 1,
-    borderBottomColor: palette.ink + '14',
-    elevation: 4,
-  },
   heroSpacer: { flex: 1 },
   heroText: { alignItems: 'center', marginTop: spacing.sm },
   headline: {

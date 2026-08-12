@@ -15,6 +15,7 @@ export function AppHeader({
   child,
   isGuest = false,
   onHome,
+  onProfilePress,
 }: {
   /** Active child profile (name + Year shown in the header when present). */
   child?: ChildProfile | null;
@@ -22,6 +23,8 @@ export function AppHeader({
   isGuest?: boolean;
   /** Tapping the logo returns to Home. */
   onHome: () => void;
+  /** Tapping the kid's profile opens Settings. */
+  onProfilePress?: () => void;
 }) {
   const profileName = isGuest ? 'Guest' : child?.name;
   return (
@@ -37,7 +40,13 @@ export function AppHeader({
       </Pressable>
 
       {child && (
-        <View style={styles.profile} accessibilityLabel={`${profileName}, Year ${child.year}`}>
+        <Pressable
+          onPress={onProfilePress}
+          accessibilityRole="button"
+          accessibilityLabel={`Open settings for ${profileName}, Year ${child.year}`}
+          hitSlop={8}
+          style={({ pressed }) => [styles.profile, pressed && styles.pressed]}
+        >
           <View style={styles.meta}>
             <Text style={styles.name} numberOfLines={1}>
               {profileName}
@@ -47,7 +56,7 @@ export function AppHeader({
           <View style={styles.avatar}>
             <Text style={styles.avatarText}>{profileName?.charAt(0).toUpperCase()}</Text>
           </View>
-        </View>
+        </Pressable>
       )}
     </View>
   );

@@ -1,66 +1,34 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text } from 'react-native';
 import { palette, radius, spacing } from '../theme/colors';
-import { Icon, type IconName } from './illustrations/icons';
+import { Icon } from './illustrations/icons';
 
 /**
- * Slim secondary bar shown under the sticky header with Settings and
- * Sign out. Non-sticky by design (rendered inside the screen's scroll
- * content) so it's a quiet utility row, not permanent chrome — matching how
- * Khan/IXL tuck account actions away instead of crowding the top.
+ * Slim secondary bar shown under the sticky header with the Sign out action.
+ * Non-sticky by design (rendered at the top of the screen's scroll content)
+ * so it's a quiet utility row. Aligned to the right edge.
  */
-export function SlimBar({
-  onSetup,
-  onSignOut,
-}: {
-  onSetup?: () => void;
-  onSignOut?: () => void;
-}) {
-  if (!onSetup && !onSignOut) return null;
-  return (
-    <View style={styles.bar}>
-      {onSetup && <Action icon="cog" label="Settings" onPress={onSetup} />}
-      {onSignOut && <Action icon="lock" label="Sign out" onPress={onSignOut} />}
-    </View>
-  );
-}
-
-function Action({
-  icon,
-  label,
-  onPress,
-}: {
-  icon: IconName;
-  label: string;
-  onPress: () => void;
-}) {
+export function SlimBar({ onSignOut }: { onSignOut?: () => void }) {
+  if (!onSignOut) return null;
   return (
     <Pressable
-      onPress={onPress}
+      onPress={onSignOut}
       accessibilityRole="button"
-      accessibilityLabel={label}
+      accessibilityLabel="Sign out"
       hitSlop={6}
       style={({ pressed }) => [styles.action, pressed && styles.pressed]}
     >
-      <Icon name={icon} tint={palette.slate} size={15} />
-      <Text style={styles.label}>{label}</Text>
+      <Icon name="lock" tint={palette.slate} size={15} />
+      <Text style={styles.label}>Sign out</Text>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  bar: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    gap: spacing.md,
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.xs,
-    backgroundColor: palette.cream,
-  },
   action: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
+    alignSelf: 'flex-end',
     paddingVertical: spacing.xs,
     paddingHorizontal: spacing.sm,
     borderRadius: radius.pill,

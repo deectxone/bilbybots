@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { palette, radius, spacing, gradients } from '../theme/colors';
-import { BilbyLogo } from '../components/BilbyLogo';
+import { StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
+import { palette, radius, spacing, type } from '../theme/colors';
+import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
 import { YEAR_LEVELS, type ChildProfile, type YearLevel } from '../types/curriculum';
 import { STATES, SUBJECTS } from '../data/subjects';
@@ -58,18 +57,18 @@ export function OnboardingScreen({
     });
 
   return (
-    <ScrollView contentContainerStyle={styles.container} style={styles.scroll}>
-      <LinearGradient
-        colors={[...gradients.heroAlt]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.hero}
-      >
-        <BilbyLogo markSize={56} textSize={30} tone="light" />
-        <Text style={styles.hello}>
-          {editing ? `Setup, ${initial!.name}'s learning plan` : "G'day! Meet your learning buddy."}
+    <ScreenShell
+      active="Setup"
+      child={initial}
+      onHome={onCancel ?? (() => {})}
+      onSetup={() => {}}
+      onSignOut={onSignOut}
+    >
+      <View style={styles.heading}>
+        <Text style={styles.title}>
+          {editing ? `Setup — ${initial!.name}'s plan` : "G'day! Meet your learning buddy."}
         </Text>
-      </LinearGradient>
+      </View>
 
       <View style={styles.form}>
       <Text style={styles.label}>Child's name</Text>
@@ -208,14 +207,13 @@ export function OnboardingScreen({
         </View>
       )}
       </View>
-    </ScrollView>
+    </ScreenShell>
   );
 }
 
 const styles = StyleSheet.create({
-  scroll: { backgroundColor: palette.cream },
-  container: { paddingBottom: spacing.xl * 2, flexGrow: 1 },
-  hero: { padding: spacing.xl, paddingBottom: spacing.xl * 1.4 },
+  heading: { paddingHorizontal: spacing.lg, marginTop: spacing.lg, marginBottom: spacing.md },
+  title: { fontSize: type.h1, fontWeight: '900', color: palette.ink },
   form: {
     marginHorizontal: spacing.lg,
     marginTop: -spacing.lg,
@@ -228,7 +226,6 @@ const styles = StyleSheet.create({
     shadowRadius: 14,
     elevation: 4,
   },
-  hello: { fontSize: 17, color: palette.white, opacity: 0.95, marginTop: spacing.md },
   label: { fontSize: 13, fontWeight: '800', color: palette.ink, textTransform: 'uppercase', marginTop: spacing.lg, marginBottom: spacing.sm },
   input: {
     backgroundColor: palette.white,
