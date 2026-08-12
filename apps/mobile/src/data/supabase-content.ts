@@ -38,11 +38,8 @@ interface TopicRow {
 interface LessonRow {
   id: string;
   topic_id: string;
-  body_json: {
-    body: string[];
-    illustrations: unknown[];
-    learnTimeMin: number;
-  };
+  /** jsonb — may arrive as a parsed object or a JSON string. */
+  body_json: unknown;
 }
 
 interface QuestionRow {
@@ -57,11 +54,8 @@ interface QuestionRow {
 interface AssignmentRow {
   id: string;
   topic_id: string;
-  questions_meta: {
-    nominalCount: number;
-    compactCount: number;
-    questionIds: string[];
-  };
+  /** jsonb — may arrive as a parsed object or a JSON string. */
+  questions_meta: unknown;
 }
 
 const LEARNING_AREA_TO_SUBJECT: Record<string, SubjectId> = {
@@ -105,6 +99,24 @@ export interface ContentRows {
 }
 
 /**
+ * Parse a value that may be a JSONB object/array (supabase-js parses jsonb
+ * into JS values) or a JSON string (some clients / older PostgREST versions
+ * return jsonb columns as text). Falls back to the raw value.
+ */
+function parseJson<T>(value: unknown): T | undefined {
+  if (value === null || value === undefined) return undefined;
+  if (typeof value === 'object') return value as T;
+  if (typeof value === 'string') {
+    try {
+      return JSON.parse(value) as T;
+    } catch {
+      return undefined;
+    }
+  }
+  return undefined;
+}
+
+/**
  * Pure mapping from seeded content rows back to app `Topic`s. Exported for
  * tests; `loadSupabaseTopicBank` fetches the rows then delegates here.
  */
@@ -126,7 +138,10 @@ export function mapContentRows(rows: ContentRows): Topic[] {
 
     const lesson = lessonByTopicId.get(row.id);
     const assignmentRow = assignmentByTopicId.get(row.id);
-    const questionIds = assignmentRow?.questions_meta.questionIds ?? [];
+    const meta = parseJson<{ nominalCount?: number; compactCount?: number; questionIds?: string[] }>(
+      assignmentRow?.questions_meta,
+    );
+    const questionIds = meta?.questionIds ?? [];
     const assignmentQuestions = questionIds
       .map((id) => questionById.get(id))
       .filter((q): q is QuestionRow => Boolean(q))
@@ -139,6 +154,8 @@ export function mapContentRows(rows: ContentRows): Topic[] {
         difficulty: (q.difficulty as 1 | 2 | 3) ?? 1,
       }));
 
+    const body = lesson ? parseJson<{ body?: string[]; illustrations?: unknown[]; learnTimeMin?: number }>(lesson.body_json) : undefined;
+
     return [
       {
         id: row.id,
@@ -147,17 +164,17 @@ export function mapContentRows(rows: ContentRows): Topic[] {
         subject,
         strand: curriculumByCode.get(row.curriculum_codes[0])?.strand ?? '',
         cd,
-        learn: lesson
+        learn: body
           ? {
-              body: lesson.body_json.body ?? [],
-              illustrations: (lesson.body_json.illustrations ?? []) as Topic['learn']['illustrations'],
-              learnTimeMin: lesson.body_json.learnTimeMin ?? 10,
+              body: body.body ?? [],
+              illustrations: (body.illustrations ?? []) as Topic['learn']['illustrations'],
+              learnTimeMin: body.learnTimeMin ?? 10,
             }
           : { body: [], illustrations: [], learnTimeMin: 10 },
         assignment: {
           questions: assignmentQuestions,
-          nominalCount: assignmentRow?.questions_meta.nominalCount ?? row.nominal_questions,
-          compactCount: assignmentRow?.questions_meta.compactCount ?? row.min_depth_questions,
+          nominalCount: meta?.nominalCount ?? row.nominal_questions,
+          compactCount: meta?.compactCount ?? row.min_depth_questions,
         },
       },
     ];
