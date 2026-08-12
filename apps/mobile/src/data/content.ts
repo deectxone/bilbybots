@@ -121,26 +121,53 @@ const bankByYear: Partial<Record<Topic['year'], Partial<Record<SubjectId, Topic[
 
 const isYearBank = (year: string): year is Topic['year'] => year in bankByYear;
 
-/** This week's topics per subject, in curriculum order (pending the real planner). */
-export function buildWeekPlan(year: string): Topic[] {
-  if (!isYearBank(year)) return [];
-  const yearBank = bankByYear[year]!;
-  return Object.values(yearBank).flatMap((topics) => topics.slice(0, WEEK_TOPIC_COUNT));
+/**
+ * Runtime content source. When set (via `setContentSource`), it replaces the
+ * bundled TS banks for every consumer (planner, week plan, progress, sync);
+ * otherwise the local banks are used. This is how the app reads curriculum
+ * content from Supabase once signed in (see `loadSupabaseTopicBank` in
+ * `src/data/supabase-content.ts`) while still working fully offline/guest.
+ */
+let remoteTopics: Topic[] | null = null;
+
+/** Point every content consumer at a runtime topic bank (or back to local). */
+export function setContentSource(topics: Topic[] | null): void {
+  remoteTopics = topics;
 }
 
-/** Full authored bank for a year + subject, used by the Progress screen for coverage %. */
-export function fullYearBank(year: string, subject: SubjectId): Topic[] {
+function bankFor(year: string, subject: SubjectId): Topic[] {
+  if (remoteTopics) {
+    return remoteTopics.filter((t) => t.year === year && t.subject === subject);
+  }
   if (!isYearBank(year)) return [];
   return bankByYear[year]![subject] ?? [];
 }
 
-/** True when a year has any authored curriculum content (Years 1–10 today). */
+/** This week's topics per subject, in curriculum order (pending the real planner). */
+export function buildWeekPlan(year: string): Topic[] {
+  const subjects: SubjectId[] = ['mathematics', 'english', 'science', 'hass'];
+  return subjects.flatMap((subject) => bankFor(year, subject).slice(0, WEEK_TOPIC_COUNT));
+}
+
+/** Full authored bank for a year + subject, used by the Progress screen for coverage %. */
+export function fullYearBank(year: string, subject: SubjectId): Topic[] {
+  return bankFor(year, subject);
+}
+
+/** True when a year has any curriculum content (Years 1–10 today). */
 export function hasYearContent(year: string): boolean {
+  if (remoteTopics) return remoteTopics.some((t) => t.year === year);
   return isYearBank(year) && Object.values(bankByYear[year]!).some((b) => b.length > 0);
 }
 
-/** Every authored topic across all years/subjects (curriculum ingestion source). */
+/** Every topic across all years/subjects (curriculum ingestion source). */
 export function allYearTopics(): Topic[] {
+  if (remoteTopics) return remoteTopics;
+  return Object.values(bankByYear).flatMap((subjects) => Object.values(subjects).flat());
+}
+
+/** Bundled (authored) topic bank only, ignoring any runtime content source. */
+export function allLocalTopics(): Topic[] {
   return Object.values(bankByYear).flatMap((subjects) => Object.values(subjects).flat());
 }
 

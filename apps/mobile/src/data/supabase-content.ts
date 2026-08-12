@@ -1,5 +1,6 @@
 import type { Topic, SubjectId, YearLevel } from '../types/curriculum';
 import { supabase } from '../utils/supabase';
+import { allLocalTopics, setContentSource } from './content';
 
 /**
  * Supabase content reader: loads the curriculum content tables (curriculum /
@@ -171,6 +172,22 @@ export interface SupabaseContentResult {
   error?: string;
 }
 
+/**
+ * Reconcile Supabase topic uuids back to the author-facing keys (e.g.
+ * 'Y6-MAT-NN01') so `completedTopicIds` / badge refs stored against the local
+ * banks keep matching. Matches on the stable (year, subject, title) triple;
+ * any Supabase-only topic keeps its uuid.
+ */
+export function reconcileLocalIds(topics: Topic[]): Topic[] {
+  const localByKey = new Map(
+    allLocalTopics().map((t) => [`${t.year}|${t.subject}|${t.title}`, t.id]),
+  );
+  return topics.map((t) => ({
+    ...t,
+    id: localByKey.get(`${t.year}|${t.subject}|${t.title}`) ?? t.id,
+  }));
+}
+
 /** Load the full content bank from Supabase. Cached after first success. */
 export async function loadSupabaseTopicBank(): Promise<SupabaseContentResult> {
   if (cachedTopics) return { topics: cachedTopics };
@@ -208,11 +225,15 @@ export async function loadSupabaseTopicBank(): Promise<SupabaseContentResult> {
     assignments: (assignmentRes.data ?? []) as AssignmentRow[],
   });
 
-  cachedTopics = topics;
-  return { topics };
+  const reconciled = reconcileLocalIds(topics);
+
+  cachedTopics = reconciled;
+  setContentSource(reconciled);
+  return { topics: reconciled };
 }
 
-/** Drop the cache (e.g. after sign-out or a content re-seed). */
+/** Drop the cache and return content consumers to the local banks (e.g. sign-out). */
 export function clearSupabaseTopicBankCache(): void {
   cachedTopics = null;
+  setContentSource(null);
 }

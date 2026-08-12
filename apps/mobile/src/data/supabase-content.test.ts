@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { allYearTopics } from './content';
 import { buildIngestRows, mapContentRowsHelper } from './supabase-content-test-helper';
 import { uuidFromKey } from './ingest';
-import { mapContentRows, yearFromCode } from './supabase-content';
+import { mapContentRows, reconcileLocalIds, yearFromCode } from './supabase-content';
 
 vi.mock('../utils/supabase', () => ({ supabase: null }));
 
@@ -84,5 +84,22 @@ describe('supabase-content mapper (inverse of ingest)', () => {
     expect(yearFromCode('AC9M10A01')).toBe('10');
     expect(yearFromCode('AC9E1LA01')).toBe('1');
     expect(yearFromCode('not-a-code')).toBeNull();
+  });
+
+  it('reconciles supabase uuids back to author-facing topic ids', () => {
+    const sample = allYearTopics().find((t) => t.year === '6' && t.subject === 'mathematics')!;
+    const reconciled = reconcileLocalIds([
+      {
+        id: 'some-uuid',
+        title: sample.title,
+        year: sample.year,
+        subject: sample.subject,
+        strand: sample.strand,
+        cd: sample.cd,
+        learn: sample.learn,
+        assignment: sample.assignment,
+      },
+    ]);
+    expect(reconciled[0].id).toBe(sample.id);
   });
 });

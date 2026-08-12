@@ -12,6 +12,7 @@ import {
 import { getCurrentSession, onAuthStateChange } from '../utils/supabase';
 import { signOut } from '../utils/auth';
 import { pullState, pushState } from '../utils/sync';
+import { clearSupabaseTopicBankCache, loadSupabaseTopicBank } from '../data/supabase-content';
 
 /**
  * App-wide state lifted out of the old App.tsx mini-nav so expo-router routes
@@ -30,6 +31,8 @@ interface AppContextValue {
   guest: boolean;
   authReady: boolean;
   hydrated: boolean;
+  /** True once the curriculum content source is ready (local banks, or Supabase loaded). */
+  contentReady: boolean;
   activeTopic: Topic | null;
   activeQuestionCount?: number;
   activeNaplan: { year: NaplanYear; domain: NaplanDomain; test: NaplanTest } | null;
@@ -60,6 +63,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [guest, setGuest] = useState(false);
   const [authReady, setAuthReady] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const [contentReady, setContentReady] = useState(true);
 
   const hydratedRef = useRef(false);
   const dbRef = useRef<{ familyId?: string; childId?: string; ownerUserId?: string }>({});
@@ -116,11 +120,24 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (!hydratedRef.current) return;
     if (!session) {
       didPullRef.current = false;
+      clearSupabaseTopicBankCache();
+      setContentReady(true);
       return;
     }
     if (didPullRef.current) return;
     didPullRef.current = true;
     let cancelled = false;
+    setContentReady(false);
+    // Curriculum content is read-only for the app: load the seeded topic bank.
+    loadSupabaseTopicBank().then(({ topics, error }) => {
+      if (cancelled) return;
+      if (!error && topics.length > 0) {
+        console.log(`Loaded ${topics.length} topics from Supabase.`);
+      } else if (error) {
+        console.warn(`Supabase content load skipped: ${error}`);
+      }
+      setContentReady(true);
+    });
     pullState().then(({ state }) => {
       if (cancelled || !state.child) return;
       setChild(state.child);
@@ -202,6 +219,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const signOutUser = async () => {
     await signOut();
+    clearSupabaseTopicBankCache();
     dbRef.current = {};
     setGuest(false);
     setSession(null);
@@ -221,6 +239,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     };
     setChild(demoChild);
     setGuest(true);
+    setContentReady(true);
     setCompletedTopicIds([]);
     setEarnedBadges([]);
     setNaplanResults([]);
@@ -233,6 +252,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   /** Return to the sign-in gate (e.g. guest hits a paywall / wants an account). */
   const exitGuest = () => {
+    clearSupabaseTopicBankCache();
     setGuest(false);
     setChild(null);
     setActiveTopic(null);
@@ -251,6 +271,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         guest,
         authReady,
         hydrated,
+        contentReady,
         activeTopic,
         activeQuestionCount,
         activeNaplan,
