@@ -24,6 +24,7 @@ import {
 } from './src/utils/persistence';
 import { getCurrentSession, onAuthStateChange } from './src/utils/supabase';
 import { signOut } from './src/utils/auth';
+import { pullState, pushState } from './src/utils/sync';
 import { SignInScreen } from './src/screens/SignInScreen';
 import { LegalScreen, type LegalDoc } from './src/screens/LegalScreen';
 import { PRIVACY_DOC, TERMS_DOC, CONTACT_DOC } from './src/data/legal';
@@ -61,6 +62,7 @@ export default function App() {
   const [guest, setGuest] = useState(false);
 
   const hydratedRef = useRef(false);
+  const dbRef = useRef<{ familyId?: string; childId?: string; ownerUserId?: string }>({});
 
   useEffect(() => {
     let cancelled = false;
@@ -70,6 +72,7 @@ export default function App() {
       setCompletedTopicIds(state.completedTopicIds);
       setEarnedBadges(state.earnedBadges);
       setNaplanResults(state.naplanResults);
+      dbRef.current = { familyId: state.dbFamilyId, childId: state.dbChildId, ownerUserId: state.dbOwnerUserId };
       hydratedRef.current = true;
       setHydrated(true);
     });
@@ -97,9 +100,63 @@ export default function App() {
       completedTopicIds,
       earnedBadges,
       naplanResults,
+      dbFamilyId: dbRef.current.familyId,
+      dbChildId: dbRef.current.childId,
+      dbOwnerUserId: dbRef.current.ownerUserId,
     };
     savePersistedState(state);
   }, [child, completedTopicIds, earnedBadges, naplanResults, hydrated]);
+
+  // When signed in, Supabase is the source of truth for this account: adopt its
+  // child + progress once per sign-in, falling back to local state when empty.
+  useEffect(() => {
+    if (!hydratedRef.current || !session) return;
+    let cancelled = false;
+    pullState().then(({ state, error }) => {
+      if (cancelled || !state.child) return;
+      setChild(state.child);
+      setCompletedTopicIds(state.completedTopicIds ?? []);
+      setEarnedBadges(state.earnedBadges ?? []);
+      setNaplanResults(state.naplanResults ?? []);
+      dbRef.current = {
+        familyId: state.dbFamilyId,
+        childId: state.dbChildId,
+        ownerUserId: state.dbOwnerUserId,
+      };
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [hydrated, session]);
+
+  // Debounced mirror of local state to Supabase while signed in.
+  const pushTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (!hydratedRef.current || !session) return;
+    if (pushTimer.current) clearTimeout(pushTimer.current);
+    pushTimer.current = setTimeout(async () => {
+      const result = await pushState({
+        version: 1,
+        child,
+        completedTopicIds,
+        earnedBadges,
+        naplanResults,
+        dbFamilyId: dbRef.current.familyId,
+        dbChildId: dbRef.current.childId,
+        dbOwnerUserId: dbRef.current.ownerUserId,
+      });
+      if (result.ok && result.dbChildId) {
+        dbRef.current = {
+          familyId: result.dbFamilyId,
+          childId: result.dbChildId,
+          ownerUserId: result.dbOwnerUserId ?? dbRef.current.ownerUserId,
+        };
+      }
+    }, 800);
+    return () => {
+      if (pushTimer.current) clearTimeout(pushTimer.current);
+    };
+  }, [session, child, completedTopicIds, earnedBadges, naplanResults]);
 
   const goHome = () => {
     setLegalDoc(null);
@@ -120,6 +177,7 @@ export default function App() {
 
   const resetAll = async () => {
     await clearPersistedState();
+    dbRef.current = {};
     setChild(null);
     setActiveTopic(null);
     setActiveNaplan(null);
@@ -131,6 +189,7 @@ export default function App() {
 
   const handleSignOut = async () => {
     await signOut();
+    dbRef.current = {};
     setGuest(false);
     setSession(null);
     setScreen('Home');

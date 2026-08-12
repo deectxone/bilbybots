@@ -22,6 +22,10 @@ export interface PersistedAppState {
   completedTopicIds: string[];
   earnedBadges: string[];
   naplanResults: NaplanResult[];
+  /** Supabase ids of the synced family/child + the account that owns them. */
+  dbFamilyId?: string;
+  dbChildId?: string;
+  dbOwnerUserId?: string;
 }
 
 const STORAGE_KEY = 'bilbybots:app-state:v1';
@@ -111,5 +115,8 @@ function sanitise(raw: unknown): PersistedAppState {
     completedTopicIds: strings(r.completedTopicIds),
     earnedBadges: strings(r.earnedBadges),
     naplanResults: Array.isArray(r.naplanResults) ? r.naplanResults.filter(isNaplanResult) : [],
+    dbFamilyId: typeof r.dbFamilyId === 'string' ? r.dbFamilyId : undefined,
+    dbChildId: typeof r.dbChildId === 'string' ? r.dbChildId : undefined,
+    dbOwnerUserId: typeof r.dbOwnerUserId === 'string' ? r.dbOwnerUserId : undefined,
   };
 }
