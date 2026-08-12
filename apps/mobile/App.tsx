@@ -14,6 +14,7 @@ import { NaplanTestScreen } from './src/screens/NaplanTestScreen';
 import { BilbyMascot } from './src/components/BilbyMascot';
 import { BilbyLogo } from './src/components/BilbyLogo';
 import { buildNaplanTest } from './src/data/naplan/tests';
+import { buildWeekPlan } from './src/data/content';
 import {
   clearPersistedState,
   emptyPersistedState,
@@ -57,6 +58,7 @@ export default function App() {
   const [authReady, setAuthReady] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const [legalDoc, setLegalDoc] = useState<LegalDoc | null>(null);
+  const [guest, setGuest] = useState(false);
 
   const hydratedRef = useRef(false);
 
@@ -129,6 +131,42 @@ export default function App() {
 
   const handleSignOut = async () => {
     await signOut();
+    setGuest(false);
+    setSession(null);
+    setScreen('Home');
+  };
+
+  /** Guest mode: no account — a demo child + sample lesson to preview the app. */
+  const enterGuestMode = () => {
+    const demoChild: ChildProfile = {
+      id: 'guest-demo',
+      name: 'Sam',
+      avatar: 'bilby-green',
+      state: 'nsw',
+      year: '6',
+      subjects: ['mathematics', 'english'],
+      createdAt: new Date().toISOString(),
+    };
+    setChild(demoChild);
+    setGuest(true);
+    setCompletedTopicIds([]);
+    setEarnedBadges([]);
+    setNaplanResults([]);
+    const sample = buildWeekPlan('6')[0] ?? null;
+    if (sample) {
+      setActiveTopic(sample);
+      setScreen('Lesson');
+    } else {
+      setScreen('Home');
+    }
+  };
+
+  /** Return to the sign-in gate (e.g. guest hits a paywall / wants an account). */
+  const exitGuest = () => {
+    setGuest(false);
+    setChild(null);
+    setActiveTopic(null);
+    setActiveNaplan(null);
     setSession(null);
     setScreen('Home');
   };
@@ -158,6 +196,7 @@ export default function App() {
         <StatusBar style="dark" />
         <SignInScreen
           onSignedIn={() => setScreen('Home')}
+          onGuest={enterGuestMode}
           onOpenDoc={(doc) => setLegalDoc(doc === 'privacy' ? PRIVACY_DOC : doc === 'terms' ? TERMS_DOC : CONTACT_DOC)}
         />
       </View>
@@ -201,11 +240,13 @@ export default function App() {
       {screen === 'Home' && (
         <HomeScreen
           child={child}
+          isGuest={guest}
           onOpenWeekPlan={() => setScreen(child ? 'WeekPlan' : 'Onboarding')}
           onOpenNaplan={goNaplanHub}
           onProgress={goProgress}
           onSetup={goSetup}
           onSignOut={handleSignOut}
+          onSignUp={guest ? exitGuest : undefined}
         />
       )}
       {screen === 'WeekPlan' && child && (
@@ -226,6 +267,8 @@ export default function App() {
         <LessonScreen
           child={child}
           topic={activeTopic}
+          isGuest={guest}
+          onSignUp={guest ? exitGuest : undefined}
           onBack={() => setScreen('WeekPlan')}
           onHome={goHome}
           onProgress={goProgress}
@@ -267,6 +310,10 @@ export default function App() {
         <NaplanTestScreen
           test={activeNaplan.test}
           onFinish={(result) => {
+            if (guest) {
+              exitGuest();
+              return;
+            }
             setNaplanResults((results) => [result, ...results]);
             const badge = `${result.domain} practice star`;
             setEarnedBadges((badges) => (badges.includes(badge) ? badges : [...badges, badge]));

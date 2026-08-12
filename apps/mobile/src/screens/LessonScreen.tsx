@@ -43,6 +43,8 @@ export function LessonScreen({
   onSetup,
   onTopicCompleted,
   onSignOut,
+  isGuest = false,
+  onSignUp,
 }: {
   child: ChildProfile;
   topic: Topic;
@@ -52,6 +54,9 @@ export function LessonScreen({
   onSetup: () => void;
   onTopicCompleted: (topic: Topic) => void;
   onSignOut?: () => void;
+  /** Guest preview: show sign-up prompt instead of awarding badges. */
+  isGuest?: boolean;
+  onSignUp?: () => void;
 }) {
   const subject = subjectById(topic.subject);
   const [phase, setPhase] = useState<'learn' | 'practise' | 'reward'>('learn');
@@ -201,8 +206,12 @@ export function LessonScreen({
               {allCorrect && (
                 <PrimaryButton
                   tone="berry"
-                  label="Claim my badge"
+                  label={isGuest ? 'Create account to save your star' : 'Claim my badge'}
                   onPress={() => {
+                    if (isGuest) {
+                      onSignUp?.();
+                      return;
+                    }
                     setEarned(true);
                     setPhase('reward');
                     onTopicCompleted(topic);

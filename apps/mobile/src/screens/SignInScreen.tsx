@@ -16,9 +16,12 @@ import { signInWithGoogle } from '../utils/auth';
  */
 export function SignInScreen({
   onSignedIn,
+  onGuest,
   onOpenDoc,
 }: {
   onSignedIn: () => void;
+  /** Explore without an account — sample lesson + one practice test, then sign-up prompt. */
+  onGuest: () => void;
   onOpenDoc: (doc: 'privacy' | 'terms' | 'contact') => void;
 }) {
   const [busy, setBusy] = useState(false);
@@ -102,7 +105,7 @@ export function SignInScreen({
               onPress={go}
             />
             <Pressable
-              onPress={onSignedIn}
+              onPress={onGuest}
               hitSlop={12}
               accessibilityRole="button"
               accessibilityLabel="Continue without signing in"
@@ -119,7 +122,7 @@ export function SignInScreen({
               app as a guest for now.
             </Text>
             <Pressable
-              onPress={onSignedIn}
+              onPress={onGuest}
               accessibilityRole="button"
               accessibilityLabel="Explore as a guest"
               style={({ pressed }) => [styles.guestBtn, pressed && styles.pressed]}

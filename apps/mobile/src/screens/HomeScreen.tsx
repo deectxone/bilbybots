@@ -18,18 +18,24 @@ import { subjectById } from '../data/subjects';
  */
 export function HomeScreen({
   child,
+  isGuest = false,
   onOpenWeekPlan,
   onOpenNaplan,
   onProgress,
   onSetup,
   onSignOut,
+  onSignUp,
 }: {
   child: ChildProfile | null;
+  /** Guest preview session — show a "create account" banner instead of saving. */
+  isGuest?: boolean;
   onOpenWeekPlan: () => void;
   onOpenNaplan: () => void;
   onProgress: () => void;
   onSetup: () => void;
   onSignOut?: () => void;
+  /** Returns a guest to the sign-in gate. */
+  onSignUp?: () => void;
 }) {
   const naplanNext = child ? nextNaplanYear(child.year) : null;
   const planSubjects = child ? child.subjects.map((s) => subjectById(s).label).join(' + ') : '';
@@ -37,6 +43,26 @@ export function HomeScreen({
   return (
     <ScrollView contentContainerStyle={styles.container} style={styles.scroll}>
       <AppHeader active="Home" onHome={() => {}} onProgress={onProgress} onSetup={onSetup} onSignOut={onSignOut} />
+
+      {isGuest && onSignUp && (
+        <View style={styles.guestBanner}>
+          <View style={styles.guestBannerText}>
+            <Text style={styles.guestBannerTitle}>You're exploring as a guest</Text>
+            <Text style={styles.guestBannerBody}>
+              Preview a sample lesson and one practice test. Create an account to
+              save progress and unlock the full weekly plan.
+            </Text>
+          </View>
+          <Pressable
+            onPress={onSignUp}
+            accessibilityRole="button"
+            accessibilityLabel="Create an account"
+            style={({ pressed }) => [styles.guestCta, pressed && styles.pressed]}
+          >
+            <Text style={styles.guestCtaText}>Create account</Text>
+          </Pressable>
+        </View>
+      )}
 
       <LinearGradient
         colors={[...gradients.hero]}
@@ -140,6 +166,28 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     opacity: 0.95,
   },
+  guestBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+    marginHorizontal: spacing.xl,
+    marginTop: spacing.lg,
+    backgroundColor: palette.grape + '1a',
+    borderRadius: radius.md,
+    borderWidth: 1.5,
+    borderColor: palette.grape + '44',
+    padding: spacing.md,
+  },
+  guestBannerText: { flex: 1 },
+  guestBannerTitle: { fontSize: 14, fontWeight: '800', color: palette.ink },
+  guestBannerBody: { fontSize: 12, color: palette.slate, lineHeight: 17, marginTop: 2 },
+  guestCta: {
+    backgroundColor: palette.grape,
+    borderRadius: radius.pill,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
+  },
+  guestCtaText: { color: palette.white, fontSize: 13, fontWeight: '800' },
   heroText: { flex: 1 },
   greeting: { fontSize: type.display, fontWeight: '900', color: palette.white },
   sub: { fontSize: 14, color: palette.white, opacity: 0.95, marginTop: spacing.xs },
