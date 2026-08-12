@@ -96,7 +96,6 @@ export function SignInScreen({
               disabled={busy}
               tone="berry"
               label={busy ? 'Opening Google…' : 'Sign in with Google'}
-              icon="paw"
               onPress={go}
             />
             <Pressable

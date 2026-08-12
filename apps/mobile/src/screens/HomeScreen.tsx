@@ -78,7 +78,7 @@ export function HomeScreen({
       >
         <View style={styles.heroRow}>
           <View style={styles.heroBadge}>
-            <Icon name="paw" tint={palette.white} size={30} />
+            <Icon name="map" tint={palette.white} size={26} />
           </View>
           <View style={styles.heroText}>
             <Text style={styles.greeting}>{child ? `G'day, ${child.name}!` : "G'day!"}</Text>

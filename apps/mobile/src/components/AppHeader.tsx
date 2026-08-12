@@ -6,13 +6,12 @@ import { BilbyLogo } from './BilbyLogo';
 import { Icon, type IconName } from './illustrations/icons';
 
 /**
- * Reachable from every post-onboarding screen so a child (or a parent
- * looking over their shoulder) is never more than one tap from "my week"
- * or "my progress", regardless of how deep they navigated into a lesson.
+ * Sticky header (rendered OUTSIDE each screen's ScrollView).
  *
- * Rendered OUTSIDE each screen's ScrollView so it stays fixed/sticky at the
- * top while content scrolls underneath. Shows the active child's profile
- * (name + Year) when one is set.
+ * IXL-inspired: a clean top bar with a clear primary nav (Home / Progress),
+ * the active child's profile as a labelled chip (name + Year), and secondary
+ * actions (Settings / Sign out) that are explicit buttons rather than bare
+ * icons. Colours stay on the BilbyBots palette.
  */
 export function AppHeader({
   active,
@@ -35,44 +34,38 @@ export function AppHeader({
   /** Signs out of the Google account. Hidden when not provided. */
   onSignOut?: () => void;
 }) {
+  const profileName = isGuest ? 'Guest' : child?.name;
   return (
     <View style={styles.bar}>
-      <BilbyLogo markSize={26} textSize={15} />
-      <View style={styles.childWrap}>
-        {child && (
-          <View style={styles.childChip} accessibilityLabel={`${isGuest ? 'Guest' : child.name}, Year ${child.year}`}>
-            <Icon name="paw" tint={palette.grape} size={13} />
-            <Text style={styles.childText}>
-              {isGuest ? 'Guest' : child.name}
-              <Text style={styles.childYear}> · Year {child.year}</Text>
-            </Text>
-          </View>
-        )}
-      </View>
-      <View style={styles.actions}>
+      <BilbyLogo markSize={24} textSize={14} />
+
+      <View style={styles.nav}>
         <NavButton icon="house" label="Home" active={active === 'WeekPlan'} onPress={onHome} />
         <NavButton icon="trophy" label="Progress" active={active === 'Progress'} onPress={onProgress} />
-        {onSetup && (
-          <Pressable
-            onPress={onSetup}
-            accessibilityRole="button"
-            accessibilityLabel="Settings"
-            hitSlop={8}
-            style={({ pressed }) => [styles.setupBtn, pressed && styles.pressed]}
+      </View>
+
+      <View style={styles.right}>
+        {child && (
+          <View
+            style={styles.childChip}
+            accessibilityLabel={`${profileName}, Year ${child.year}`}
           >
-            <Icon name="cog" tint={palette.ink} size={18} />
-          </Pressable>
+            <View style={styles.childAvatar}>
+              <Text style={styles.childAvatarText}>{profileName?.charAt(0).toUpperCase()}</Text>
+            </View>
+            <View style={styles.childMeta}>
+              <Text style={styles.childName} numberOfLines={1}>
+                {profileName}
+              </Text>
+              <Text style={styles.childYear}>Year {child.year}</Text>
+            </View>
+          </View>
+        )}
+        {onSetup && (
+          <IconButton icon="cog" label="Settings" onPress={onSetup} />
         )}
         {onSignOut && (
-          <Pressable
-            onPress={onSignOut}
-            accessibilityRole="button"
-            accessibilityLabel="Sign out"
-            hitSlop={8}
-            style={({ pressed }) => [styles.setupBtn, pressed && styles.pressed]}
-          >
-            <Icon name="lock" tint={palette.ink} size={18} />
-          </Pressable>
+          <IconButton icon="lock" label="Sign out" onPress={onSignOut} />
         )}
       </View>
     </View>
@@ -104,6 +97,29 @@ function NavButton({
   );
 }
 
+function IconButton({
+  icon,
+  label,
+  onPress,
+}: {
+  icon: IconName;
+  label: string;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      hitSlop={6}
+      style={({ pressed }) => [styles.iconBtn, pressed && styles.pressed]}
+    >
+      <Icon name={icon} tint={palette.ink} size={16} />
+      <Text style={styles.iconBtnLabel}>{label}</Text>
+    </Pressable>
+  );
+}
+
 const styles = StyleSheet.create({
   bar: {
     flexDirection: 'row',
@@ -111,28 +127,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: spacing.sm,
     paddingHorizontal: spacing.lg,
-    paddingTop: spacing.lg,
+    paddingTop: spacing.md,
     paddingBottom: spacing.md,
     backgroundColor: palette.cream,
     borderBottomWidth: 1,
     borderBottomColor: palette.grape + '22',
     zIndex: 20,
   },
-  childWrap: { flex: 1, alignItems: 'center' },
-  childChip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.xs,
-    backgroundColor: palette.white,
-    borderWidth: 1.5,
-    borderColor: palette.grape + '44',
-    borderRadius: radius.pill,
-    paddingVertical: spacing.xs,
-    paddingHorizontal: spacing.md,
-  },
-  childText: { fontSize: 13, fontWeight: '800', color: palette.ink },
-  childYear: { fontWeight: '700', color: palette.slate },
-  actions: { flexDirection: 'row', gap: spacing.sm, alignItems: 'center' },
+  nav: { flexDirection: 'row', gap: spacing.xs, alignItems: 'center', flexShrink: 1 },
   navBtn: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -141,22 +143,50 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.md,
     backgroundColor: palette.white,
-    borderWidth: 2,
+    borderWidth: 1.5,
     borderColor: palette.sky + '55',
-    minHeight: 40,
-  },
-  setupBtn: {
-    width: 40,
-    height: 40,
-    borderRadius: radius.pill,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: palette.white,
-    borderWidth: 2,
-    borderColor: palette.sky + '55',
+    minHeight: 38,
   },
   navBtnActive: { backgroundColor: palette.grape, borderColor: palette.grape },
-  pressed: { opacity: 0.7 },
-  navLabel: { fontSize: 12, fontWeight: '800', color: palette.ink },
+  navLabel: { fontSize: 13, fontWeight: '800', color: palette.ink },
   navLabelActive: { color: palette.white },
+  right: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs, flexShrink: 1 },
+  childChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    backgroundColor: palette.white,
+    borderWidth: 1.5,
+    borderColor: palette.grape + '44',
+    borderRadius: radius.pill,
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.sm,
+    marginRight: spacing.xs,
+  },
+  childAvatar: {
+    width: 30,
+    height: 30,
+    borderRadius: radius.pill,
+    backgroundColor: palette.grape,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  childAvatarText: { color: palette.white, fontSize: 14, fontWeight: '900' },
+  childMeta: { maxWidth: 92 },
+  childName: { fontSize: 12, fontWeight: '800', color: palette.ink },
+  childYear: { fontSize: 10, fontWeight: '700', color: palette.slate, textTransform: 'uppercase' },
+  iconBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    borderRadius: radius.pill,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.sm,
+    backgroundColor: palette.white,
+    borderWidth: 1.5,
+    borderColor: palette.sky + '55',
+    minHeight: 38,
+  },
+  iconBtnLabel: { fontSize: 12, fontWeight: '800', color: palette.ink },
+  pressed: { opacity: 0.7 },
 });
