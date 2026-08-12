@@ -39,17 +39,18 @@ export function buildPlan(input: PlanInput): PlanSnapshot {
 
   // --- Placement (spec §4 Steps 2–3) ---
   // Topic j of subject s has an ideal week `floor(j * R / K_s)`. Place each
-  // topic into the earliest available week (capacity < max) at or before its
-  // ideal, never before the previous topic of the same subject, so subject
-  // order is preserved and weekly load stays <= max when feasible.
+  // topic into the latest available week (capacity < max) at or before its
+  // ideal, never before the previous topic of the same subject, so subjects
+  // interleave across the whole remainder instead of packing into the earliest
+  // weeks, and weekly load stays <= max when feasible.
   const weeks: Topic[][] = Array.from({ length: R }, () => []);
   for (const { subject, topics } of streams) {
     const K = topics.length;
     let last = 0;
     for (let j = 0; j < K; j++) {
-      const ideal = Math.floor((j * R) / K);
+      const ideal = Math.min(Math.floor((j * R) / K), R - 1);
       let w = -1;
-      for (let i = last; i <= ideal; i++) {
+      for (let i = ideal; i >= last; i--) {
         if (weeks[i].length < config.maxTopicsPerWeek) {
           w = i;
           break;
