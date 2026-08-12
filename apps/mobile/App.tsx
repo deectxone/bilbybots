@@ -52,6 +52,7 @@ export default function App() {
   const [screen, setScreen] = useState<RootScreen>('Home');
   const [child, setChild] = useState<ChildProfile | null>(null);
   const [activeTopic, setActiveTopic] = useState<Topic | null>(null);
+  const [activeQuestionCount, setActiveQuestionCount] = useState<number | undefined>(undefined);
   const [activeNaplan, setActiveNaplan] = useState<{ year: NaplanYear; domain: NaplanDomain; test: NaplanTest } | null>(null);
   const [completedTopicIds, setCompletedTopicIds] = useState<string[]>([]);
   const [earnedBadges, setEarnedBadges] = useState<string[]>([]);
@@ -181,6 +182,7 @@ export default function App() {
     dbRef.current = {};
     setChild(null);
     setActiveTopic(null);
+    setActiveQuestionCount(undefined);
     setActiveNaplan(null);
     setCompletedTopicIds([]);
     setEarnedBadges([]);
@@ -205,6 +207,7 @@ export default function App() {
       state: 'nsw',
       year: '6',
       subjects: ['mathematics', 'english'],
+      joinWeek: 1,
       createdAt: new Date().toISOString(),
     };
     setChild(demoChild);
@@ -321,8 +324,9 @@ export default function App() {
         <WeekPlanScreen
           child={child}
           completedTopicIds={completedTopicIds}
-          onOpenTopic={(t) => {
+          onOpenTopic={(t, questionCount) => {
             setActiveTopic(t);
+            setActiveQuestionCount(questionCount);
             setScreen('Lesson');
           }}
           onHome={goHome}
@@ -335,6 +339,7 @@ export default function App() {
         <LessonScreen
           child={child}
           topic={activeTopic}
+          questionCount={activeQuestionCount}
           isGuest={guest}
           onSignUp={guest ? exitGuest : undefined}
           onBack={() => setScreen('WeekPlan')}

@@ -109,9 +109,17 @@ function sanitise(raw: unknown): PersistedAppState {
   const strings = (value: unknown): string[] =>
     Array.isArray(value) ? value.filter((x): x is string => typeof x === 'string') : [];
 
+  const rawChild = isChild(r.child) ? r.child : null;
+
   return {
     version: 1,
-    child: isChild(r.child) ? r.child : null,
+    child: rawChild
+      ? {
+          ...rawChild,
+          joinWeek: typeof rawChild.joinWeek === 'number' && rawChild.joinWeek >= 1 ? rawChild.joinWeek : 1,
+          replanned: rawChild.replanned ?? false,
+        }
+      : null,
     completedTopicIds: strings(r.completedTopicIds),
     earnedBadges: strings(r.earnedBadges),
     naplanResults: Array.isArray(r.naplanResults) ? r.naplanResults.filter(isNaplanResult) : [],

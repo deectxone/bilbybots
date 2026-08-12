@@ -119,6 +119,10 @@ export interface ChildProfile {
   /** subjects selected for this child (secondary years default 4-core) */
   subjects: SubjectId[];
   createdAt: string;
+  /** 1-based school week the child joined (1 = full-year join, ideal pace). */
+  joinWeek: number;
+  /** True after the parent opted into re-pacing from the current week; completed topics are then excluded from the schedule. */
+  replanned?: boolean;
 }
 
 export const YEAR_LEVELS: Readonly<YearLevel[]> = [

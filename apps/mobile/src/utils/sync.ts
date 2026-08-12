@@ -1,5 +1,7 @@
 import * as Crypto from 'expo-crypto';
 import { supabase } from './supabase';
+import { pushPlanSnapshot } from './plan-store';
+import { buildPlan, schoolWeekFromDate } from '../planner';
 import type { PersistedAppState } from './persistence';
 import type { ChildProfile } from '../types/curriculum';
 import type { NaplanResult } from '../types/naplan';
@@ -94,6 +96,8 @@ export async function pullState(): Promise<PullResult> {
     year: row.year as ChildProfile['year'],
     subjects: Array.isArray(row.subjects) ? (row.subjects as ChildProfile['subjects']) : [],
     createdAt: row.created_at as string,
+    joinWeek: typeof row.join_week === 'number' && row.join_week >= 1 ? row.join_week : 1,
+    replanned: Boolean(row.replanned),
   };
 
   const { data: events, error: eventsError } = await supabase
@@ -159,10 +163,20 @@ export async function pushState(state: PersistedAppState): Promise<PushResult> {
         state: child.state,
         year: child.year,
         subjects: child.subjects,
+        join_week: child.replanned ? schoolWeekFromDate() : child.joinWeek,
       },
       { onConflict: 'id' },
     );
   if (childError) return { ok: false, error: childError.message };
+
+  const plan = buildPlan({
+    year: child.year,
+    subjects: child.subjects,
+    joinWeek: child.replanned ? schoolWeekFromDate() : child.joinWeek,
+    learnedTopicIds: child.replanned ? state.completedTopicIds : [],
+  });
+  const planResult = await pushPlanSnapshot(dbChildId, plan);
+  if (!planResult.ok) return { ok: false, error: planResult.error };
 
   const refs: { kind: string; ref: string; payload?: unknown }[] = [
     ...state.completedTopicIds.map((id) => ({ kind: COMPLETION_KIND, ref: id })),

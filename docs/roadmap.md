@@ -43,7 +43,7 @@
    - [ ] Object storage for media
 3. **Planner** implementing `adaptive-pacing.md`:
    - [x] Core algorithm (balanced, order-preserving placement), 100% coverage validator + determinism, unit-tested (`src/planner/`, `npm test`), wired into the WeekPlan screen
-   - [ ] Persist snapshots to `plan_snapshot`/`plan_week`; parent-set `joinWeek` + re-planning UX (opt-in, learned topics excluded)
+   - [x] Snapshots persisted to `plan_snapshot`/`plan_week` (idempotent, archived); parent-set `joinWeek` + opt-in re-planning (excludes learned topics); compact `questionCount` threaded into the lesson runner
 4. **Content authoring** foundation: Year‑6 English + Maths + Science + HASS topics authored (✓ facade-quality, see Phase 0); still needed — human curriculum review/sign-off, richer question banks per topic (currently 2–5 of the spec'd 6–8), template-driven authoring tooling. Expand to other years afterwards.
 5. [ ] **Client MVP:** completion of the facade into a real app (planner-driven weekly plan, learn-first reader, assignment runner, badges, parent dashboard with coverage %).
 6. **Offline cache + sync** for the current week:

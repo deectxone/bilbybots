@@ -3,6 +3,7 @@ import { StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
 import { palette, radius, spacing, type } from '../theme/colors';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
+import { DEFAULT_PLANNER_CONFIG } from '../planner';
 import { YEAR_LEVELS, type ChildProfile, type YearLevel } from '../types/curriculum';
 import { STATES, SUBJECTS } from '../data/subjects';
 import { PrimaryButton } from '../components/PrimaryButton';
@@ -33,6 +34,8 @@ export function OnboardingScreen({
   const [name, setName] = useState(initial?.name ?? '');
   const [year, setYear] = useState<YearLevel>(initial?.year ?? '6');
   const [stateId, setStateId] = useState(initial?.state ?? 'nsw');
+  const [joinWeek, setJoinWeek] = useState(initial?.joinWeek ?? 1);
+  const [replanned, setReplanned] = useState(initial?.replanned ?? false);
   // Phase-1 facade: English + Maths are P1; Science/HASS toggleable in Pro.
   const [subjects, setSubjects] = useState<(typeof SUBJECTS)[number]['id'][]>(
     initial?.subjects ?? ['mathematics', 'english'],
@@ -54,6 +57,8 @@ export function OnboardingScreen({
       year,
       subjects,
       createdAt: initial?.createdAt ?? new Date().toISOString(),
+      joinWeek,
+      replanned,
     });
 
   return (
@@ -122,6 +127,47 @@ export function OnboardingScreen({
           );
         })}
       </View>
+
+      <Text style={styles.label}>Joined in school week</Text>
+      <View style={styles.weekRow}>
+        <Pressable
+          onPress={() => setJoinWeek((w) => Math.max(1, w - 1))}
+          accessibilityRole="button"
+          accessibilityLabel="Earlier week"
+          style={styles.weekBtn}
+        >
+          <Text style={styles.weekBtnText}>−</Text>
+        </Pressable>
+        <View style={styles.weekValue}>
+          <Text style={styles.weekValueText}>Week {joinWeek}</Text>
+          <Text style={styles.weekValueSub}>of {DEFAULT_PLANNER_CONFIG.totalWeeks} teaching weeks</Text>
+        </View>
+        <Pressable
+          onPress={() => setJoinWeek((w) => Math.min(DEFAULT_PLANNER_CONFIG.totalWeeks, w + 1))}
+          accessibilityRole="button"
+          accessibilityLabel="Later week"
+          style={styles.weekBtn}
+        >
+          <Text style={styles.weekBtnText}>+</Text>
+        </Pressable>
+      </View>
+
+      {editing && (
+        <Pressable
+          onPress={() => setReplanned((v) => !v)}
+          accessibilityRole="checkbox"
+          accessibilityState={{ checked: replanned }}
+          style={[styles.replanRow, replanned && styles.replanRowOn]}
+        >
+          <Icon name={replanned ? 'check-box' : 'box'} size={22} tint={replanned ? palette.grape : palette.slate} />
+          <View style={{ flex: 1 }}>
+            <Text style={styles.replanTitle}>Re-plan from now</Text>
+            <Text style={styles.replanBody}>
+              Packs the remaining topics into the weeks left and skips the ones already completed.
+            </Text>
+          </View>
+        </Pressable>
+      )}
 
       <Text style={styles.label}>Subjects in this plan</Text>
       <View style={styles.subjectList}>
@@ -251,6 +297,35 @@ const styles = StyleSheet.create({
   yearText: { fontSize: 15, fontWeight: '800', color: palette.ink },
   yearTextSelected: { color: palette.white },
   stateRow: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
+  weekRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
+  weekBtn: {
+    width: 46,
+    height: 46,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    borderColor: palette.grape,
+    backgroundColor: palette.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  weekBtnText: { fontSize: 24, fontWeight: '900', color: palette.grape, lineHeight: 28 },
+  weekValue: { flex: 1, alignItems: 'center' },
+  weekValueText: { fontSize: 17, fontWeight: '900', color: palette.ink },
+  weekValueSub: { fontSize: 12, color: palette.slate, marginTop: 2 },
+  replanRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+    backgroundColor: palette.white,
+    borderRadius: radius.md,
+    borderWidth: 2,
+    borderColor: palette.grape + '33',
+    padding: spacing.md,
+    marginTop: spacing.lg,
+  },
+  replanRowOn: { borderColor: palette.grape },
+  replanTitle: { fontSize: 15, fontWeight: '800', color: palette.ink },
+  replanBody: { fontSize: 12, color: palette.slate, lineHeight: 18, marginTop: 2 },
   statePill: {
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,

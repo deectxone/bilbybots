@@ -24,19 +24,26 @@ export function WeekPlanScreen({
 }: {
   child: ChildProfile;
   completedTopicIds: string[];
-  onOpenTopic: (topic: Topic) => void;
+  onOpenTopic: (topic: Topic, questionCount?: number) => void;
   onHome: () => void;
   onProgress: () => void;
   onSetup: () => void;
   onSignOut?: () => void;
 }) {
-  const plan = buildPlan({ year: child.year, subjects: child.subjects, joinWeek: 1 });
   const currentWeek = schoolWeekFromDate();
+  const joinWeek = child.replanned ? currentWeek : child.joinWeek;
+  const plan = buildPlan({
+    year: child.year,
+    subjects: child.subjects,
+    joinWeek,
+    learnedTopicIds: child.replanned ? completedTopicIds : [],
+  });
   const thisWeek = plan.weeks.find((w) => w.week === currentWeek) ?? plan.weeks[plan.weeks.length - 1];
-  const topics = (thisWeek?.entries ?? []).map((e) => e.topic);
+  const entries = thisWeek?.entries ?? [];
+  const topics = entries.map((e) => e.topic);
   const done = new Set(completedTopicIds);
   const completedThisWeek = topics.filter((t) => done.has(t.id)).length;
-  const compact = plan.compactedSubjects.length > 0;
+  const compact = plan.compactedSubjects.length > 0 || Boolean(child.replanned);
 
   // Label the plan by what's actually shown this week, not just the first
   // subject the parent happened to toggle, those can disagree once more
@@ -61,6 +68,13 @@ export function WeekPlanScreen({
         <Text style={styles.sub}>
           Year {child.year} · {planLabel} plan · Week {currentWeek}
         </Text>
+        <Text style={styles.note}>
+          {child.replanned
+            ? 'Re-planned from now: remaining topics packed in, completed ones skipped.'
+            : compact
+              ? `Compact pace: ${plan.coverage.pct}% coverage with lighter assignments.`
+              : `Full-year plan · ${plan.coverage.pct}% coverage.`}
+        </Text>
       </View>
 
       <Text style={styles.section}>This week</Text>
@@ -77,7 +91,11 @@ export function WeekPlanScreen({
       ) : (
         topics.map((topic) => (
           <View key={topic.id} style={styles.topicWrap}>
-            <TopicCard topic={topic} onPress={onOpenTopic} completed={done.has(topic.id)} />
+            <TopicCard
+              topic={topic}
+              completed={done.has(topic.id)}
+              onPress={() => onOpenTopic(topic, entries.find((e) => e.topic.id === topic.id)?.questionCount)}
+            />
           </View>
         ))
       )}
@@ -91,6 +109,7 @@ const styles = StyleSheet.create({
   welcome: { paddingHorizontal: spacing.xl, marginTop: spacing.lg },
   greeting: { fontSize: type.display, fontWeight: '900', color: palette.ink },
   sub: { fontSize: 14, color: palette.slate, marginTop: spacing.xs },
+  note: { fontSize: 12, color: palette.slate, marginTop: spacing.sm, maxWidth: 420 },
   section: {
     fontSize: type.h3,
     fontWeight: '800',

@@ -28,6 +28,7 @@ function isAnswerCorrect(given: string, expected: string): boolean {
 export function LessonScreen({
   child,
   topic,
+  questionCount,
   onBack,
   onHome,
   onProgress,
@@ -39,6 +40,8 @@ export function LessonScreen({
 }: {
   child: ChildProfile;
   topic: Topic;
+  /** Assignment budget from the planner (compact under pacing); defaults to the full authored set. */
+  questionCount?: number;
   onBack: () => void;
   onHome: () => void;
   onProgress: () => void;
@@ -55,8 +58,11 @@ export function LessonScreen({
   const [checked, setChecked] = useState(false);
   const [earned, setEarned] = useState(false);
 
-  const score = topic.assignment.questions.filter((q) => isAnswerCorrect(answers[q.id] ?? '', q.answer)).length;
-  const allCorrect = checked && topic.assignment.questions.length > 0 && score === topic.assignment.questions.length;
+  const budget = Math.max(1, Math.min(questionCount ?? topic.assignment.nominalCount, topic.assignment.questions.length));
+  const practiseQuestions = topic.assignment.questions.slice(0, budget);
+
+  const score = practiseQuestions.filter((q) => isAnswerCorrect(answers[q.id] ?? '', q.answer)).length;
+  const allCorrect = checked && practiseQuestions.length > 0 && score === practiseQuestions.length;
 
   return (
     <ScreenShell
@@ -106,7 +112,7 @@ export function LessonScreen({
       {phase === 'practise' && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Your quick check</Text>
-          {topic.assignment.questions.map((q, qi) => {
+          {practiseQuestions.map((q, qi) => {
             const questionCorrect = checked && isAnswerCorrect(answers[q.id] ?? '', q.answer);
             return (
               <View key={q.id} style={styles.question}>
@@ -186,7 +192,7 @@ export function LessonScreen({
           <PrimaryButton
             tone="berry"
             label={checked ? 'Check again' : 'Check my answers'}
-            disabled={topic.assignment.questions.some((q) => !answers[q.id])}
+            disabled={practiseQuestions.some((q) => !answers[q.id])}
             onPress={() => setChecked(true)}
           />
 
@@ -196,7 +202,7 @@ export function LessonScreen({
                 {allCorrect ? 'Nailed it!' : 'Almost, have another go'}
               </Text>
               <Text style={styles.resultScore}>
-                {score}/{topic.assignment.questions.length} correct
+                {score}/{practiseQuestions.length} correct
               </Text>
               <View style={styles.badgeRow}>
                 {allCorrect && <BadgeChip label="Perfect score!" earned />}
