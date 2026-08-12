@@ -68,7 +68,6 @@ export function SignInScreen({
     <View style={styles.screen}>
       <AppHeader onHome={() => {}} />
       <ScrollView contentContainerStyle={styles.root} style={styles.scroll} bounces={false}>
-        <ResponsiveColumn>
         <HeroPark>
           <View style={styles.heroSpacer} />
           <View style={styles.heroText}>
@@ -83,6 +82,7 @@ export function SignInScreen({
           </View>
         </HeroPark>
 
+        <ResponsiveColumn>
       <View style={styles.card}>
         <Text style={styles.cardEyebrow}>Parent sign-in</Text>
         <Text style={styles.cardTitle}>Welcome</Text>

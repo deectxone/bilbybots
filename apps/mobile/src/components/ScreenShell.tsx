@@ -44,8 +44,8 @@ export function ScreenShell({
         contentContainerStyle={[styles.content, contentContainerStyle]}
         style={[styles.scroll, style]}
       >
+        <SlimBar onSignOut={onSignOut} />
         <ResponsiveColumn>
-          <SlimBar onSignOut={onSignOut} />
           {children}
         </ResponsiveColumn>
       </ScrollView>
