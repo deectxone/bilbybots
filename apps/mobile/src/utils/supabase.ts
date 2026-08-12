@@ -21,6 +21,9 @@ import type { Session } from '@supabase/supabase-js';
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
 const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ?? '';
 
+/** True once a Supabase project URL + anon key are configured. */
+export const isAuthConfigured = Boolean(supabaseUrl && supabaseAnonKey);
+
 const secureStorage = {
   async getItem(key: string): Promise<string | null> {
     try {
@@ -54,18 +57,19 @@ const secureStorage = {
   },
 };
 
-/** Configured Supabase client. Valid only when env vars are present. */
-export const supabase: SupabaseClient | null = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    storage: secureStorage,
-    autoRefreshToken: true,
-    persistSession: true,
-    detectSessionInUrl: Platform.OS === 'web',
-  },
-});
-
-/** True once a Supabase project URL + anon key are configured. */
-export const isAuthConfigured = Boolean(supabaseUrl && supabaseAnonKey);
+/** Configured Supabase client, or null when env vars aren't set yet.
+ *  Must NOT call createClient() with empty strings — supabase-js throws
+ *  "supabaseUrl is required" at module load, which blanks the whole app. */
+export const supabase: SupabaseClient | null = isAuthConfigured
+  ? createClient(supabaseUrl, supabaseAnonKey, {
+      auth: {
+        storage: secureStorage,
+        autoRefreshToken: true,
+        persistSession: true,
+        detectSessionInUrl: Platform.OS === 'web',
+      },
+    })
+  : null;
 
 /** Current session, or null when not signed in / not configured. */
 export async function getCurrentSession(): Promise<Session | null> {
