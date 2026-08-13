@@ -4,8 +4,7 @@
   "installCommand": "cd apps/mobile && npm install",
   "buildCommand": "npm run build",
   "outputDirectory": "apps/mobile/dist",
-  "cleanUrls": true,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!_expo/|assets/|favicon).*)", "destination": "/index.html" }
   ]
 }
