@@ -92,6 +92,13 @@ export function SignInScreen({
               progress safe in your account.
             </Text>
 
+            <View style={styles.trialBanner}>
+              <Icon name="check-box" tint={chrome.primary} size={16} />
+              <Text style={styles.trialBannerText}>
+                14 days free trial available — no credit card needed.
+              </Text>
+            </View>
+
             {isAuthConfigured ? (
               <>
                 <PrimaryButton
@@ -162,6 +169,12 @@ export function SignInScreen({
           <Text style={styles.trustText}>Parent-managed</Text>
         </View>
       </View>
+
+      <View style={styles.pricingCard}>
+        <Text style={styles.pricingEyebrow}>After your trial</Text>
+        <Text style={styles.pricingTitle}>Subscriptions</Text>
+        <Text style={styles.pricingBody}>Built in progress — pricing is coming soon.</Text>
+      </View>
         </ResponsiveColumn>
 
         <AppFooter />
@@ -216,6 +229,14 @@ const getStyles = (chrome: ChromeTokens) =>
     marginBottom: spacing.lg,
     textAlign: 'center',
   },
+  trialBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+    justifyContent: 'center',
+    marginBottom: spacing.lg,
+  },
+  trialBannerText: { color: palette.ink, fontSize: 13, fontWeight: '700', textAlign: 'center' },
   skip: { alignItems: 'center', marginTop: spacing.lg },
   skipText: { color: palette.slate, fontSize: 14, fontWeight: '700' },
   notice: {
@@ -279,4 +300,26 @@ const getStyles = (chrome: ChromeTokens) =>
     paddingHorizontal: spacing.md,
   },
   trustText: { color: palette.ink, fontSize: 13, fontWeight: '700' },
+  pricingCard: {
+    alignSelf: 'center',
+    maxWidth: 480,
+    marginTop: spacing.xl,
+    marginHorizontal: spacing.xl,
+    backgroundColor: palette.white + 'd9',
+    borderRadius: radius.md,
+    borderWidth: 1.5,
+    borderColor: chrome.primary + '33',
+    borderStyle: 'dashed',
+    padding: spacing.lg,
+    alignItems: 'center',
+  },
+  pricingEyebrow: {
+    fontSize: type.caption,
+    fontWeight: '800',
+    color: chrome.accent,
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+  },
+  pricingTitle: { fontSize: type.h1 - 6, fontWeight: '900', color: palette.ink, marginTop: spacing.xs },
+  pricingBody: { fontSize: 13, color: palette.slate, marginTop: spacing.xs, textAlign: 'center' },
   });

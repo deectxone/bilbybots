@@ -3,6 +3,7 @@ import { palette, radius, spacing, type ChromeTokens } from '../theme/colors';
 import type { ChildProfile } from '../types/curriculum';
 import { BilbyLogo } from './BilbyLogo';
 import { useThemeChrome } from '../state/ThemeContext';
+import { useApp } from '../state/AppContext';
 
 /**
  * Sticky top header (rendered OUTSIDE each screen's ScrollView).
@@ -30,6 +31,7 @@ export function AppHeader({
   const chrome = useThemeChrome();
   const styles = getStyles(chrome);
   const profileName = isGuest ? 'Guest' : child?.name;
+  const { trialDaysLeft } = useApp();
   return (
     <View style={styles.bar}>
       <Pressable
@@ -42,25 +44,37 @@ export function AppHeader({
         <BilbyLogo markSize={30} textSize={19} tone="light" />
       </Pressable>
 
-      {child && (
-        <Pressable
-          onPress={onProfilePress}
-          accessibilityRole="button"
-          accessibilityLabel={`Open settings for ${profileName}, Year ${child.year}`}
-          hitSlop={8}
-          style={({ pressed }) => [styles.profile, pressed && styles.pressed]}
-        >
-          <View style={styles.meta}>
-            <Text style={styles.name} numberOfLines={1}>
-              {profileName}
+      <View style={styles.right}>
+        {trialDaysLeft !== null && (
+          <View style={styles.trialPill}>
+            <Text style={styles.trialPillText}>
+              {trialDaysLeft > 0
+                ? `Trial: ${trialDaysLeft} day${trialDaysLeft === 1 ? '' : 's'} left`
+                : 'Trial ended'}
             </Text>
-            <Text style={styles.year}>Year {child.year}</Text>
           </View>
-          <View style={styles.avatar}>
-            <Text style={styles.avatarText}>{profileName?.charAt(0).toUpperCase()}</Text>
-          </View>
-        </Pressable>
-      )}
+        )}
+
+        {child && (
+          <Pressable
+            onPress={onProfilePress}
+            accessibilityRole="button"
+            accessibilityLabel={`Open settings for ${profileName}, Year ${child.year}`}
+            hitSlop={8}
+            style={({ pressed }) => [styles.profile, pressed && styles.pressed]}
+          >
+            <View style={styles.meta}>
+              <Text style={styles.name} numberOfLines={1}>
+                {profileName}
+              </Text>
+              <Text style={styles.year}>Year {child.year}</Text>
+            </View>
+            <View style={styles.avatar}>
+              <Text style={styles.avatarText}>{profileName?.charAt(0).toUpperCase()}</Text>
+            </View>
+          </Pressable>
+        )}
+      </View>
     </View>
   );
 }
@@ -79,6 +93,14 @@ const getStyles = (chrome: ChromeTokens) =>
       overflow: 'hidden',
     },
     logoWrap: { paddingVertical: spacing.xs },
+    right: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+    trialPill: {
+      borderRadius: radius.pill,
+      backgroundColor: palette.white + '26',
+      paddingVertical: 5,
+      paddingHorizontal: spacing.sm,
+    },
+    trialPillText: { color: palette.white, fontSize: 11, fontWeight: '800' },
     profile: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
     meta: { alignItems: 'flex-end' },
     name: { fontSize: 15, fontWeight: '800', color: palette.white },

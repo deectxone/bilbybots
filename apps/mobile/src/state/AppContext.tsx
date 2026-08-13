@@ -13,6 +13,7 @@ import {
 import { getCurrentSession, onAuthStateChange, supabase } from '../utils/supabase';
 import { signOut } from '../utils/auth';
 import { pullState, pushState, deleteFamilyData } from '../utils/sync';
+import { fetchTrialEndsAt, isTrialExpired, trialDaysLeft as computeTrialDaysLeft } from '../utils/trial';
 import { clearSupabaseTopicBankCache, loadSupabaseTopicBank } from '../data/supabase-content';
 
 /**
@@ -39,6 +40,12 @@ interface AppContextValue {
   activeNaplan: { year: NaplanYear; domain: NaplanDomain; test: NaplanTest } | null;
   /** Signed in with Google, or exploring as a guest. */
   authed: boolean;
+  /** Whole days left in the signed-in account's 14-day trial, or null when
+   *  not signed in / not yet loaded / no paywall applies (guest). */
+  trialDaysLeft: number | null;
+  /** True once a signed-in (non-guest) account's trial has lapsed. Blocks
+   *  the app at the root layout until the user signs out or subscribes. */
+  trialExpired: boolean;
   saveChild: (child: ChildProfile) => void;
   openTopic: (topic: Topic, questionCount?: number) => void;
   markTopicCompleted: (topic: Topic) => void;
@@ -65,6 +72,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [authReady, setAuthReady] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const [contentReady, setContentReady] = useState(true);
+  const [trialEndsAt, setTrialEndsAt] = useState<string | null>(null);
 
   const hydratedRef = useRef(false);
   const dbRef = useRef<{ familyId?: string; childId?: string; ownerUserId?: string }>({});
@@ -103,6 +111,21 @@ export function AppProvider({ children }: { children: ReactNode }) {
     unsub = onAuthStateChange((s) => setSession(s ? { email: s.user.email } : null));
     return () => unsub?.();
   }, []);
+
+  // Trial window: load once per sign-in, cleared on sign-out.
+  useEffect(() => {
+    if (!session) {
+      setTrialEndsAt(null);
+      return;
+    }
+    let cancelled = false;
+    fetchTrialEndsAt().then((ends) => {
+      if (!cancelled) setTrialEndsAt(ends);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [session]);
 
   // Persist to AsyncStorage on every change.
   useEffect(() => {
@@ -326,6 +349,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
         activeQuestionCount,
         activeNaplan,
         authed: Boolean(session) || guest,
+        trialDaysLeft: session && trialEndsAt ? computeTrialDaysLeft(trialEndsAt) : null,
+        trialExpired: Boolean(session && !guest && trialEndsAt && isTrialExpired(trialEndsAt)),
         saveChild,
         openTopic,
         markTopicCompleted,
