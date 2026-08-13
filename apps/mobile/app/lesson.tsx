@@ -10,6 +10,7 @@ export default function LessonRoute() {
     activeTopic,
     activeQuestionCount,
     guest,
+    markTopicStarted,
     markTopicCompleted,
     exitGuest,
     signOutUser,
@@ -40,6 +41,7 @@ export default function LessonRoute() {
         await signOutUser();
         router.replace('/sign-in');
       }}
+      onTopicStarted={markTopicStarted}
       onTopicCompleted={markTopicCompleted}
     />
   );

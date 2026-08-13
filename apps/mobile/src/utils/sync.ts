@@ -2,7 +2,7 @@ import * as Crypto from 'expo-crypto';
 import { supabase } from './supabase';
 import { pushPlanSnapshot } from './plan-store';
 import { buildPlan, schoolWeekFromDate } from '../planner';
-import type { PersistedAppState } from './persistence';
+import type { PersistedAppState, TopicScore } from './persistence';
 import type { ChildProfile } from '../types/curriculum';
 import type { NaplanResult } from '../types/naplan';
 
@@ -10,8 +10,10 @@ import type { NaplanResult } from '../types/naplan';
  * Mirror the app's on-device state to Supabase when signed in:
  *   - one `families` row per account (owner = signed-in user) + membership
  *   - the single child profile as a `children` row (upsert by id)
- *   - progress as `progress_event` rows: completed topics (kind 'completion'),
- *     earned badges (kind 'badge') and NAPLAN results (kind 'answer')
+ *   - progress as `progress_event` rows: lesson-started topics (kind
+ *     'started'), completed topics with their score payload (kind
+ *     'completion'), earned badges (kind 'badge') and NAPLAN results (kind
+ *     'answer')
  *
  * Pushes are idempotent: child is upserted by id and progress events are only
  * inserted when their `kind:ref` is not already present, so re-pushing the
@@ -22,6 +24,7 @@ import type { NaplanResult } from '../types/naplan';
  * supabase/migrations/20260812000200_full_schema.sql).
  */
 
+const STARTED_KIND = 'started';
 const COMPLETION_KIND = 'completion';
 const BADGE_KIND = 'badge';
 const RESULT_KIND = 'answer';
@@ -130,12 +133,17 @@ export async function pullState(): Promise<PullResult> {
     .eq('child_id', row.id);
   if (eventsError) return { state: { child }, error: eventsError.message };
 
+  const startedTopicIds: string[] = [];
   const completedTopicIds: string[] = [];
+  const topicScores: Record<string, TopicScore> = {};
   const earnedBadges: string[] = [];
   const naplanResults: NaplanResult[] = [];
   for (const ev of events ?? []) {
-    if (ev.kind === COMPLETION_KIND && typeof ev.ref === 'string') completedTopicIds.push(ev.ref);
-    else if (ev.kind === BADGE_KIND && typeof ev.ref === 'string') earnedBadges.push(ev.ref);
+    if (ev.kind === STARTED_KIND && typeof ev.ref === 'string') startedTopicIds.push(ev.ref);
+    else if (ev.kind === COMPLETION_KIND && typeof ev.ref === 'string') {
+      completedTopicIds.push(ev.ref);
+      if (isTopicScore(ev.payload)) topicScores[ev.ref] = ev.payload;
+    } else if (ev.kind === BADGE_KIND && typeof ev.ref === 'string') earnedBadges.push(ev.ref);
     else if (ev.kind === RESULT_KIND && isNaplanResult(ev.payload)) naplanResults.push(ev.payload);
   }
   naplanResults.sort((a, b) => b.completedAt.localeCompare(a.completedAt));
@@ -143,7 +151,9 @@ export async function pullState(): Promise<PullResult> {
   return {
     state: {
       child,
+      startedTopicIds,
       completedTopicIds,
+      topicScores,
       earnedBadges,
       naplanResults,
       dbFamilyId: row.family_id as string,
@@ -204,7 +214,12 @@ export async function pushState(state: PersistedAppState): Promise<PushResult> {
   if (!planResult.ok) return { ok: false, error: planResult.error };
 
   const refs: { kind: string; ref: string; payload?: unknown }[] = [
-    ...state.completedTopicIds.map((id) => ({ kind: COMPLETION_KIND, ref: id })),
+    ...state.startedTopicIds.map((id) => ({ kind: STARTED_KIND, ref: id })),
+    ...state.completedTopicIds.map((id) => ({
+      kind: COMPLETION_KIND,
+      ref: id,
+      payload: state.topicScores[id],
+    })),
     ...state.earnedBadges.map((b) => ({ kind: BADGE_KIND, ref: b })),
     ...state.naplanResults.map((r) => ({
       kind: RESULT_KIND,
@@ -229,6 +244,12 @@ export async function pushState(state: PersistedAppState): Promise<PushResult> {
   }
 
   return { ok: true, dbFamilyId: fam.familyId, dbChildId, dbOwnerUserId: uid };
+}
+
+function isTopicScore(value: unknown): value is TopicScore {
+  if (!value || typeof value !== 'object') return false;
+  const s = value as Record<string, unknown>;
+  return typeof s.correct === 'number' && typeof s.total === 'number';
 }
 
 function isNaplanResult(value: unknown): value is NaplanResult {

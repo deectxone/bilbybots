@@ -9,6 +9,7 @@ import {
   loadPersistedState,
   savePersistedState,
   type PersistedAppState,
+  type TopicScore,
 } from '../utils/persistence';
 import { getCurrentSession, onAuthStateChange, supabase } from '../utils/supabase';
 import { signOut } from '../utils/auth';
@@ -26,7 +27,12 @@ import { clearSupabaseTopicBankCache, loadSupabaseTopicBank } from '../data/supa
  */
 interface AppContextValue {
   child: ChildProfile | null;
+  /** Topics where the child has read the lesson and reached the practice
+   *  test (week-plan subject pill's 50%-fill stage). */
+  startedTopicIds: string[];
   completedTopicIds: string[];
+  /** Practice test result per completed topic (pill's star badge). */
+  topicScores: Record<string, TopicScore>;
   earnedBadges: string[];
   naplanResults: NaplanResult[];
   session: { email?: string } | null;
@@ -48,7 +54,10 @@ interface AppContextValue {
   trialExpired: boolean;
   saveChild: (child: ChildProfile) => void;
   openTopic: (topic: Topic, questionCount?: number) => void;
-  markTopicCompleted: (topic: Topic) => void;
+  /** Reached the practice test (lesson read) — pill fills to 50%. */
+  markTopicStarted: (topic: Topic) => void;
+  /** Practice test finished — pill fills to 100% and shows a star badge. */
+  markTopicCompleted: (topic: Topic, score: TopicScore) => void;
   openNaplanTest: (year: NaplanYear, domain: NaplanDomain) => void;
   addNaplanResult: (result: NaplanResult) => void;
   resetAll: () => Promise<void>;
@@ -64,7 +73,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [activeTopic, setActiveTopic] = useState<Topic | null>(null);
   const [activeQuestionCount, setActiveQuestionCount] = useState<number | undefined>(undefined);
   const [activeNaplan, setActiveNaplan] = useState<AppContextValue['activeNaplan']>(null);
+  const [startedTopicIds, setStartedTopicIds] = useState<string[]>([]);
   const [completedTopicIds, setCompletedTopicIds] = useState<string[]>([]);
+  const [topicScores, setTopicScores] = useState<Record<string, TopicScore>>({});
   const [earnedBadges, setEarnedBadges] = useState<string[]>([]);
   const [naplanResults, setNaplanResults] = useState<NaplanResult[]>([]);
   const [session, setSession] = useState<{ email?: string } | null>(null);
@@ -89,7 +100,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     loadPersistedState().then((state) => {
       if (cancelled) return;
       setChild(state.child);
+      setStartedTopicIds(state.startedTopicIds);
       setCompletedTopicIds(state.completedTopicIds);
+      setTopicScores(state.topicScores);
       setEarnedBadges(state.earnedBadges);
       setNaplanResults(state.naplanResults);
       dbRef.current = { familyId: state.dbFamilyId, childId: state.dbChildId, ownerUserId: state.dbOwnerUserId };
@@ -133,7 +146,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const state: PersistedAppState = {
       version: 1,
       child,
+      startedTopicIds,
       completedTopicIds,
+      topicScores,
       earnedBadges,
       naplanResults,
       dbFamilyId: dbRef.current.familyId,
@@ -141,7 +156,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       dbOwnerUserId: dbRef.current.ownerUserId,
     };
     savePersistedState(state);
-  }, [child, completedTopicIds, earnedBadges, naplanResults, hydrated]);
+  }, [child, startedTopicIds, completedTopicIds, topicScores, earnedBadges, naplanResults, hydrated]);
 
   // When signed in, Supabase is the source of truth: adopt its data once.
   useEffect(() => {
@@ -172,7 +187,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
         if (cancelled) return;
         if (state.child) {
           setChild(state.child);
+          setStartedTopicIds(state.startedTopicIds ?? []);
           setCompletedTopicIds(state.completedTopicIds ?? []);
+          setTopicScores(state.topicScores ?? {});
           setEarnedBadges(state.earnedBadges ?? []);
           setNaplanResults(state.naplanResults ?? []);
           dbRef.current = {
@@ -202,7 +219,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const result = await pushState({
       version: 1,
       child,
+      startedTopicIds,
       completedTopicIds,
+      topicScores,
       earnedBadges,
       naplanResults,
       dbFamilyId: dbRef.current.familyId,
@@ -216,7 +235,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         ownerUserId: result.dbOwnerUserId ?? dbRef.current.ownerUserId,
       };
     }
-  }, [session, child, completedTopicIds, earnedBadges, naplanResults]);
+  }, [session, child, startedTopicIds, completedTopicIds, topicScores, earnedBadges, naplanResults]);
 
   // Debounced mirror of local state to Supabase while signed in.
   useEffect(() => {
@@ -228,7 +247,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     return () => {
       if (pushTimer.current) clearTimeout(pushTimer.current);
     };
-  }, [session, child, completedTopicIds, earnedBadges, naplanResults, pullDone, runPush]);
+  }, [session, child, startedTopicIds, completedTopicIds, topicScores, earnedBadges, naplanResults, pullDone, runPush]);
 
   // Flush a pending push when the web tab is hidden or closed, so the last
   // action (a completed topic, a finished test) is never stranded in the
@@ -254,8 +273,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setActiveQuestionCount(questionCount);
   };
 
-  const markTopicCompleted = (topic: Topic) => {
+  const markTopicStarted = (topic: Topic) => {
+    setStartedTopicIds((ids) => (ids.includes(topic.id) ? ids : [...ids, topic.id]));
+  };
+
+  const markTopicCompleted = (topic: Topic, score: TopicScore) => {
     setCompletedTopicIds((ids) => (ids.includes(topic.id) ? ids : [...ids, topic.id]));
+    setTopicScores((scores) => ({ ...scores, [topic.id]: score }));
     const badge = `${topic.title} star`;
     setEarnedBadges((badges) => (badges.includes(badge) ? badges : [...badges, badge]));
   };
@@ -281,7 +305,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setActiveTopic(null);
     setActiveQuestionCount(undefined);
     setActiveNaplan(null);
+    setStartedTopicIds([]);
     setCompletedTopicIds([]);
+    setTopicScores({});
     setEarnedBadges([]);
     setNaplanResults([]);
   };
@@ -313,7 +339,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setChild(demoChild);
     setGuest(true);
     setContentReady(true);
+    setStartedTopicIds([]);
     setCompletedTopicIds([]);
+    setTopicScores({});
     setEarnedBadges([]);
     setNaplanResults([]);
     const sample = buildWeekPlan('6')[0] ?? null;
@@ -337,7 +365,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     <AppContext.Provider
       value={{
         child,
+        startedTopicIds,
         completedTopicIds,
+        topicScores,
         earnedBadges,
         naplanResults,
         session,
@@ -353,6 +383,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         trialExpired: Boolean(session && !guest && trialEndsAt && isTrialExpired(trialEndsAt)),
         saveChild,
         openTopic,
+        markTopicStarted,
         markTopicCompleted,
         openNaplanTest,
         addNaplanResult,

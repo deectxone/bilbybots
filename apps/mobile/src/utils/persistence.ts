@@ -12,14 +12,26 @@ import type { NaplanResult } from '../types/naplan';
  *
  * Persisted state (mirrors App.tsx):
  *   - child profile (name/year/state/subjects)
- *   - completed topics + earned badges (weekly plan)
+ *   - lesson-started + completed topics + earned badges (weekly plan)
+ *   - practice test scores, for the subject-pill fill/star indicators
  *   - NAPLAN results
  * "Reset" clears the whole key.
  */
+export interface TopicScore {
+  correct: number;
+  total: number;
+}
+
 export interface PersistedAppState {
   version: 1;
   child: ChildProfile | null;
+  /** Topics where the child has read the lesson and reached the practice
+   *  test (the week-plan subject pill's 50%-fill stage). Superseded by
+   *  `completedTopicIds` once the practice test is finished. */
+  startedTopicIds: string[];
   completedTopicIds: string[];
+  /** Practice test result per completed topic, for the pill's star badge. */
+  topicScores: Record<string, TopicScore>;
   earnedBadges: string[];
   naplanResults: NaplanResult[];
   /** Supabase ids of the synced family/child + the account that owns them. */
@@ -34,7 +46,9 @@ export function emptyPersistedState(): PersistedAppState {
   return {
     version: 1,
     child: null,
+    startedTopicIds: [],
     completedTopicIds: [],
+    topicScores: {},
     earnedBadges: [],
     naplanResults: [],
   };
@@ -111,6 +125,13 @@ function sanitise(raw: unknown): PersistedAppState {
 
   const rawChild = isChild(r.child) ? r.child : null;
 
+  const topicScores: Record<string, TopicScore> = {};
+  if (r.topicScores && typeof r.topicScores === 'object') {
+    for (const [id, value] of Object.entries(r.topicScores as Record<string, unknown>)) {
+      if (isTopicScore(value)) topicScores[id] = value;
+    }
+  }
+
   return {
     version: 1,
     child: rawChild
@@ -120,11 +141,19 @@ function sanitise(raw: unknown): PersistedAppState {
           replanned: rawChild.replanned ?? false,
         }
       : null,
+    startedTopicIds: strings(r.startedTopicIds),
     completedTopicIds: strings(r.completedTopicIds),
+    topicScores,
     earnedBadges: strings(r.earnedBadges),
     naplanResults: Array.isArray(r.naplanResults) ? r.naplanResults.filter(isNaplanResult) : [],
     dbFamilyId: typeof r.dbFamilyId === 'string' ? r.dbFamilyId : undefined,
     dbChildId: typeof r.dbChildId === 'string' ? r.dbChildId : undefined,
     dbOwnerUserId: typeof r.dbOwnerUserId === 'string' ? r.dbOwnerUserId : undefined,
   };
+}
+
+function isTopicScore(value: unknown): value is TopicScore {
+  if (!value || typeof value !== 'object') return false;
+  const s = value as Record<string, unknown>;
+  return typeof s.correct === 'number' && typeof s.total === 'number';
 }

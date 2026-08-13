@@ -10,6 +10,7 @@ import { useThemeChrome } from '../state/ThemeContext';
 import { subjectById } from '../data/subjects';
 import { Icon } from '../components/illustrations/icons';
 import { isAnswerCorrect as sharedIsAnswerCorrect } from '../utils/answer-matching';
+import { starsForScore } from '../utils/topic-progress';
 
 /**
  * Kids type numbers with or without thousands separators (spaces or commas,
@@ -34,6 +35,7 @@ export function LessonScreen({
   onHome,
   onProgress,
   onSetup,
+  onTopicStarted,
   onTopicCompleted,
   onSignOut,
   isGuest = false,
@@ -47,7 +49,9 @@ export function LessonScreen({
   onHome: () => void;
   onProgress: () => void;
   onSetup: () => void;
-  onTopicCompleted: (topic: Topic) => void;
+  /** Reached the practice test (lesson read) — fills the week-plan subject pill to 50%. */
+  onTopicStarted?: (topic: Topic) => void;
+  onTopicCompleted: (topic: Topic, score: { correct: number; total: number }) => void;
   onSignOut?: () => void;
   /** Guest preview: show sign-up prompt instead of awarding badges. */
   isGuest?: boolean;
@@ -66,6 +70,17 @@ export function LessonScreen({
 
   const score = practiseQuestions.filter((q) => isAnswerCorrect(answers[q.id] ?? '', q.answer)).length;
   const allCorrect = checked && practiseQuestions.length > 0 && score === practiseQuestions.length;
+  const stars = starsForScore(score, practiseQuestions.length);
+
+  const finishPractice = () => {
+    if (isGuest) {
+      onSignUp?.();
+      return;
+    }
+    setEarned(true);
+    setPhase('reward');
+    onTopicCompleted(topic, { correct: score, total: practiseQuestions.length });
+  };
 
   return (
     <ScreenShell
@@ -107,7 +122,10 @@ export function LessonScreen({
           <PrimaryButton
             tone="header"
             label={practiseQuestions.length === 0 ? 'Finish lesson' : 'Ready to practise'}
-            onPress={() => setPhase('practise')}
+            onPress={() => {
+              onTopicStarted?.(topic);
+              setPhase('practise');
+            }}
           />
         </View>
       )}
@@ -122,15 +140,7 @@ export function LessonScreen({
           <PrimaryButton
             tone="header"
             label={isGuest ? 'Create account to save your star' : 'Claim my badge'}
-            onPress={() => {
-              if (isGuest) {
-                onSignUp?.();
-                return;
-              }
-              setEarned(true);
-              setPhase('reward');
-              onTopicCompleted(topic);
-            }}
+            onPress={finishPractice}
           />
         </View>
       )}
@@ -233,20 +243,27 @@ export function LessonScreen({
               <View style={styles.badgeRow}>
                 {allCorrect && <BadgeChip label="Perfect score!" earned />}
               </View>
-              {allCorrect && (
+              {allCorrect ? (
                 <PrimaryButton
                   tone="header"
                   label={isGuest ? 'Create account to save your star' : 'Claim my badge'}
-                  onPress={() => {
-                    if (isGuest) {
-                      onSignUp?.();
-                      return;
-                    }
-                    setEarned(true);
-                    setPhase('reward');
-                    onTopicCompleted(topic);
-                  }}
+                  onPress={finishPractice}
                 />
+              ) : (
+                <View style={styles.resultActions}>
+                  <Pressable
+                    onPress={() => setChecked(false)}
+                    accessibilityRole="button"
+                    style={({ pressed }) => [styles.tryAgainBtn, pressed && styles.pressed]}
+                  >
+                    <Text style={styles.tryAgainBtnText}>Try again</Text>
+                  </Pressable>
+                  <PrimaryButton
+                    tone="header"
+                    label={isGuest ? 'Create account to save your star' : 'Finish practice test'}
+                    onPress={finishPractice}
+                  />
+                </View>
               )}
             </View>
           )}
@@ -260,6 +277,7 @@ export function LessonScreen({
               <Icon name="trophy" tint={palette.sunny} size={34} />
             </View>
             <Text style={styles.rewardTitle}>Badge earned!</Text>
+            <Text style={styles.rewardStars}>{'⭐'.repeat(stars)}</Text>
             <BadgeChip label={`${subject.label} star of the week`} earned />
 
             <View style={styles.advanceBox}>
@@ -354,6 +372,14 @@ const getStyles = (chrome: ChromeTokens) =>
   resultTitle: { fontSize: 18, fontWeight: '900', color: palette.ink },
   resultScore: { fontSize: 15, fontWeight: '800', color: palette.ink },
   badgeRow: { flexDirection: 'row', gap: spacing.sm, flexWrap: 'wrap' },
+  resultActions: { gap: spacing.sm },
+  tryAgainBtn: {
+    alignItems: 'center',
+    paddingVertical: spacing.sm,
+  },
+  tryAgainBtnText: { fontSize: 14, fontWeight: '700', color: palette.slate, textDecorationLine: 'underline' },
+  pressed: { opacity: 0.85 },
+  rewardStars: { fontSize: 28 },
   rewardCard: {
     backgroundColor: palette.white,
     borderRadius: radius.lg,

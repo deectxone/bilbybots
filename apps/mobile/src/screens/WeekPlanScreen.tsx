@@ -3,10 +3,13 @@ import type { ChildProfile, Topic } from '../types/curriculum';
 import { buildPlan, schoolWeekFromDate, selectPlanWeek } from '../planner';
 import { TopicCard } from '../components/TopicCard';
 import { ScreenShell } from '../components/ScreenShell';
+import { SubjectPill } from '../components/SubjectPill';
 import { Icon } from '../components/illustrations/icons';
 import { palette, radius, spacing, type, type ChromeTokens } from '../theme/colors';
 import { useThemeChrome } from '../state/ThemeContext';
 import { subjectById } from '../data/subjects';
+import type { TopicScore } from '../utils/persistence';
+import { starsForScore } from '../utils/topic-progress';
 
 /**
  * This week's topics from the adaptive-pacing planner
@@ -16,7 +19,9 @@ import { subjectById } from '../data/subjects';
  */
 export function WeekPlanScreen({
   child,
+  startedTopicIds,
   completedTopicIds,
+  topicScores,
   onOpenTopic,
   onHome,
   onProgress,
@@ -24,7 +29,11 @@ export function WeekPlanScreen({
   onSignOut,
 }: {
   child: ChildProfile;
+  /** Topics whose lesson has been read (reached the practice test). */
+  startedTopicIds: string[];
   completedTopicIds: string[];
+  /** Practice test result per completed topic, keyed by topic id. */
+  topicScores: Record<string, TopicScore>;
   onOpenTopic: (topic: Topic, questionCount?: number) => void;
   onHome: () => void;
   onProgress: () => void;
@@ -45,7 +54,36 @@ export function WeekPlanScreen({
   const entries = thisWeek?.entries ?? [];
   const topics = entries.map((e) => e.topic);
   const done = new Set(completedTopicIds);
+  const started = new Set(startedTopicIds);
   const completedThisWeek = topics.filter((t) => done.has(t.id)).length;
+
+  // Per-subject pill: fill reflects this week's topics for that subject (0 =
+  // not touched, 50 = lesson read, 100 = practice test finished, averaged
+  // across topics when a subject has more than one this week under a
+  // compacted pace); stars summarise the practice test score(s) once at
+  // least one of the subject's topics this week is complete.
+  const subjectProgress = child.subjects.map((subjectId) => {
+    const subjectTopics = topics.filter((t) => t.subject === subjectId);
+    const stageFractions: number[] = subjectTopics.map((t) =>
+      done.has(t.id) ? 1 : started.has(t.id) ? 0.5 : 0,
+    );
+    const fillPct =
+      stageFractions.length === 0
+        ? 0
+        : Math.round((stageFractions.reduce((a, b) => a + b, 0) / stageFractions.length) * 100);
+    const completedScores = subjectTopics
+      .filter((t) => done.has(t.id))
+      .map((t) => topicScores[t.id])
+      .filter((s): s is TopicScore => Boolean(s));
+    const stars =
+      completedScores.length === 0
+        ? undefined
+        : starsForScore(
+            completedScores.reduce((a, s) => a + s.correct, 0),
+            completedScores.reduce((a, s) => a + s.total, 0),
+          );
+    return { subjectId, fillPct, stars };
+  });
   const compact = plan.compactedSubjects.length > 0 || Boolean(child.replanned);
   // The plan finished ahead of the school year (every planned topic is done
   // and nothing is scheduled for this week) — celebrate instead of replaying.
@@ -94,6 +132,12 @@ export function WeekPlanScreen({
               ? `Compact pace: ${plan.coverage.pct}% coverage with lighter assignments.`
               : `Full-year plan · ${plan.coverage.pct}% coverage.`}
         </Text>
+      </View>
+
+      <View style={styles.pillRow}>
+        {subjectProgress.map(({ subjectId, fillPct, stars }) => (
+          <SubjectPill key={subjectId} subjectId={subjectId} fillPct={fillPct} stars={stars} />
+        ))}
       </View>
 
       <Text style={styles.section}>This week</Text>
@@ -162,6 +206,13 @@ const getStyles = (chrome: ChromeTokens) =>
     color: palette.ink,
     marginTop: spacing.xl,
     marginBottom: spacing.md,
+    paddingHorizontal: spacing.xl,
+  },
+  pillRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.md,
+    marginTop: spacing.lg,
     paddingHorizontal: spacing.xl,
   },
   topicWrap: { marginBottom: spacing.md, marginHorizontal: spacing.xl },

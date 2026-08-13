@@ -4,7 +4,7 @@ import { useApp } from '../src/state/AppContext';
 
 export default function WeekPlanRoute() {
   const router = useRouter();
-  const { authed, child, completedTopicIds, openTopic, signOutUser } = useApp();
+  const { authed, child, startedTopicIds, completedTopicIds, topicScores, openTopic, signOutUser } = useApp();
 
   if (!authed) return <Redirect href="/sign-in" />;
   if (!child) return <Redirect href="/" />;
@@ -12,7 +12,9 @@ export default function WeekPlanRoute() {
   return (
     <WeekPlanScreen
       child={child}
+      startedTopicIds={startedTopicIds}
       completedTopicIds={completedTopicIds}
+      topicScores={topicScores}
       onOpenTopic={(topic, questionCount) => {
         openTopic(topic, questionCount);
         router.push('/lesson');
