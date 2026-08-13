@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, Pressable } from 'react-native';
-import { chrome, palette, radius, spacing, type } from '../theme/colors';
+import { palette, radius, spacing, type, THEME_PRESETS, type ChromeTokens } from '../theme/colors';
+import { useTheme, useThemeChrome } from '../state/ThemeContext';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
 import { BilbyLogoMark } from '../components/BilbyLogo';
@@ -16,6 +17,8 @@ function FieldLabel({
   children: React.ReactNode;
   first?: boolean;
 }) {
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   return (
     <View style={[styles.labelRow, first && styles.labelRowFirst]}>
       <View style={styles.labelDot} />
@@ -44,6 +47,9 @@ export function OnboardingScreen({
   onReset?: () => void;
   onSignOut?: () => void;
 }) {
+  const { themeId, setThemeId } = useTheme();
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   const editing = Boolean(initial);
   const [name, setName] = useState(initial?.name ?? '');
   const [year, setYear] = useState<YearLevel>(initial?.year ?? '6');
@@ -218,6 +224,39 @@ export function OnboardingScreen({
         })}
       </View>
 
+      {editing && (
+        <>
+          <FieldLabel>App theme</FieldLabel>
+          <View style={styles.themeRow}>
+            {Object.values(THEME_PRESETS).map((preset) => {
+              const on = preset.id === themeId;
+              return (
+                <Pressable
+                  key={preset.id}
+                  onPress={() => setThemeId(preset.id)}
+                  accessibilityRole="radio"
+                  accessibilityState={{ checked: on }}
+                  accessibilityLabel={`${preset.label} theme`}
+                  style={styles.themeOption}
+                >
+                  <View
+                    style={[
+                      styles.themeSwatch,
+                      { backgroundColor: preset.chrome.primary },
+                      on && styles.themeSwatchOn,
+                    ]}
+                  >
+                    <View style={[styles.themeSwatchHalf, { backgroundColor: preset.chrome.accent }]} />
+                    {on && <Icon name="check-box" tint={palette.white} size={16} />}
+                  </View>
+                  <Text style={[styles.themeLabel, on && styles.themeLabelOn]}>{preset.label}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+        </>
+      )}
+
       <PrimaryButton
         disabled={!canSubmit}
         tone="header"
@@ -274,7 +313,8 @@ export function OnboardingScreen({
   );
 }
 
-const styles = StyleSheet.create({
+const getStyles = (chrome: ChromeTokens) =>
+  StyleSheet.create({
   heading: { paddingHorizontal: spacing.lg, marginTop: spacing.lg, marginBottom: spacing.lg },
   headingRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
   headingMascot: {
@@ -418,6 +458,23 @@ const styles = StyleSheet.create({
   },
   subjectTitle: { fontSize: 16, fontWeight: '800', color: palette.ink },
   subjectSub: { fontSize: 12, color: palette.slate },
+  themeRow: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, marginBottom: spacing.lg },
+  themeOption: { alignItems: 'center', gap: spacing.xs, width: 64 },
+  themeSwatch: {
+    width: 44,
+    height: 44,
+    borderRadius: radius.pill,
+    overflow: 'hidden',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'transparent',
+  },
+  themeSwatchOn: { borderColor: palette.ink },
+  themeSwatchHalf: { position: 'absolute', right: 0, top: 0, bottom: 0, width: '50%' },
+  themeLabel: { fontSize: 12, fontWeight: '700', color: palette.slate },
+  themeLabelOn: { color: palette.ink, fontWeight: '800' },
   backRow: { alignItems: 'center', marginTop: spacing.lg },
   backText: { fontSize: 14, fontWeight: '700', color: palette.slate },
   danger: {

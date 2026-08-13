@@ -264,6 +264,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
   };
 
   const signOutUser = async () => {
+    // Flush any pending debounced push first — otherwise a sign-out right
+    // after finishing setup/progress cancels the timer and that change is
+    // never mirrored to Supabase, so the next sign-in pull can't find it.
+    await runPush();
     await signOut();
     clearSupabaseTopicBankCache();
     dbRef.current = {};

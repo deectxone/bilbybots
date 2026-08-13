@@ -2,7 +2,8 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import type { ChildProfile } from '../types/curriculum';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon, type IconName } from '../components/illustrations/icons';
-import { chrome, palette, radius, spacing, type } from '../theme/colors';
+import { palette, radius, spacing, type, type ChromeTokens } from '../theme/colors';
+import { useThemeChrome } from '../state/ThemeContext';
 import { nextNaplanYear, NAPLAN_YEARS } from '../data/naplan/tests';
 import { subjectById } from '../data/subjects';
 
@@ -35,6 +36,8 @@ export function HomeScreen({
   /** Returns a guest to the sign-in gate. */
   onSignUp?: () => void;
 }) {
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   const naplanNext = child ? nextNaplanYear(child.year) : null;
   const planSubjects = child ? child.subjects.map((s) => subjectById(s).label).join(' · ') : '';
 
@@ -84,12 +87,8 @@ export function HomeScreen({
       <TrackCard
         icon="map"
         accent={chrome.primary}
-        title="My weekly plan"
-        body={
-          child
-            ? `Lessons, badges and your coverage for Year ${child.year}`
-            : 'Set up a child profile, then get a weekly plan, badges and 100% coverage'
-        }
+        title="Weekly plan"
+        body={child ? `Year ${child.year} · lessons & badges` : 'Set up a profile to start'}
         onPress={onOpenWeekPlan}
       />
 
@@ -99,10 +98,8 @@ export function HomeScreen({
         title="NAPLAN practice"
         body={
           naplanNext
-            ? child && naplanNext === child.year
-              ? `Timed practice tests for Year ${naplanNext} — Reading, Writing, Conventions, Numeracy`
-              : `Timed practice tests for Year ${naplanNext}, the next NAPLAN for ${child!.name}`
-            : `Practice tests for Years ${NAPLAN_YEARS.join(', ')} — pick a year to start`
+            ? `Timed tests · Year ${naplanNext}`
+            : `Years ${NAPLAN_YEARS.join(', ')}`
         }
         onPress={onOpenNaplan}
       />
@@ -111,11 +108,7 @@ export function HomeScreen({
         icon="trophy"
         accent={chrome.primary}
         title="Parent dashboard"
-        body={
-          child
-            ? `Coverage, badges and practice results for ${child.name}`
-            : 'See syllabus coverage, earned badges and NAPLAN results'
-        }
+        body="Coverage, badges & results"
         onPress={onProgress}
       />
     </ScreenShell>
@@ -135,6 +128,8 @@ function TrackCard({
   body: string;
   onPress: () => void;
 }) {
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   return (
     <Pressable
       onPress={onPress}
@@ -154,7 +149,8 @@ function TrackCard({
   );
 }
 
-const styles = StyleSheet.create({
+const getStyles = (chrome: ChromeTokens) =>
+  StyleSheet.create({
   guestBanner: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -197,19 +193,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: chrome.primary + '22',
     marginHorizontal: spacing.xl,
-    marginBottom: spacing.md,
-    padding: spacing.lg,
+    marginBottom: spacing.sm,
+    padding: spacing.md,
   },
   iconChip: {
-    width: 56,
-    height: 56,
+    width: 44,
+    height: 44,
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
   },
   trackText: { flex: 1 },
-  trackTitle: { fontSize: 18, fontWeight: '900', color: palette.ink },
-  trackSub: { fontSize: 14, color: palette.slate, marginTop: spacing.xs, lineHeight: 20 },
-  chevron: { fontSize: 26, color: palette.slate },
+  trackTitle: { fontSize: 16, fontWeight: '900', color: palette.ink },
+  trackSub: { fontSize: 12, color: palette.slate, marginTop: 2, lineHeight: 16 },
+  chevron: { fontSize: 22, color: palette.slate },
   pressed: { transform: [{ scale: 0.99 }], opacity: 0.9 },
-});
+  });

@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { palette, radius, spacing } from '../theme/colors';
+import { useThemeChrome } from '../state/ThemeContext';
 import { Icon, type IconName } from './illustrations/icons';
 
 /** Tones light enough that ink text reads better than white. */
@@ -13,14 +14,17 @@ export function PrimaryButton({
   icon,
 }: {
   label: string;
-  tone?: keyof typeof palette;
+  /** 'header' follows the active app theme; other tones are fixed palette colours. */
+  tone?: keyof typeof palette | 'header';
   onPress?: () => void;
   disabled?: boolean;
   /** Optional themed pictogram shown before the label (never emoji). */
   icon?: IconName;
 }) {
-  const light = LIGHT_TONES.has(tone);
+  const chrome = useThemeChrome();
+  const light = tone !== 'header' && LIGHT_TONES.has(tone);
   const fg = light ? palette.ink : palette.white;
+  const bg = tone === 'header' ? chrome.primary : palette[tone];
   return (
     <Pressable
       disabled={disabled}
@@ -29,7 +33,7 @@ export function PrimaryButton({
       accessibilityState={{ disabled }}
       style={({ pressed }) => [
         styles.btn,
-        { backgroundColor: palette[tone] },
+        { backgroundColor: bg },
         pressed && styles.pressed,
         disabled && styles.disabled,
       ]}

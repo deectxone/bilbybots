@@ -6,7 +6,8 @@ import type { NaplanDomain, NaplanResult, NaplanYear } from '../types/naplan';
 import { ScreenShell } from '../components/ScreenShell';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon } from '../components/illustrations/icons';
-import { chrome, palette, radius, spacing, gradients } from '../theme/colors';
+import { palette, radius, spacing, type ChromeTokens } from '../theme/colors';
+import { useThemeChrome } from '../state/ThemeContext';
 import {
   nextNaplanYear,
   NAPLAN_DOMAINS,
@@ -41,6 +42,8 @@ export function NaplanHubScreen({
   onSetup: () => void;
   onSignOut?: () => void;
 }) {
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   const recommended = child ? nextNaplanYear(child.year) : null;
   const [year, setYear] = useResolvedYear(recommended, child);
 
@@ -61,7 +64,7 @@ export function NaplanHubScreen({
       onSignOut={onSignOut}
     >
       <LinearGradient
-        colors={[...gradients.brand]}
+        colors={[chrome.primary, chrome.accent]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={styles.hero}
@@ -166,7 +169,8 @@ function useResolvedYear(
   return [year, setYear];
 }
 
-const styles = StyleSheet.create({
+const getStyles = (chrome: ChromeTokens) =>
+  StyleSheet.create({
   container: { backgroundColor: palette.cream, flexGrow: 1, paddingBottom: spacing.xl },
   hero: {
     marginHorizontal: spacing.xl,

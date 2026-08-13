@@ -4,7 +4,8 @@ import type { NaplanResult } from '../types/naplan';
 import { ScreenShell } from '../components/ScreenShell';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon, type IconName } from '../components/illustrations/icons';
-import { chrome, palette, radius, spacing, subjectColor, type } from '../theme/colors';
+import { palette, radius, spacing, subjectColor, type, type ChromeTokens } from '../theme/colors';
+import { useThemeChrome } from '../state/ThemeContext';
 import { subjectById } from '../data/subjects';
 import { fullYearBank } from '../data/content';
 import { buildPlan, schoolTermFromDate, schoolWeekFromDate, selectPlanWeek } from '../planner';
@@ -41,6 +42,8 @@ export function ProgressScreen({
   onOpenWeekPlan: () => void;
   onSignOut?: () => void;
 }) {
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   const completed = new Set(completedTopicIds);
 
   const banks = child.subjects.map((subjectId) => ({
@@ -210,7 +213,8 @@ export function ProgressScreen({
   );
 }
 
-const styles = StyleSheet.create({
+const getStyles = (chrome: ChromeTokens) =>
+  StyleSheet.create({
   hero: { alignItems: 'center', marginTop: spacing.lg },
   heroEyebrow: {
     fontSize: type.caption,

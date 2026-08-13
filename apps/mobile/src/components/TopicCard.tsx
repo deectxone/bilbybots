@@ -15,7 +15,6 @@ export function TopicCard({
 }) {
   const subject = subjectById(topic.subject);
   const accent = subjectColor[topic.subject] ?? subjectColor.default;
-  const covered = topic.cd.map((c) => c.ac).join(' · ');
 
   return (
     <Pressable
@@ -23,31 +22,23 @@ export function TopicCard({
       style={({ pressed }) => [styles.card, completed && styles.cardDone, pressed && styles.pressed]}
     >
       <View style={[styles.subjectIcon, { backgroundColor: palette[accent] + '26' }]}>
-        <Icon name={subject.icon} tint={palette[accent]} size={24} />
+        <Icon name={subject.icon} tint={palette[accent]} size={20} />
       </View>
       <View style={styles.body}>
-        <View style={styles.subjectRow}>
-          <Text style={[styles.subject, { color: palette[accent] }]}>{subject.label}</Text>
-          {completed && (
-            <View style={styles.doneChip}>
-              <Text style={styles.doneChipText}>Done</Text>
-            </View>
-          )}
-        </View>
-        <Text style={styles.title}>{topic.title}</Text>
-        <Text style={styles.meta}>{covered}</Text>
-        <View style={styles.slotRow}>
-          <View style={styles.slot}>
-            <Icon name="clock" tint={palette.slate} size={13} />
-            <Text style={styles.slotText}>{topic.learn.learnTimeMin} min lesson</Text>
+        <Text style={[styles.subject, { color: palette[accent] }]}>{subject.label}</Text>
+        <Text style={styles.title} numberOfLines={1}>{topic.title}</Text>
+      </View>
+      <View style={styles.meta}>
+        <Text style={styles.metaText}>
+          {topic.learn.learnTimeMin}m · {topic.assignment.compactCount}–{topic.assignment.nominalCount}q
+        </Text>
+        {completed ? (
+          <View style={styles.doneChip}>
+            <Icon name="check-box" tint={palette.ink} size={12} />
           </View>
-          <View style={styles.slot}>
-            <Icon name="check-box" tint={palette.slate} size={13} />
-            <Text style={styles.slotText}>
-              {topic.assignment.compactCount}–{topic.assignment.nominalCount} questions
-            </Text>
-          </View>
-        </View>
+        ) : (
+          <Icon name="clock" tint={palette.slate} size={13} />
+        )}
       </View>
     </Pressable>
   );
@@ -61,37 +52,35 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     borderWidth: 1.5,
     borderColor: palette.ink + '0d',
-    padding: spacing.md,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
+    gap: spacing.sm,
     shadowColor: palette.ink,
-    shadowOpacity: 0.08,
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 10,
-    elevation: 3,
+    shadowOpacity: 0.06,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 8,
+    elevation: 2,
   },
-  cardDone: { opacity: 0.85 },
+  cardDone: { opacity: 0.75 },
   pressed: { transform: [{ scale: 0.98 }] },
   subjectIcon: {
-    width: 52,
-    height: 52,
+    width: 38,
+    height: 38,
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: spacing.md,
   },
-  body: { flex: 1 },
-  subjectRow: { flexDirection: 'row', alignItems: 'center' },
-  subject: { fontSize: 12, fontWeight: '800', textTransform: 'uppercase' },
+  body: { flex: 1, minWidth: 0 },
+  subject: { fontSize: 11, fontWeight: '800', textTransform: 'uppercase' },
+  title: { fontSize: 15, fontWeight: '800', color: palette.ink, marginTop: 1 },
+  meta: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, flexShrink: 0 },
+  metaText: { fontSize: 12, color: palette.slate, fontWeight: '600' },
   doneChip: {
-    marginLeft: 'auto',
-    backgroundColor: palette.lime + '33',
+    backgroundColor: palette.lime + '55',
     borderRadius: radius.pill,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
+    width: 22,
+    height: 22,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  doneChipText: { fontSize: 12, fontWeight: '800', color: palette.ink },
-  title: { fontSize: 17, fontWeight: '800', color: palette.ink, marginTop: spacing.xs },
-  meta: { fontSize: 12, color: palette.slate, marginTop: spacing.xs },
-  slotRow: { flexDirection: 'row', gap: spacing.md, marginTop: spacing.sm },
-  slot: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
-  slotText: { fontSize: 13, color: palette.ink, fontWeight: '600' },
 });

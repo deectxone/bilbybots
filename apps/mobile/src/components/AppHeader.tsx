@@ -1,7 +1,8 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { palette, radius, spacing } from '../theme/colors';
+import { palette, radius, spacing, type ChromeTokens } from '../theme/colors';
 import type { ChildProfile } from '../types/curriculum';
 import { BilbyLogo } from './BilbyLogo';
+import { useThemeChrome } from '../state/ThemeContext';
 
 /**
  * Sticky top header (rendered OUTSIDE each screen's ScrollView).
@@ -26,6 +27,8 @@ export function AppHeader({
   /** Tapping the kid's profile opens Settings. */
   onProfilePress?: () => void;
 }) {
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   const profileName = isGuest ? 'Guest' : child?.name;
   return (
     <View style={styles.bar}>
@@ -62,37 +65,38 @@ export function AppHeader({
   );
 }
 
-const styles = StyleSheet.create({
-  bar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.sm,
-    paddingBottom: spacing.sm,
-    backgroundColor: palette.header,
-    zIndex: 20,
-    overflow: 'hidden',
-  },
-  logoWrap: { paddingVertical: spacing.xs },
-  profile: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
-  meta: { alignItems: 'flex-end' },
-  name: { fontSize: 15, fontWeight: '800', color: palette.white },
-  year: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: palette.white,
-    opacity: 0.7,
-    textTransform: 'uppercase',
-  },
-  avatar: {
-    width: 34,
-    height: 34,
-    borderRadius: radius.pill,
-    backgroundColor: palette.headerAccent,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  avatarText: { color: palette.white, fontSize: 15, fontWeight: '900' },
-  pressed: { opacity: 0.6 },
-});
+const getStyles = (chrome: ChromeTokens) =>
+  StyleSheet.create({
+    bar: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingHorizontal: spacing.lg,
+      paddingTop: spacing.sm,
+      paddingBottom: spacing.sm,
+      backgroundColor: chrome.primary,
+      zIndex: 20,
+      overflow: 'hidden',
+    },
+    logoWrap: { paddingVertical: spacing.xs },
+    profile: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+    meta: { alignItems: 'flex-end' },
+    name: { fontSize: 15, fontWeight: '800', color: palette.white },
+    year: {
+      fontSize: 11,
+      fontWeight: '700',
+      color: palette.white,
+      opacity: 0.7,
+      textTransform: 'uppercase',
+    },
+    avatar: {
+      width: 34,
+      height: 34,
+      borderRadius: radius.pill,
+      backgroundColor: chrome.accent,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    avatarText: { color: palette.white, fontSize: 15, fontWeight: '900' },
+    pressed: { opacity: 0.6 },
+  });

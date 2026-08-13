@@ -43,6 +43,12 @@ export const gradients = {
  * (`palette.header`) and the header logo's sunny accent — so the whole app
  * reads as one brand instead of a per-field rainbow. `subjectColor` remains
  * the only per-area colouring, and only for content labelling.
+ *
+ * This is the DEFAULT (dark red) preset. Screens should prefer
+ * `useThemeChrome()` from `state/ThemeContext`, which returns the same shape
+ * but reflects the user's chosen theme — this static export only remains for
+ * call sites that can't reach the hook (e.g. StyleSheet-free branding used
+ * before the provider mounts).
  */
 export const chrome = {
   /** Primary interactive colour (matches the AppHeader band). */
@@ -52,6 +58,52 @@ export const chrome = {
   /** Header-logo accent (white + sunny wordmark) for highlights/badges. */
   highlight: palette.sunny,
 } as const;
+
+export type ChromeTokens = { primary: string; accent: string; highlight: string };
+
+/** A whole-app colour theme: id, display label, and the chrome it drives. */
+export interface ThemePreset {
+  id: string;
+  label: string;
+  chrome: ChromeTokens;
+}
+
+/**
+ * The switchable app themes (Setup → Theme). Each swaps the header/footer
+ * band, buttons, selected pills and borders app-wide — everything that reads
+ * `chrome.*` — while `subjectColor` (per-subject icon tints) stays put so
+ * lessons stay recognisable regardless of theme.
+ */
+export const THEME_PRESETS: Record<string, ThemePreset> = {
+  darkred: {
+    id: 'darkred',
+    label: 'Dark red',
+    chrome: { primary: '#61032A', accent: '#CB1345', highlight: palette.sunny },
+  },
+  blue: {
+    id: 'blue',
+    label: 'Blue',
+    chrome: { primary: '#123E7A', accent: '#2C6BD1', highlight: palette.sunny },
+  },
+  green: {
+    id: 'green',
+    label: 'Green',
+    chrome: { primary: '#0B5C3D', accent: '#1E9A63', highlight: palette.sunny },
+  },
+  grey: {
+    id: 'grey',
+    label: 'Grey',
+    chrome: { primary: '#33383F', accent: '#5B626C', highlight: palette.sunny },
+  },
+  multi: {
+    id: 'multi',
+    label: 'Multi',
+    chrome: { primary: '#7C35FF', accent: '#14B8A6', highlight: palette.sunny },
+  },
+};
+
+export const DEFAULT_THEME_ID = 'darkred';
+export type ThemeId = keyof typeof THEME_PRESETS;
 
 /** Per-subject accent so kids recognise a learning area at a glance. */
 export const subjectColor: Record<string, ColorKey> = {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { chrome, palette, radius, spacing } from '../theme/colors';
+import { palette, radius, spacing, type ChromeTokens } from '../theme/colors';
+import { useThemeChrome } from '../state/ThemeContext';
 import { PrimaryButton } from './PrimaryButton';
 import { getCurrentSession } from '../utils/supabase';
 import { submitContactMessage } from '../utils/contact';
@@ -12,6 +13,8 @@ import { submitContactMessage } from '../utils/contact';
  * guest, no mailbox/email accounts are needed yet.
  */
 export function ContactForm() {
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
@@ -90,7 +93,8 @@ export function ContactForm() {
   );
 }
 
-const styles = StyleSheet.create({
+const getStyles = (chrome: ChromeTokens) =>
+  StyleSheet.create({
   card: {
     backgroundColor: palette.white,
     borderRadius: radius.lg,

@@ -2,6 +2,7 @@ import { Stack } from 'expo-router';
 import { View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { AppProvider, useApp } from '../src/state/AppContext';
+import { ThemeProvider } from '../src/state/ThemeContext';
 import { AppFrame } from '../src/components/AppFrame';
 import { BilbyLogo } from '../src/components/BilbyLogo';
 import { BilbyMascot } from '../src/components/BilbyMascot';
@@ -32,8 +33,10 @@ function Root() {
 
 export default function RootLayout() {
   return (
-    <AppProvider>
-      <Root />
-    </AppProvider>
+    <ThemeProvider>
+      <AppProvider>
+        <Root />
+      </AppProvider>
+    </ThemeProvider>
   );
 }

@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, Ellipse, Path } from 'react-native-svg';
 import { palette } from '../theme/colors';
+import { useThemeChrome } from '../state/ThemeContext';
 
 /**
  * BilbyBots logo lockup: a compact bilby-head mark + wordmark. Pure vector,
@@ -8,8 +9,9 @@ import { palette } from '../theme/colors';
  * hero mark are the same component, just scaled.
  */
 export function BilbyLogoMark({ size = 32, tone = 'dark' }: { size?: number; tone?: 'dark' | 'light' }) {
-  const main = tone === 'light' ? palette.white : palette.grape;
-  const inner = tone === 'light' ? palette.white + 'cc' : palette.berry;
+  const chrome = useThemeChrome();
+  const main = tone === 'light' ? palette.white : chrome.primary;
+  const inner = tone === 'light' ? palette.white + 'cc' : chrome.accent;
   const face = tone === 'light' ? palette.white + '33' : palette.cream;
   const features = tone === 'light' ? palette.white : palette.ink;
   return (
@@ -45,8 +47,9 @@ export function BilbyLogo({
   /** 'dark' for light backgrounds, 'light' for the gradient hero bands */
   tone?: 'dark' | 'light';
 }) {
+  const chrome = useThemeChrome();
   const primary = tone === 'light' ? palette.white : palette.ink;
-  const accent = tone === 'light' ? palette.sunny : palette.grape;
+  const accent = tone === 'light' ? palette.sunny : chrome.primary;
   return (
     <View style={styles.row}>
       <BilbyLogoMark size={markSize} tone={tone} />

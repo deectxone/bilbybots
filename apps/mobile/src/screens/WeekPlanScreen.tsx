@@ -4,7 +4,8 @@ import { buildPlan, schoolWeekFromDate, selectPlanWeek } from '../planner';
 import { TopicCard } from '../components/TopicCard';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
-import { chrome, palette, radius, spacing, type } from '../theme/colors';
+import { palette, radius, spacing, type, type ChromeTokens } from '../theme/colors';
+import { useThemeChrome } from '../state/ThemeContext';
 import { subjectById } from '../data/subjects';
 
 /**
@@ -30,6 +31,8 @@ export function WeekPlanScreen({
   onSetup: () => void;
   onSignOut?: () => void;
 }) {
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   const currentWeek = schoolWeekFromDate();
   const joinWeek = child.replanned ? currentWeek : child.joinWeek;
   const plan = buildPlan({
@@ -145,7 +148,8 @@ export function WeekPlanScreen({
   );
 }
 
-const styles = StyleSheet.create({
+const getStyles = (chrome: ChromeTokens) =>
+  StyleSheet.create({
   scroll: { backgroundColor: palette.cream },
   container: { paddingBottom: spacing.xl, flexGrow: 1 },
   welcome: { paddingHorizontal: spacing.xl, marginTop: spacing.lg },

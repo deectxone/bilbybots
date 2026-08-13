@@ -48,10 +48,12 @@ export function ScreenShell({
         contentContainerStyle={[styles.content, contentContainerStyle]}
         style={[styles.scroll, style]}
       >
-        <SlimBar onSignOut={onSignOut} />
-        <ResponsiveColumn>
-          {children}
-        </ResponsiveColumn>
+        <View style={styles.body}>
+          <SlimBar onSignOut={onSignOut} />
+          <ResponsiveColumn>
+            {children}
+          </ResponsiveColumn>
+        </View>
         <AppFooter />
       </ScrollView>
     </View>
@@ -61,5 +63,10 @@ export function ScreenShell({
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: palette.cream, zIndex: 0 },
   scroll: { flex: 1 },
-  content: { paddingBottom: 48, flexGrow: 1 },
+  // flexGrow on the content container + flex:1 on `body` (everything above
+  // the footer) means short pages still push AppFooter to the bottom of the
+  // viewport via normal layout flow — no fixed/absolute positioning, so it
+  // scrolls away naturally once real content is taller than the screen.
+  content: { paddingBottom: 0, flexGrow: 1 },
+  body: { flex: 1, paddingBottom: 48 },
 });

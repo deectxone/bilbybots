@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { chrome, palette, radius, spacing, type } from '../theme/colors';
+import { palette, radius, spacing, type, type ChromeTokens } from '../theme/colors';
+import { useThemeChrome } from '../state/ThemeContext';
 import { AppHeader } from '../components/AppHeader';
 import { AppFooter } from '../components/AppFooter';
 import { FloatingDots } from '../components/FloatingDots';
@@ -25,6 +26,8 @@ export function SignInScreen({
   /** Explore without an account, sample lesson + one practice test, then sign-up prompt. */
   onGuest: () => void;
 }) {
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -167,7 +170,8 @@ export function SignInScreen({
   );
 }
 
-const styles = StyleSheet.create({
+const getStyles = (chrome: ChromeTokens) =>
+  StyleSheet.create({
   screen: { flex: 1, backgroundColor: palette.cream, zIndex: 0 },
   scroll: { flex: 1 },
   root: { paddingBottom: spacing.xl * 2, flexGrow: 1 },
@@ -179,7 +183,7 @@ const styles = StyleSheet.create({
     color: palette.ink,
     textAlign: 'center',
   },
-  headlineAccent: { color: palette.header },
+  headlineAccent: { color: chrome.primary },
   sub: {
     color: palette.ink,
     fontSize: type.body,
@@ -275,4 +279,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
   },
   trustText: { color: palette.ink, fontSize: 13, fontWeight: '700' },
-});
+  });

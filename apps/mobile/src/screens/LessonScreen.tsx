@@ -5,7 +5,8 @@ import { IllustrationFrame } from '../components/IllustrationFrame';
 import { BadgeChip } from '../components/BadgeChip';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { ScreenShell } from '../components/ScreenShell';
-import { chrome, palette, radius, spacing, subjectColor, type } from '../theme/colors';
+import { palette, radius, spacing, subjectColor, type, type ChromeTokens } from '../theme/colors';
+import { useThemeChrome } from '../state/ThemeContext';
 import { subjectById } from '../data/subjects';
 import { Icon } from '../components/illustrations/icons';
 import { isAnswerCorrect as sharedIsAnswerCorrect } from '../utils/answer-matching';
@@ -52,6 +53,8 @@ export function LessonScreen({
   isGuest?: boolean;
   onSignUp?: () => void;
 }) {
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   const subject = subjectById(topic.subject);
   const [phase, setPhase] = useState<'learn' | 'practise' | 'reward'>('learn');
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -280,7 +283,8 @@ export function LessonScreen({
   );
 }
 
-const styles = StyleSheet.create({
+const getStyles = (chrome: ChromeTokens) =>
+  StyleSheet.create({
   container: { backgroundColor: palette.cream, flexGrow: 1, paddingBottom: spacing.xl },
   content: { paddingHorizontal: spacing.xl },
   backWrap: { marginTop: spacing.xs },

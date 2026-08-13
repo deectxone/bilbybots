@@ -12,7 +12,8 @@ import { ScreenShell } from '../components/ScreenShell';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { BadgeChip } from '../components/BadgeChip';
 import { Icon } from '../components/illustrations/icons';
-import { chrome, palette, radius, spacing } from '../theme/colors';
+import { palette, radius, spacing, type ChromeTokens } from '../theme/colors';
+import { useThemeChrome } from '../state/ThemeContext';
 import {
   naplanDomainMeta,
   naplanPromptById,
@@ -57,6 +58,8 @@ export function NaplanTestScreen({
   onSetup: () => void;
   onSignOut?: () => void;
 }) {
+  const chrome = useThemeChrome();
+  const styles = getStyles(chrome);
   const meta = naplanDomainMeta(test.domain);
   const isWriting = test.domain === 'writing';
   const prompt = test.promptId ? naplanPromptById(test.promptId) : undefined;
@@ -792,7 +795,8 @@ export function NaplanTestScreen({
   );
 }
 
-const styles = StyleSheet.create({
+const getStyles = (chrome: ChromeTokens) =>
+  StyleSheet.create({
   container: { backgroundColor: palette.cream, flexGrow: 1, paddingBottom: spacing.xl },
   pad: { paddingHorizontal: spacing.xl },
   domainLabel: { fontSize: 13, fontWeight: '800', color: palette.slate, textTransform: 'uppercase', marginTop: spacing.sm },
