@@ -24,10 +24,18 @@ import type { NaplanResult } from '../types/naplan';
  * supabase/migrations/20260812000200_full_schema.sql).
  */
 
-const STARTED_KIND = 'started';
-const COMPLETION_KIND = 'completion';
-const BADGE_KIND = 'badge';
-const RESULT_KIND = 'answer';
+/**
+ * Every `progress_event.kind` this client ever writes. Postgres rejects an
+ * unrecognised kind via a `check` constraint (see
+ * supabase/migrations/20260813000200_progress_event_started_kind.sql) — and
+ * because a push batches every pending event into one insert, ONE bad kind
+ * fails the whole batch, silently blocking completions/badges too. Exported
+ * so sync.test.ts can assert this list stays a subset of the DB constraint.
+ */
+export const STARTED_KIND = 'started';
+export const COMPLETION_KIND = 'completion';
+export const BADGE_KIND = 'badge';
+export const RESULT_KIND = 'answer';
 
 async function currentUserId(): Promise<string | null> {
   if (!supabase) return null;

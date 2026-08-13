@@ -5,7 +5,7 @@ import { useTheme, useThemeChrome } from '../state/ThemeContext';
 import { ScreenShell } from '../components/ScreenShell';
 import { Icon } from '../components/illustrations/icons';
 import { BilbyLogoMark } from '../components/BilbyLogo';
-import { DEFAULT_PLANNER_CONFIG } from '../planner';
+import { DEFAULT_PLANNER_CONFIG, schoolWeekFromDate } from '../planner';
 import { YEAR_LEVELS, type ChildProfile, type YearLevel } from '../types/curriculum';
 import { STATES, SUBJECTS } from '../data/subjects';
 import { PrimaryButton } from '../components/PrimaryButton';
@@ -54,7 +54,16 @@ export function OnboardingScreen({
   const [name, setName] = useState(initial?.name ?? '');
   const [year, setYear] = useState<YearLevel>(initial?.year ?? '6');
   const [stateId, setStateId] = useState(initial?.state ?? 'nsw');
-  const [joinWeek, setJoinWeek] = useState(initial?.joinWeek ?? 1);
+  // A brand-new child is joining *today*, not at the start of the school
+  // year — defaulting to week 1 quietly produced a stale, front-loaded plan
+  // that (for subjects with less authored content than totalWeeks) had
+  // already exhausted most subjects by the real current week, leaving only
+  // one subject's leftovers showing. Default to today's real school week so
+  // a fresh plan starts compact-but-current instead; editing an existing
+  // child keeps their stored join week untouched.
+  const [joinWeek, setJoinWeek] = useState(
+    initial?.joinWeek ?? Math.min(DEFAULT_PLANNER_CONFIG.totalWeeks, schoolWeekFromDate()),
+  );
   const [replanned, setReplanned] = useState(initial?.replanned ?? false);
   // Phase-1 facade: English + Maths are P1; Science/HASS toggleable in Pro.
   const [subjects, setSubjects] = useState<(typeof SUBJECTS)[number]['id'][]>(
