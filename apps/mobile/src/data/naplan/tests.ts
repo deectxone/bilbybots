@@ -110,9 +110,44 @@ const DURATION: Record<NaplanDomain, Record<NaplanYear, number>> = {
 };
 
 /**
- * Builds a practice test for a domain/year from the authored bank.
- * The facade is a SHORTENED sample (`fullLength: false`), the real bank
- * ships via the content pipeline. Section layout mirrors real NAPLAN:
+ * How many items a practice test shows per domain/year. The authored banks
+ * are bigger than this (so runs don't repeat the same items/order), the test
+ * randomly samples down to these counts each time `buildNaplanTest` runs.
+ */
+const SAMPLE_SIZE: Record<NaplanDomain, Record<NaplanYear, number>> = {
+  numeracy: { '3': 18, '5': 18, '7': 19, '9': 19 },
+  conventions: { '3': 22, '5': 22, '7': 22, '9': 22 },
+  reading: { '3': 19, '5': 19, '7': 19, '9': 19 },
+  writing: { '3': 0, '5': 0, '7': 0, '9': 0 },
+};
+
+/** Y7/9 numeracy non-calculator/calculator split (research doc §3 ratios). */
+const NUMERACY_TOOL_SPLIT: Record<'7' | '9', { nc: number; ca: number }> = {
+  '7': { nc: 13, ca: 6 },
+  '9': { nc: 12, ca: 7 },
+};
+
+/** Fisher-Yates shuffle, does not mutate the input. */
+function shuffled<T>(arr: T[]): T[] {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/** A random n-item subset of `arr`, in shuffled order. */
+function sample<T>(arr: T[], n: number): T[] {
+  return shuffled(arr).slice(0, Math.min(n, arr.length));
+}
+
+/**
+ * Builds a practice test for a domain/year from the authored bank. Each call
+ * randomly samples a fresh subset of items (and shuffles their order) from
+ * the bank so repeat attempts don't show the same questions in the same
+ * sequence. The facade is a SHORTENED sample (`fullLength: false`), the real
+ * bank ships via the content pipeline. Section layout mirrors real NAPLAN:
  * conventions = Spelling → Grammar & punctuation (locked);
  * Y7/9 numeracy = Non-calculator → Calculator (locked).
  */
@@ -140,19 +175,42 @@ export function buildNaplanTest(year: NaplanYear, domain: NaplanDomain): NaplanT
   if (domain === 'conventions') {
     const spelling = items.filter((i) => i.skill === 'spelling');
     const grammar = items.filter((i) => i.skill === 'grammar & punctuation');
+    const target = SAMPLE_SIZE.conventions[year];
+    const spellingTarget = Math.round(target / 2);
+    const grammarTarget = target - spellingTarget;
     sections = [
-      { title: 'Spelling', itemIds: spelling.map((i) => i.id), locked: true },
-      { title: 'Grammar & punctuation', itemIds: grammar.map((i) => i.id), locked: true },
+      { title: 'Spelling', itemIds: sample(spelling, spellingTarget).map((i) => i.id), locked: true },
+      { title: 'Grammar & punctuation', itemIds: sample(grammar, grammarTarget).map((i) => i.id), locked: true },
     ];
   } else if (domain === 'numeracy' && (year === '7' || year === '9')) {
     const nc = items.filter((i) => i.tool !== 'calculator');
     const ca = items.filter((i) => i.tool === 'calculator');
+    const split = NUMERACY_TOOL_SPLIT[year];
     sections = [
-      { title: 'Non-calculator', itemIds: nc.map((i) => i.id), locked: true },
-      { title: 'Calculator allowed', itemIds: ca.map((i) => i.id), locked: true },
+      { title: 'Non-calculator', itemIds: sample(nc, split.nc).map((i) => i.id), locked: true },
+      { title: 'Calculator allowed', itemIds: sample(ca, split.ca).map((i) => i.id), locked: true },
     ];
+  } else if (domain === 'reading') {
+    // Group by stimulus so a passage's questions stay together (like the
+    // real test), pick whole passages at random until the target is met.
+    const target = SAMPLE_SIZE.reading[year];
+    const byStimulus = new Map<string, NaplanItem[]>();
+    for (const item of items) {
+      const key = item.stimulusId ?? '';
+      const group = byStimulus.get(key);
+      if (group) group.push(item);
+      else byStimulus.set(key, [item]);
+    }
+    const groups = shuffled([...byStimulus.values()]);
+    const picked: NaplanItem[] = [];
+    for (const group of groups) {
+      if (picked.length >= target) break;
+      picked.push(...shuffled(group));
+    }
+    sections = [{ title: naplanDomainMeta(domain).label, itemIds: picked.map((i) => i.id), locked: false }];
   } else {
-    sections = [{ title: naplanDomainMeta(domain).label, itemIds: items.map((i) => i.id), locked: false }];
+    const target = SAMPLE_SIZE[domain][year];
+    sections = [{ title: naplanDomainMeta(domain).label, itemIds: sample(items, target).map((i) => i.id), locked: false }];
   }
 
   return {
