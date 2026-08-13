@@ -86,7 +86,19 @@ export function buildPlan(input: PlanInput): PlanSnapshot {
 
   // Backfill isolated empty weeks (rare once topics spread evenly) from the
   // previous non-empty week. Moving forward never breaks per-subject order.
-  for (let w = 1; w < R; w++) {
+  // Only interior gaps qualify — once content genuinely runs out (a subject
+  // bank is much smaller than totalWeeks), the remaining weeks are a
+  // trailing empty block, not a gap, and must stay empty so the plan ends
+  // where the content does instead of trickling single stolen topics all
+  // the way out to totalWeeks.
+  let lastNaturallyUsed = -1;
+  for (let i = R - 1; i >= 0; i--) {
+    if (weeks[i].length > 0) {
+      lastNaturallyUsed = i;
+      break;
+    }
+  }
+  for (let w = 1; w <= lastNaturallyUsed; w++) {
     if (weeks[w].length > 0) continue;
     for (let src = w - 1; src >= 0; src--) {
       if (weeks[src].length > 1) {
